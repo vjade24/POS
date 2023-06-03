@@ -46,8 +46,7 @@ Public Class Login
         Me.Close()
     End Sub
 
-    Private Sub BtnLogin_Click(sender As Object, e As EventArgs) Handles BtnLogin.Click
-
+    Private Sub BtnLogin_Click_1(sender As Object, e As EventArgs) Handles BtnLogin.Click
         Dim query As String = "SELECT TOP 1 * FROM Personnel where UserName = '" + UserNameTextBox.Text.ToString().Trim() + "' and Password = '" + PasswordTextBox.Text.ToString.Trim() + "'"
         Dim conn As SqlConnection = New SqlConnection(connection)
         Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -64,17 +63,21 @@ Public Class Login
                     MsgBox("This User is Inactive Already!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Welcome, " + dt.Rows(0)("FirstName") + " " + dt.Rows(0)("LastName") + " as " + dt.Rows(0)("Type") + "!", MsgBoxStyle.Information)
-                    Main.TextBoxRight.Text = dt.Rows(0)("FirstName")
                     UserNameTextBox.Text = ""
                     PasswordTextBox.Text = ""
-                    Main.Show()
+
+                    Dim formMain As New Main
+                    formMain.TextBoxRight.Text = dt.Rows(0)("FirstName")
+                    formMain.Show()
+                    formMain.ActiveButton(sender, Color.FromArgb(172, 126, 241))
+                    formMain.OpenChildForm(New Dashboard, "")
+
+                    Me.Hide()
                 End If
 
             Else
                 MsgBox("No User Found!", MsgBoxStyle.Critical)
             End If
         End If
-
     End Sub
-
 End Class

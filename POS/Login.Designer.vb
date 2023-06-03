@@ -34,11 +34,11 @@ Partial Class Login
         Me.SloganTextBox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PanelRight = New System.Windows.Forms.Panel()
-        Me.BtnLogin = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.BtnClose = New System.Windows.Forms.Button()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.BtnLogin = New FontAwesome.Sharp.IconButton()
         UserNameLabel = New System.Windows.Forms.Label()
         PasswordLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
@@ -112,7 +112,7 @@ Partial Class Login
         Me.UserNameTextBox.Margin = New System.Windows.Forms.Padding(4)
         Me.UserNameTextBox.Name = "UserNameTextBox"
         Me.UserNameTextBox.Size = New System.Drawing.Size(170, 27)
-        Me.UserNameTextBox.TabIndex = 0
+        Me.UserNameTextBox.TabIndex = 1
         '
         'PasswordTextBox
         '
@@ -174,19 +174,6 @@ Partial Class Login
         Me.PanelRight.Size = New System.Drawing.Size(469, 508)
         Me.PanelRight.TabIndex = 15
         '
-        'BtnLogin
-        '
-        Me.BtnLogin.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnLogin.FlatAppearance.BorderSize = 0
-        Me.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnLogin.ForeColor = System.Drawing.Color.White
-        Me.BtnLogin.Location = New System.Drawing.Point(156, 347)
-        Me.BtnLogin.Name = "BtnLogin"
-        Me.BtnLogin.Size = New System.Drawing.Size(170, 39)
-        Me.BtnLogin.TabIndex = 3
-        Me.BtnLogin.Text = "Login"
-        Me.BtnLogin.UseVisualStyleBackColor = False
-        '
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
@@ -222,6 +209,7 @@ Partial Class Login
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.BtnLogin)
         Me.Panel2.Controls.Add(Label1)
         Me.Panel2.Controls.Add(Label2)
         Me.Panel2.Controls.Add(Me.UserNameTextBox)
@@ -229,13 +217,33 @@ Partial Class Login
         Me.Panel2.Controls.Add(UserNameLabel)
         Me.Panel2.Controls.Add(Me.PasswordTextBox)
         Me.Panel2.Controls.Add(PasswordLabel)
-        Me.Panel2.Controls.Add(Me.BtnLogin)
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(469, 33)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(458, 475)
         Me.Panel2.TabIndex = 21
+        '
+        'BtnLogin
+        '
+        Me.BtnLogin.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnLogin.FlatAppearance.BorderSize = 0
+        Me.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnLogin.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnLogin.ForeColor = System.Drawing.Color.White
+        Me.BtnLogin.IconChar = FontAwesome.Sharp.IconChar.Lock
+        Me.BtnLogin.IconColor = System.Drawing.Color.White
+        Me.BtnLogin.IconSize = 30
+        Me.BtnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnLogin.Location = New System.Drawing.Point(155, 347)
+        Me.BtnLogin.Name = "BtnLogin"
+        Me.BtnLogin.Padding = New System.Windows.Forms.Padding(40, 0, 0, 0)
+        Me.BtnLogin.Rotation = 0R
+        Me.BtnLogin.Size = New System.Drawing.Size(170, 39)
+        Me.BtnLogin.TabIndex = 3
+        Me.BtnLogin.Text = "Login"
+        Me.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnLogin.UseVisualStyleBackColor = False
         '
         'Login
         '
@@ -268,9 +276,9 @@ Partial Class Login
     Friend WithEvents SloganTextBox As TextBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PanelRight As Panel
-    Friend WithEvents BtnLogin As Button
     Friend WithEvents CheckBox1 As CheckBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents BtnClose As Button
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents BtnLogin As FontAwesome.Sharp.IconButton
 End Class

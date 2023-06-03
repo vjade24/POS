@@ -36,14 +36,14 @@ Partial Class Store
         Me.TinNoTextBox = New System.Windows.Forms.TextBox()
         Me.ContactNoTextBox = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.LblBreadCrump = New System.Windows.Forms.Label()
+        Me.BtnClose = New System.Windows.Forms.Button()
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.StoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.StoreTableAdapter = New POS.pos_dbDataSetTableAdapters.StoreTableAdapter()
-        Me.BtnClose = New System.Windows.Forms.Button()
         Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
         Me.ThemeColorComboBox = New System.Windows.Forms.ComboBox()
         Me.BtnSave = New System.Windows.Forms.Button()
-        Me.LblBreadCrump = New System.Windows.Forms.Label()
         IdLabel = New System.Windows.Forms.Label()
         StoreNameLabel = New System.Windows.Forms.Label()
         SloganLabel = New System.Windows.Forms.Label()
@@ -101,6 +101,15 @@ Partial Class Store
         ContactNoLabel.TabIndex = 14
         ContactNoLabel.Text = "Contact No:"
         '
+        'ThemeColorLabel
+        '
+        ThemeColorLabel.AutoSize = True
+        ThemeColorLabel.Location = New System.Drawing.Point(67, 188)
+        ThemeColorLabel.Name = "ThemeColorLabel"
+        ThemeColorLabel.Size = New System.Drawing.Size(94, 17)
+        ThemeColorLabel.TabIndex = 19
+        ThemeColorLabel.Text = "Theme Color:"
+        '
         'IdTextBox
         '
         Me.IdTextBox.Location = New System.Drawing.Point(167, 98)
@@ -155,19 +164,16 @@ Partial Class Store
         Me.Panel2.Size = New System.Drawing.Size(797, 42)
         Me.Panel2.TabIndex = 19
         '
-        'Pos_dbDataSet
+        'LblBreadCrump
         '
-        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
-        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StoreBindingSource
-        '
-        Me.StoreBindingSource.DataMember = "Store"
-        Me.StoreBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'StoreTableAdapter
-        '
-        Me.StoreTableAdapter.ClearBeforeFill = True
+        Me.LblBreadCrump.AutoSize = True
+        Me.LblBreadCrump.Font = New System.Drawing.Font("Century Gothic", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBreadCrump.ForeColor = System.Drawing.Color.White
+        Me.LblBreadCrump.Location = New System.Drawing.Point(12, 9)
+        Me.LblBreadCrump.Name = "LblBreadCrump"
+        Me.LblBreadCrump.Size = New System.Drawing.Size(184, 25)
+        Me.LblBreadCrump.TabIndex = 22
+        Me.LblBreadCrump.Text = "Store Information"
         '
         'BtnClose
         '
@@ -183,6 +189,20 @@ Partial Class Store
         Me.BtnClose.Text = "X"
         Me.BtnClose.UseVisualStyleBackColor = False
         '
+        'Pos_dbDataSet
+        '
+        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
+        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StoreBindingSource
+        '
+        Me.StoreBindingSource.DataMember = "Store"
+        Me.StoreBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'StoreTableAdapter
+        '
+        Me.StoreTableAdapter.ClearBeforeFill = True
+        '
         'TableAdapterManager
         '
         Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
@@ -196,15 +216,6 @@ Partial Class Store
         Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
         Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'ThemeColorLabel
-        '
-        ThemeColorLabel.AutoSize = True
-        ThemeColorLabel.Location = New System.Drawing.Point(67, 188)
-        ThemeColorLabel.Name = "ThemeColorLabel"
-        ThemeColorLabel.Size = New System.Drawing.Size(94, 17)
-        ThemeColorLabel.TabIndex = 19
-        ThemeColorLabel.Text = "Theme Color:"
         '
         'ThemeColorComboBox
         '
@@ -227,17 +238,6 @@ Partial Class Store
         Me.BtnSave.TabIndex = 21
         Me.BtnSave.Text = "Save"
         Me.BtnSave.UseVisualStyleBackColor = False
-        '
-        'LblBreadCrump
-        '
-        Me.LblBreadCrump.AutoSize = True
-        Me.LblBreadCrump.Font = New System.Drawing.Font("Century Gothic", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblBreadCrump.ForeColor = System.Drawing.Color.White
-        Me.LblBreadCrump.Location = New System.Drawing.Point(12, 9)
-        Me.LblBreadCrump.Name = "LblBreadCrump"
-        Me.LblBreadCrump.Size = New System.Drawing.Size(184, 25)
-        Me.LblBreadCrump.TabIndex = 22
-        Me.LblBreadCrump.Text = "Store Information"
         '
         'Store
         '

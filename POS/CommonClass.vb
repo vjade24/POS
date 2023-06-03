@@ -2,7 +2,7 @@
 Module CommonClass
 
     Public connection = My.Settings.pos_dbConnectionString
-
+    Dim result As Integer
     'Public StoreName = "Vincent Jade Alivio Production"
     'Public StoreNameColor = Color.DodgerBlue
     'Public SloganColor = Color.DodgerBlue
@@ -24,5 +24,21 @@ Module CommonClass
             Return
         End Try
     End Sub
+    Public Function GetLastRow(table As String, column As String) As Int32
 
+        Dim last_row = ""
+        Dim query As String = "SELECT TOP 1 " + column + " FROM " + table + " ORDER BY " + column + " DESC"
+        Dim conn As SqlConnection = New SqlConnection(connection)
+        Dim cmd As SqlCommand = New SqlCommand(query, conn)
+        Dim da As New SqlDataAdapter
+        da.SelectCommand = cmd
+        Dim dt As New DataTable
+        da.Fill(dt)
+        If dt.Rows.Count > 0 Then
+            last_row = Int32.Parse(dt.Rows(0)("" + column + "").ToString()) + 1
+        Else
+            last_row = 1
+        End If
+        Return last_row
+    End Function
 End Module

@@ -24,17 +24,9 @@ Partial Class Main
     Private Sub InitializeComponent()
         Me.PanelSide = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.StoreNameTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.PanelTop = New System.Windows.Forms.Panel()
-        Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.TextBoxRight = New System.Windows.Forms.TextBox()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.LblBreadCrump = New System.Windows.Forms.Label()
-        Me.PanelMain = New System.Windows.Forms.Panel()
-        Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
-        Me.IconPictureBoxTop = New FontAwesome.Sharp.IconPictureBox()
-        Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.BtnSupplier = New FontAwesome.Sharp.IconButton()
         Me.BtnPersonnel = New FontAwesome.Sharp.IconButton()
@@ -45,15 +37,23 @@ Partial Class Main
         Me.BtnProducts = New FontAwesome.Sharp.IconButton()
         Me.BtnPOS = New FontAwesome.Sharp.IconButton()
         Me.BtnDashBoard = New FontAwesome.Sharp.IconButton()
+        Me.PanelTop = New System.Windows.Forms.Panel()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
+        Me.TextBoxRight = New System.Windows.Forms.TextBox()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.IconPictureBoxTop = New FontAwesome.Sharp.IconPictureBox()
+        Me.LblBreadCrump = New System.Windows.Forms.Label()
+        Me.PanelMain = New System.Windows.Forms.Panel()
         Me.PanelSide.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.PanelTop.SuspendLayout()
         Me.Panel4.SuspendLayout()
-        Me.Panel3.SuspendLayout()
         CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         CType(Me.IconPictureBoxTop, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelSide
@@ -75,6 +75,17 @@ Partial Class Main
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(267, 199)
         Me.Panel2.TabIndex = 16
+        '
+        'LogoPictureBox
+        '
+        Me.LogoPictureBox.Image = Global.POS.My.Resources.Resources._1
+        Me.LogoPictureBox.Location = New System.Drawing.Point(72, 13)
+        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.LogoPictureBox.Name = "LogoPictureBox"
+        Me.LogoPictureBox.Size = New System.Drawing.Size(129, 128)
+        Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.LogoPictureBox.TabIndex = 14
+        Me.LogoPictureBox.TabStop = False
         '
         'StoreNameTextBox
         '
@@ -108,108 +119,6 @@ Partial Class Main
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(267, 560)
         Me.Panel1.TabIndex = 2
-        '
-        'PanelTop
-        '
-        Me.PanelTop.Controls.Add(Me.Panel4)
-        Me.PanelTop.Controls.Add(Me.Panel3)
-        Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PanelTop.Location = New System.Drawing.Point(267, 0)
-        Me.PanelTop.Name = "PanelTop"
-        Me.PanelTop.Size = New System.Drawing.Size(1180, 56)
-        Me.PanelTop.TabIndex = 1
-        '
-        'Panel4
-        '
-        Me.Panel4.Controls.Add(Me.IconPictureBox2)
-        Me.Panel4.Controls.Add(Me.TextBoxRight)
-        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(412, 0)
-        Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(768, 56)
-        Me.Panel4.TabIndex = 1
-        '
-        'TextBoxRight
-        '
-        Me.TextBoxRight.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBoxRight.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxRight.ForeColor = System.Drawing.Color.White
-        Me.TextBoxRight.Location = New System.Drawing.Point(4, 16)
-        Me.TextBoxRight.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBoxRight.Name = "TextBoxRight"
-        Me.TextBoxRight.ReadOnly = True
-        Me.TextBoxRight.Size = New System.Drawing.Size(704, 26)
-        Me.TextBoxRight.TabIndex = 16
-        Me.TextBoxRight.TabStop = False
-        Me.TextBoxRight.Text = "Administrator"
-        Me.TextBoxRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Panel3
-        '
-        Me.Panel3.Controls.Add(Me.IconPictureBoxTop)
-        Me.Panel3.Controls.Add(Me.LblBreadCrump)
-        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
-        Me.Panel3.Location = New System.Drawing.Point(0, 0)
-        Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(406, 56)
-        Me.Panel3.TabIndex = 0
-        '
-        'LblBreadCrump
-        '
-        Me.LblBreadCrump.AutoSize = True
-        Me.LblBreadCrump.Font = New System.Drawing.Font("Century Gothic", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblBreadCrump.ForeColor = System.Drawing.Color.White
-        Me.LblBreadCrump.Location = New System.Drawing.Point(62, 16)
-        Me.LblBreadCrump.Name = "LblBreadCrump"
-        Me.LblBreadCrump.Size = New System.Drawing.Size(125, 25)
-        Me.LblBreadCrump.TabIndex = 16
-        Me.LblBreadCrump.Text = "Dashboard"
-        '
-        'PanelMain
-        '
-        Me.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PanelMain.Location = New System.Drawing.Point(267, 56)
-        Me.PanelMain.Name = "PanelMain"
-        Me.PanelMain.Size = New System.Drawing.Size(1180, 702)
-        Me.PanelMain.TabIndex = 2
-        '
-        'IconPictureBox2
-        '
-        Me.IconPictureBox2.BackColor = System.Drawing.SystemColors.Control
-        Me.IconPictureBox2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.UserCircle
-        Me.IconPictureBox2.IconColor = System.Drawing.Color.White
-        Me.IconPictureBox2.IconSize = 53
-        Me.IconPictureBox2.Location = New System.Drawing.Point(715, 0)
-        Me.IconPictureBox2.Name = "IconPictureBox2"
-        Me.IconPictureBox2.Size = New System.Drawing.Size(53, 56)
-        Me.IconPictureBox2.TabIndex = 18
-        Me.IconPictureBox2.TabStop = False
-        '
-        'IconPictureBoxTop
-        '
-        Me.IconPictureBoxTop.BackColor = System.Drawing.SystemColors.Control
-        Me.IconPictureBoxTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.IconPictureBoxTop.Dock = System.Windows.Forms.DockStyle.Left
-        Me.IconPictureBoxTop.IconChar = FontAwesome.Sharp.IconChar.Home
-        Me.IconPictureBoxTop.IconColor = System.Drawing.Color.White
-        Me.IconPictureBoxTop.IconSize = 56
-        Me.IconPictureBoxTop.Location = New System.Drawing.Point(0, 0)
-        Me.IconPictureBoxTop.Name = "IconPictureBoxTop"
-        Me.IconPictureBoxTop.Size = New System.Drawing.Size(56, 56)
-        Me.IconPictureBoxTop.TabIndex = 17
-        Me.IconPictureBoxTop.TabStop = False
-        '
-        'LogoPictureBox
-        '
-        Me.LogoPictureBox.Image = Global.POS.My.Resources.Resources._1
-        Me.LogoPictureBox.Location = New System.Drawing.Point(72, 13)
-        Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.LogoPictureBox.Name = "LogoPictureBox"
-        Me.LogoPictureBox.Size = New System.Drawing.Size(129, 128)
-        Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.LogoPictureBox.TabIndex = 14
-        Me.LogoPictureBox.TabStop = False
         '
         'IconButton1
         '
@@ -431,6 +340,97 @@ Partial Class Main
         Me.BtnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.BtnDashBoard.UseVisualStyleBackColor = False
         '
+        'PanelTop
+        '
+        Me.PanelTop.Controls.Add(Me.Panel4)
+        Me.PanelTop.Controls.Add(Me.Panel3)
+        Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelTop.Location = New System.Drawing.Point(267, 0)
+        Me.PanelTop.Name = "PanelTop"
+        Me.PanelTop.Size = New System.Drawing.Size(1180, 56)
+        Me.PanelTop.TabIndex = 1
+        '
+        'Panel4
+        '
+        Me.Panel4.Controls.Add(Me.IconPictureBox2)
+        Me.Panel4.Controls.Add(Me.TextBoxRight)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Panel4.Location = New System.Drawing.Point(412, 0)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(768, 56)
+        Me.Panel4.TabIndex = 1
+        '
+        'IconPictureBox2
+        '
+        Me.IconPictureBox2.BackColor = System.Drawing.SystemColors.Control
+        Me.IconPictureBox2.Dock = System.Windows.Forms.DockStyle.Right
+        Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.UserCircle
+        Me.IconPictureBox2.IconColor = System.Drawing.Color.White
+        Me.IconPictureBox2.IconSize = 53
+        Me.IconPictureBox2.Location = New System.Drawing.Point(715, 0)
+        Me.IconPictureBox2.Name = "IconPictureBox2"
+        Me.IconPictureBox2.Size = New System.Drawing.Size(53, 56)
+        Me.IconPictureBox2.TabIndex = 18
+        Me.IconPictureBox2.TabStop = False
+        '
+        'TextBoxRight
+        '
+        Me.TextBoxRight.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBoxRight.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxRight.ForeColor = System.Drawing.Color.White
+        Me.TextBoxRight.Location = New System.Drawing.Point(4, 16)
+        Me.TextBoxRight.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxRight.Name = "TextBoxRight"
+        Me.TextBoxRight.ReadOnly = True
+        Me.TextBoxRight.Size = New System.Drawing.Size(704, 26)
+        Me.TextBoxRight.TabIndex = 16
+        Me.TextBoxRight.TabStop = False
+        Me.TextBoxRight.Text = "---"
+        Me.TextBoxRight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.IconPictureBoxTop)
+        Me.Panel3.Controls.Add(Me.LblBreadCrump)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.Panel3.Location = New System.Drawing.Point(0, 0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(406, 56)
+        Me.Panel3.TabIndex = 0
+        '
+        'IconPictureBoxTop
+        '
+        Me.IconPictureBoxTop.BackColor = System.Drawing.SystemColors.Control
+        Me.IconPictureBoxTop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.IconPictureBoxTop.Dock = System.Windows.Forms.DockStyle.Left
+        Me.IconPictureBoxTop.IconChar = FontAwesome.Sharp.IconChar.Home
+        Me.IconPictureBoxTop.IconColor = System.Drawing.Color.White
+        Me.IconPictureBoxTop.IconSize = 56
+        Me.IconPictureBoxTop.Location = New System.Drawing.Point(0, 0)
+        Me.IconPictureBoxTop.Name = "IconPictureBoxTop"
+        Me.IconPictureBoxTop.Size = New System.Drawing.Size(56, 56)
+        Me.IconPictureBoxTop.TabIndex = 17
+        Me.IconPictureBoxTop.TabStop = False
+        '
+        'LblBreadCrump
+        '
+        Me.LblBreadCrump.AutoSize = True
+        Me.LblBreadCrump.Font = New System.Drawing.Font("Century Gothic", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblBreadCrump.ForeColor = System.Drawing.Color.White
+        Me.LblBreadCrump.Location = New System.Drawing.Point(62, 16)
+        Me.LblBreadCrump.Name = "LblBreadCrump"
+        Me.LblBreadCrump.Size = New System.Drawing.Size(125, 25)
+        Me.LblBreadCrump.TabIndex = 16
+        Me.LblBreadCrump.Text = "Dashboard"
+        '
+        'PanelMain
+        '
+        Me.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanelMain.Location = New System.Drawing.Point(267, 56)
+        Me.PanelMain.Name = "PanelMain"
+        Me.PanelMain.Size = New System.Drawing.Size(1180, 702)
+        Me.PanelMain.TabIndex = 2
+        '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -448,15 +448,15 @@ Partial Class Main
         Me.PanelSide.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.PanelTop.ResumeLayout(False)
         Me.Panel4.ResumeLayout(False)
         Me.Panel4.PerformLayout()
+        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
-        CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPictureBoxTop, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -56,13 +56,21 @@ Public Class Main
     Private leftBorderBtn As Panel
     Private currentChildForm As Form
 
-    Private Sub ActiveButton(senderBtn As Object, customColor As Color)
+    Public Sub ActiveButton(senderBtn As Object, customColor As Color)
         DisableButton()
         currentBtn = CType(senderBtn, Button)
         currentBtn.BackColor = Color.FromArgb(31, 30, 68)
         currentBtn.ForeColor = customColor
         IconPictureBoxTop.IconChar = senderBtn.IconChar
     End Sub
+
+    'Public Sub ActiveButtonOnGrid(senderBtn As Object, customColor As Color)
+    '    DisableButton()
+    '    currentBtn = CType(senderBtn, Button)
+    '    currentBtn.BackColor = Color.FromArgb(31, 30, 68)
+    '    currentBtn.ForeColor = customColor
+    '    IconPictureBoxTop.IconChar = senderBtn.IconChar
+    'End Sub
 
     Private Sub DisableButton()
         If currentBtn IsNot Nothing Then
@@ -76,47 +84,47 @@ Public Class Main
 
     Private Sub BtnDashBoard_Click(sender As Object, e As EventArgs) Handles BtnDashBoard.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Dashboard)
+        OpenChildForm(New Dashboard, "")
     End Sub
 
     Private Sub BtnPOS_Click(sender As Object, e As EventArgs) Handles BtnPOS.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New PointOfSale)
+        OpenChildForm(New PointOfSale, "")
     End Sub
 
     Private Sub BtnProducts_Click(sender As Object, e As EventArgs) Handles BtnProducts.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Products)
+        OpenChildForm(New Products, "")
     End Sub
 
     Private Sub BtnCategory_Click(sender As Object, e As EventArgs) Handles BtnCategory.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Category)
+        OpenChildForm(New Category, "")
     End Sub
 
     Private Sub BtnBrand_Click(sender As Object, e As EventArgs) Handles BtnBrand.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Brand)
+        OpenChildForm(New Brand, "")
     End Sub
 
     Private Sub BtnReports_Click(sender As Object, e As EventArgs) Handles BtnReports.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Reports)
+        OpenChildForm(New Reports, "")
     End Sub
 
     Private Sub BtnAnalytics_Click(sender As Object, e As EventArgs) Handles BtnAnalytics.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Analytics)
+        OpenChildForm(New Analytics, "")
     End Sub
 
     Private Sub BtnPersonnel_Click(sender As Object, e As EventArgs) Handles BtnPersonnel.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Personnel)
+        OpenChildForm(New Personnel, "")
     End Sub
 
     Private Sub BtnSupplier_Click(sender As Object, e As EventArgs) Handles BtnSupplier.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New Supplier)
+        OpenChildForm(New Supplier, "")
     End Sub
 
     Public Structure RGBColors
@@ -128,7 +136,7 @@ Public Class Main
         Public Shared color6 As Color = Color.FromArgb(24, 161, 251)
     End Structure
 
-    Private Sub OpenChildForm(childForm As Form)
+    Public Sub OpenChildForm(childForm As Form, breadcrumpText As String)
         If currentChildForm IsNot Nothing Then
             currentChildForm.Close()
         End If
@@ -140,7 +148,15 @@ Public Class Main
         PanelMain.Tag = childForm
         childForm.BringToFront()
         childForm.Show()
-        LblBreadCrump.Text = childForm.Text
+        If (breadcrumpText = "") Then
+            LblBreadCrump.Text = childForm.Text
+        Else
+            LblBreadCrump.Text = breadcrumpText
+        End If
     End Sub
 
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        Me.Hide()
+        Login.Show()
+    End Sub
 End Class
