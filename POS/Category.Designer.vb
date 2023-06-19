@@ -33,17 +33,19 @@ Partial Class Category
         Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoryNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.IdTextBox = New System.Windows.Forms.TextBox()
-        Me.CategoryNameTextBox = New System.Windows.Forms.TextBox()
         Me.LblAddEditMode = New System.Windows.Forms.Label()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
+        Me.IdTextBox = New System.Windows.Forms.TextBox()
         Me.BtnSave = New FontAwesome.Sharp.IconButton()
         Me.BtnDelete = New FontAwesome.Sharp.IconButton()
+        Me.CategoryNameTextBox = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoryNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreatedAt = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreatedBy = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdLabel = New System.Windows.Forms.Label()
         CategoryNameLabel = New System.Windows.Forms.Label()
         CType(Me.CategoryBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,7 +124,7 @@ Partial Class Category
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
-        Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.CategoryNameDataGridViewTextBoxColumn})
+        Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.CategoryNameDataGridViewTextBoxColumn, Me.CreatedAt, Me.CreatedBy})
         Me.CategoryDataGridView.DataSource = Me.CategoryBindingSource1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -143,31 +145,13 @@ Partial Class Category
         Me.CategoryDataGridView.Size = New System.Drawing.Size(1114, 380)
         Me.CategoryDataGridView.TabIndex = 3
         '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CategoryNameDataGridViewTextBoxColumn
-        '
-        Me.CategoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.CategoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName"
-        Me.CategoryNameDataGridViewTextBoxColumn.FillWeight = 98.47716!
-        Me.CategoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName"
-        Me.CategoryNameDataGridViewTextBoxColumn.Name = "CategoryNameDataGridViewTextBoxColumn"
-        Me.CategoryNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'TextBoxSearch
         '
         Me.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.TextBoxSearch.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxSearch.ForeColor = System.Drawing.Color.Black
         Me.TextBoxSearch.Location = New System.Drawing.Point(74, 26)
-        Me.TextBoxSearch.Margin = New System.Windows.Forms.Padding(9, 9, 9, 9)
+        Me.TextBoxSearch.Margin = New System.Windows.Forms.Padding(9)
         Me.TextBoxSearch.Name = "TextBoxSearch"
         Me.TextBoxSearch.Size = New System.Drawing.Size(142, 21)
         Me.TextBoxSearch.TabIndex = 19
@@ -189,24 +173,6 @@ Partial Class Category
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Category Information"
         '
-        'IdTextBox
-        '
-        Me.IdTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IdTextBox.Location = New System.Drawing.Point(16, 39)
-        Me.IdTextBox.Name = "IdTextBox"
-        Me.IdTextBox.ReadOnly = True
-        Me.IdTextBox.Size = New System.Drawing.Size(88, 21)
-        Me.IdTextBox.TabIndex = 1
-        '
-        'CategoryNameTextBox
-        '
-        Me.CategoryNameTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CategoryNameTextBox.Location = New System.Drawing.Point(16, 85)
-        Me.CategoryNameTextBox.Multiline = True
-        Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
-        Me.CategoryNameTextBox.Size = New System.Drawing.Size(367, 62)
-        Me.CategoryNameTextBox.TabIndex = 3
-        '
         'LblAddEditMode
         '
         Me.LblAddEditMode.AutoSize = True
@@ -219,41 +185,14 @@ Partial Class Category
         Me.LblAddEditMode.Text = "--"
         Me.LblAddEditMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'GroupBox2
+        'IdTextBox
         '
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.BtnAdd)
-        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
-        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
-        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(20, 11)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1148, 459)
-        Me.GroupBox2.TabIndex = 25
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Category List"
-        '
-        'BtnAdd
-        '
-        Me.BtnAdd.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnAdd.FlatAppearance.BorderSize = 0
-        Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnAdd.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.ForeColor = System.Drawing.Color.White
-        Me.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
-        Me.BtnAdd.IconColor = System.Drawing.Color.White
-        Me.BtnAdd.IconSize = 30
-        Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(1018, 20)
-        Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
-        Me.BtnAdd.Rotation = 0R
-        Me.BtnAdd.Size = New System.Drawing.Size(112, 36)
-        Me.BtnAdd.TabIndex = 14
-        Me.BtnAdd.Text = "Add New"
-        Me.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnAdd.UseVisualStyleBackColor = False
+        Me.IdTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IdTextBox.Location = New System.Drawing.Point(16, 39)
+        Me.IdTextBox.Name = "IdTextBox"
+        Me.IdTextBox.ReadOnly = True
+        Me.IdTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.IdTextBox.TabIndex = 1
         '
         'BtnSave
         '
@@ -301,6 +240,85 @@ Partial Class Category
         Me.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.BtnDelete.UseVisualStyleBackColor = False
         '
+        'CategoryNameTextBox
+        '
+        Me.CategoryNameTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CategoryNameTextBox.Location = New System.Drawing.Point(16, 85)
+        Me.CategoryNameTextBox.Multiline = True
+        Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
+        Me.CategoryNameTextBox.Size = New System.Drawing.Size(367, 62)
+        Me.CategoryNameTextBox.TabIndex = 3
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.BtnAdd)
+        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
+        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(20, 11)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(1148, 459)
+        Me.GroupBox2.TabIndex = 25
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Category List"
+        '
+        'BtnAdd
+        '
+        Me.BtnAdd.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnAdd.FlatAppearance.BorderSize = 0
+        Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnAdd.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAdd.ForeColor = System.Drawing.Color.White
+        Me.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
+        Me.BtnAdd.IconColor = System.Drawing.Color.White
+        Me.BtnAdd.IconSize = 30
+        Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAdd.Location = New System.Drawing.Point(1018, 20)
+        Me.BtnAdd.Name = "BtnAdd"
+        Me.BtnAdd.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
+        Me.BtnAdd.Rotation = 0R
+        Me.BtnAdd.Size = New System.Drawing.Size(112, 36)
+        Me.BtnAdd.TabIndex = 14
+        Me.BtnAdd.Text = "Add New"
+        Me.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnAdd.UseVisualStyleBackColor = False
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CategoryNameDataGridViewTextBoxColumn
+        '
+        Me.CategoryNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CategoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName"
+        Me.CategoryNameDataGridViewTextBoxColumn.FillWeight = 98.47716!
+        Me.CategoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName"
+        Me.CategoryNameDataGridViewTextBoxColumn.Name = "CategoryNameDataGridViewTextBoxColumn"
+        Me.CategoryNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CreatedAt
+        '
+        Me.CreatedAt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CreatedAt.DataPropertyName = "CreatedAt"
+        Me.CreatedAt.HeaderText = "CreatedAt"
+        Me.CreatedAt.Name = "CreatedAt"
+        Me.CreatedAt.ReadOnly = True
+        '
+        'CreatedBy
+        '
+        Me.CreatedBy.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.CreatedBy.DataPropertyName = "CreatedBy"
+        Me.CreatedBy.HeaderText = "CreatedBy"
+        Me.CreatedBy.Name = "CreatedBy"
+        Me.CreatedBy.ReadOnly = True
+        '
         'Category
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -335,11 +353,13 @@ Partial Class Category
     Friend WithEvents TextBoxSearch As TextBox
     Friend WithEvents BtnDelete As FontAwesome.Sharp.IconButton
     Friend WithEvents BtnSave As FontAwesome.Sharp.IconButton
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents CategoryNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents IdTextBox As TextBox
     Friend WithEvents CategoryNameTextBox As TextBox
     Friend WithEvents LblAddEditMode As Label
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CategoryNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CreatedAt As DataGridViewTextBoxColumn
+    Friend WithEvents CreatedBy As DataGridViewTextBoxColumn
 End Class

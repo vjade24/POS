@@ -17,6 +17,9 @@ Public Class Login
             SloganTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             PanelRight.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             BtnLogin.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+
+            storeTheme = dt.Rows(0)("ThemeColor").ToString().Trim()
+
             Try
                 Dim lb() As Byte = dt.Rows(0)("Logo")
                 Dim lstr As New System.IO.MemoryStream(lb)
@@ -26,12 +29,14 @@ Public Class Login
             End Try
         Else
             MsgBox("No Store Information!", MsgBoxStyle.Critical)
-            Me.Close()
+            Me.Hide()
+            Store.ShowDialog()
         End If
     End Sub
 
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         StoreInfo()
+        UserNameTextBox.Select()
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
@@ -68,10 +73,45 @@ Public Class Login
 
                     Dim formMain As New Main
                     formMain.TextBoxRight.Text = dt.Rows(0)("FirstName")
-                    formMain.Show()
+
                     formMain.ActiveButton(sender, Color.FromArgb(172, 126, 241))
                     formMain.OpenChildForm(New Dashboard, "")
 
+                    user_login = dt.Rows(0)("UserName").ToString().Trim()
+
+                    If dt.Rows(0)("Type").ToString.Trim() = "Admin" Then
+                        formMain.BtnDashBoard.Visible = True
+                        formMain.BtnPOS.Visible = True
+                        formMain.BtnProducts.Visible = True
+                        formMain.BtnCategory.Visible = True
+                        formMain.BtnBrand.Visible = True
+                        formMain.BtnReports.Visible = True
+                        formMain.BtnAnalytics.Visible = True
+                        formMain.BtnPersonnel.Visible = True
+                        formMain.BtnSupplier.Visible = True
+                    ElseIf dt.Rows(0)("Type").ToString.Trim() = "Cashier" Then
+                        formMain.BtnDashBoard.Visible = True
+                        formMain.BtnPOS.Visible = True
+                        formMain.BtnProducts.Visible = False
+                        formMain.BtnCategory.Visible = False
+                        formMain.BtnBrand.Visible = False
+                        formMain.BtnReports.Visible = True
+                        formMain.BtnAnalytics.Visible = False
+                        formMain.BtnPersonnel.Visible = False
+                        formMain.BtnSupplier.Visible = False
+                    Else
+                        formMain.BtnDashBoard.Visible = False
+                        formMain.BtnPOS.Visible = False
+                        formMain.BtnProducts.Visible = False
+                        formMain.BtnCategory.Visible = False
+                        formMain.BtnBrand.Visible = False
+                        formMain.BtnReports.Visible = False
+                        formMain.BtnAnalytics.Visible = False
+                        formMain.BtnPersonnel.Visible = False
+                        formMain.BtnSupplier.Visible = False
+                    End If
+
+                    formMain.Show()
                     Me.Hide()
                 End If
 
@@ -80,4 +120,5 @@ Public Class Login
             End If
         End If
     End Sub
+
 End Class

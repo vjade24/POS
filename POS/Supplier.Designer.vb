@@ -47,14 +47,14 @@ Partial Class Supplier
         Me.BtnAdd = New FontAwesome.Sharp.IconButton()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SupplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ContactNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Address = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
         Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
+        Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SupplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ContactNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Address = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdLabel = New System.Windows.Forms.Label()
         SupplierNameLabel = New System.Windows.Forms.Label()
         ContactNoLabel = New System.Windows.Forms.Label()
@@ -337,36 +337,6 @@ Partial Class Supplier
         Me.CategoryDataGridView.Size = New System.Drawing.Size(1105, 274)
         Me.CategoryDataGridView.TabIndex = 3
         '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'SupplierName
-        '
-        Me.SupplierName.DataPropertyName = "SupplierName"
-        Me.SupplierName.HeaderText = "SupplierName"
-        Me.SupplierName.Name = "SupplierName"
-        Me.SupplierName.ReadOnly = True
-        '
-        'ContactNo
-        '
-        Me.ContactNo.DataPropertyName = "ContactNo"
-        Me.ContactNo.HeaderText = "ContactNo"
-        Me.ContactNo.Name = "ContactNo"
-        Me.ContactNo.ReadOnly = True
-        '
-        'Address
-        '
-        Me.Address.DataPropertyName = "Address"
-        Me.Address.HeaderText = "Address"
-        Me.Address.Name = "Address"
-        Me.Address.ReadOnly = True
-        '
         'BrandBindingSource
         '
         Me.BrandBindingSource.DataMember = "Brand"
@@ -405,6 +375,39 @@ Partial Class Supplier
         Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
         Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
         Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'SupplierName
+        '
+        Me.SupplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.SupplierName.DataPropertyName = "SupplierName"
+        Me.SupplierName.HeaderText = "SupplierName"
+        Me.SupplierName.Name = "SupplierName"
+        Me.SupplierName.ReadOnly = True
+        '
+        'ContactNo
+        '
+        Me.ContactNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ContactNo.DataPropertyName = "ContactNo"
+        Me.ContactNo.HeaderText = "ContactNo"
+        Me.ContactNo.Name = "ContactNo"
+        Me.ContactNo.ReadOnly = True
+        '
+        'Address
+        '
+        Me.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Address.DataPropertyName = "Address"
+        Me.Address.HeaderText = "Address"
+        Me.Address.Name = "Address"
+        Me.Address.ReadOnly = True
         '
         'Supplier
         '
@@ -451,12 +454,12 @@ Partial Class Supplier
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents SupplierBindingSource As BindingSource
     Friend WithEvents SupplierTableAdapter As pos_dbDataSetTableAdapters.SupplierTableAdapter
-    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SupplierName As DataGridViewTextBoxColumn
-    Friend WithEvents ContactNo As DataGridViewTextBoxColumn
-    Friend WithEvents Address As DataGridViewTextBoxColumn
     Friend WithEvents AddressTextBox As TextBox
     Friend WithEvents ContactNoTextBox As TextBox
     Friend WithEvents SupplierNameTextBox As TextBox
     Friend WithEvents TableAdapterManager As pos_dbDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SupplierName As DataGridViewTextBoxColumn
+    Friend WithEvents ContactNo As DataGridViewTextBoxColumn
+    Friend WithEvents Address As DataGridViewTextBoxColumn
 End Class

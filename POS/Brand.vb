@@ -88,14 +88,13 @@ Public Class Brand
         ClearEntry()
     End Sub
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Dim formMain As New Main
 
         If LblAddEditMode.Text = "(Create new Record)" Then
             Dim command1 As New SqlCommand("insert into Brand values (@BrandName,@CreatedAt,@CreatedBy)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = CategoryNameTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
-            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = formMain.TextBoxRight.Text
+            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -114,7 +113,7 @@ Public Class Brand
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = CategoryNameTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
-            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = formMain.TextBoxRight.Text
+            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()

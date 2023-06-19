@@ -35,7 +35,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_Recent_Activities()
-        Dim query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus"
+        Dim query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -65,4 +65,15 @@ Public Class Dashboard
         End Try
     End Sub
 
+    Private Sub CategoryDataGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles CategoryDataGridView.CellFormatting
+        If e.ColumnIndex = 6 And e.Value IsNot Nothing Then
+            If e.Value.ToString.Trim = "Paid" Then
+                e.CellStyle.ForeColor = Color.DodgerBlue
+            ElseIf e.Value.ToString.Trim = "New" Then
+                e.CellStyle.ForeColor = Color.Green
+            Else
+                e.CellStyle.ForeColor = Color.Red
+            End If
+        End If
+    End Sub
 End Class

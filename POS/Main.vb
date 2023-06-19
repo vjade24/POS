@@ -74,7 +74,7 @@ Public Class Main
 
     Private Sub DisableButton()
         If currentBtn IsNot Nothing Then
-            currentBtn.BackColor = Color.DodgerBlue
+            currentBtn.BackColor = ColorTranslator.FromHtml(storeTheme)
             currentBtn.ForeColor = Color.Gainsboro
             currentBtn.TextAlign = ContentAlignment.MiddleLeft
             currentBtn.ImageAlign = ContentAlignment.MiddleLeft
@@ -89,7 +89,7 @@ Public Class Main
 
     Private Sub BtnPOS_Click(sender As Object, e As EventArgs) Handles BtnPOS.Click
         ActiveButton(sender, RGBColors.color1)
-        OpenChildForm(New PointOfSale, "")
+        OpenChildForm(New PointOfSale, "Point of Sale")
     End Sub
 
     Private Sub BtnProducts_Click(sender As Object, e As EventArgs) Handles BtnProducts.Click

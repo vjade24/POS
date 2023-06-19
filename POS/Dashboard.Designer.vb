@@ -25,11 +25,11 @@ Partial Class Dashboard
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -54,6 +54,28 @@ Partial Class Dashboard
         Me.Label17 = New System.Windows.Forms.Label()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GrandTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentChangeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PaymentStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ProductNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CategoryNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BrandNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SupplierNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BarcodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.OriginalPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DiscountedPercDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DiscountedPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FinalPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.QuantityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TotalAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreatedAtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CreatedByDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VwTransactionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -84,28 +106,6 @@ Partial Class Dashboard
         Me.CreatedByDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VwTransactionsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.Vw_TransactionsTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_TransactionsTableAdapter()
-        Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GrandTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaymentAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaymentChangeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PaymentStatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ProductNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CategoryNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BrandNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SupplierNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BarcodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.OriginalPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DiscountedPercDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DiscountedPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FinalPriceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.QuantityDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TotalAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CreatedAtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CreatedByDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -433,6 +433,184 @@ Partial Class Dashboard
         Me.CategoryDataGridView.Size = New System.Drawing.Size(531, 448)
         Me.CategoryDataGridView.TabIndex = 22
         '
+        'PersonnelIdDataGridViewTextBoxColumn
+        '
+        Me.PersonnelIdDataGridViewTextBoxColumn.DataPropertyName = "PersonnelId"
+        Me.PersonnelIdDataGridViewTextBoxColumn.HeaderText = "PersonnelId"
+        Me.PersonnelIdDataGridViewTextBoxColumn.Name = "PersonnelIdDataGridViewTextBoxColumn"
+        Me.PersonnelIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PersonnelIdDataGridViewTextBoxColumn.Visible = False
+        '
+        'InvoiceNoDataGridViewTextBoxColumn
+        '
+        Me.InvoiceNoDataGridViewTextBoxColumn.DataPropertyName = "InvoiceNo"
+        Me.InvoiceNoDataGridViewTextBoxColumn.HeaderText = "InvoiceNo"
+        Me.InvoiceNoDataGridViewTextBoxColumn.Name = "InvoiceNoDataGridViewTextBoxColumn"
+        Me.InvoiceNoDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CustomerNameDataGridViewTextBoxColumn
+        '
+        Me.CustomerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName"
+        Me.CustomerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName"
+        Me.CustomerNameDataGridViewTextBoxColumn.Name = "CustomerNameDataGridViewTextBoxColumn"
+        Me.CustomerNameDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'GrandTotalDataGridViewTextBoxColumn
+        '
+        Me.GrandTotalDataGridViewTextBoxColumn.DataPropertyName = "GrandTotal"
+        Me.GrandTotalDataGridViewTextBoxColumn.HeaderText = "GrandTotal"
+        Me.GrandTotalDataGridViewTextBoxColumn.Name = "GrandTotalDataGridViewTextBoxColumn"
+        Me.GrandTotalDataGridViewTextBoxColumn.ReadOnly = True
+        Me.GrandTotalDataGridViewTextBoxColumn.Visible = False
+        '
+        'PaymentAmountDataGridViewTextBoxColumn
+        '
+        Me.PaymentAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentAmount"
+        Me.PaymentAmountDataGridViewTextBoxColumn.HeaderText = "PaymentAmount"
+        Me.PaymentAmountDataGridViewTextBoxColumn.Name = "PaymentAmountDataGridViewTextBoxColumn"
+        Me.PaymentAmountDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PaymentAmountDataGridViewTextBoxColumn.Visible = False
+        '
+        'PaymentChangeDataGridViewTextBoxColumn
+        '
+        Me.PaymentChangeDataGridViewTextBoxColumn.DataPropertyName = "PaymentChange"
+        Me.PaymentChangeDataGridViewTextBoxColumn.HeaderText = "PaymentChange"
+        Me.PaymentChangeDataGridViewTextBoxColumn.Name = "PaymentChangeDataGridViewTextBoxColumn"
+        Me.PaymentChangeDataGridViewTextBoxColumn.ReadOnly = True
+        Me.PaymentChangeDataGridViewTextBoxColumn.Visible = False
+        '
+        'PaymentStatusDataGridViewTextBoxColumn
+        '
+        Me.PaymentStatusDataGridViewTextBoxColumn.DataPropertyName = "PaymentStatus"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.PaymentStatusDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        Me.PaymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus"
+        Me.PaymentStatusDataGridViewTextBoxColumn.Name = "PaymentStatusDataGridViewTextBoxColumn"
+        Me.PaymentStatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'TransactionHeaderIdDataGridViewTextBoxColumn
+        '
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn.DataPropertyName = "TransactionHeaderId"
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn.HeaderText = "TransactionHeaderId"
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn.Name = "TransactionHeaderIdDataGridViewTextBoxColumn"
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TransactionHeaderIdDataGridViewTextBoxColumn.Visible = False
+        '
+        'ProductCodeDataGridViewTextBoxColumn
+        '
+        Me.ProductCodeDataGridViewTextBoxColumn.DataPropertyName = "ProductCode"
+        Me.ProductCodeDataGridViewTextBoxColumn.HeaderText = "ProductCode"
+        Me.ProductCodeDataGridViewTextBoxColumn.Name = "ProductCodeDataGridViewTextBoxColumn"
+        Me.ProductCodeDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductCodeDataGridViewTextBoxColumn.Visible = False
+        '
+        'ProductNameDataGridViewTextBoxColumn
+        '
+        Me.ProductNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName"
+        Me.ProductNameDataGridViewTextBoxColumn.HeaderText = "ProductName"
+        Me.ProductNameDataGridViewTextBoxColumn.Name = "ProductNameDataGridViewTextBoxColumn"
+        Me.ProductNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductNameDataGridViewTextBoxColumn.Visible = False
+        '
+        'CategoryNameDataGridViewTextBoxColumn
+        '
+        Me.CategoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName"
+        Me.CategoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName"
+        Me.CategoryNameDataGridViewTextBoxColumn.Name = "CategoryNameDataGridViewTextBoxColumn"
+        Me.CategoryNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CategoryNameDataGridViewTextBoxColumn.Visible = False
+        '
+        'BrandNameDataGridViewTextBoxColumn
+        '
+        Me.BrandNameDataGridViewTextBoxColumn.DataPropertyName = "BrandName"
+        Me.BrandNameDataGridViewTextBoxColumn.HeaderText = "BrandName"
+        Me.BrandNameDataGridViewTextBoxColumn.Name = "BrandNameDataGridViewTextBoxColumn"
+        Me.BrandNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BrandNameDataGridViewTextBoxColumn.Visible = False
+        '
+        'SupplierNameDataGridViewTextBoxColumn
+        '
+        Me.SupplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName"
+        Me.SupplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName"
+        Me.SupplierNameDataGridViewTextBoxColumn.Name = "SupplierNameDataGridViewTextBoxColumn"
+        Me.SupplierNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.SupplierNameDataGridViewTextBoxColumn.Visible = False
+        '
+        'BarcodeDataGridViewTextBoxColumn
+        '
+        Me.BarcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode"
+        Me.BarcodeDataGridViewTextBoxColumn.HeaderText = "Barcode"
+        Me.BarcodeDataGridViewTextBoxColumn.Name = "BarcodeDataGridViewTextBoxColumn"
+        Me.BarcodeDataGridViewTextBoxColumn.ReadOnly = True
+        Me.BarcodeDataGridViewTextBoxColumn.Visible = False
+        '
+        'OriginalPriceDataGridViewTextBoxColumn
+        '
+        Me.OriginalPriceDataGridViewTextBoxColumn.DataPropertyName = "OriginalPrice"
+        Me.OriginalPriceDataGridViewTextBoxColumn.HeaderText = "OriginalPrice"
+        Me.OriginalPriceDataGridViewTextBoxColumn.Name = "OriginalPriceDataGridViewTextBoxColumn"
+        Me.OriginalPriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.OriginalPriceDataGridViewTextBoxColumn.Visible = False
+        '
+        'DiscountedPercDataGridViewTextBoxColumn
+        '
+        Me.DiscountedPercDataGridViewTextBoxColumn.DataPropertyName = "DiscountedPerc"
+        Me.DiscountedPercDataGridViewTextBoxColumn.HeaderText = "DiscountedPerc"
+        Me.DiscountedPercDataGridViewTextBoxColumn.Name = "DiscountedPercDataGridViewTextBoxColumn"
+        Me.DiscountedPercDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DiscountedPercDataGridViewTextBoxColumn.Visible = False
+        '
+        'DiscountedPriceDataGridViewTextBoxColumn
+        '
+        Me.DiscountedPriceDataGridViewTextBoxColumn.DataPropertyName = "DiscountedPrice"
+        Me.DiscountedPriceDataGridViewTextBoxColumn.HeaderText = "DiscountedPrice"
+        Me.DiscountedPriceDataGridViewTextBoxColumn.Name = "DiscountedPriceDataGridViewTextBoxColumn"
+        Me.DiscountedPriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.DiscountedPriceDataGridViewTextBoxColumn.Visible = False
+        '
+        'FinalPriceDataGridViewTextBoxColumn
+        '
+        Me.FinalPriceDataGridViewTextBoxColumn.DataPropertyName = "FinalPrice"
+        Me.FinalPriceDataGridViewTextBoxColumn.HeaderText = "FinalPrice"
+        Me.FinalPriceDataGridViewTextBoxColumn.Name = "FinalPriceDataGridViewTextBoxColumn"
+        Me.FinalPriceDataGridViewTextBoxColumn.ReadOnly = True
+        Me.FinalPriceDataGridViewTextBoxColumn.Visible = False
+        '
+        'QuantityDataGridViewTextBoxColumn
+        '
+        Me.QuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity"
+        Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
+        Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
+        Me.QuantityDataGridViewTextBoxColumn.ReadOnly = True
+        Me.QuantityDataGridViewTextBoxColumn.Visible = False
+        '
+        'TotalAmountDataGridViewTextBoxColumn
+        '
+        Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
+        Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
+        Me.TotalAmountDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'CreatedAtDataGridViewTextBoxColumn
+        '
+        Me.CreatedAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt"
+        Me.CreatedAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt"
+        Me.CreatedAtDataGridViewTextBoxColumn.Name = "CreatedAtDataGridViewTextBoxColumn"
+        Me.CreatedAtDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CreatedAtDataGridViewTextBoxColumn.Visible = False
+        '
+        'CreatedByDataGridViewTextBoxColumn
+        '
+        Me.CreatedByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy"
+        Me.CreatedByDataGridViewTextBoxColumn.HeaderText = "CreatedBy"
+        Me.CreatedByDataGridViewTextBoxColumn.Name = "CreatedByDataGridViewTextBoxColumn"
+        Me.CreatedByDataGridViewTextBoxColumn.ReadOnly = True
+        Me.CreatedByDataGridViewTextBoxColumn.Visible = False
+        '
         'VwTransactionsBindingSource
         '
         Me.VwTransactionsBindingSource.DataMember = "vw_Transactions"
@@ -700,184 +878,6 @@ Partial Class Dashboard
         'Vw_TransactionsTableAdapter
         '
         Me.Vw_TransactionsTableAdapter.ClearBeforeFill = True
-        '
-        'PersonnelIdDataGridViewTextBoxColumn
-        '
-        Me.PersonnelIdDataGridViewTextBoxColumn.DataPropertyName = "PersonnelId"
-        Me.PersonnelIdDataGridViewTextBoxColumn.HeaderText = "PersonnelId"
-        Me.PersonnelIdDataGridViewTextBoxColumn.Name = "PersonnelIdDataGridViewTextBoxColumn"
-        Me.PersonnelIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PersonnelIdDataGridViewTextBoxColumn.Visible = False
-        '
-        'InvoiceNoDataGridViewTextBoxColumn
-        '
-        Me.InvoiceNoDataGridViewTextBoxColumn.DataPropertyName = "InvoiceNo"
-        Me.InvoiceNoDataGridViewTextBoxColumn.HeaderText = "InvoiceNo"
-        Me.InvoiceNoDataGridViewTextBoxColumn.Name = "InvoiceNoDataGridViewTextBoxColumn"
-        Me.InvoiceNoDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CustomerNameDataGridViewTextBoxColumn
-        '
-        Me.CustomerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName"
-        Me.CustomerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName"
-        Me.CustomerNameDataGridViewTextBoxColumn.Name = "CustomerNameDataGridViewTextBoxColumn"
-        Me.CustomerNameDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'GrandTotalDataGridViewTextBoxColumn
-        '
-        Me.GrandTotalDataGridViewTextBoxColumn.DataPropertyName = "GrandTotal"
-        Me.GrandTotalDataGridViewTextBoxColumn.HeaderText = "GrandTotal"
-        Me.GrandTotalDataGridViewTextBoxColumn.Name = "GrandTotalDataGridViewTextBoxColumn"
-        Me.GrandTotalDataGridViewTextBoxColumn.ReadOnly = True
-        Me.GrandTotalDataGridViewTextBoxColumn.Visible = False
-        '
-        'PaymentAmountDataGridViewTextBoxColumn
-        '
-        Me.PaymentAmountDataGridViewTextBoxColumn.DataPropertyName = "PaymentAmount"
-        Me.PaymentAmountDataGridViewTextBoxColumn.HeaderText = "PaymentAmount"
-        Me.PaymentAmountDataGridViewTextBoxColumn.Name = "PaymentAmountDataGridViewTextBoxColumn"
-        Me.PaymentAmountDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PaymentAmountDataGridViewTextBoxColumn.Visible = False
-        '
-        'PaymentChangeDataGridViewTextBoxColumn
-        '
-        Me.PaymentChangeDataGridViewTextBoxColumn.DataPropertyName = "PaymentChange"
-        Me.PaymentChangeDataGridViewTextBoxColumn.HeaderText = "PaymentChange"
-        Me.PaymentChangeDataGridViewTextBoxColumn.Name = "PaymentChangeDataGridViewTextBoxColumn"
-        Me.PaymentChangeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.PaymentChangeDataGridViewTextBoxColumn.Visible = False
-        '
-        'PaymentStatusDataGridViewTextBoxColumn
-        '
-        Me.PaymentStatusDataGridViewTextBoxColumn.DataPropertyName = "PaymentStatus"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.PaymentStatusDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
-        Me.PaymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus"
-        Me.PaymentStatusDataGridViewTextBoxColumn.Name = "PaymentStatusDataGridViewTextBoxColumn"
-        Me.PaymentStatusDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'TransactionHeaderIdDataGridViewTextBoxColumn
-        '
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn.DataPropertyName = "TransactionHeaderId"
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn.HeaderText = "TransactionHeaderId"
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn.Name = "TransactionHeaderIdDataGridViewTextBoxColumn"
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TransactionHeaderIdDataGridViewTextBoxColumn.Visible = False
-        '
-        'ProductCodeDataGridViewTextBoxColumn
-        '
-        Me.ProductCodeDataGridViewTextBoxColumn.DataPropertyName = "ProductCode"
-        Me.ProductCodeDataGridViewTextBoxColumn.HeaderText = "ProductCode"
-        Me.ProductCodeDataGridViewTextBoxColumn.Name = "ProductCodeDataGridViewTextBoxColumn"
-        Me.ProductCodeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ProductCodeDataGridViewTextBoxColumn.Visible = False
-        '
-        'ProductNameDataGridViewTextBoxColumn
-        '
-        Me.ProductNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName"
-        Me.ProductNameDataGridViewTextBoxColumn.HeaderText = "ProductName"
-        Me.ProductNameDataGridViewTextBoxColumn.Name = "ProductNameDataGridViewTextBoxColumn"
-        Me.ProductNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.ProductNameDataGridViewTextBoxColumn.Visible = False
-        '
-        'CategoryNameDataGridViewTextBoxColumn
-        '
-        Me.CategoryNameDataGridViewTextBoxColumn.DataPropertyName = "CategoryName"
-        Me.CategoryNameDataGridViewTextBoxColumn.HeaderText = "CategoryName"
-        Me.CategoryNameDataGridViewTextBoxColumn.Name = "CategoryNameDataGridViewTextBoxColumn"
-        Me.CategoryNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CategoryNameDataGridViewTextBoxColumn.Visible = False
-        '
-        'BrandNameDataGridViewTextBoxColumn
-        '
-        Me.BrandNameDataGridViewTextBoxColumn.DataPropertyName = "BrandName"
-        Me.BrandNameDataGridViewTextBoxColumn.HeaderText = "BrandName"
-        Me.BrandNameDataGridViewTextBoxColumn.Name = "BrandNameDataGridViewTextBoxColumn"
-        Me.BrandNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.BrandNameDataGridViewTextBoxColumn.Visible = False
-        '
-        'SupplierNameDataGridViewTextBoxColumn
-        '
-        Me.SupplierNameDataGridViewTextBoxColumn.DataPropertyName = "SupplierName"
-        Me.SupplierNameDataGridViewTextBoxColumn.HeaderText = "SupplierName"
-        Me.SupplierNameDataGridViewTextBoxColumn.Name = "SupplierNameDataGridViewTextBoxColumn"
-        Me.SupplierNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.SupplierNameDataGridViewTextBoxColumn.Visible = False
-        '
-        'BarcodeDataGridViewTextBoxColumn
-        '
-        Me.BarcodeDataGridViewTextBoxColumn.DataPropertyName = "Barcode"
-        Me.BarcodeDataGridViewTextBoxColumn.HeaderText = "Barcode"
-        Me.BarcodeDataGridViewTextBoxColumn.Name = "BarcodeDataGridViewTextBoxColumn"
-        Me.BarcodeDataGridViewTextBoxColumn.ReadOnly = True
-        Me.BarcodeDataGridViewTextBoxColumn.Visible = False
-        '
-        'OriginalPriceDataGridViewTextBoxColumn
-        '
-        Me.OriginalPriceDataGridViewTextBoxColumn.DataPropertyName = "OriginalPrice"
-        Me.OriginalPriceDataGridViewTextBoxColumn.HeaderText = "OriginalPrice"
-        Me.OriginalPriceDataGridViewTextBoxColumn.Name = "OriginalPriceDataGridViewTextBoxColumn"
-        Me.OriginalPriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OriginalPriceDataGridViewTextBoxColumn.Visible = False
-        '
-        'DiscountedPercDataGridViewTextBoxColumn
-        '
-        Me.DiscountedPercDataGridViewTextBoxColumn.DataPropertyName = "DiscountedPerc"
-        Me.DiscountedPercDataGridViewTextBoxColumn.HeaderText = "DiscountedPerc"
-        Me.DiscountedPercDataGridViewTextBoxColumn.Name = "DiscountedPercDataGridViewTextBoxColumn"
-        Me.DiscountedPercDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DiscountedPercDataGridViewTextBoxColumn.Visible = False
-        '
-        'DiscountedPriceDataGridViewTextBoxColumn
-        '
-        Me.DiscountedPriceDataGridViewTextBoxColumn.DataPropertyName = "DiscountedPrice"
-        Me.DiscountedPriceDataGridViewTextBoxColumn.HeaderText = "DiscountedPrice"
-        Me.DiscountedPriceDataGridViewTextBoxColumn.Name = "DiscountedPriceDataGridViewTextBoxColumn"
-        Me.DiscountedPriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.DiscountedPriceDataGridViewTextBoxColumn.Visible = False
-        '
-        'FinalPriceDataGridViewTextBoxColumn
-        '
-        Me.FinalPriceDataGridViewTextBoxColumn.DataPropertyName = "FinalPrice"
-        Me.FinalPriceDataGridViewTextBoxColumn.HeaderText = "FinalPrice"
-        Me.FinalPriceDataGridViewTextBoxColumn.Name = "FinalPriceDataGridViewTextBoxColumn"
-        Me.FinalPriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FinalPriceDataGridViewTextBoxColumn.Visible = False
-        '
-        'QuantityDataGridViewTextBoxColumn
-        '
-        Me.QuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity"
-        Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
-        Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
-        Me.QuantityDataGridViewTextBoxColumn.ReadOnly = True
-        Me.QuantityDataGridViewTextBoxColumn.Visible = False
-        '
-        'TotalAmountDataGridViewTextBoxColumn
-        '
-        Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
-        Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
-        Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
-        Me.TotalAmountDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'CreatedAtDataGridViewTextBoxColumn
-        '
-        Me.CreatedAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt"
-        Me.CreatedAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt"
-        Me.CreatedAtDataGridViewTextBoxColumn.Name = "CreatedAtDataGridViewTextBoxColumn"
-        Me.CreatedAtDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CreatedAtDataGridViewTextBoxColumn.Visible = False
-        '
-        'CreatedByDataGridViewTextBoxColumn
-        '
-        Me.CreatedByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy"
-        Me.CreatedByDataGridViewTextBoxColumn.HeaderText = "CreatedBy"
-        Me.CreatedByDataGridViewTextBoxColumn.Name = "CreatedByDataGridViewTextBoxColumn"
-        Me.CreatedByDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CreatedByDataGridViewTextBoxColumn.Visible = False
         '
         'Dashboard
         '

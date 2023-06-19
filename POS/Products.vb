@@ -38,6 +38,7 @@ Public Class Products
 
         IdTextBox.Text = ""
         ProductCodeTextBox.Text = ""
+        ProductCodeTextBox.Select()
         ProductNameTextBox.Text = ""
         ProductImagePictureBox.Image = My.Resources.box
         BarcodeTextBox.Text = ""
@@ -55,6 +56,10 @@ Public Class Products
 
         BtnSave.Enabled = True
         BtnDelete.Enabled = False
+
+        ProductCodeTextBox.Enabled = True
+        BarcodeTextBox.Enabled = True
+        QuantityTextBox.Enabled = True
 
         IdTextBox.Text = GetLastRow("Product", "Id")
 
@@ -90,12 +95,12 @@ Public Class Products
         CategoryNameComboBox.Text = CategoryDataGridView.CurrentRow.Cells(5).Value.ToString()
         BrandNameComboBox.Text = CategoryDataGridView.CurrentRow.Cells(6).Value.ToString()
         SupplierNameComboBox.Text = CategoryDataGridView.CurrentRow.Cells(7).Value.ToString()
-        OriginalPriceTextBox.Text = CategoryDataGridView.CurrentRow.Cells(8).Value.ToString()
-        DiscountedPercTextBox.Text = CategoryDataGridView.CurrentRow.Cells(9).Value.ToString()
+        OriginalPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(8).Value.ToString()).ToString("###,##0.00")
+        DiscountedPercTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(9).Value.ToString()).ToString("###,##0.00")
         DiscountedDateFromDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(10).Value.ToString()
         DiscountedDateToDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(11).Value.ToString()
-        DiscountedPriceTextBox.Text = CategoryDataGridView.CurrentRow.Cells(12).Value.ToString()
-        FinalPriceTextBox.Text = CategoryDataGridView.CurrentRow.Cells(13).Value.ToString()
+        DiscountedPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(12).Value.ToString()).ToString("###,##0.00")
+        FinalPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(13).Value.ToString()).ToString("###,##0.00")
         QuantityTextBox.Text = CategoryDataGridView.CurrentRow.Cells(14).Value.ToString()
         IsInstockCheckBox.Checked = CategoryDataGridView.CurrentRow.Cells(15).Value.ToString()
 
@@ -107,6 +112,11 @@ Public Class Products
         Catch ex As Exception
             ProductImagePictureBox.Image = My.Resources.box
         End Try
+
+        ProductCodeTextBox.Enabled = False
+        BarcodeTextBox.Enabled = False
+        QuantityTextBox.Enabled = False
+
 
     End Sub
 
@@ -164,7 +174,7 @@ Public Class Products
     End Sub
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         Dim ms As New MemoryStream
-        Dim formMain As New Main
+
         ProductImagePictureBox.Image.Save(ms, ProductImagePictureBox.Image.RawFormat)
         If LblAddEditMode.Text = "(Create new Record)" Then
             Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy)", conn)
@@ -185,7 +195,7 @@ Public Class Products
             command1.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = QuantityTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = IsInstockCheckBox.Checked
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
-            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = formMain.TextBoxRight.Text
+            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -220,7 +230,7 @@ Public Class Products
             command1.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = QuantityTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = IsInstockCheckBox.Checked
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
-            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = formMain.TextBoxRight.Text
+            command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -249,4 +259,32 @@ Public Class Products
 
     End Sub
 
+    Private Sub DiscountedPercTextBox_TextChanged(sender As Object, e As EventArgs) Handles DiscountedPercTextBox.TextChanged
+        Try
+            Dim dicounted_price As Double
+            dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
+            DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
+
+            Dim final_price As Double
+            final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
+            FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
+        Catch ex As Exception
+            DiscountedPriceTextBox.Text = "0.00"
+
+        End Try
+    End Sub
+
+    Private Sub OriginalPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles OriginalPriceTextBox.TextChanged
+        Try
+            Dim final_price As Double
+            final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
+            FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
+
+            Dim dicounted_price As Double
+            dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
+            DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
+        Catch ex As Exception
+            FinalPriceTextBox.Text = "0.00"
+        End Try
+    End Sub
 End Class

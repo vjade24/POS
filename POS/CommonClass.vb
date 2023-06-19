@@ -1,14 +1,17 @@
 ﻿Imports System.Data.SqlClient
 Module CommonClass
-
+    Public user_login As String
     Public connection = My.Settings.pos_dbConnectionString
     Dim result As Integer
+
     'Public StoreName = "Vincent Jade Alivio Production"
     'Public StoreNameColor = Color.DodgerBlue
     'Public SloganColor = Color.DodgerBlue
     'Public PanelRightColor = Color.DodgerBlue
     'Public Slogan = "Fix before Up"
     'Public LogoPictureBoxPic = My.Resources._1
+
+    Public storeTheme As String
 
     Public Sub CommonQuery(query, DataGridView)
         Try
