@@ -5,10 +5,10 @@
     <Setting Name="pos_dbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=systemadmin&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=PICTO-702\HRIS_JADE;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=J@de123456&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=systemadmin</Value>
+      <Value Profile="(Default)">Data Source=PICTO-702\HRIS_JADE;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=J@de123456</Value>
     </Setting>
   </Settings>
 </SettingsFile>
