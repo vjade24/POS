@@ -2,7 +2,7 @@
 Public Class PointOfSale
     Private Sub PointOfSale_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        RefreshData()
+        'RefreshData()
 
         GroupBox1.Visible = False
         GroupBox2.Visible = False
@@ -37,7 +37,7 @@ Public Class PointOfSale
             da.SelectCommand = cmd
             Dim dt As New DataTable
             da.Fill(dt)
-            CategoryDataGridView.DataSource = dt
+            DataGridView2.DataSource = dt
         Catch ex As Exception
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
@@ -45,7 +45,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Product WHERE ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
         CommonQuery(query, DataGridView1)
     End Sub
 
@@ -82,7 +82,8 @@ Public Class PointOfSale
 
                 RefreshData_Details(IdTextBox.Text.ToString().Trim())
                 RefreshData()
-                ClearEntry()
+                Grandtotal()
+                ' ClearEntry()
             End If
             conn.Close()
         Catch ex As Exception
@@ -122,10 +123,18 @@ Public Class PointOfSale
         FinalPriceTextBox.Text = DataGridView1.CurrentRow.Cells(13).Value.ToString()
         'QuantityTextBox.Text = DataGridView1.CurrentRow.Cells(14).Value.ToString()
 
+        Try
+            Dim lb() As Byte = DataGridView2.CurrentRow.Cells(3).Value
+            Dim lstr As New System.IO.MemoryStream(lb)
+            ProductImagePictureBox.Image = Image.FromStream(lstr)
+            ProductImagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage
+        Catch ex As Exception
+            ProductImagePictureBox.Image = My.Resources.box
+        End Try
+
         Panel1.Visible = True
         TextBox_TotalPerProduct.Text = DataGridView1.CurrentRow.Cells(13).Value.ToString()
-        AddtoCart()
-        Grandtotal()
+        'AddtoCart()
 
     End Sub
 
@@ -149,6 +158,7 @@ Public Class PointOfSale
         Dim invoice_nbr As String
         invoice_nbr = GetLastRow("TransactionHeader", "InvoiceNo").ToString().PadLeft(10, "0")
 
+        RefreshData()
         RefreshData_Details(invoice_nbr.ToString().Trim)
 
         Dim command1 As New SqlCommand("insert into TransactionHeader values (@PersonnelId,@InvoiceNo,@CustomerName,@GrandTotal,@PaymentAmount,@PaymentChange,@PaymentStatus,@CreatedAt,@CreatedBy)", conn)
@@ -224,6 +234,7 @@ Public Class PointOfSale
         pn.PaymentChangeTextBox.Text = PaymentChangeTextBox.Text
         pn.PaymentStatusTextBox.Text = PaymentStatusTextBox.Text
         pn.IconButton1.Visible = True
+        pn.Receipt(InvoiceNoTextBox.Text.ToString().Trim)
 
         pn.ShowDialog()
     End Sub
@@ -278,4 +289,29 @@ Public Class PointOfSale
         End Try
     End Sub
 
+    Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        If DataGridView2.Columns(e.ColumnIndex).Name.ToString.Trim = "ColumnRemove" Then
+            Try
+                conn.Open()
+
+                Dim command_delete As New SqlCommand("DELETE FROM TransactionDetails WHERE Id = @Id", conn)
+                command_delete.Parameters.Add("@Id", SqlDbType.VarChar).Value = DataGridView2.CurrentRow.Cells(0).Value.ToString()
+                result = command_delete.ExecuteNonQuery()
+
+                Dim command_upd As New SqlCommand("UPDATE Product SET Quantity = (Product.Quantity + 1) WHERE ProductCode = @ProductCode", conn)
+                command_upd.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = DataGridView2.CurrentRow.Cells(2).Value.ToString()
+                result = command_upd.ExecuteNonQuery()
+
+                conn.Close()
+
+                RefreshData_Details(IdTextBox.Text.ToString().Trim())
+                RefreshData()
+                Grandtotal()
+
+            Catch ex As Exception
+                MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+                conn.Close()
+            End Try
+        End If
+    End Sub
 End Class

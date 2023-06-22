@@ -29,7 +29,7 @@ Public Class Products
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Product WHERE ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
         CommonQuery(query, CategoryDataGridView)
     End Sub
 
@@ -173,8 +173,25 @@ Public Class Products
         ClearEntry()
     End Sub
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Dim ms As New MemoryStream
 
+        Dim query = "SELECT * FROM Product Where ProductCode = '" + ProductCodeTextBox.Text.ToString().Trim() + "' OR Barcode = '" + BarcodeTextBox.Text.ToString().Trim() + "'"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                MsgBox("THIS PRODUCT CODE OR BARCODE IS ALREADY EXISTS", MsgBoxStyle.Critical)
+                Return
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+
+        Dim ms As New MemoryStream
         ProductImagePictureBox.Image.Save(ms, ProductImagePictureBox.Image.RawFormat)
         If LblAddEditMode.Text = "(Create new Record)" Then
             Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy)", conn)

@@ -58,22 +58,6 @@ Partial Class PayNow
         CustomerNameLabel.TabIndex = 53
         CustomerNameLabel.Text = "Customer Name:"
         '
-        'PaymentStatusTextBox
-        '
-        Me.PaymentStatusTextBox.Enabled = False
-        Me.PaymentStatusTextBox.Location = New System.Drawing.Point(54, 101)
-        Me.PaymentStatusTextBox.Name = "PaymentStatusTextBox"
-        Me.PaymentStatusTextBox.Size = New System.Drawing.Size(146, 21)
-        Me.PaymentStatusTextBox.TabIndex = 54
-        '
-        'CustomerNameTextBox
-        '
-        Me.CustomerNameTextBox.Enabled = False
-        Me.CustomerNameTextBox.Location = New System.Drawing.Point(54, 146)
-        Me.CustomerNameTextBox.Name = "CustomerNameTextBox"
-        Me.CustomerNameTextBox.Size = New System.Drawing.Size(146, 21)
-        Me.CustomerNameTextBox.TabIndex = 55
-        '
         'PaymentStatusLabel
         '
         PaymentStatusLabel.AutoSize = True
@@ -82,14 +66,6 @@ Partial Class PayNow
         PaymentStatusLabel.Size = New System.Drawing.Size(96, 16)
         PaymentStatusLabel.TabIndex = 52
         PaymentStatusLabel.Text = "Payment Status:"
-        '
-        'PaymentChangeTextBox
-        '
-        Me.PaymentChangeTextBox.Enabled = False
-        Me.PaymentChangeTextBox.Location = New System.Drawing.Point(54, 280)
-        Me.PaymentChangeTextBox.Name = "PaymentChangeTextBox"
-        Me.PaymentChangeTextBox.Size = New System.Drawing.Size(297, 21)
-        Me.PaymentChangeTextBox.TabIndex = 51
         '
         'PaymentChangeLabel
         '
@@ -109,21 +85,6 @@ Partial Class PayNow
         PersonnelIdLabel.TabIndex = 42
         PersonnelIdLabel.Text = "Personnel Id:"
         '
-        'PaymentAmountTextBox
-        '
-        Me.PaymentAmountTextBox.Location = New System.Drawing.Point(54, 235)
-        Me.PaymentAmountTextBox.Name = "PaymentAmountTextBox"
-        Me.PaymentAmountTextBox.Size = New System.Drawing.Size(297, 21)
-        Me.PaymentAmountTextBox.TabIndex = 49
-        '
-        'PersonnelIdTextBox
-        '
-        Me.PersonnelIdTextBox.Enabled = False
-        Me.PersonnelIdTextBox.Location = New System.Drawing.Point(205, 101)
-        Me.PersonnelIdTextBox.Name = "PersonnelIdTextBox"
-        Me.PersonnelIdTextBox.Size = New System.Drawing.Size(146, 21)
-        Me.PersonnelIdTextBox.TabIndex = 43
-        '
         'PaymentAmountLabel
         '
         PaymentAmountLabel.AutoSize = True
@@ -141,22 +102,6 @@ Partial Class PayNow
         InvoiceNoLabel.Size = New System.Drawing.Size(70, 16)
         InvoiceNoLabel.TabIndex = 44
         InvoiceNoLabel.Text = "Invoice No:"
-        '
-        'GrandTotalTextBox
-        '
-        Me.GrandTotalTextBox.Enabled = False
-        Me.GrandTotalTextBox.Location = New System.Drawing.Point(54, 190)
-        Me.GrandTotalTextBox.Name = "GrandTotalTextBox"
-        Me.GrandTotalTextBox.Size = New System.Drawing.Size(297, 21)
-        Me.GrandTotalTextBox.TabIndex = 47
-        '
-        'InvoiceNoTextBox
-        '
-        Me.InvoiceNoTextBox.Enabled = False
-        Me.InvoiceNoTextBox.Location = New System.Drawing.Point(205, 146)
-        Me.InvoiceNoTextBox.Name = "InvoiceNoTextBox"
-        Me.InvoiceNoTextBox.Size = New System.Drawing.Size(146, 21)
-        Me.InvoiceNoTextBox.TabIndex = 45
         '
         'GrandTotalLabel
         '
@@ -177,6 +122,61 @@ Partial Class PayNow
         Label1.TabIndex = 56
         Label1.Text = "PAYMENT DETAILS"
         '
+        'PaymentStatusTextBox
+        '
+        Me.PaymentStatusTextBox.Enabled = False
+        Me.PaymentStatusTextBox.Location = New System.Drawing.Point(54, 101)
+        Me.PaymentStatusTextBox.Name = "PaymentStatusTextBox"
+        Me.PaymentStatusTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.PaymentStatusTextBox.TabIndex = 54
+        '
+        'CustomerNameTextBox
+        '
+        Me.CustomerNameTextBox.Enabled = False
+        Me.CustomerNameTextBox.Location = New System.Drawing.Point(54, 146)
+        Me.CustomerNameTextBox.Name = "CustomerNameTextBox"
+        Me.CustomerNameTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.CustomerNameTextBox.TabIndex = 55
+        '
+        'PaymentChangeTextBox
+        '
+        Me.PaymentChangeTextBox.Enabled = False
+        Me.PaymentChangeTextBox.Location = New System.Drawing.Point(54, 280)
+        Me.PaymentChangeTextBox.Name = "PaymentChangeTextBox"
+        Me.PaymentChangeTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.PaymentChangeTextBox.TabIndex = 51
+        '
+        'PaymentAmountTextBox
+        '
+        Me.PaymentAmountTextBox.Location = New System.Drawing.Point(54, 235)
+        Me.PaymentAmountTextBox.Name = "PaymentAmountTextBox"
+        Me.PaymentAmountTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.PaymentAmountTextBox.TabIndex = 49
+        '
+        'PersonnelIdTextBox
+        '
+        Me.PersonnelIdTextBox.Enabled = False
+        Me.PersonnelIdTextBox.Location = New System.Drawing.Point(205, 101)
+        Me.PersonnelIdTextBox.Name = "PersonnelIdTextBox"
+        Me.PersonnelIdTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.PersonnelIdTextBox.TabIndex = 43
+        '
+        'GrandTotalTextBox
+        '
+        Me.GrandTotalTextBox.Enabled = False
+        Me.GrandTotalTextBox.Location = New System.Drawing.Point(54, 190)
+        Me.GrandTotalTextBox.Name = "GrandTotalTextBox"
+        Me.GrandTotalTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.GrandTotalTextBox.TabIndex = 47
+        '
+        'InvoiceNoTextBox
+        '
+        Me.InvoiceNoTextBox.Enabled = False
+        Me.InvoiceNoTextBox.Location = New System.Drawing.Point(205, 146)
+        Me.InvoiceNoTextBox.Name = "InvoiceNoTextBox"
+        Me.InvoiceNoTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.InvoiceNoTextBox.TabIndex = 45
+        '
         'IconButton1
         '
         Me.IconButton1.BackColor = System.Drawing.Color.ForestGreen
@@ -185,7 +185,7 @@ Partial Class PayNow
         Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal
         Me.IconButton1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton1.ForeColor = System.Drawing.Color.White
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.CartPlus
+        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.ProductHunt
         Me.IconButton1.IconColor = System.Drawing.Color.White
         Me.IconButton1.IconSize = 30
         Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -196,7 +196,7 @@ Partial Class PayNow
         Me.IconButton1.Rotation = 0R
         Me.IconButton1.Size = New System.Drawing.Size(297, 38)
         Me.IconButton1.TabIndex = 58
-        Me.IconButton1.Text = "Pay and Print"
+        Me.IconButton1.Text = "    Pay Now"
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
         '

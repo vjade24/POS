@@ -22,7 +22,7 @@ Public Class PayNow
             Else
                 MsgBox("Payment Successfully Paid", MsgBoxStyle.Information)
                 IconButton1.Visible = False
-                Receipt()
+                Receipt(InvoiceNoTextBox.Text.ToString().Trim())
                 'Me.Hide()
             End If
             conn.Close()
@@ -41,11 +41,11 @@ Public Class PayNow
             PaymentChangeTextBox.Text = "0.00"
         End Try
     End Sub
-    Private Sub Receipt()
+    Public Sub Receipt(invoice_nbr)
         Try
             Using dt As New DataTable()
                 Using conn As SqlConnection = New SqlConnection(connection)
-                    Using cmd As SqlCommand = New SqlCommand("select * from vw_Transactions WHERE InvoiceNo = '" + InvoiceNoTextBox.Text.ToString().Trim() + "'", conn)
+                    Using cmd As SqlCommand = New SqlCommand("select * from vw_Transactions WHERE InvoiceNo = '" + invoice_nbr.ToString().Trim() + "' ORDER BY ProductName", conn)
                         Using adp As New SqlDataAdapter()
                             adp.SelectCommand = cmd
                             adp.Fill(dt)
