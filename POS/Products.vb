@@ -46,20 +46,25 @@ Public Class Products
         BrandNameComboBox.Text = ""
         SupplierNameComboBox.Text = ""
         OriginalPriceTextBox.Text = "0.00"
-        DiscountedPriceTextBox.Text = "0.00"
-        DiscountedDateFromDateTimePicker.ResetText()
-        DiscountedDateToDateTimePicker.ResetText()
-        DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedDateFromDateTimePicker.ResetText()
+        'DiscountedDateToDateTimePicker.ResetText()
+        'DiscountedPriceTextBox.Text = "0.00"
         FinalPriceTextBox.Text = "0.00"
-        QuantityTextBox.Text = "0.00"
-        IsInstockCheckBox.Checked = False
+        QuantityTextBox.Text = "0"
+        'IsInstockCheckBox.Checked = False
+        MinimumPriceTextBox.Text = "0.00"
+        MaximumPriceTextBox.Text = "0.00"
 
         BtnSave.Enabled = True
         BtnDelete.Enabled = False
 
         ProductCodeTextBox.Enabled = True
-        BarcodeTextBox.Enabled = True
-        QuantityTextBox.Enabled = True
+        'BarcodeTextBox.Enabled = True
+        'QuantityTextBox.Enabled = True
+        'OriginalPriceTextBox.Enabled = True
+        'DiscountedPercTextBox.Enabled = True
+        'FinalPriceTextBox.Enabled = True
 
         IdTextBox.Text = GetLastRow("Product", "Id")
 
@@ -78,14 +83,16 @@ Public Class Products
         BrandNameComboBox.Text = ""
         SupplierNameComboBox.Text = ""
         OriginalPriceTextBox.Text = "0.00"
-        DiscountedPercTextBox.Text = "0.00"
-        DiscountedPriceTextBox.Text = "0.00"
-        DiscountedDateFromDateTimePicker.ResetText()
-        DiscountedDateToDateTimePicker.ResetText()
-        DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedPercTextBox.Text = "0.00"
+        'DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedDateFromDateTimePicker.ResetText()
+        'DiscountedDateToDateTimePicker.ResetText()
+        'DiscountedPriceTextBox.Text = "0.00"
         FinalPriceTextBox.Text = "0.00"
-        QuantityTextBox.Text = "0.00"
-        IsInstockCheckBox.Checked = False
+        QuantityTextBox.Text = "0"
+        MinimumPriceTextBox.Text = "0.00"
+        MaximumPriceTextBox.Text = "0.00"
+        'IsInstockCheckBox.Checked = False
 
         IdTextBox.Text = CategoryDataGridView.CurrentRow.Cells(0).Value.ToString()
         ProductCodeTextBox.Text = CategoryDataGridView.CurrentRow.Cells(1).Value.ToString()
@@ -96,14 +103,17 @@ Public Class Products
         BrandNameComboBox.Text = CategoryDataGridView.CurrentRow.Cells(6).Value.ToString()
         SupplierNameComboBox.Text = CategoryDataGridView.CurrentRow.Cells(7).Value.ToString()
         OriginalPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(8).Value.ToString()).ToString("###,##0.00")
-        DiscountedPercTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(9).Value.ToString()).ToString("###,##0.00")
-        DiscountedDateFromDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(10).Value.ToString()
-        DiscountedDateToDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(11).Value.ToString()
-        DiscountedPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(12).Value.ToString()).ToString("###,##0.00")
+        'DiscountedPercTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(9).Value.ToString()).ToString("###,##0.00")
+        'DiscountedDateFromDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(10).Value.ToString()
+        'DiscountedDateToDateTimePicker.Value = CategoryDataGridView.CurrentRow.Cells(11).Value.ToString()
+        'DiscountedPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(12).Value.ToString()).ToString("###,##0.00")
         FinalPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(13).Value.ToString()).ToString("###,##0.00")
         QuantityTextBox.Text = CategoryDataGridView.CurrentRow.Cells(14).Value.ToString()
-        IsInstockCheckBox.Checked = CategoryDataGridView.CurrentRow.Cells(15).Value.ToString()
+        'IsInstockCheckBox.Checked = CategoryDataGridView.CurrentRow.Cells(15).Value.ToString()
 
+
+        MinimumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(16).Value.ToString()).ToString("###,##0.00")
+        MaximumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(17).Value.ToString()).ToString("###,##0.00")
         Try
             Dim lb() As Byte = CategoryDataGridView.CurrentRow.Cells(3).Value
             Dim lstr As New System.IO.MemoryStream(lb)
@@ -114,9 +124,11 @@ Public Class Products
         End Try
 
         ProductCodeTextBox.Enabled = False
-        BarcodeTextBox.Enabled = False
-        QuantityTextBox.Enabled = False
-
+        'BarcodeTextBox.Enabled = False
+        'QuantityTextBox.Enabled = False
+        'OriginalPriceTextBox.Enabled = False
+        'DiscountedPercTextBox.Enabled = False
+        'FinalPriceTextBox.Enabled = False
 
     End Sub
 
@@ -130,14 +142,16 @@ Public Class Products
         BrandNameComboBox.Text = ""
         SupplierNameComboBox.Text = ""
         OriginalPriceTextBox.Text = "0.00"
-        DiscountedPercTextBox.Text = "0.00"
-        DiscountedPriceTextBox.Text = "0.00"
-        DiscountedDateFromDateTimePicker.ResetText()
-        DiscountedDateToDateTimePicker.ResetText()
-        DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedPercTextBox.Text = "0.00"
+        'DiscountedPriceTextBox.Text = "0.00"
+        'DiscountedDateFromDateTimePicker.ResetText()
+        'DiscountedDateToDateTimePicker.ResetText()
+        'DiscountedPriceTextBox.Text = "0.00"
         FinalPriceTextBox.Text = "0.00"
-        QuantityTextBox.Text = "0.00"
-        IsInstockCheckBox.Checked = False
+        QuantityTextBox.Text = "0"
+        'IsInstockCheckBox.Checked = False
+        MinimumPriceTextBox.Text = "0.00"
+        MaximumPriceTextBox.Text = "0.00"
 
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
@@ -174,27 +188,110 @@ Public Class Products
     End Sub
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
-        Dim query = "SELECT * FROM Product Where ProductCode = '" + ProductCodeTextBox.Text.ToString().Trim() + "' OR Barcode = '" + BarcodeTextBox.Text.ToString().Trim() + "'"
-        Try
-            Dim conn As SqlConnection = New SqlConnection(connection)
-            Dim cmd As SqlCommand = New SqlCommand(query, conn)
-            Dim da As New SqlDataAdapter
-            da.SelectCommand = cmd
-            Dim dt As New DataTable
-            da.Fill(dt)
-            If dt.Rows.Count > 0 Then
-                MsgBox("THIS PRODUCT CODE OR BARCODE IS ALREADY EXISTS", MsgBoxStyle.Critical)
-                Return
-            End If
-        Catch ex As Exception
-            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+        If ProductCodeTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("PRODUCT CODE IS REQUIRED", MsgBoxStyle.Critical)
+            ProductCodeTextBox.Select()
             Return
-        End Try
+        End If
+        If BarcodeTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("BARCODE IS REQUIRED", MsgBoxStyle.Critical)
+            BarcodeTextBox.Select()
+            Return
+        End If
+        If QuantityTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("PRODUCT QUANTITY IS REQUIRED", MsgBoxStyle.Critical)
+            QuantityTextBox.Select()
+            Return
+        End If
+        If Int32.Parse(QuantityTextBox.Text.ToString().Trim()) <= 0 Then
+            MsgBox("PRODUCT QUANTITY MUST BE ATLEAST 1(ONE) QUANTITY ", MsgBoxStyle.Critical)
+            QuantityTextBox.Select()
+            Return
+        End If
+        If ProductNameTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("PRODUCT NAME IS REQUIRED", MsgBoxStyle.Critical)
+            ProductNameTextBox.Select()
+            Return
+        End If
+        If CategoryNameComboBox.Text.ToString().Trim() = "" Then
+            MsgBox("CATEGORY IS REQUIRED", MsgBoxStyle.Critical)
+            CategoryNameComboBox.Select()
+            Return
+        End If
+        If BrandNameComboBox.Text.ToString().Trim() = "" Then
+            MsgBox("BRAND NAME IS REQUIRED", MsgBoxStyle.Critical)
+            BrandNameComboBox.Select()
+            Return
+        End If
+        If SupplierNameComboBox.Text.ToString().Trim() = "" Then
+            MsgBox("SUPPLIER NAME IS REQUIRED", MsgBoxStyle.Critical)
+            SupplierNameComboBox.Select()
+            Return
+        End If
+        If OriginalPriceTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("ORIGINAL PRICE IS REQUIRED", MsgBoxStyle.Critical)
+            OriginalPriceTextBox.Select()
+            Return
+        End If
+        If Double.Parse(OriginalPriceTextBox.Text.ToString().Trim()) <= 0 Then
+            MsgBox("ORIGINAL PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+            OriginalPriceTextBox.Select()
+            Return
+        End If
+        If MinimumPriceTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("MINIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
+            MinimumPriceTextBox.Select()
+            Return
+        End If
+        If Double.Parse(MinimumPriceTextBox.Text.ToString().Trim()) <= 0 Then
+            MsgBox("MINIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+            MinimumPriceTextBox.Select()
+            Return
+        End If
+        If MaximumPriceTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("MAXIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
+            MaximumPriceTextBox.Select()
+            Return
+        End If
+        If Double.Parse(MaximumPriceTextBox.Text.ToString().Trim()) <= 0 Then
+            MsgBox("MAXIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+            MaximumPriceTextBox.Select()
+            Return
+        End If
+        If FinalPriceTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("FINAL PRICE IS REQUIRED", MsgBoxStyle.Critical)
+            FinalPriceTextBox.Select()
+            Return
+        End If
+        If Double.Parse(FinalPriceTextBox.Text.ToString().Trim()) <= 0 Then
+            MsgBox("FINAL PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+            FinalPriceTextBox.Select()
+            Return
+        End If
 
         Dim ms As New MemoryStream
         ProductImagePictureBox.Image.Save(ms, ProductImagePictureBox.Image.RawFormat)
         If LblAddEditMode.Text = "(Create new Record)" Then
-            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy)", conn)
+
+            Dim query = "SELECT * FROM Product Where ProductCode = '" + ProductCodeTextBox.Text.ToString().Trim() + "' OR Barcode = '" + BarcodeTextBox.Text.ToString().Trim() + "'"
+            Try
+                Dim conn As SqlConnection = New SqlConnection(connection)
+                Dim cmd As SqlCommand = New SqlCommand(query, conn)
+                Dim da As New SqlDataAdapter
+                da.SelectCommand = cmd
+                Dim dt As New DataTable
+                da.Fill(dt)
+                If dt.Rows.Count > 0 Then
+                    MsgBox("THIS PRODUCT CODE OR BARCODE IS ALREADY EXISTS", MsgBoxStyle.Critical)
+                    ProductCodeTextBox.Select()
+                    Return
+                End If
+            Catch ex As Exception
+                MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+                Return
+            End Try
+
+            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
@@ -204,15 +301,17 @@ Public Class Products
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = BrandNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@SupplierName", SqlDbType.VarChar).Value = SupplierNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@OriginalPrice", SqlDbType.VarChar).Value = OriginalPriceTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@DiscountedPerc", SqlDbType.VarChar).Value = DiscountedPercTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@DiscountedDateFrom", SqlDbType.VarChar).Value = DiscountedDateFromDateTimePicker.Value
-            command1.Parameters.Add("@DiscountedDateTo", SqlDbType.VarChar).Value = DiscountedDateToDateTimePicker.Value
-            command1.Parameters.Add("@DiscountedPrice", SqlDbType.VarChar).Value = DiscountedPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@DiscountedPerc", SqlDbType.VarChar).Value = ""
+            command1.Parameters.Add("@DiscountedDateFrom", SqlDbType.VarChar).Value = DateTime.Now
+            command1.Parameters.Add("@DiscountedDateTo", SqlDbType.VarChar).Value = DateTime.Now
+            command1.Parameters.Add("@DiscountedPrice", SqlDbType.VarChar).Value = "0.00"
             command1.Parameters.Add("@FinalPrice", SqlDbType.VarChar).Value = FinalPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = QuantityTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = IsInstockCheckBox.Checked
+            command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = "1"
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
+            command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -229,7 +328,7 @@ Public Class Products
                 conn.Close()
             End Try
         ElseIf LblAddEditMode.Text = "(Update existing Record)" Then
-            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,ProductImage=@ProductImage,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock where Id = @Id", conn)
+            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,ProductImage=@ProductImage,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock,MinimumPrice=@MinimumPrice,MaximumPrice=@MaximumPrice where Id = @Id", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
@@ -239,15 +338,17 @@ Public Class Products
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = BrandNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@SupplierName", SqlDbType.VarChar).Value = SupplierNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@OriginalPrice", SqlDbType.VarChar).Value = OriginalPriceTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@DiscountedPerc", SqlDbType.VarChar).Value = DiscountedPercTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@DiscountedDateFrom", SqlDbType.VarChar).Value = DiscountedDateFromDateTimePicker.Value
-            command1.Parameters.Add("@DiscountedDateTo", SqlDbType.VarChar).Value = DiscountedDateToDateTimePicker.Value
-            command1.Parameters.Add("@DiscountedPrice", SqlDbType.VarChar).Value = DiscountedPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@DiscountedPerc", SqlDbType.VarChar).Value = ""
+            command1.Parameters.Add("@DiscountedDateFrom", SqlDbType.VarChar).Value = DateTime.Now
+            command1.Parameters.Add("@DiscountedDateTo", SqlDbType.VarChar).Value = DateTime.Now
+            command1.Parameters.Add("@DiscountedPrice", SqlDbType.VarChar).Value = "0.00"
             command1.Parameters.Add("@FinalPrice", SqlDbType.VarChar).Value = FinalPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@Quantity", SqlDbType.VarChar).Value = QuantityTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = IsInstockCheckBox.Checked
+            command1.Parameters.Add("@IsInstock", SqlDbType.VarChar).Value = "1"
             command1.Parameters.Add("@CreatedAt", SqlDbType.VarChar).Value = DateTime.Now()
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
+            command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -276,32 +377,76 @@ Public Class Products
 
     End Sub
 
-    Private Sub DiscountedPercTextBox_TextChanged(sender As Object, e As EventArgs) Handles DiscountedPercTextBox.TextChanged
-        Try
-            Dim dicounted_price As Double
-            dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
-            DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
+    Private Sub QuantityTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles QuantityTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
 
-            Dim final_price As Double
-            final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
-            FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
-        Catch ex As Exception
-            DiscountedPriceTextBox.Text = "0.00"
+    Private Sub OriginalPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles OriginalPriceTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
 
-        End Try
+    Private Sub FinalPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FinalPriceTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub OriginalPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles OriginalPriceTextBox.TextChanged
-        Try
-            Dim final_price As Double
-            final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
-            FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
-
-            Dim dicounted_price As Double
-            dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
-            DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
-        Catch ex As Exception
-            FinalPriceTextBox.Text = "0.00"
-        End Try
+        If OriginalPriceTextBox.Text <> "" Then
+            MinimumPriceTextBox.Text = OriginalPriceTextBox.Text
+        Else
+            MinimumPriceTextBox.Text = "0.00"
+        End If
     End Sub
+
+    Private Sub MinimumPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MinimumPriceTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub MaximumPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MaximumPriceTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
+
+
+    'Private Sub DiscountedPercTextBox_TextChanged(sender As Object, e As EventArgs)
+    '    Try
+    '        Dim dicounted_price As Double
+    '        dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
+    '        DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
+
+    '        Dim final_price As Double
+    '        final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
+    '        FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
+    '    Catch ex As Exception
+    '        DiscountedPriceTextBox.Text = "0.00"
+
+    '    End Try
+    'End Sub
+
+    'Private Sub OriginalPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles OriginalPriceTextBox.TextChanged
+    '    Try
+    '        Dim final_price As Double
+    '        final_price = Double.Parse(OriginalPriceTextBox.Text) - Double.Parse(DiscountedPriceTextBox.Text)
+    '        FinalPriceTextBox.Text = final_price.ToString("###,##0.00")
+
+    '        Dim dicounted_price As Double
+    '        dicounted_price = Double.Parse(OriginalPriceTextBox.Text) * (Double.Parse(DiscountedPercTextBox.Text) / 100)
+    '        DiscountedPriceTextBox.Text = dicounted_price.ToString("###,##0.00")
+    '    Catch ex As Exception
+    '        FinalPriceTextBox.Text = "0.00"
+    '    End Try
+    'End Sub
 End Class

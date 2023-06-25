@@ -35,7 +35,13 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_Recent_Activities()
-        Dim query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
+        Dim query As String
+        If user_login = "admin" Then
+            query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
+        Else
+            query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
+        End If
+
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -50,7 +56,12 @@ Public Class Dashboard
         End Try
     End Sub
     Private Sub Dashboard_Top_Selling()
-        Dim query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+        Dim query As String
+        If user_login = "admin" Then
+            query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+        Else
+            query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+        End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)

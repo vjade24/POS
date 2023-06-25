@@ -91,7 +91,7 @@ Partial Class Brand
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1142, 460)
+        Me.GroupBox2.Size = New System.Drawing.Size(950, 413)
         Me.GroupBox2.TabIndex = 27
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Brand List"
@@ -118,7 +118,7 @@ Partial Class Brand
         Me.BtnAdd.IconColor = System.Drawing.Color.White
         Me.BtnAdd.IconSize = 30
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(1012, 22)
+        Me.BtnAdd.Location = New System.Drawing.Point(830, 22)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
@@ -178,7 +178,7 @@ Partial Class Brand
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(1105, 386)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(923, 339)
         Me.CategoryDataGridView.TabIndex = 3
         '
         'BrandBindingSource
@@ -226,7 +226,7 @@ Partial Class Brand
         Me.GroupBox1.Controls.Add(Me.CategoryNameTextBox)
         Me.GroupBox1.Controls.Add(CategoryNameLabel)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 479)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 432)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -335,6 +335,7 @@ Partial Class Brand
         Me.CreatedAt.HeaderText = "CreatedAt"
         Me.CreatedAt.Name = "CreatedAt"
         Me.CreatedAt.ReadOnly = True
+        Me.CreatedAt.Visible = False
         '
         'CreatedBy
         '
@@ -343,13 +344,14 @@ Partial Class Brand
         Me.CreatedBy.HeaderText = "CreatedBy"
         Me.CreatedBy.Name = "CreatedBy"
         Me.CreatedBy.ReadOnly = True
+        Me.CreatedBy.Visible = False
         '
         'Brand
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1180, 702)
+        Me.ClientSize = New System.Drawing.Size(982, 676)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

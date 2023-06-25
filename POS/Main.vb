@@ -159,4 +159,9 @@ Public Class Main
         Me.Hide()
         Login.Show()
     End Sub
+
+    Private Sub BtnStoreInfo_Click(sender As Object, e As EventArgs) Handles BtnStoreInfo.Click
+        ActiveButton(sender, RGBColors.color1)
+        OpenChildForm(New Store, "Store Information")
+    End Sub
 End Class

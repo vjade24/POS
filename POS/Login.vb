@@ -11,22 +11,28 @@ Public Class Login
         Dim dt As New DataTable
         da.Fill(dt)
         If dt.Rows.Count > 0 Then
-            StoreNameTextBox.Text = dt.Rows(0)("StoreName").ToString()
-            StoreNameTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
-            SloganTextBox.Text = dt.Rows(0)("Slogan").ToString()
-            SloganTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
-            PanelRight.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
-            BtnLogin.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+            If DateTime.Now > DateTime.Parse(dt.Rows(0)("ExpiryDate").ToString()) Then
+                MsgBox("Application Expired, Please contact Administrator", MsgBoxStyle.Critical)
+                Me.Close()
+            Else
+                StoreNameTextBox.Text = dt.Rows(0)("StoreName").ToString()
+                StoreNameTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+                SloganTextBox.Text = dt.Rows(0)("Slogan").ToString()
+                SloganTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+                PanelRight.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+                BtnLogin.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
 
-            storeTheme = dt.Rows(0)("ThemeColor").ToString().Trim()
+                storeTheme = dt.Rows(0)("ThemeColor").ToString().Trim()
 
-            Try
-                Dim lb() As Byte = dt.Rows(0)("Logo")
-                Dim lstr As New System.IO.MemoryStream(lb)
-                LogoPictureBox.Image = Image.FromStream(lstr)
-            Catch ex As Exception
-                LogoPictureBox.Image = My.Resources._1
-            End Try
+                Try
+                    Dim lb() As Byte = dt.Rows(0)("Logo")
+                    Dim lstr As New System.IO.MemoryStream(lb)
+                    LogoPictureBox.Image = Image.FromStream(lstr)
+                Catch ex As Exception
+                    LogoPictureBox.Image = My.Resources._1
+                End Try
+            End If
+
         Else
             MsgBox("No Store Information!", MsgBoxStyle.Critical)
             Me.Hide()
@@ -89,18 +95,26 @@ Public Class Login
                         formMain.BtnAnalytics.Visible = True
                         formMain.BtnPersonnel.Visible = True
                         formMain.BtnSupplier.Visible = True
+                        formMain.BtnStoreInfo.Visible = False
+
+                        If dt.Rows(0)("UserName").ToString().Trim() = "vja" Then
+                            formMain.BtnStoreInfo.Visible = True
+                        End If
+
+
                     ElseIf dt.Rows(0)("Type").ToString.Trim() = "Cashier" Then
-                        formMain.BtnDashBoard.Visible = True
-                        formMain.BtnPOS.Visible = True
-                        formMain.BtnProducts.Visible = False
-                        formMain.BtnCategory.Visible = False
-                        formMain.BtnBrand.Visible = False
-                        formMain.BtnReports.Visible = True
-                        formMain.BtnAnalytics.Visible = False
-                        formMain.BtnPersonnel.Visible = False
-                        formMain.BtnSupplier.Visible = False
-                    Else
-                        formMain.BtnDashBoard.Visible = False
+                            formMain.BtnDashBoard.Visible = True
+                            formMain.BtnPOS.Visible = True
+                            formMain.BtnProducts.Visible = False
+                            formMain.BtnCategory.Visible = False
+                            formMain.BtnBrand.Visible = False
+                            formMain.BtnReports.Visible = True
+                            formMain.BtnAnalytics.Visible = False
+                            formMain.BtnPersonnel.Visible = False
+                            formMain.BtnSupplier.Visible = False
+                            formMain.BtnStoreInfo.Visible = False
+                        Else
+                            formMain.BtnDashBoard.Visible = False
                         formMain.BtnPOS.Visible = False
                         formMain.BtnProducts.Visible = False
                         formMain.BtnCategory.Visible = False
@@ -109,6 +123,7 @@ Public Class Login
                         formMain.BtnAnalytics.Visible = False
                         formMain.BtnPersonnel.Visible = False
                         formMain.BtnSupplier.Visible = False
+                        formMain.BtnStoreInfo.Visible = False
                     End If
 
                     formMain.Show()

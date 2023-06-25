@@ -9,12 +9,16 @@ Public Class PointOfSale
         GroupBox3.Visible = False
         GroupBox4.Visible = False
 
+        Label1.Visible = False
+        ComboBoxInvoice.Visible = False
+
         Panel1.Visible = False
+        btnAddToCart.Visible = False
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Product"
+        Dim query = "SELECT * FROM Product WHERE Quantity >= 1"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -38,6 +42,7 @@ Public Class PointOfSale
             Dim dt As New DataTable
             da.Fill(dt)
             DataGridView2.DataSource = dt
+
         Catch ex As Exception
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
@@ -45,7 +50,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Product WHERE ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
         CommonQuery(query, DataGridView1)
     End Sub
 
@@ -79,11 +84,11 @@ Public Class PointOfSale
                 command_upd.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
                 result = command_upd.ExecuteNonQuery()
                 ' Update Quantity of Product
-
+                Panel1.Visible = True
                 RefreshData_Details(IdTextBox.Text.ToString().Trim())
                 RefreshData()
                 Grandtotal()
-                ' ClearEntry()
+                ClearEntry()
             End If
             conn.Close()
         Catch ex As Exception
@@ -109,6 +114,8 @@ Public Class PointOfSale
         DiscountedPriceTextBox.Text = "0.00"
         FinalPriceTextBox.Text = "0.00"
         QuantityTextBox.Text = "1"
+        MinimumPriceTextBox.Text = "0.00"
+        MaximumPriceTextBox.Text = "0.00"
 
         ProductCodeTextBox.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString()
         ProductNameTextBox.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString()
@@ -116,24 +123,28 @@ Public Class PointOfSale
         CategoryNameComboBox.Text = DataGridView1.CurrentRow.Cells(5).Value.ToString()
         BrandNameComboBox.Text = DataGridView1.CurrentRow.Cells(6).Value.ToString()
         SupplierNameComboBox.Text = DataGridView1.CurrentRow.Cells(7).Value.ToString()
-        OriginalPriceTextBox.Text = DataGridView1.CurrentRow.Cells(8).Value.ToString()
+        OriginalPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(8).Value.ToString()).ToString("###,##0.00")
         DiscountedPercTextBox.Text = DataGridView1.CurrentRow.Cells(9).Value.ToString()
 
-        DiscountedPriceTextBox.Text = DataGridView1.CurrentRow.Cells(12).Value.ToString()
-        FinalPriceTextBox.Text = DataGridView1.CurrentRow.Cells(13).Value.ToString()
+        DiscountedPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(12).Value.ToString()).ToString("###,##0.00")
+        FinalPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(13).Value.ToString()).ToString("###,##0.00")
         'QuantityTextBox.Text = DataGridView1.CurrentRow.Cells(14).Value.ToString()
 
-        Try
-            Dim lb() As Byte = DataGridView2.CurrentRow.Cells(3).Value
-            Dim lstr As New System.IO.MemoryStream(lb)
-            ProductImagePictureBox.Image = Image.FromStream(lstr)
-            ProductImagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage
-        Catch ex As Exception
-            ProductImagePictureBox.Image = My.Resources.box
-        End Try
+        'Try
+        '    Dim lb() As Byte = DataGridView2.CurrentRow.Cells(3).Value
+        '    Dim lstr As New System.IO.MemoryStream(lb)
+        '    ProductImagePictureBox.Image = Image.FromStream(lstr)
+        '    ProductImagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage
+        'Catch ex As Exception
+        '    ProductImagePictureBox.Image = My.Resources.box
+        'End Try
 
-        Panel1.Visible = True
-        TextBox_TotalPerProduct.Text = DataGridView1.CurrentRow.Cells(13).Value.ToString()
+
+        btnAddToCart.Visible = True
+        TextBox_TotalPerProduct.Text = Double.Parse(DataGridView1.CurrentRow.Cells(13).Value.ToString()).ToString("###,##0.00")
+        MinimumPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(16).Value.ToString()).ToString("###,##0.00")
+        MaximumPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(17).Value.ToString()).ToString("###,##0.00")
+        QuantityTextBox.Select()
         'AddtoCart()
 
     End Sub
@@ -141,9 +152,18 @@ Public Class PointOfSale
     Private Sub ClearEntry()
         ProductCodeTextBox.Text = ""
         ProductNameTextBox.Text = ""
+        BarcodeTextBox.Text = ""
+        CategoryNameComboBox.Text = ""
+        BrandNameComboBox.Text = ""
+        SupplierNameComboBox.Text = ""
+        OriginalPriceTextBox.Text = "0.00"
+        DiscountedPercTextBox.Text = "0.00"
+        DiscountedPriceTextBox.Text = "0.00"
+        DiscountedPriceTextBox.Text = "0.00"
         FinalPriceTextBox.Text = "0.00"
-        QuantityTextBox.Text = "0.00"
-        TextBox_TotalPerProduct.Text = "0.00"
+        QuantityTextBox.Text = "1"
+        MinimumPriceTextBox.Text = "0.00"
+        MaximumPriceTextBox.Text = "0.00"
     End Sub
 
     Private Sub QuantityTextBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTextBox.TextChanged
@@ -157,6 +177,9 @@ Public Class PointOfSale
         Panel1.Visible = False
         Dim invoice_nbr As String
         invoice_nbr = GetLastRow("TransactionHeader", "InvoiceNo").ToString().PadLeft(10, "0")
+
+        Label1.Visible = False
+        ComboBoxInvoice.Visible = False
 
         RefreshData()
         RefreshData_Details(invoice_nbr.ToString().Trim)
@@ -224,6 +247,8 @@ Public Class PointOfSale
         GroupBox2.Visible = False
         GroupBox3.Visible = False
         GroupBox4.Visible = False
+        Label1.Visible = False
+        ComboBoxInvoice.Visible = False
 
         Dim pn As New PayNow
         pn.PersonnelIdTextBox.Text = PersonnelIdTextBox.Text
@@ -234,7 +259,7 @@ Public Class PointOfSale
         pn.PaymentChangeTextBox.Text = PaymentChangeTextBox.Text
         pn.PaymentStatusTextBox.Text = PaymentStatusTextBox.Text
         pn.IconButton1.Visible = True
-        pn.Receipt(InvoiceNoTextBox.Text.ToString().Trim)
+        'pn.Receipt(InvoiceNoTextBox.Text.ToString().Trim)
 
         pn.ShowDialog()
     End Sub
@@ -254,7 +279,7 @@ Public Class PointOfSale
                 GrandTotalTextBox.Text = "0.00"
             End If
         Catch ex As Exception
-            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            GrandTotalTextBox.Text = "0.00"
             Return
         End Try
     End Sub
@@ -289,6 +314,32 @@ Public Class PointOfSale
         End Try
     End Sub
 
+
+    Private Sub DiscountedPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles DiscountedPriceTextBox.TextChanged
+        If OriginalPriceTextBox.Text.ToString.Trim <> "" Then
+            FinalPriceTextBox.Text = (Double.Parse(OriginalPriceTextBox.Text.ToString.Trim) - Double.Parse(DiscountedPriceTextBox.Text.ToString.Trim)).ToString("###,##0.00")
+        End If
+
+        Try
+            TextBox_TotalPerProduct.Text = (Double.Parse(FinalPriceTextBox.Text) * Double.Parse(QuantityTextBox.Text)).ToString("##,##0.00")
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub DiscountedPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles DiscountedPriceTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
+
+    Private Sub QuantityTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles QuantityTextBox.KeyPress
+        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+            MessageBox.Show(“Please enter numbers only”)
+            e.Handled = True
+        End If
+    End Sub
+
     Private Sub DataGridView2_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView2.CellClick
         If DataGridView2.Columns(e.ColumnIndex).Name.ToString.Trim = "ColumnRemove" Then
             Try
@@ -312,6 +363,77 @@ Public Class PointOfSale
                 MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
                 conn.Close()
             End Try
+        End If
+    End Sub
+
+    Private Sub IconButtonSearch_Click(sender As Object, e As EventArgs) Handles IconButtonSearch.Click
+        Dim query = "SELECT DISTINCT A.Id,A.InvoiceNo,A.InvoiceNo + ' (' + A.PaymentStatus + ')' AS InvoiceNoStatus FROM TransactionHeader A INNER JOIN TransactionDetails B ON B.TransactionHeaderId = A.Id AND A.PaymentStatus <> 'Paid' ORDER BY InvoiceNo DESC"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter()
+            da.SelectCommand = cmd
+            Dim dt As New DataSet()
+            Dim dt_table As New DataTable()
+            da.Fill(dt)
+            da.Fill(dt_table)
+            If dt_table.Rows.Count > 0 Then
+                ComboBoxInvoice.DataSource = dt.Tables(0)
+                ComboBoxInvoice.ValueMember = "Id"
+                ComboBoxInvoice.DisplayMember = "InvoiceNoStatus"
+                RefreshData()
+                Label1.Visible = True
+                ComboBoxInvoice.Visible = True
+            Else
+                MsgBox("No Hold or New Data Found!", MsgBoxStyle.Critical)
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+
+    End Sub
+
+    Private Sub ComboBoxInvoice_SelectedValueChanged(sender As Object, e As EventArgs) Handles ComboBoxInvoice.SelectedValueChanged
+
+    End Sub
+
+    Private Sub ComboBoxInvoice_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ComboBoxInvoice.SelectionChangeCommitted
+        If ComboBoxInvoice.SelectedValue.ToString.Trim <> "" Then
+
+            Dim query = "SELECT * FROM TransactionHeader WHERE Id = '" + ComboBoxInvoice.SelectedValue.ToString.Trim + "'"
+            Try
+                Dim conn As SqlConnection = New SqlConnection(connection)
+                Dim cmd As SqlCommand = New SqlCommand(query, conn)
+                Dim da As New SqlDataAdapter
+                da.SelectCommand = cmd
+                Dim dt As New DataTable
+                da.Fill(dt)
+                If dt.Rows.Count > 0 Then
+                    IdTextBox.Text = ComboBoxInvoice.SelectedValue.ToString.Trim
+                    PersonnelIdTextBox.Text = dt.Rows(0)("PersonnelId").ToString.Trim
+                    InvoiceNoTextBox.Text = dt.Rows(0)("InvoiceNo").ToString.Trim
+                    CustomerNameTextBox.Text = dt.Rows(0)("CustomerName").ToString.Trim
+                    GrandTotalTextBox.Text = dt.Rows(0)("GrandTotal").ToString.Trim
+                    PaymentAmountTextBox.Text = dt.Rows(0)("PaymentAmount").ToString.Trim
+                    PaymentChangeTextBox.Text = dt.Rows(0)("PaymentChange").ToString.Trim
+                    PaymentStatusTextBox.Text = dt.Rows(0)("PaymentStatus").ToString.Trim
+
+                    RefreshData_Details(ComboBoxInvoice.SelectedValue.ToString.Trim)
+
+                    Grandtotal()
+                    ClearEntry()
+
+                    GroupBox1.Visible = True
+                    GroupBox2.Visible = True
+                    GroupBox3.Visible = True
+                End If
+
+            Catch ex As Exception
+                MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+                Return
+            End Try
+
         End If
     End Sub
 End Class

@@ -47,14 +47,14 @@ Partial Class Supplier
         Me.BtnAdd = New FontAwesome.Sharp.IconButton()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
-        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SupplierName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ContactNo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Address = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
+        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
         IdLabel = New System.Windows.Forms.Label()
         SupplierNameLabel = New System.Windows.Forms.Label()
         ContactNoLabel = New System.Windows.Forms.Label()
@@ -188,7 +188,7 @@ Partial Class Supplier
         Me.GroupBox1.Controls.Add(Me.BtnDelete)
         Me.GroupBox1.Controls.Add(IdLabel)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(19, 373)
+        Me.GroupBox1.Location = New System.Drawing.Point(19, 351)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -274,7 +274,7 @@ Partial Class Supplier
         Me.BtnAdd.IconColor = System.Drawing.Color.White
         Me.BtnAdd.IconSize = 30
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(1012, 22)
+        Me.BtnAdd.Location = New System.Drawing.Point(831, 22)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
@@ -334,47 +334,8 @@ Partial Class Supplier
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(1105, 274)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(924, 256)
         Me.CategoryDataGridView.TabIndex = 3
-        '
-        'BrandBindingSource
-        '
-        Me.BrandBindingSource.DataMember = "Brand"
-        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.BtnAdd)
-        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
-        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
-        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(19, 10)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1142, 355)
-        Me.GroupBox2.TabIndex = 29
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Supplier List"
-        '
-        'SupplierTableAdapter
-        '
-        Me.SupplierTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
-        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
-        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
-        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
-        Me.TableAdapterManager.ProductTableAdapter = Nothing
-        Me.TableAdapterManager.StoreTableAdapter = Nothing
-        Me.TableAdapterManager.SupplierTableAdapter = Me.SupplierTableAdapter
-        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -409,12 +370,51 @@ Partial Class Supplier
         Me.Address.Name = "Address"
         Me.Address.ReadOnly = True
         '
+        'BrandBindingSource
+        '
+        Me.BrandBindingSource.DataMember = "Brand"
+        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.BtnAdd)
+        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
+        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(19, 10)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(951, 333)
+        Me.GroupBox2.TabIndex = 29
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Supplier List"
+        '
+        'SupplierTableAdapter
+        '
+        Me.SupplierTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
+        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
+        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
+        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductTableAdapter = Nothing
+        Me.TableAdapterManager.StoreTableAdapter = Nothing
+        Me.TableAdapterManager.SupplierTableAdapter = Me.SupplierTableAdapter
+        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
         'Supplier
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1180, 702)
+        Me.ClientSize = New System.Drawing.Size(982, 676)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

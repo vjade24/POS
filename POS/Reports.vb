@@ -1,52 +1,108 @@
-﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms.DataVisualization.Charting
-
+﻿
+Imports System.Data.SqlClient
 Public Class Reports
-
     Private Sub Reports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadChart()
+
+        DateTimePicker1.Value = DateTime.Now.Month.ToString().Trim() + "/01/" + DateTime.Now.Year().ToString().Trim()
+        DateTimePicker2.Value = DateTime.Parse(DateTimePicker1.Value).AddMonths(1).AddDays(-1)
+
+        LoadReport()
+        TotalNew()
+        TotalPaid()
+        TotalHold()
     End Sub
+    Private Sub LoadReport()
+        Dim query As String
+        query = "SELECT * FROM vw_Transactions WHERE CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "' ORDER BY InvoiceNo DESC"
 
-    Private Sub LoadChart()
-        With Chart1
-            .Series.Clear()
-            .Series.Add("Series1")
-        End With
-
-        Dim query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
             Dim da As New SqlDataAdapter
             da.SelectCommand = cmd
-            Dim ds As New DataSet
-
-            da.Fill(ds, "ProductName")
-            Chart1.DataSource = ds.Tables("ProductName")
-            Dim series1 As Series = Chart1.Series("Series1")
-            series1.ChartType = SeriesChartType.Pie
-            series1.Name = "Test Name"
-
-            With Chart1
-                .Series(0)("PieLabelStyle") = "Outside"
-                .Series(0).BorderWidth = 1
-                '.Series(0).BorderColor = System.Drawing.Color.Red
-                .ChartAreas(0).Area3DStyle.Enable3D = True
-
-                .Series(series1.Name).XValueMember = "ProductName"
-                .Series(series1.Name).YValueMembers = "Quantity"
-
-                .Series(0).LabelFormat = "{#,##0}"
-                .Series(0).IsValueShownAsLabel = True
-
-                .Series(0).LegendText = "#VALX (#PERCENT)"
-            End With
-
+            Dim dt As New DataTable
+            da.Fill(dt)
+            CategoryDataGridView.DataSource = dt
         Catch ex As Exception
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
         End Try
+    End Sub
 
+    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+        LoadReport()
+        TotalNew()
+        TotalPaid()
+        TotalHold()
+    End Sub
 
+    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+        LoadReport()
+        TotalNew()
+        TotalPaid()
+        TotalHold()
+    End Sub
+
+    Private Sub TotalNew()
+        Dim query As String
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'New' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                Label_New.Text = "P " + Double.Parse(dt.Rows(0)("TotalAmount").ToString()).ToString("###,##0.00")
+            Else
+                Label_New.Text = "P 0.00"
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+    End Sub
+
+    Private Sub TotalPaid()
+        Dim query As String
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                Label_Paid.Text = "P " + Double.Parse(dt.Rows(0)("TotalAmount").ToString()).ToString("###,##0.00")
+            Else
+                Label_Paid.Text = "P 0.00"
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+    End Sub
+
+    Private Sub TotalHold()
+        Dim query As String
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Hold' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                Label_Hold.Text = "P " + Double.Parse(dt.Rows(0)("TotalAmount").ToString()).ToString("###,##0.00")
+            Else
+                Label_Hold.Text = "P 0.00"
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
     End Sub
 End Class

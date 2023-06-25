@@ -27,6 +27,7 @@ Partial Class Main
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.StoreNameTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnStoreInfo = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.BtnSupplier = New FontAwesome.Sharp.IconButton()
         Me.BtnPersonnel = New FontAwesome.Sharp.IconButton()
@@ -63,7 +64,7 @@ Partial Class Main
         Me.PanelSide.Dock = System.Windows.Forms.DockStyle.Left
         Me.PanelSide.Location = New System.Drawing.Point(0, 0)
         Me.PanelSide.Name = "PanelSide"
-        Me.PanelSide.Size = New System.Drawing.Size(267, 758)
+        Me.PanelSide.Size = New System.Drawing.Size(267, 732)
         Me.PanelSide.TabIndex = 0
         '
         'Panel2
@@ -73,7 +74,7 @@ Partial Class Main
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(267, 199)
+        Me.Panel2.Size = New System.Drawing.Size(267, 170)
         Me.Panel2.TabIndex = 16
         '
         'LogoPictureBox
@@ -97,13 +98,14 @@ Partial Class Main
         Me.StoreNameTextBox.Multiline = True
         Me.StoreNameTextBox.Name = "StoreNameTextBox"
         Me.StoreNameTextBox.ReadOnly = True
-        Me.StoreNameTextBox.Size = New System.Drawing.Size(267, 40)
+        Me.StoreNameTextBox.Size = New System.Drawing.Size(267, 35)
         Me.StoreNameTextBox.TabIndex = 15
         Me.StoreNameTextBox.TabStop = False
         Me.StoreNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.BtnStoreInfo)
         Me.Panel1.Controls.Add(Me.IconButton1)
         Me.Panel1.Controls.Add(Me.BtnSupplier)
         Me.Panel1.Controls.Add(Me.BtnPersonnel)
@@ -115,10 +117,32 @@ Partial Class Main
         Me.Panel1.Controls.Add(Me.BtnPOS)
         Me.Panel1.Controls.Add(Me.BtnDashBoard)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 198)
+        Me.Panel1.Location = New System.Drawing.Point(0, 172)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(267, 560)
         Me.Panel1.TabIndex = 2
+        '
+        'BtnStoreInfo
+        '
+        Me.BtnStoreInfo.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnStoreInfo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnStoreInfo.FlatAppearance.BorderSize = 0
+        Me.BtnStoreInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnStoreInfo.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnStoreInfo.ForeColor = System.Drawing.Color.White
+        Me.BtnStoreInfo.IconChar = FontAwesome.Sharp.IconChar.Inbox
+        Me.BtnStoreInfo.IconColor = System.Drawing.Color.White
+        Me.BtnStoreInfo.IconSize = 30
+        Me.BtnStoreInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnStoreInfo.Location = New System.Drawing.Point(0, 450)
+        Me.BtnStoreInfo.Name = "BtnStoreInfo"
+        Me.BtnStoreInfo.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.BtnStoreInfo.Rotation = 0R
+        Me.BtnStoreInfo.Size = New System.Drawing.Size(267, 50)
+        Me.BtnStoreInfo.TabIndex = 22
+        Me.BtnStoreInfo.Text = "Store Info"
+        Me.BtnStoreInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnStoreInfo.UseVisualStyleBackColor = False
         '
         'IconButton1
         '
@@ -154,11 +178,11 @@ Partial Class Main
         Me.BtnSupplier.IconColor = System.Drawing.Color.White
         Me.BtnSupplier.IconSize = 30
         Me.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSupplier.Location = New System.Drawing.Point(0, 424)
+        Me.BtnSupplier.Location = New System.Drawing.Point(0, 400)
         Me.BtnSupplier.Name = "BtnSupplier"
         Me.BtnSupplier.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnSupplier.Rotation = 0R
-        Me.BtnSupplier.Size = New System.Drawing.Size(267, 53)
+        Me.BtnSupplier.Size = New System.Drawing.Size(267, 50)
         Me.BtnSupplier.TabIndex = 20
         Me.BtnSupplier.Text = "Supplier"
         Me.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -176,11 +200,11 @@ Partial Class Main
         Me.BtnPersonnel.IconColor = System.Drawing.Color.White
         Me.BtnPersonnel.IconSize = 30
         Me.BtnPersonnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 371)
+        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 350)
         Me.BtnPersonnel.Name = "BtnPersonnel"
         Me.BtnPersonnel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPersonnel.Rotation = 0R
-        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 53)
+        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 50)
         Me.BtnPersonnel.TabIndex = 19
         Me.BtnPersonnel.Text = "Personnel"
         Me.BtnPersonnel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -198,11 +222,11 @@ Partial Class Main
         Me.BtnAnalytics.IconColor = System.Drawing.Color.White
         Me.BtnAnalytics.IconSize = 30
         Me.BtnAnalytics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 318)
+        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 300)
         Me.BtnAnalytics.Name = "BtnAnalytics"
         Me.BtnAnalytics.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnAnalytics.Rotation = 0R
-        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 53)
+        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 50)
         Me.BtnAnalytics.TabIndex = 18
         Me.BtnAnalytics.Text = "Analytics"
         Me.BtnAnalytics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -220,11 +244,11 @@ Partial Class Main
         Me.BtnReports.IconColor = System.Drawing.Color.White
         Me.BtnReports.IconSize = 30
         Me.BtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReports.Location = New System.Drawing.Point(0, 265)
+        Me.BtnReports.Location = New System.Drawing.Point(0, 250)
         Me.BtnReports.Name = "BtnReports"
         Me.BtnReports.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnReports.Rotation = 0R
-        Me.BtnReports.Size = New System.Drawing.Size(267, 53)
+        Me.BtnReports.Size = New System.Drawing.Size(267, 50)
         Me.BtnReports.TabIndex = 17
         Me.BtnReports.Text = "Reports"
         Me.BtnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -242,11 +266,11 @@ Partial Class Main
         Me.BtnBrand.IconColor = System.Drawing.Color.White
         Me.BtnBrand.IconSize = 30
         Me.BtnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrand.Location = New System.Drawing.Point(0, 212)
+        Me.BtnBrand.Location = New System.Drawing.Point(0, 200)
         Me.BtnBrand.Name = "BtnBrand"
         Me.BtnBrand.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnBrand.Rotation = 0R
-        Me.BtnBrand.Size = New System.Drawing.Size(267, 53)
+        Me.BtnBrand.Size = New System.Drawing.Size(267, 50)
         Me.BtnBrand.TabIndex = 16
         Me.BtnBrand.Text = "Brand"
         Me.BtnBrand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -264,11 +288,11 @@ Partial Class Main
         Me.BtnCategory.IconColor = System.Drawing.Color.White
         Me.BtnCategory.IconSize = 30
         Me.BtnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCategory.Location = New System.Drawing.Point(0, 159)
+        Me.BtnCategory.Location = New System.Drawing.Point(0, 150)
         Me.BtnCategory.Name = "BtnCategory"
         Me.BtnCategory.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnCategory.Rotation = 0R
-        Me.BtnCategory.Size = New System.Drawing.Size(267, 53)
+        Me.BtnCategory.Size = New System.Drawing.Size(267, 50)
         Me.BtnCategory.TabIndex = 15
         Me.BtnCategory.Text = "Category"
         Me.BtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -286,11 +310,11 @@ Partial Class Main
         Me.BtnProducts.IconColor = System.Drawing.Color.White
         Me.BtnProducts.IconSize = 30
         Me.BtnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnProducts.Location = New System.Drawing.Point(0, 106)
+        Me.BtnProducts.Location = New System.Drawing.Point(0, 100)
         Me.BtnProducts.Name = "BtnProducts"
         Me.BtnProducts.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnProducts.Rotation = 0R
-        Me.BtnProducts.Size = New System.Drawing.Size(267, 53)
+        Me.BtnProducts.Size = New System.Drawing.Size(267, 50)
         Me.BtnProducts.TabIndex = 14
         Me.BtnProducts.Text = "Products"
         Me.BtnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -308,11 +332,11 @@ Partial Class Main
         Me.BtnPOS.IconColor = System.Drawing.Color.White
         Me.BtnPOS.IconSize = 30
         Me.BtnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPOS.Location = New System.Drawing.Point(0, 53)
+        Me.BtnPOS.Location = New System.Drawing.Point(0, 50)
         Me.BtnPOS.Name = "BtnPOS"
         Me.BtnPOS.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPOS.Rotation = 0R
-        Me.BtnPOS.Size = New System.Drawing.Size(267, 53)
+        Me.BtnPOS.Size = New System.Drawing.Size(267, 50)
         Me.BtnPOS.TabIndex = 13
         Me.BtnPOS.Text = "Point of Sale"
         Me.BtnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -334,7 +358,7 @@ Partial Class Main
         Me.BtnDashBoard.Name = "BtnDashBoard"
         Me.BtnDashBoard.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnDashBoard.Rotation = 0R
-        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 53)
+        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 50)
         Me.BtnDashBoard.TabIndex = 12
         Me.BtnDashBoard.Text = "Dashboard"
         Me.BtnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -347,7 +371,7 @@ Partial Class Main
         Me.PanelTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelTop.Location = New System.Drawing.Point(267, 0)
         Me.PanelTop.Name = "PanelTop"
-        Me.PanelTop.Size = New System.Drawing.Size(1180, 56)
+        Me.PanelTop.Size = New System.Drawing.Size(982, 56)
         Me.PanelTop.TabIndex = 1
         '
         'Panel4
@@ -355,7 +379,7 @@ Partial Class Main
         Me.Panel4.Controls.Add(Me.IconPictureBox2)
         Me.Panel4.Controls.Add(Me.TextBoxRight)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel4.Location = New System.Drawing.Point(412, 0)
+        Me.Panel4.Location = New System.Drawing.Point(214, 0)
         Me.Panel4.Name = "Panel4"
         Me.Panel4.Size = New System.Drawing.Size(768, 56)
         Me.Panel4.TabIndex = 1
@@ -428,14 +452,14 @@ Partial Class Main
         Me.PanelMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PanelMain.Location = New System.Drawing.Point(267, 56)
         Me.PanelMain.Name = "PanelMain"
-        Me.PanelMain.Size = New System.Drawing.Size(1180, 702)
+        Me.PanelMain.Size = New System.Drawing.Size(982, 676)
         Me.PanelMain.TabIndex = 2
         '
         'Main
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1447, 758)
+        Me.ClientSize = New System.Drawing.Size(1249, 732)
         Me.Controls.Add(Me.PanelMain)
         Me.Controls.Add(Me.PanelTop)
         Me.Controls.Add(Me.PanelSide)
@@ -484,4 +508,5 @@ Partial Class Main
     Friend WithEvents IconPictureBoxTop As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents IconPictureBox2 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents PanelMain As Panel
+    Friend WithEvents BtnStoreInfo As FontAwesome.Sharp.IconButton
 End Class

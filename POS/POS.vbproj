@@ -168,6 +168,12 @@
     <Compile Include="Products.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ProductsLedger.Designer.vb">
+      <DependentUpon>ProductsLedger.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ProductsLedger.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports.Designer.vb">
       <DependentUpon>Reports.vb</DependentUpon>
     </Compile>
@@ -208,6 +214,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Remove.png" />
+    <None Include="Resources\Add.png" />
     <EmbeddedResource Include="Analytics.resx">
       <DependentUpon>Analytics.vb</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsLedger.resx">
+      <DependentUpon>ProductsLedger.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>

@@ -142,7 +142,7 @@ Partial Class Category
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(1114, 380)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(928, 337)
         Me.CategoryDataGridView.TabIndex = 3
         '
         'TextBoxSearch
@@ -166,7 +166,7 @@ Partial Class Category
         Me.GroupBox1.Controls.Add(Me.CategoryNameTextBox)
         Me.GroupBox1.Controls.Add(CategoryNameLabel)
         Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 476)
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 437)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(402, 214)
         Me.GroupBox1.TabIndex = 24
@@ -258,7 +258,7 @@ Partial Class Category
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(20, 11)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(1148, 459)
+        Me.GroupBox2.Size = New System.Drawing.Size(950, 420)
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Category List"
@@ -275,11 +275,11 @@ Partial Class Category
         Me.BtnAdd.IconColor = System.Drawing.Color.White
         Me.BtnAdd.IconSize = 30
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(1018, 20)
+        Me.BtnAdd.Location = New System.Drawing.Point(833, 20)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Padding = New System.Windows.Forms.Padding(13, 0, 0, 0)
         Me.BtnAdd.Rotation = 0R
-        Me.BtnAdd.Size = New System.Drawing.Size(112, 36)
+        Me.BtnAdd.Size = New System.Drawing.Size(111, 36)
         Me.BtnAdd.TabIndex = 14
         Me.BtnAdd.Text = "Add New"
         Me.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -310,6 +310,7 @@ Partial Class Category
         Me.CreatedAt.HeaderText = "CreatedAt"
         Me.CreatedAt.Name = "CreatedAt"
         Me.CreatedAt.ReadOnly = True
+        Me.CreatedAt.Visible = False
         '
         'CreatedBy
         '
@@ -318,13 +319,14 @@ Partial Class Category
         Me.CreatedBy.HeaderText = "CreatedBy"
         Me.CreatedBy.Name = "CreatedBy"
         Me.CreatedBy.ReadOnly = True
+        Me.CreatedBy.Visible = False
         '
         'Category
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1180, 702)
+        Me.ClientSize = New System.Drawing.Size(982, 676)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

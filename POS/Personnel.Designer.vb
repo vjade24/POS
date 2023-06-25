@@ -23,8 +23,6 @@ Partial Class Personnel
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim IdLabel As System.Windows.Forms.Label
         Dim TypeLabel As System.Windows.Forms.Label
         Dim FirstNameLabel As System.Windows.Forms.Label
@@ -35,27 +33,14 @@ Partial Class Personnel
         Dim ContactNoLabel1 As System.Windows.Forms.Label
         Dim UserNameLabel As System.Windows.Forms.Label
         Dim PasswordLabel As System.Windows.Forms.Label
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.CategoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.BtnAdd = New FontAwesome.Sharp.IconButton()
         Me.SupplierBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
-        Me.BrandTableAdapter = New POS.pos_dbDataSetTableAdapters.BrandTableAdapter()
-        Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
-        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
-        Me.IdTextBox = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.LblAddEditMode = New System.Windows.Forms.Label()
-        Me.BtnSave = New FontAwesome.Sharp.IconButton()
-        Me.BtnDelete = New FontAwesome.Sharp.IconButton()
-        Me.CategoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PersonnelTableAdapter = New POS.pos_dbDataSetTableAdapters.PersonnelTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FirstName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -67,6 +52,16 @@ Partial Class Personnel
         Me.UserName = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Password = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.IsActive = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
+        Me.BrandTableAdapter = New POS.pos_dbDataSetTableAdapters.BrandTableAdapter()
+        Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
+        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
+        Me.IdTextBox = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TypeComboBox = New System.Windows.Forms.ComboBox()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
@@ -77,6 +72,11 @@ Partial Class Personnel
         Me.UserNameTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
         Me.IsActiveCheckBox = New System.Windows.Forms.CheckBox()
+        Me.LblAddEditMode = New System.Windows.Forms.Label()
+        Me.BtnSave = New FontAwesome.Sharp.IconButton()
+        Me.BtnDelete = New FontAwesome.Sharp.IconButton()
+        Me.CategoryBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PersonnelTableAdapter = New POS.pos_dbDataSetTableAdapters.PersonnelTableAdapter()
         IdLabel = New System.Windows.Forms.Label()
         TypeLabel = New System.Windows.Forms.Label()
         FirstNameLabel = New System.Windows.Forms.Label()
@@ -91,12 +91,103 @@ Partial Class Personnel
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BrandBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         CType(Me.CategoryBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'IdLabel
+        '
+        IdLabel.AutoSize = True
+        IdLabel.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        IdLabel.Location = New System.Drawing.Point(17, 27)
+        IdLabel.Name = "IdLabel"
+        IdLabel.Size = New System.Drawing.Size(19, 16)
+        IdLabel.TabIndex = 0
+        IdLabel.Text = "ID"
+        '
+        'TypeLabel
+        '
+        TypeLabel.AutoSize = True
+        TypeLabel.Location = New System.Drawing.Point(18, 82)
+        TypeLabel.Name = "TypeLabel"
+        TypeLabel.Size = New System.Drawing.Size(37, 16)
+        TypeLabel.TabIndex = 29
+        TypeLabel.Text = "Type:"
+        '
+        'FirstNameLabel
+        '
+        FirstNameLabel.AutoSize = True
+        FirstNameLabel.Location = New System.Drawing.Point(18, 128)
+        FirstNameLabel.Name = "FirstNameLabel"
+        FirstNameLabel.Size = New System.Drawing.Size(65, 16)
+        FirstNameLabel.TabIndex = 31
+        FirstNameLabel.Text = "First Name:"
+        '
+        'LastNameLabel
+        '
+        LastNameLabel.AutoSize = True
+        LastNameLabel.Location = New System.Drawing.Point(18, 171)
+        LastNameLabel.Name = "LastNameLabel"
+        LastNameLabel.Size = New System.Drawing.Size(68, 16)
+        LastNameLabel.TabIndex = 33
+        LastNameLabel.Text = "Last Name:"
+        '
+        'MiddleNameLabel
+        '
+        MiddleNameLabel.AutoSize = True
+        MiddleNameLabel.Location = New System.Drawing.Point(18, 214)
+        MiddleNameLabel.Name = "MiddleNameLabel"
+        MiddleNameLabel.Size = New System.Drawing.Size(85, 16)
+        MiddleNameLabel.TabIndex = 35
+        MiddleNameLabel.Text = "Middle Name:"
+        '
+        'BirthDateLabel
+        '
+        BirthDateLabel.AutoSize = True
+        BirthDateLabel.Location = New System.Drawing.Point(417, 82)
+        BirthDateLabel.Name = "BirthDateLabel"
+        BirthDateLabel.Size = New System.Drawing.Size(63, 16)
+        BirthDateLabel.TabIndex = 37
+        BirthDateLabel.Text = "Birth Date:"
+        '
+        'AddressLabel1
+        '
+        AddressLabel1.AutoSize = True
+        AddressLabel1.Location = New System.Drawing.Point(417, 128)
+        AddressLabel1.Name = "AddressLabel1"
+        AddressLabel1.Size = New System.Drawing.Size(52, 16)
+        AddressLabel1.TabIndex = 39
+        AddressLabel1.Text = "Address:"
+        '
+        'ContactNoLabel1
+        '
+        ContactNoLabel1.AutoSize = True
+        ContactNoLabel1.Location = New System.Drawing.Point(417, 218)
+        ContactNoLabel1.Name = "ContactNoLabel1"
+        ContactNoLabel1.Size = New System.Drawing.Size(75, 16)
+        ContactNoLabel1.TabIndex = 41
+        ContactNoLabel1.Text = "Contact No:"
+        '
+        'UserNameLabel
+        '
+        UserNameLabel.AutoSize = True
+        UserNameLabel.Location = New System.Drawing.Point(653, 125)
+        UserNameLabel.Name = "UserNameLabel"
+        UserNameLabel.Size = New System.Drawing.Size(69, 16)
+        UserNameLabel.TabIndex = 43
+        UserNameLabel.Text = "User Name:"
+        '
+        'PasswordLabel
+        '
+        PasswordLabel.AutoSize = True
+        PasswordLabel.Location = New System.Drawing.Point(653, 171)
+        PasswordLabel.Name = "PasswordLabel"
+        PasswordLabel.Size = New System.Drawing.Size(62, 16)
+        PasswordLabel.TabIndex = 45
+        PasswordLabel.Text = "Password:"
         '
         'CategoryBindingSource
         '
@@ -120,7 +211,7 @@ Partial Class Personnel
         Me.BtnAdd.IconColor = System.Drawing.Color.White
         Me.BtnAdd.IconSize = 30
         Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(1012, 22)
+        Me.BtnAdd.Location = New System.Drawing.Point(819, 22)
         Me.BtnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.BtnAdd.Name = "BtnAdd"
         Me.BtnAdd.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
@@ -157,25 +248,25 @@ Partial Class Personnel
         Me.CategoryDataGridView.BackgroundColor = System.Drawing.SystemColors.Control
         Me.CategoryDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CategoryDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
         Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.Type, Me.FirstName, Me.LastName, Me.MiddleName, Me.BirthDate, Me.Address, Me.ContactNo, Me.UserName, Me.Password, Me.IsActive})
         Me.CategoryDataGridView.DataSource = Me.PersonnelBindingSource
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle2
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
         Me.CategoryDataGridView.Location = New System.Drawing.Point(21, 66)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -185,195 +276,8 @@ Partial Class Personnel
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(1105, 274)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(912, 274)
         Me.CategoryDataGridView.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(24, 32)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(49, 16)
-        Me.Label1.TabIndex = 21
-        Me.Label1.Text = "Search:"
-        '
-        'BrandBindingSource
-        '
-        Me.BrandBindingSource.DataMember = "Brand"
-        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.BtnAdd)
-        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
-        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
-        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(19, 12)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(1142, 355)
-        Me.GroupBox2.TabIndex = 31
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Personnel List"
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
-        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
-        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
-        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
-        Me.TableAdapterManager.ProductTableAdapter = Nothing
-        Me.TableAdapterManager.StoreTableAdapter = Nothing
-        Me.TableAdapterManager.SupplierTableAdapter = Me.SupplierTableAdapter
-        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'BrandTableAdapter
-        '
-        Me.BrandTableAdapter.ClearBeforeFill = True
-        '
-        'CategoryTableAdapter
-        '
-        Me.CategoryTableAdapter.ClearBeforeFill = True
-        '
-        'SupplierTableAdapter
-        '
-        Me.SupplierTableAdapter.ClearBeforeFill = True
-        '
-        'IdTextBox
-        '
-        Me.IdTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IdTextBox.Location = New System.Drawing.Point(21, 50)
-        Me.IdTextBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.IdTextBox.Name = "IdTextBox"
-        Me.IdTextBox.ReadOnly = True
-        Me.IdTextBox.Size = New System.Drawing.Size(88, 21)
-        Me.IdTextBox.TabIndex = 1
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(TypeLabel)
-        Me.GroupBox1.Controls.Add(Me.TypeComboBox)
-        Me.GroupBox1.Controls.Add(FirstNameLabel)
-        Me.GroupBox1.Controls.Add(Me.FirstNameTextBox)
-        Me.GroupBox1.Controls.Add(LastNameLabel)
-        Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
-        Me.GroupBox1.Controls.Add(MiddleNameLabel)
-        Me.GroupBox1.Controls.Add(Me.MiddleNameTextBox)
-        Me.GroupBox1.Controls.Add(BirthDateLabel)
-        Me.GroupBox1.Controls.Add(Me.BirthDateDateTimePicker)
-        Me.GroupBox1.Controls.Add(AddressLabel1)
-        Me.GroupBox1.Controls.Add(Me.AddressTextBox1)
-        Me.GroupBox1.Controls.Add(ContactNoLabel1)
-        Me.GroupBox1.Controls.Add(Me.ContactNoTextBox1)
-        Me.GroupBox1.Controls.Add(UserNameLabel)
-        Me.GroupBox1.Controls.Add(Me.UserNameTextBox)
-        Me.GroupBox1.Controls.Add(PasswordLabel)
-        Me.GroupBox1.Controls.Add(Me.PasswordTextBox)
-        Me.GroupBox1.Controls.Add(Me.IsActiveCheckBox)
-        Me.GroupBox1.Controls.Add(Me.LblAddEditMode)
-        Me.GroupBox1.Controls.Add(Me.IdTextBox)
-        Me.GroupBox1.Controls.Add(Me.BtnSave)
-        Me.GroupBox1.Controls.Add(Me.BtnDelete)
-        Me.GroupBox1.Controls.Add(IdLabel)
-        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(19, 375)
-        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(1142, 314)
-        Me.GroupBox1.TabIndex = 30
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Personnel Information"
-        '
-        'LblAddEditMode
-        '
-        Me.LblAddEditMode.AutoSize = True
-        Me.LblAddEditMode.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblAddEditMode.ForeColor = System.Drawing.Color.Red
-        Me.LblAddEditMode.Location = New System.Drawing.Point(145, 54)
-        Me.LblAddEditMode.Name = "LblAddEditMode"
-        Me.LblAddEditMode.Size = New System.Drawing.Size(16, 16)
-        Me.LblAddEditMode.TabIndex = 24
-        Me.LblAddEditMode.Text = "--"
-        Me.LblAddEditMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'BtnSave
-        '
-        Me.BtnSave.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnSave.Enabled = False
-        Me.BtnSave.FlatAppearance.BorderSize = 0
-        Me.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnSave.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnSave.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.IconChar = FontAwesome.Sharp.IconChar.CheckCircle
-        Me.BtnSave.IconColor = System.Drawing.Color.White
-        Me.BtnSave.IconSize = 30
-        Me.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSave.Location = New System.Drawing.Point(1014, 222)
-        Me.BtnSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
-        Me.BtnSave.Rotation = 0R
-        Me.BtnSave.Size = New System.Drawing.Size(112, 36)
-        Me.BtnSave.TabIndex = 23
-        Me.BtnSave.Text = "Save"
-        Me.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnSave.UseVisualStyleBackColor = False
-        '
-        'BtnDelete
-        '
-        Me.BtnDelete.BackColor = System.Drawing.Color.Red
-        Me.BtnDelete.Enabled = False
-        Me.BtnDelete.FlatAppearance.BorderSize = 0
-        Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnDelete.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnDelete.ForeColor = System.Drawing.Color.White
-        Me.BtnDelete.IconChar = FontAwesome.Sharp.IconChar.TimesCircleO
-        Me.BtnDelete.IconColor = System.Drawing.Color.White
-        Me.BtnDelete.IconSize = 30
-        Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnDelete.Location = New System.Drawing.Point(821, 222)
-        Me.BtnDelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BtnDelete.Name = "BtnDelete"
-        Me.BtnDelete.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
-        Me.BtnDelete.Rotation = 0R
-        Me.BtnDelete.Size = New System.Drawing.Size(112, 36)
-        Me.BtnDelete.TabIndex = 22
-        Me.BtnDelete.Text = "Delete"
-        Me.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnDelete.UseVisualStyleBackColor = False
-        '
-        'IdLabel
-        '
-        IdLabel.AutoSize = True
-        IdLabel.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        IdLabel.Location = New System.Drawing.Point(17, 27)
-        IdLabel.Name = "IdLabel"
-        IdLabel.Size = New System.Drawing.Size(19, 16)
-        IdLabel.TabIndex = 0
-        IdLabel.Text = "ID"
-        '
-        'CategoryBindingSource1
-        '
-        Me.CategoryBindingSource1.DataMember = "Category"
-        Me.CategoryBindingSource1.DataSource = Me.Pos_dbDataSet
-        '
-        'PersonnelBindingSource
-        '
-        Me.PersonnelBindingSource.DataMember = "Personnel"
-        Me.PersonnelBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'PersonnelTableAdapter
-        '
-        Me.PersonnelTableAdapter.ClearBeforeFill = True
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -460,14 +364,113 @@ Partial Class Personnel
         Me.IsActive.ReadOnly = True
         Me.IsActive.Visible = False
         '
-        'TypeLabel
+        'PersonnelBindingSource
         '
-        TypeLabel.AutoSize = True
-        TypeLabel.Location = New System.Drawing.Point(18, 82)
-        TypeLabel.Name = "TypeLabel"
-        TypeLabel.Size = New System.Drawing.Size(37, 16)
-        TypeLabel.TabIndex = 29
-        TypeLabel.Text = "Type:"
+        Me.PersonnelBindingSource.DataMember = "Personnel"
+        Me.PersonnelBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(24, 32)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(49, 16)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "Search:"
+        '
+        'BrandBindingSource
+        '
+        Me.BrandBindingSource.DataMember = "Brand"
+        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.BtnAdd)
+        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
+        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(19, 12)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(951, 355)
+        Me.GroupBox2.TabIndex = 31
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Personnel List"
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
+        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
+        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
+        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductTableAdapter = Nothing
+        Me.TableAdapterManager.StoreTableAdapter = Nothing
+        Me.TableAdapterManager.SupplierTableAdapter = Me.SupplierTableAdapter
+        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'BrandTableAdapter
+        '
+        Me.BrandTableAdapter.ClearBeforeFill = True
+        '
+        'CategoryTableAdapter
+        '
+        Me.CategoryTableAdapter.ClearBeforeFill = True
+        '
+        'SupplierTableAdapter
+        '
+        Me.SupplierTableAdapter.ClearBeforeFill = True
+        '
+        'IdTextBox
+        '
+        Me.IdTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IdTextBox.Location = New System.Drawing.Point(21, 50)
+        Me.IdTextBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IdTextBox.Name = "IdTextBox"
+        Me.IdTextBox.ReadOnly = True
+        Me.IdTextBox.Size = New System.Drawing.Size(88, 21)
+        Me.IdTextBox.TabIndex = 1
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(TypeLabel)
+        Me.GroupBox1.Controls.Add(Me.TypeComboBox)
+        Me.GroupBox1.Controls.Add(FirstNameLabel)
+        Me.GroupBox1.Controls.Add(Me.FirstNameTextBox)
+        Me.GroupBox1.Controls.Add(LastNameLabel)
+        Me.GroupBox1.Controls.Add(Me.LastNameTextBox)
+        Me.GroupBox1.Controls.Add(MiddleNameLabel)
+        Me.GroupBox1.Controls.Add(Me.MiddleNameTextBox)
+        Me.GroupBox1.Controls.Add(BirthDateLabel)
+        Me.GroupBox1.Controls.Add(Me.BirthDateDateTimePicker)
+        Me.GroupBox1.Controls.Add(AddressLabel1)
+        Me.GroupBox1.Controls.Add(Me.AddressTextBox1)
+        Me.GroupBox1.Controls.Add(ContactNoLabel1)
+        Me.GroupBox1.Controls.Add(Me.ContactNoTextBox1)
+        Me.GroupBox1.Controls.Add(UserNameLabel)
+        Me.GroupBox1.Controls.Add(Me.UserNameTextBox)
+        Me.GroupBox1.Controls.Add(PasswordLabel)
+        Me.GroupBox1.Controls.Add(Me.PasswordTextBox)
+        Me.GroupBox1.Controls.Add(Me.IsActiveCheckBox)
+        Me.GroupBox1.Controls.Add(Me.LblAddEditMode)
+        Me.GroupBox1.Controls.Add(Me.IdTextBox)
+        Me.GroupBox1.Controls.Add(Me.BtnSave)
+        Me.GroupBox1.Controls.Add(Me.BtnDelete)
+        Me.GroupBox1.Controls.Add(IdLabel)
+        Me.GroupBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(19, 375)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox1.Size = New System.Drawing.Size(951, 288)
+        Me.GroupBox1.TabIndex = 30
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Personnel Information"
         '
         'TypeComboBox
         '
@@ -479,15 +482,6 @@ Partial Class Personnel
         Me.TypeComboBox.Size = New System.Drawing.Size(378, 24)
         Me.TypeComboBox.TabIndex = 30
         '
-        'FirstNameLabel
-        '
-        FirstNameLabel.AutoSize = True
-        FirstNameLabel.Location = New System.Drawing.Point(18, 128)
-        FirstNameLabel.Name = "FirstNameLabel"
-        FirstNameLabel.Size = New System.Drawing.Size(65, 16)
-        FirstNameLabel.TabIndex = 31
-        FirstNameLabel.Text = "First Name:"
-        '
         'FirstNameTextBox
         '
         Me.FirstNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonnelBindingSource, "FirstName", True))
@@ -495,15 +489,6 @@ Partial Class Personnel
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.Size = New System.Drawing.Size(378, 21)
         Me.FirstNameTextBox.TabIndex = 32
-        '
-        'LastNameLabel
-        '
-        LastNameLabel.AutoSize = True
-        LastNameLabel.Location = New System.Drawing.Point(18, 171)
-        LastNameLabel.Name = "LastNameLabel"
-        LastNameLabel.Size = New System.Drawing.Size(68, 16)
-        LastNameLabel.TabIndex = 33
-        LastNameLabel.Text = "Last Name:"
         '
         'LastNameTextBox
         '
@@ -513,15 +498,6 @@ Partial Class Personnel
         Me.LastNameTextBox.Size = New System.Drawing.Size(378, 21)
         Me.LastNameTextBox.TabIndex = 34
         '
-        'MiddleNameLabel
-        '
-        MiddleNameLabel.AutoSize = True
-        MiddleNameLabel.Location = New System.Drawing.Point(18, 214)
-        MiddleNameLabel.Name = "MiddleNameLabel"
-        MiddleNameLabel.Size = New System.Drawing.Size(85, 16)
-        MiddleNameLabel.TabIndex = 35
-        MiddleNameLabel.Text = "Middle Name:"
-        '
         'MiddleNameTextBox
         '
         Me.MiddleNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonnelBindingSource, "MiddleName", True))
@@ -530,31 +506,13 @@ Partial Class Personnel
         Me.MiddleNameTextBox.Size = New System.Drawing.Size(378, 21)
         Me.MiddleNameTextBox.TabIndex = 36
         '
-        'BirthDateLabel
-        '
-        BirthDateLabel.AutoSize = True
-        BirthDateLabel.Location = New System.Drawing.Point(417, 82)
-        BirthDateLabel.Name = "BirthDateLabel"
-        BirthDateLabel.Size = New System.Drawing.Size(63, 16)
-        BirthDateLabel.TabIndex = 37
-        BirthDateLabel.Text = "Birth Date:"
-        '
         'BirthDateDateTimePicker
         '
         Me.BirthDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.PersonnelBindingSource, "BirthDate", True))
         Me.BirthDateDateTimePicker.Location = New System.Drawing.Point(420, 101)
         Me.BirthDateDateTimePicker.Name = "BirthDateDateTimePicker"
-        Me.BirthDateDateTimePicker.Size = New System.Drawing.Size(378, 21)
+        Me.BirthDateDateTimePicker.Size = New System.Drawing.Size(227, 21)
         Me.BirthDateDateTimePicker.TabIndex = 38
-        '
-        'AddressLabel1
-        '
-        AddressLabel1.AutoSize = True
-        AddressLabel1.Location = New System.Drawing.Point(417, 128)
-        AddressLabel1.Name = "AddressLabel1"
-        AddressLabel1.Size = New System.Drawing.Size(52, 16)
-        AddressLabel1.TabIndex = 39
-        AddressLabel1.Text = "Address:"
         '
         'AddressTextBox1
         '
@@ -562,58 +520,31 @@ Partial Class Personnel
         Me.AddressTextBox1.Location = New System.Drawing.Point(420, 147)
         Me.AddressTextBox1.Multiline = True
         Me.AddressTextBox1.Name = "AddressTextBox1"
-        Me.AddressTextBox1.Size = New System.Drawing.Size(378, 64)
+        Me.AddressTextBox1.Size = New System.Drawing.Size(227, 64)
         Me.AddressTextBox1.TabIndex = 40
-        '
-        'ContactNoLabel1
-        '
-        ContactNoLabel1.AutoSize = True
-        ContactNoLabel1.Location = New System.Drawing.Point(417, 218)
-        ContactNoLabel1.Name = "ContactNoLabel1"
-        ContactNoLabel1.Size = New System.Drawing.Size(75, 16)
-        ContactNoLabel1.TabIndex = 41
-        ContactNoLabel1.Text = "Contact No:"
         '
         'ContactNoTextBox1
         '
         Me.ContactNoTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonnelBindingSource, "ContactNo", True))
         Me.ContactNoTextBox1.Location = New System.Drawing.Point(420, 237)
         Me.ContactNoTextBox1.Name = "ContactNoTextBox1"
-        Me.ContactNoTextBox1.Size = New System.Drawing.Size(378, 21)
+        Me.ContactNoTextBox1.Size = New System.Drawing.Size(227, 21)
         Me.ContactNoTextBox1.TabIndex = 42
-        '
-        'UserNameLabel
-        '
-        UserNameLabel.AutoSize = True
-        UserNameLabel.Location = New System.Drawing.Point(818, 128)
-        UserNameLabel.Name = "UserNameLabel"
-        UserNameLabel.Size = New System.Drawing.Size(69, 16)
-        UserNameLabel.TabIndex = 43
-        UserNameLabel.Text = "User Name:"
         '
         'UserNameTextBox
         '
         Me.UserNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonnelBindingSource, "UserName", True))
-        Me.UserNameTextBox.Location = New System.Drawing.Point(821, 147)
+        Me.UserNameTextBox.Location = New System.Drawing.Point(656, 144)
         Me.UserNameTextBox.Name = "UserNameTextBox"
-        Me.UserNameTextBox.Size = New System.Drawing.Size(305, 21)
+        Me.UserNameTextBox.Size = New System.Drawing.Size(277, 21)
         Me.UserNameTextBox.TabIndex = 44
-        '
-        'PasswordLabel
-        '
-        PasswordLabel.AutoSize = True
-        PasswordLabel.Location = New System.Drawing.Point(818, 174)
-        PasswordLabel.Name = "PasswordLabel"
-        PasswordLabel.Size = New System.Drawing.Size(62, 16)
-        PasswordLabel.TabIndex = 45
-        PasswordLabel.Text = "Password:"
         '
         'PasswordTextBox
         '
         Me.PasswordTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonnelBindingSource, "Password", True))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(821, 193)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(656, 190)
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.Size = New System.Drawing.Size(305, 21)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(277, 21)
         Me.PasswordTextBox.TabIndex = 46
         '
         'IsActiveCheckBox
@@ -626,12 +557,81 @@ Partial Class Personnel
         Me.IsActiveCheckBox.Text = "Is Active"
         Me.IsActiveCheckBox.UseVisualStyleBackColor = True
         '
+        'LblAddEditMode
+        '
+        Me.LblAddEditMode.AutoSize = True
+        Me.LblAddEditMode.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblAddEditMode.ForeColor = System.Drawing.Color.Red
+        Me.LblAddEditMode.Location = New System.Drawing.Point(145, 54)
+        Me.LblAddEditMode.Name = "LblAddEditMode"
+        Me.LblAddEditMode.Size = New System.Drawing.Size(16, 16)
+        Me.LblAddEditMode.TabIndex = 24
+        Me.LblAddEditMode.Text = "--"
+        Me.LblAddEditMode.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'BtnSave
+        '
+        Me.BtnSave.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnSave.Enabled = False
+        Me.BtnSave.FlatAppearance.BorderSize = 0
+        Me.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnSave.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnSave.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSave.ForeColor = System.Drawing.Color.White
+        Me.BtnSave.IconChar = FontAwesome.Sharp.IconChar.CheckCircle
+        Me.BtnSave.IconColor = System.Drawing.Color.White
+        Me.BtnSave.IconSize = 30
+        Me.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnSave.Location = New System.Drawing.Point(821, 219)
+        Me.BtnSave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnSave.Name = "BtnSave"
+        Me.BtnSave.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.BtnSave.Rotation = 0R
+        Me.BtnSave.Size = New System.Drawing.Size(112, 36)
+        Me.BtnSave.TabIndex = 23
+        Me.BtnSave.Text = "Save"
+        Me.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnSave.UseVisualStyleBackColor = False
+        '
+        'BtnDelete
+        '
+        Me.BtnDelete.BackColor = System.Drawing.Color.Red
+        Me.BtnDelete.Enabled = False
+        Me.BtnDelete.FlatAppearance.BorderSize = 0
+        Me.BtnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnDelete.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnDelete.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDelete.ForeColor = System.Drawing.Color.White
+        Me.BtnDelete.IconChar = FontAwesome.Sharp.IconChar.TimesCircleO
+        Me.BtnDelete.IconColor = System.Drawing.Color.White
+        Me.BtnDelete.IconSize = 30
+        Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnDelete.Location = New System.Drawing.Point(656, 219)
+        Me.BtnDelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnDelete.Name = "BtnDelete"
+        Me.BtnDelete.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.BtnDelete.Rotation = 0R
+        Me.BtnDelete.Size = New System.Drawing.Size(112, 36)
+        Me.BtnDelete.TabIndex = 22
+        Me.BtnDelete.Text = "Delete"
+        Me.BtnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnDelete.UseVisualStyleBackColor = False
+        '
+        'CategoryBindingSource1
+        '
+        Me.CategoryBindingSource1.DataMember = "Category"
+        Me.CategoryBindingSource1.DataSource = Me.Pos_dbDataSet
+        '
+        'PersonnelTableAdapter
+        '
+        Me.PersonnelTableAdapter.ClearBeforeFill = True
+        '
         'Personnel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(1180, 702)
+        Me.ClientSize = New System.Drawing.Size(982, 676)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -643,13 +643,13 @@ Partial Class Personnel
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BrandBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.CategoryBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

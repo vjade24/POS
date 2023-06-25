@@ -30,24 +30,23 @@ Partial Class Store
         Dim ContactNoLabel As System.Windows.Forms.Label
         Dim ThemeColorLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
+        Dim ExpiryDateLabel As System.Windows.Forms.Label
         Me.IdTextBox = New System.Windows.Forms.TextBox()
         Me.StoreNameTextBox = New System.Windows.Forms.TextBox()
         Me.SloganTextBox = New System.Windows.Forms.TextBox()
         Me.TinNoTextBox = New System.Windows.Forms.TextBox()
         Me.ContactNoTextBox = New System.Windows.Forms.TextBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.LblBreadCrump = New System.Windows.Forms.Label()
-        Me.BtnClose = New System.Windows.Forms.Button()
-        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
-        Me.StoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.StoreTableAdapter = New POS.pos_dbDataSetTableAdapters.StoreTableAdapter()
-        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
         Me.ThemeColorComboBox = New System.Windows.Forms.ComboBox()
+        Me.StoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.BtnSave = New System.Windows.Forms.Button()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.ProductImagePictureBox = New System.Windows.Forms.PictureBox()
+        Me.StoreTableAdapter = New POS.pos_dbDataSetTableAdapters.StoreTableAdapter()
+        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
+        Me.ExpiryDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         IdLabel = New System.Windows.Forms.Label()
         StoreNameLabel = New System.Windows.Forms.Label()
         SloganLabel = New System.Windows.Forms.Label()
@@ -55,9 +54,9 @@ Partial Class Store
         ContactNoLabel = New System.Windows.Forms.Label()
         ThemeColorLabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
-        Me.Panel2.SuspendLayout()
-        CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        ExpiryDateLabel = New System.Windows.Forms.Label()
         CType(Me.StoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductImagePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -116,6 +115,24 @@ Partial Class Store
         ThemeColorLabel.TabIndex = 19
         ThemeColorLabel.Text = "Theme Color:"
         '
+        'Label1
+        '
+        Label1.AutoSize = True
+        Label1.Location = New System.Drawing.Point(24, 268)
+        Label1.Name = "Label1"
+        Label1.Size = New System.Drawing.Size(57, 17)
+        Label1.TabIndex = 57
+        Label1.Text = "Address"
+        '
+        'ExpiryDateLabel
+        '
+        ExpiryDateLabel.AutoSize = True
+        ExpiryDateLabel.Location = New System.Drawing.Point(21, 387)
+        ExpiryDateLabel.Name = "ExpiryDateLabel"
+        ExpiryDateLabel.Size = New System.Drawing.Size(83, 17)
+        ExpiryDateLabel.TabIndex = 59
+        ExpiryDateLabel.Text = "Expiry Date:"
+        '
         'IdTextBox
         '
         Me.IdTextBox.Location = New System.Drawing.Point(427, 87)
@@ -152,70 +169,6 @@ Partial Class Store
         Me.ContactNoTextBox.Size = New System.Drawing.Size(187, 23)
         Me.ContactNoTextBox.TabIndex = 15
         '
-        'Panel2
-        '
-        Me.Panel2.BackColor = System.Drawing.Color.DodgerBlue
-        Me.Panel2.Controls.Add(Me.LblBreadCrump)
-        Me.Panel2.Controls.Add(Me.BtnClose)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(606, 42)
-        Me.Panel2.TabIndex = 19
-        '
-        'LblBreadCrump
-        '
-        Me.LblBreadCrump.AutoSize = True
-        Me.LblBreadCrump.Font = New System.Drawing.Font("Century Gothic", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblBreadCrump.ForeColor = System.Drawing.Color.White
-        Me.LblBreadCrump.Location = New System.Drawing.Point(12, 9)
-        Me.LblBreadCrump.Name = "LblBreadCrump"
-        Me.LblBreadCrump.Size = New System.Drawing.Size(184, 25)
-        Me.LblBreadCrump.TabIndex = 22
-        Me.LblBreadCrump.Text = "Store Information"
-        '
-        'BtnClose
-        '
-        Me.BtnClose.BackColor = System.Drawing.Color.Red
-        Me.BtnClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnClose.FlatAppearance.BorderSize = 0
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.Location = New System.Drawing.Point(573, 0)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(33, 42)
-        Me.BtnClose.TabIndex = 21
-        Me.BtnClose.Text = "X"
-        Me.BtnClose.UseVisualStyleBackColor = False
-        '
-        'Pos_dbDataSet
-        '
-        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
-        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'StoreBindingSource
-        '
-        Me.StoreBindingSource.DataMember = "Store"
-        Me.StoreBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'StoreTableAdapter
-        '
-        Me.StoreTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BrandTableAdapter = Nothing
-        Me.TableAdapterManager.CategoryTableAdapter = Nothing
-        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
-        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
-        Me.TableAdapterManager.ProductTableAdapter = Nothing
-        Me.TableAdapterManager.StoreTableAdapter = Me.StoreTableAdapter
-        Me.TableAdapterManager.SupplierTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
         'ThemeColorComboBox
         '
         Me.ThemeColorComboBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.StoreBindingSource, "ThemeColor", True))
@@ -226,15 +179,25 @@ Partial Class Store
         Me.ThemeColorComboBox.Size = New System.Drawing.Size(397, 25)
         Me.ThemeColorComboBox.TabIndex = 20
         '
+        'StoreBindingSource
+        '
+        Me.StoreBindingSource.DataMember = "Store"
+        Me.StoreBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'Pos_dbDataSet
+        '
+        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
+        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'BtnSave
         '
         Me.BtnSave.BackColor = System.Drawing.Color.DodgerBlue
         Me.BtnSave.FlatAppearance.BorderSize = 0
         Me.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSave.ForeColor = System.Drawing.Color.White
-        Me.BtnSave.Location = New System.Drawing.Point(303, 394)
+        Me.BtnSave.Location = New System.Drawing.Point(430, 394)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(118, 36)
+        Me.BtnSave.Size = New System.Drawing.Size(144, 36)
         Me.BtnSave.TabIndex = 21
         Me.BtnSave.Text = "Save"
         Me.BtnSave.UseVisualStyleBackColor = False
@@ -254,15 +217,6 @@ Partial Class Store
         Me.IconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = True
-        '
-        'Label1
-        '
-        Label1.AutoSize = True
-        Label1.Location = New System.Drawing.Point(24, 268)
-        Label1.Name = "Label1"
-        Label1.Size = New System.Drawing.Size(57, 17)
-        Label1.TabIndex = 57
-        Label1.Text = "Address"
         '
         'TextBox1
         '
@@ -288,11 +242,39 @@ Partial Class Store
         Me.ProductImagePictureBox.TabIndex = 59
         Me.ProductImagePictureBox.TabStop = False
         '
+        'StoreTableAdapter
+        '
+        Me.StoreTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BrandTableAdapter = Nothing
+        Me.TableAdapterManager.CategoryTableAdapter = Nothing
+        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
+        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductTableAdapter = Nothing
+        Me.TableAdapterManager.StoreTableAdapter = Me.StoreTableAdapter
+        Me.TableAdapterManager.SupplierTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'ExpiryDateDateTimePicker
+        '
+        Me.ExpiryDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.StoreBindingSource, "ExpiryDate", True))
+        Me.ExpiryDateDateTimePicker.Location = New System.Drawing.Point(24, 407)
+        Me.ExpiryDateDateTimePicker.Name = "ExpiryDateDateTimePicker"
+        Me.ExpiryDateDateTimePicker.Size = New System.Drawing.Size(397, 23)
+        Me.ExpiryDateDateTimePicker.TabIndex = 60
+        '
         'Store
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(606, 448)
+        Me.ClientSize = New System.Drawing.Size(606, 450)
+        Me.Controls.Add(ExpiryDateLabel)
+        Me.Controls.Add(Me.ExpiryDateDateTimePicker)
         Me.Controls.Add(Me.ProductImagePictureBox)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Label1)
@@ -300,7 +282,6 @@ Partial Class Store
         Me.Controls.Add(Me.BtnSave)
         Me.Controls.Add(ThemeColorLabel)
         Me.Controls.Add(Me.ThemeColorComboBox)
-        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(IdLabel)
         Me.Controls.Add(Me.IdTextBox)
         Me.Controls.Add(StoreNameLabel)
@@ -312,15 +293,12 @@ Partial Class Store
         Me.Controls.Add(ContactNoLabel)
         Me.Controls.Add(Me.ContactNoTextBox)
         Me.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Store"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Store"
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.StoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ProductImagePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -331,17 +309,15 @@ Partial Class Store
     Friend WithEvents SloganTextBox As TextBox
     Friend WithEvents TinNoTextBox As TextBox
     Friend WithEvents ContactNoTextBox As TextBox
-    Friend WithEvents Panel2 As Panel
     Friend WithEvents Pos_dbDataSet As pos_dbDataSet
     Friend WithEvents StoreBindingSource As BindingSource
     Friend WithEvents StoreTableAdapter As pos_dbDataSetTableAdapters.StoreTableAdapter
-    Friend WithEvents BtnClose As Button
     Friend WithEvents TableAdapterManager As pos_dbDataSetTableAdapters.TableAdapterManager
     Friend WithEvents ThemeColorComboBox As ComboBox
     Friend WithEvents BtnSave As Button
-    Friend WithEvents LblBreadCrump As Label
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents ProductImagePictureBox As PictureBox
+    Friend WithEvents ExpiryDateDateTimePicker As DateTimePicker
 End Class
