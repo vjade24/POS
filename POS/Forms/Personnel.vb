@@ -4,6 +4,7 @@ Public Class Personnel
         RefreshData()
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
+        UserNameTextBox.Enabled = True
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
@@ -44,6 +45,7 @@ Public Class Personnel
 
         BtnSave.Enabled = True
         BtnDelete.Enabled = False
+        UserNameTextBox.Enabled = True
 
         IdTextBox.Text = GetLastRow("Personnel", "Id")
 
@@ -76,6 +78,8 @@ Public Class Personnel
         UserNameTextBox.Text = CategoryDataGridView.CurrentRow.Cells(8).Value.ToString()
         PasswordTextBox.Text = CategoryDataGridView.CurrentRow.Cells(9).Value.ToString()
         IsActiveCheckBox.Checked = Boolean.Parse(CategoryDataGridView.CurrentRow.Cells(10).Value.ToString())
+
+        UserNameTextBox.Enabled = False
 
     End Sub
 
@@ -187,6 +191,14 @@ Public Class Personnel
                 MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
                 conn.Close()
             End Try
+        End If
+    End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If CheckBox1.Checked Then
+            PasswordTextBox.PasswordChar = ""
+        Else
+            PasswordTextBox.PasswordChar = "*"
         End If
     End Sub
 End Class

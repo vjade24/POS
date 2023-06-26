@@ -84,6 +84,7 @@ Public Class Login
                     formMain.OpenChildForm(New Dashboard, "")
 
                     user_login = dt.Rows(0)("UserName").ToString().Trim()
+                    user_type = dt.Rows(0)("Type").ToString.Trim()
 
                     If dt.Rows(0)("Type").ToString.Trim() = "Admin" Then
                         formMain.BtnDashBoard.Visible = True

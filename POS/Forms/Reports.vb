@@ -3,8 +3,11 @@ Imports System.Data.SqlClient
 Public Class Reports
     Private Sub Reports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        DateTimePicker1.Value = DateTime.Now.Month.ToString().Trim() + "/01/" + DateTime.Now.Year().ToString().Trim()
-        DateTimePicker2.Value = DateTime.Parse(DateTimePicker1.Value).AddMonths(1).AddDays(-1)
+        'DateTimePicker1.Value = DateTime.Now.Month.ToString().Trim() + "/01/" + DateTime.Now.Year().ToString().Trim()
+        'DateTimePicker2.Value = DateTime.Parse(DateTimePicker1.Value).AddMonths(1).AddDays(-1)
+
+        DateTimePicker1.Value = DateTime.Now
+        DateTimePicker2.Value = DateTime.Now
 
         LoadReport()
         TotalNew()
@@ -13,7 +16,7 @@ Public Class Reports
     End Sub
     Private Sub LoadReport()
         Dim query As String
-        query = "SELECT * FROM vw_Transactions WHERE CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "' ORDER BY InvoiceNo DESC"
+        query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') ORDER BY InvoiceNo DESC"
 
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
@@ -45,7 +48,7 @@ Public Class Reports
 
     Private Sub TotalNew()
         Dim query As String
-        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'New' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'New' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -66,7 +69,7 @@ Public Class Reports
 
     Private Sub TotalPaid()
         Dim query As String
-        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -87,7 +90,7 @@ Public Class Reports
 
     Private Sub TotalHold()
         Dim query As String
-        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Hold' AND CreatedAt BETWEEN '" + DateTimePicker1.Value + "' AND '" + DateTimePicker2.Value + "'"
+        query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Hold' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)

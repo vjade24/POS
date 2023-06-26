@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Module CommonClass
     Public user_login As String
+    Public user_type As String
     Public connection = My.Settings.pos_dbConnectionString
     Dim result As Integer
 

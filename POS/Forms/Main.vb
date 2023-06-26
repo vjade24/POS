@@ -16,6 +16,7 @@ Public Class Main
             StoreNameTextBox.Text = dt.Rows(0)("StoreName").ToString()
             StoreNameTextBox.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             TextBoxRight.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+            TextBoxDateTimeNow.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
 
             BtnDashBoard.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             BtnPOS.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
@@ -163,5 +164,9 @@ Public Class Main
     Private Sub BtnStoreInfo_Click(sender As Object, e As EventArgs) Handles BtnStoreInfo.Click
         ActiveButton(sender, RGBColors.color1)
         OpenChildForm(New Store, "Store Information")
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        TextBoxDateTimeNow.Text = DateTime.Now.ToLongDateString + " " + DateTime.Now.ToLongTimeString
     End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class Main
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.PanelSide = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
@@ -46,6 +47,8 @@ Partial Class Main
         Me.IconPictureBoxTop = New FontAwesome.Sharp.IconPictureBox()
         Me.LblBreadCrump = New System.Windows.Forms.Label()
         Me.PanelMain = New System.Windows.Forms.Panel()
+        Me.TextBoxDateTimeNow = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelSide.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -376,6 +379,7 @@ Partial Class Main
         '
         'Panel4
         '
+        Me.Panel4.Controls.Add(Me.TextBoxDateTimeNow)
         Me.Panel4.Controls.Add(Me.IconPictureBox2)
         Me.Panel4.Controls.Add(Me.TextBoxRight)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Right
@@ -402,11 +406,11 @@ Partial Class Main
         Me.TextBoxRight.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBoxRight.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxRight.ForeColor = System.Drawing.Color.White
-        Me.TextBoxRight.Location = New System.Drawing.Point(4, 16)
+        Me.TextBoxRight.Location = New System.Drawing.Point(337, 16)
         Me.TextBoxRight.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxRight.Name = "TextBoxRight"
         Me.TextBoxRight.ReadOnly = True
-        Me.TextBoxRight.Size = New System.Drawing.Size(704, 26)
+        Me.TextBoxRight.Size = New System.Drawing.Size(371, 26)
         Me.TextBoxRight.TabIndex = 16
         Me.TextBoxRight.TabStop = False
         Me.TextBoxRight.Text = "---"
@@ -454,6 +458,27 @@ Partial Class Main
         Me.PanelMain.Name = "PanelMain"
         Me.PanelMain.Size = New System.Drawing.Size(982, 676)
         Me.PanelMain.TabIndex = 2
+        '
+        'TextBoxDateTimeNow
+        '
+        Me.TextBoxDateTimeNow.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBoxDateTimeNow.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxDateTimeNow.ForeColor = System.Drawing.Color.White
+        Me.TextBoxDateTimeNow.Location = New System.Drawing.Point(4, 23)
+        Me.TextBoxDateTimeNow.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxDateTimeNow.Multiline = True
+        Me.TextBoxDateTimeNow.Name = "TextBoxDateTimeNow"
+        Me.TextBoxDateTimeNow.ReadOnly = True
+        Me.TextBoxDateTimeNow.Size = New System.Drawing.Size(334, 20)
+        Me.TextBoxDateTimeNow.TabIndex = 19
+        Me.TextBoxDateTimeNow.TabStop = False
+        Me.TextBoxDateTimeNow.Text = "---"
+        Me.TextBoxDateTimeNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 5
         '
         'Main
         '
@@ -509,4 +534,6 @@ Partial Class Main
     Friend WithEvents IconPictureBox2 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents PanelMain As Panel
     Friend WithEvents BtnStoreInfo As FontAwesome.Sharp.IconButton
+    Friend WithEvents TextBoxDateTimeNow As TextBox
+    Friend WithEvents Timer1 As Timer
 End Class
