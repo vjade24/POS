@@ -104,8 +104,8 @@ Public Class Analytics
             'series1.Name = "TOTAL SOLD PER MONTH"
 
             With Chart2
-                .Series(0)("PieLabelStyle") = "Outside"
-                .Series(0).BorderWidth = 1
+                '.Series(0)("PieLabelStyle") = "Outside"
+                '.Series(0).BorderWidth = 1
                 '.Series(0).BorderColor = System.Drawing.Color.Red
                 '.ChartAreas(0).Area3DStyle.Enable3D = True
 

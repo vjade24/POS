@@ -51,7 +51,7 @@ Partial Class Analytics
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(958, 288)
+        Me.Chart1.Size = New System.Drawing.Size(460, 288)
         Me.Chart1.TabIndex = 1
         Me.Chart1.Text = "Chart1"
         Title1.Name = "Title1"
@@ -63,13 +63,17 @@ Partial Class Analytics
         Me.Chart2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss
         ChartArea2.Name = "ChartArea1"
         Me.Chart2.ChartAreas.Add(ChartArea2)
-        Me.Chart2.Location = New System.Drawing.Point(12, 306)
+        Me.Chart2.Location = New System.Drawing.Point(478, 12)
         Me.Chart2.Name = "Chart2"
         Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
+        Series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom
+        Series2.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal
         Series2.ChartArea = "ChartArea1"
+        Series2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series2.IsValueShownAsLabel = True
         Series2.Name = "Series1"
         Me.Chart2.Series.Add(Series2)
-        Me.Chart2.Size = New System.Drawing.Size(958, 358)
+        Me.Chart2.Size = New System.Drawing.Size(492, 288)
         Me.Chart2.TabIndex = 2
         Me.Chart2.Text = "Chart2"
         Title2.Name = "asdasd"
