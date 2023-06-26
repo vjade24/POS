@@ -105,41 +105,41 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Analytics.Designer.vb">
+    <Compile Include="Forms\Analytics.Designer.vb">
       <DependentUpon>Analytics.vb</DependentUpon>
     </Compile>
-    <Compile Include="Analytics.vb">
+    <Compile Include="Forms\Analytics.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Brand.Designer.vb">
+    <Compile Include="Forms\Brand.Designer.vb">
       <DependentUpon>Brand.vb</DependentUpon>
     </Compile>
-    <Compile Include="Brand.vb">
+    <Compile Include="Forms\Brand.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Category.Designer.vb">
+    <Compile Include="Forms\Category.Designer.vb">
       <DependentUpon>Category.vb</DependentUpon>
     </Compile>
-    <Compile Include="Category.vb">
+    <Compile Include="Forms\Category.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CommonClass.vb" />
-    <Compile Include="Dashboard.Designer.vb">
+    <Compile Include="CommonCode\CommonClass.vb" />
+    <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.vb">
+    <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.vb">
+    <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login.vb">
+    <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.vb">
+    <Compile Include="Forms\Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
-    <Compile Include="Main.vb">
+    <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -157,22 +157,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="PayNow.Designer.vb">
+    <Compile Include="Forms\PayNow.Designer.vb">
       <DependentUpon>PayNow.vb</DependentUpon>
     </Compile>
-    <Compile Include="PayNow.vb">
+    <Compile Include="Forms\PayNow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personnel.Designer.vb">
+    <Compile Include="Forms\Personnel.Designer.vb">
       <DependentUpon>Personnel.vb</DependentUpon>
     </Compile>
-    <Compile Include="Personnel.vb">
+    <Compile Include="Forms\Personnel.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PointOfSale.Designer.vb">
+    <Compile Include="Forms\PointOfSale.Designer.vb">
       <DependentUpon>PointOfSale.vb</DependentUpon>
     </Compile>
-    <Compile Include="PointOfSale.vb">
+    <Compile Include="Forms\PointOfSale.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="pos_dbDataSet.Designer.vb">
@@ -180,22 +180,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>pos_dbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Products.Designer.vb">
+    <Compile Include="Forms\Products.Designer.vb">
       <DependentUpon>Products.vb</DependentUpon>
     </Compile>
-    <Compile Include="Products.vb">
+    <Compile Include="Forms\Products.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductsLedger.Designer.vb">
+    <Compile Include="Forms\ProductsLedger.Designer.vb">
       <DependentUpon>ProductsLedger.vb</DependentUpon>
     </Compile>
-    <Compile Include="ProductsLedger.vb">
+    <Compile Include="Forms\ProductsLedger.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reports.Designer.vb">
+    <Compile Include="Forms\Reports.Designer.vb">
       <DependentUpon>Reports.vb</DependentUpon>
     </Compile>
-    <Compile Include="Reports.vb">
+    <Compile Include="Forms\Reports.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\cryAnalytics_SoldByMonth.vb">
@@ -218,16 +218,16 @@
       <DependentUpon>cryStoreReceipt.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Store.Designer.vb">
+    <Compile Include="Forms\Store.Designer.vb">
       <DependentUpon>Store.vb</DependentUpon>
     </Compile>
-    <Compile Include="Store.vb">
+    <Compile Include="Forms\Store.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Supplier.Designer.vb">
+    <Compile Include="Forms\Supplier.Designer.vb">
       <DependentUpon>Supplier.vb</DependentUpon>
     </Compile>
-    <Compile Include="Supplier.vb">
+    <Compile Include="Forms\Supplier.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
@@ -235,22 +235,22 @@
     <None Include="Resources\POS.png" />
     <None Include="Resources\Remove.png" />
     <None Include="Resources\Add.png" />
-    <EmbeddedResource Include="Analytics.resx">
+    <EmbeddedResource Include="Forms\Analytics.resx">
       <DependentUpon>Analytics.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Brand.resx">
+    <EmbeddedResource Include="Forms\Brand.resx">
       <DependentUpon>Brand.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Category.resx">
+    <EmbeddedResource Include="Forms\Category.resx">
       <DependentUpon>Category.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -259,22 +259,22 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="PayNow.resx">
+    <EmbeddedResource Include="Forms\PayNow.resx">
       <DependentUpon>PayNow.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personnel.resx">
+    <EmbeddedResource Include="Forms\Personnel.resx">
       <DependentUpon>Personnel.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PointOfSale.resx">
+    <EmbeddedResource Include="Forms\PointOfSale.resx">
       <DependentUpon>PointOfSale.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products.resx">
+    <EmbeddedResource Include="Forms\Products.resx">
       <DependentUpon>Products.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsLedger.resx">
+    <EmbeddedResource Include="Forms\ProductsLedger.resx">
       <DependentUpon>ProductsLedger.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports.resx">
+    <EmbeddedResource Include="Forms\Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
     </EmbeddedResource>
     <Content Include="POS.ico" />
@@ -292,10 +292,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryStoreReceipt.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Store.resx">
+    <EmbeddedResource Include="Forms\Store.resx">
       <DependentUpon>Store.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Supplier.resx">
+    <EmbeddedResource Include="Forms\Supplier.resx">
       <DependentUpon>Supplier.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
