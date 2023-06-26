@@ -872,7 +872,7 @@ Partial Class Products
     Friend WithEvents MinimumPriceTextBox As TextBox
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCode As DataGridViewTextBoxColumn
-    Friend WithEvents ProductName As DataGridViewTextBoxColumn
+    Friend Shadows ProductName As DataGridViewTextBoxColumn
     Friend WithEvents ProductImage As DataGridViewImageColumn
     Friend WithEvents Barcode As DataGridViewTextBoxColumn
     Friend WithEvents CategoryName As DataGridViewTextBoxColumn

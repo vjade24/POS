@@ -45,7 +45,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B262B798A7FA4A189F194E670291294A"
+        "MsmKey" = "8:_A027FB17B78244ADB51B8C6F4B4233BC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -58,12 +58,6 @@
         "Entry"
         {
         "MsmKey" = "8:_C0DFAD3CAE84A0A4441B983635A0573D"
-        "OwnerKey" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C35BB5B7AF01886237B0F13DCF85DF7A"
         "OwnerKey" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,8 +93,14 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
+        "OwnerKey" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D2A5D5D0EDD381F585B398144D466ACD"
+        "OwnerKey" = "8:_32C9F66D29AAD85137FA9D02571EB021"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,13 +112,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C35BB5B7AF01886237B0F13DCF85DF7A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_32C9F66D29AAD85137FA9D02571EB021"
+        "OwnerKey" = "8:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -145,6 +139,12 @@
         "OwnerKey" = "8:_80A6DF755E2778431972DBCEA9FCB756"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D2A5D5D0EDD381F585B398144D466ACD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -163,6 +163,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -179,6 +195,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -310,9 +334,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B262B798A7FA4A189F194E670291294A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A027FB17B78244ADB51B8C6F4B4233BC"
             {
-            "SourcePath" = "8:C:\\Users\\Vincent Jade Alivio\\Downloads\\POS.ico"
+            "SourcePath" = "8:..\\POS\\POS.ico"
             "TargetName" = "8:POS.ico"
             "Tag" = "8:"
             "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
@@ -364,37 +388,6 @@
                     }
                 }
             "SourcePath" = "8:FlashControlV71.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C35BB5B7AF01886237B0F13DCF85DF7A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FontAwesome.Sharp, Version=4.7.1.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C35BB5B7AF01886237B0F13DCF85DF7A"
-                    {
-                    "Name" = "8:FontAwesome.Sharp.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:FontAwesome.Sharp.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
@@ -505,6 +498,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FontAwesome.Sharp, Version=4.7.1.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F23DF09D4F4EE26AE6B03F9C8866EF7A"
+                    {
+                    "Name" = "8:FontAwesome.Sharp.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:FontAwesome.Sharp.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -590,7 +614,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:POS"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_B262B798A7FA4A189F194E670291294A"
+        "ARPPRODUCTICON" = "8:_A027FB17B78244ADB51B8C6F4B4233BC"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -704,7 +728,7 @@
             "Target" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
             "Folder" = "8:_0ABDD08D326140E2859CD9D8CB11439C"
             "WorkingFolder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
-            "Icon" = "8:_B262B798A7FA4A189F194E670291294A"
+            "Icon" = "8:_A027FB17B78244ADB51B8C6F4B4233BC"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EF40D0678C2042909A8BCB85CE76B3A1"
@@ -718,7 +742,7 @@
             "Target" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
             "Folder" = "8:_F24589A3C1C54721B17444AC7FE46500"
             "WorkingFolder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
-            "Icon" = "8:_B262B798A7FA4A189F194E670291294A"
+            "Icon" = "8:_A027FB17B78244ADB51B8C6F4B4233BC"
             "Feature" = "8:"
             }
         }
