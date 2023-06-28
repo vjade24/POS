@@ -33,7 +33,7 @@ Public Class Main
                 Dim lstr As New System.IO.MemoryStream(lb)
                 LogoPictureBox.Image = Image.FromStream(lstr)
             Catch ex As Exception
-                LogoPictureBox.Image = My.Resources._1
+                LogoPictureBox.Image = My.Resources.VJA
             End Try
 
         Else

@@ -25,10 +25,16 @@ Partial Class Reports
         Me.components = New System.ComponentModel.Container()
         Dim Label11 As System.Windows.Forms.Label
         Dim Label12 As System.Windows.Forms.Label
+        Dim Label2 As System.Windows.Forms.Label
+        Dim Label3 As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label_New = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
@@ -44,6 +50,10 @@ Partial Class Reports
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.Vw_TransactionsTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_TransactionsTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PersonnelTableAdapter = New POS.pos_dbDataSetTableAdapters.PersonnelTableAdapter()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,12 +78,15 @@ Partial Class Reports
         Me.CreatedByDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Label11 = New System.Windows.Forms.Label()
         Label12 = New System.Windows.Forms.Label()
+        Label2 = New System.Windows.Forms.Label()
+        Label3 = New System.Windows.Forms.Label()
         CType(Me.IconPictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VwTransactionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label11
@@ -93,6 +106,25 @@ Partial Class Reports
         Label12.Size = New System.Drawing.Size(56, 16)
         Label12.TabIndex = 43
         Label12.Text = "Period to"
+        '
+        'Label2
+        '
+        Label2.AutoSize = True
+        Label2.Location = New System.Drawing.Point(725, 182)
+        Label2.Name = "Label2"
+        Label2.Size = New System.Drawing.Size(59, 16)
+        Label2.TabIndex = 46
+        Label2.Text = "Personnel"
+        '
+        'Label3
+        '
+        Label3.AutoSize = True
+        Label3.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label3.Location = New System.Drawing.Point(46, 201)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(98, 21)
+        Label3.TabIndex = 47
+        Label3.Text = "List Of Sales"
         '
         'Label_New
         '
@@ -223,14 +255,14 @@ Partial Class Reports
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
         Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PersonnelIdDataGridViewTextBoxColumn, Me.InvoiceNoDataGridViewTextBoxColumn, Me.CustomerNameDataGridViewTextBoxColumn, Me.GrandTotalDataGridViewTextBoxColumn, Me.PaymentAmountDataGridViewTextBoxColumn, Me.PaymentChangeDataGridViewTextBoxColumn, Me.PaymentStatusDataGridViewTextBoxColumn, Me.TransactionHeaderIdDataGridViewTextBoxColumn, Me.ProductCodeDataGridViewTextBoxColumn, Me.ProductNameDataGridViewTextBoxColumn, Me.CategoryNameDataGridViewTextBoxColumn, Me.BrandNameDataGridViewTextBoxColumn, Me.SupplierNameDataGridViewTextBoxColumn, Me.BarcodeDataGridViewTextBoxColumn, Me.OriginalPriceDataGridViewTextBoxColumn, Me.DiscountedPercDataGridViewTextBoxColumn, Me.DiscountedPriceDataGridViewTextBoxColumn, Me.FinalPriceDataGridViewTextBoxColumn, Me.QuantityDataGridViewTextBoxColumn, Me.TotalAmountDataGridViewTextBoxColumn, Me.CreatedAtDataGridViewTextBoxColumn, Me.CreatedByDataGridViewTextBoxColumn})
         Me.CategoryDataGridView.DataSource = Me.VwTransactionsBindingSource
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle8
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
         Me.CategoryDataGridView.Location = New System.Drawing.Point(50, 232)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -273,6 +305,34 @@ Partial Class Reports
         '
         Me.Vw_TransactionsTableAdapter.ClearBeforeFill = True
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.PersonnelBindingSource
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(728, 201)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(193, 24)
+        Me.ComboBox1.TabIndex = 45
+        '
+        'PersonnelBindingSource
+        '
+        Me.PersonnelBindingSource.DataMember = "Personnel"
+        Me.PersonnelBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'PersonnelTableAdapter
+        '
+        Me.PersonnelTableAdapter.ClearBeforeFill = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(845, 182)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(73, 16)
+        Me.LinkLabel1.TabIndex = 48
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "All Personnel"
+        '
         'PersonnelIdDataGridViewTextBoxColumn
         '
         Me.PersonnelIdDataGridViewTextBoxColumn.DataPropertyName = "PersonnelId"
@@ -283,7 +343,10 @@ Partial Class Reports
         '
         'InvoiceNoDataGridViewTextBoxColumn
         '
+        Me.InvoiceNoDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.InvoiceNoDataGridViewTextBoxColumn.DataPropertyName = "InvoiceNo"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.InvoiceNoDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.InvoiceNoDataGridViewTextBoxColumn.HeaderText = "InvoiceNo"
         Me.InvoiceNoDataGridViewTextBoxColumn.Name = "InvoiceNoDataGridViewTextBoxColumn"
         Me.InvoiceNoDataGridViewTextBoxColumn.ReadOnly = True
@@ -322,7 +385,10 @@ Partial Class Reports
         '
         'PaymentStatusDataGridViewTextBoxColumn
         '
+        Me.PaymentStatusDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.PaymentStatusDataGridViewTextBoxColumn.DataPropertyName = "PaymentStatus"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.PaymentStatusDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.PaymentStatusDataGridViewTextBoxColumn.HeaderText = "PaymentStatus"
         Me.PaymentStatusDataGridViewTextBoxColumn.Name = "PaymentStatusDataGridViewTextBoxColumn"
         Me.PaymentStatusDataGridViewTextBoxColumn.ReadOnly = True
@@ -337,17 +403,22 @@ Partial Class Reports
         '
         'ProductCodeDataGridViewTextBoxColumn
         '
+        Me.ProductCodeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.ProductCodeDataGridViewTextBoxColumn.DataPropertyName = "ProductCode"
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.ProductCodeDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle4
         Me.ProductCodeDataGridViewTextBoxColumn.HeaderText = "ProductCode"
         Me.ProductCodeDataGridViewTextBoxColumn.Name = "ProductCodeDataGridViewTextBoxColumn"
         Me.ProductCodeDataGridViewTextBoxColumn.ReadOnly = True
         '
         'ProductNameDataGridViewTextBoxColumn
         '
+        Me.ProductNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.ProductNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName"
         Me.ProductNameDataGridViewTextBoxColumn.HeaderText = "ProductName"
         Me.ProductNameDataGridViewTextBoxColumn.Name = "ProductNameDataGridViewTextBoxColumn"
         Me.ProductNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.ProductNameDataGridViewTextBoxColumn.Width = 108
         '
         'CategoryNameDataGridViewTextBoxColumn
         '
@@ -415,34 +486,41 @@ Partial Class Reports
         '
         'QuantityDataGridViewTextBoxColumn
         '
+        Me.QuantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.QuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle5
         Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
         Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
         Me.QuantityDataGridViewTextBoxColumn.ReadOnly = True
         '
         'TotalAmountDataGridViewTextBoxColumn
         '
+        Me.TotalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle6.Format = "N2"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
         Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
         Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
         Me.TotalAmountDataGridViewTextBoxColumn.ReadOnly = True
         '
         'CreatedAtDataGridViewTextBoxColumn
         '
+        Me.CreatedAtDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.CreatedAtDataGridViewTextBoxColumn.DataPropertyName = "CreatedAt"
+        DataGridViewCellStyle7.Format = "f"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.CreatedAtDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
         Me.CreatedAtDataGridViewTextBoxColumn.HeaderText = "CreatedAt"
         Me.CreatedAtDataGridViewTextBoxColumn.Name = "CreatedAtDataGridViewTextBoxColumn"
         Me.CreatedAtDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CreatedAtDataGridViewTextBoxColumn.Visible = False
+        Me.CreatedAtDataGridViewTextBoxColumn.Width = 89
         '
         'CreatedByDataGridViewTextBoxColumn
         '
+        Me.CreatedByDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.CreatedByDataGridViewTextBoxColumn.DataPropertyName = "CreatedBy"
         Me.CreatedByDataGridViewTextBoxColumn.HeaderText = "CreatedBy"
         Me.CreatedByDataGridViewTextBoxColumn.Name = "CreatedByDataGridViewTextBoxColumn"
@@ -455,6 +533,10 @@ Partial Class Reports
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(982, 617)
+        Me.Controls.Add(Me.LinkLabel1)
+        Me.Controls.Add(Label3)
+        Me.Controls.Add(Label2)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.CategoryDataGridView)
         Me.Controls.Add(Label12)
         Me.Controls.Add(Me.DateTimePicker2)
@@ -480,6 +562,7 @@ Partial Class Reports
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwTransactionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -499,6 +582,10 @@ Partial Class Reports
     Friend WithEvents Pos_dbDataSet As pos_dbDataSet
     Friend WithEvents VwTransactionsBindingSource As BindingSource
     Friend WithEvents Vw_TransactionsTableAdapter As pos_dbDataSetTableAdapters.vw_TransactionsTableAdapter
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents PersonnelBindingSource As BindingSource
+    Friend WithEvents PersonnelTableAdapter As pos_dbDataSetTableAdapters.PersonnelTableAdapter
+    Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents PersonnelIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents InvoiceNoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CustomerNameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn

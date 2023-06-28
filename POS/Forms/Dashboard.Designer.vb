@@ -51,8 +51,6 @@ Partial Class Dashboard
         Me.Label16 = New System.Windows.Forms.Label()
         Me.IconPictureBox4 = New FontAwesome.Sharp.IconPictureBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
         Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -79,8 +77,6 @@ Partial Class Dashboard
         Me.VwTransactionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.PersonnelIdDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvoiceNoDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -185,7 +181,7 @@ Partial Class Dashboard
         Me.Label_total_customer_today.BackColor = System.Drawing.Color.ForestGreen
         Me.Label_total_customer_today.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_customer_today.ForeColor = System.Drawing.Color.White
-        Me.Label_total_customer_today.Location = New System.Drawing.Point(387, 105)
+        Me.Label_total_customer_today.Location = New System.Drawing.Point(381, 105)
         Me.Label_total_customer_today.Name = "Label_total_customer_today"
         Me.Label_total_customer_today.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_customer_today.TabIndex = 12
@@ -197,7 +193,7 @@ Partial Class Dashboard
         Me.Label_total_customer.BackColor = System.Drawing.Color.ForestGreen
         Me.Label_total_customer.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_customer.ForeColor = System.Drawing.Color.White
-        Me.Label_total_customer.Location = New System.Drawing.Point(387, 52)
+        Me.Label_total_customer.Location = New System.Drawing.Point(381, 52)
         Me.Label_total_customer.Name = "Label_total_customer"
         Me.Label_total_customer.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_customer.TabIndex = 11
@@ -209,7 +205,7 @@ Partial Class Dashboard
         Me.Label7.BackColor = System.Drawing.Color.ForestGreen
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.White
-        Me.Label7.Location = New System.Drawing.Point(389, 89)
+        Me.Label7.Location = New System.Drawing.Point(383, 89)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 16)
         Me.Label7.TabIndex = 10
@@ -221,7 +217,7 @@ Partial Class Dashboard
         Me.Label8.BackColor = System.Drawing.Color.ForestGreen
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.White
-        Me.Label8.Location = New System.Drawing.Point(381, 36)
+        Me.Label8.Location = New System.Drawing.Point(375, 36)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(106, 16)
         Me.Label8.TabIndex = 9
@@ -233,7 +229,7 @@ Partial Class Dashboard
         Me.IconPictureBox2.IconChar = FontAwesome.Sharp.IconChar.Users
         Me.IconPictureBox2.IconColor = System.Drawing.Color.White
         Me.IconPictureBox2.IconSize = 139
-        Me.IconPictureBox2.Location = New System.Drawing.Point(257, 12)
+        Me.IconPictureBox2.Location = New System.Drawing.Point(251, 12)
         Me.IconPictureBox2.Name = "IconPictureBox2"
         Me.IconPictureBox2.Size = New System.Drawing.Size(233, 139)
         Me.IconPictureBox2.TabIndex = 8
@@ -245,7 +241,7 @@ Partial Class Dashboard
         Me.Label_total_supplier_today.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label_total_supplier_today.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_supplier_today.ForeColor = System.Drawing.Color.White
-        Me.Label_total_supplier_today.Location = New System.Drawing.Point(636, 105)
+        Me.Label_total_supplier_today.Location = New System.Drawing.Point(621, 105)
         Me.Label_total_supplier_today.Name = "Label_total_supplier_today"
         Me.Label_total_supplier_today.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_supplier_today.TabIndex = 17
@@ -257,7 +253,7 @@ Partial Class Dashboard
         Me.Label_total_supplier.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label_total_supplier.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_supplier.ForeColor = System.Drawing.Color.White
-        Me.Label_total_supplier.Location = New System.Drawing.Point(636, 52)
+        Me.Label_total_supplier.Location = New System.Drawing.Point(621, 52)
         Me.Label_total_supplier.Name = "Label_total_supplier"
         Me.Label_total_supplier.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_supplier.TabIndex = 16
@@ -269,7 +265,7 @@ Partial Class Dashboard
         Me.Label11.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(638, 89)
+        Me.Label11.Location = New System.Drawing.Point(623, 89)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(46, 16)
         Me.Label11.TabIndex = 15
@@ -281,7 +277,7 @@ Partial Class Dashboard
         Me.Label12.BackColor = System.Drawing.Color.DodgerBlue
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.White
-        Me.Label12.Location = New System.Drawing.Point(638, 36)
+        Me.Label12.Location = New System.Drawing.Point(623, 36)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(93, 16)
         Me.Label12.TabIndex = 14
@@ -293,7 +289,7 @@ Partial Class Dashboard
         Me.IconPictureBox3.IconChar = FontAwesome.Sharp.IconChar.UserSecret
         Me.IconPictureBox3.IconColor = System.Drawing.Color.White
         Me.IconPictureBox3.IconSize = 139
-        Me.IconPictureBox3.Location = New System.Drawing.Point(506, 12)
+        Me.IconPictureBox3.Location = New System.Drawing.Point(491, 12)
         Me.IconPictureBox3.Name = "IconPictureBox3"
         Me.IconPictureBox3.Size = New System.Drawing.Size(233, 139)
         Me.IconPictureBox3.TabIndex = 13
@@ -305,7 +301,7 @@ Partial Class Dashboard
         Me.Label_total_product_today.BackColor = System.Drawing.Color.Red
         Me.Label_total_product_today.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_product_today.ForeColor = System.Drawing.Color.White
-        Me.Label_total_product_today.Location = New System.Drawing.Point(875, 105)
+        Me.Label_total_product_today.Location = New System.Drawing.Point(860, 105)
         Me.Label_total_product_today.Name = "Label_total_product_today"
         Me.Label_total_product_today.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_product_today.TabIndex = 22
@@ -317,7 +313,7 @@ Partial Class Dashboard
         Me.Label_total_product.BackColor = System.Drawing.Color.Red
         Me.Label_total_product.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_total_product.ForeColor = System.Drawing.Color.White
-        Me.Label_total_product.Location = New System.Drawing.Point(875, 52)
+        Me.Label_total_product.Location = New System.Drawing.Point(860, 52)
         Me.Label_total_product.Name = "Label_total_product"
         Me.Label_total_product.Size = New System.Drawing.Size(87, 25)
         Me.Label_total_product.TabIndex = 21
@@ -329,7 +325,7 @@ Partial Class Dashboard
         Me.Label15.BackColor = System.Drawing.Color.Red
         Me.Label15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.White
-        Me.Label15.Location = New System.Drawing.Point(877, 89)
+        Me.Label15.Location = New System.Drawing.Point(862, 89)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(46, 16)
         Me.Label15.TabIndex = 20
@@ -341,7 +337,7 @@ Partial Class Dashboard
         Me.Label16.BackColor = System.Drawing.Color.Red
         Me.Label16.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.White
-        Me.Label16.Location = New System.Drawing.Point(877, 36)
+        Me.Label16.Location = New System.Drawing.Point(862, 36)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(99, 16)
         Me.Label16.TabIndex = 19
@@ -353,7 +349,7 @@ Partial Class Dashboard
         Me.IconPictureBox4.IconChar = FontAwesome.Sharp.IconChar.Tachometer
         Me.IconPictureBox4.IconColor = System.Drawing.Color.White
         Me.IconPictureBox4.IconSize = 139
-        Me.IconPictureBox4.Location = New System.Drawing.Point(745, 12)
+        Me.IconPictureBox4.Location = New System.Drawing.Point(730, 12)
         Me.IconPictureBox4.Name = "IconPictureBox4"
         Me.IconPictureBox4.Size = New System.Drawing.Size(233, 139)
         Me.IconPictureBox4.TabIndex = 18
@@ -361,36 +357,13 @@ Partial Class Dashboard
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Label17)
-        Me.GroupBox1.Controls.Add(Me.TextBoxSearch)
         Me.GroupBox1.Controls.Add(Me.CategoryDataGridView)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 157)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(475, 493)
+        Me.GroupBox1.Size = New System.Drawing.Size(472, 493)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Recent Activities"
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(17, 31)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(49, 16)
-        Me.Label17.TabIndex = 24
-        Me.Label17.Text = "Search:"
-        '
-        'TextBoxSearch
-        '
-        Me.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxSearch.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxSearch.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxSearch.Location = New System.Drawing.Point(69, 29)
-        Me.TextBoxSearch.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxSearch.Name = "TextBoxSearch"
-        Me.TextBoxSearch.Size = New System.Drawing.Size(156, 21)
-        Me.TextBoxSearch.TabIndex = 23
         '
         'CategoryDataGridView
         '
@@ -422,7 +395,7 @@ Partial Class Dashboard
         DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle4
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
-        Me.CategoryDataGridView.Location = New System.Drawing.Point(14, 65)
+        Me.CategoryDataGridView.Location = New System.Drawing.Point(14, 21)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CategoryDataGridView.Name = "CategoryDataGridView"
         Me.CategoryDataGridView.ReadOnly = True
@@ -430,7 +403,7 @@ Partial Class Dashboard
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(448, 421)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(448, 455)
         Me.CategoryDataGridView.TabIndex = 22
         '
         'PersonnelIdDataGridViewTextBoxColumn
@@ -623,36 +596,13 @@ Partial Class Dashboard
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.Label18)
-        Me.GroupBox2.Controls.Add(Me.TextBox1)
         Me.GroupBox2.Controls.Add(Me.DataGridView1)
         Me.GroupBox2.Location = New System.Drawing.Point(493, 157)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(485, 493)
+        Me.GroupBox2.Size = New System.Drawing.Size(470, 493)
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Top Selling Products"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label18.Location = New System.Drawing.Point(17, 31)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(49, 16)
-        Me.Label18.TabIndex = 24
-        Me.Label18.Text = "Search:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBox1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.TextBox1.Location = New System.Drawing.Point(69, 29)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(156, 21)
-        Me.TextBox1.TabIndex = 23
         '
         'DataGridView1
         '
@@ -684,7 +634,7 @@ Partial Class Dashboard
         DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle7
         Me.DataGridView1.EnableHeadersVisualStyles = False
-        Me.DataGridView1.Location = New System.Drawing.Point(14, 65)
+        Me.DataGridView1.Location = New System.Drawing.Point(14, 21)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
@@ -692,7 +642,7 @@ Partial Class Dashboard
         Me.DataGridView1.RowHeadersVisible = False
         Me.DataGridView1.RowHeadersWidth = 50
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(463, 421)
+        Me.DataGridView1.Size = New System.Drawing.Size(450, 455)
         Me.DataGridView1.TabIndex = 22
         '
         'PersonnelIdDataGridViewTextBoxColumn1
@@ -917,12 +867,10 @@ Partial Class Dashboard
         CType(Me.IconPictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.IconPictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwTransactionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VwTransactionsBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -951,12 +899,8 @@ Partial Class Dashboard
     Friend WithEvents Label16 As Label
     Friend WithEvents IconPictureBox4 As FontAwesome.Sharp.IconPictureBox
     Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label17 As Label
-    Friend WithEvents TextBoxSearch As TextBox
     Friend WithEvents CategoryDataGridView As DataGridView
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents Label18 As Label
-    Friend WithEvents TextBox1 As TextBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Pos_dbDataSet As pos_dbDataSet
     Friend WithEvents VwTransactionsBindingSource As BindingSource

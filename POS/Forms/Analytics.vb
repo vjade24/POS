@@ -48,7 +48,7 @@ Public Class Analytics
             .Series.Add("Series1")
         End With
 
-        Dim query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+        Dim query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions WHERE PaymentStatus = 'Paid' GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -89,7 +89,7 @@ Public Class Analytics
             .Series.Add("Series1")
         End With
 
-        Dim query = "SELECT MONTH(CreatedAt) AS MonthNameInt,DATENAME(MONTH, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt) ORDER BY MONTH(CreatedAt) ASC"
+        Dim query = "SELECT MONTH(CreatedAt) AS MonthNameInt,DATENAME(MONTH, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions  WHERE PaymentStatus = 'Paid' GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt) ORDER BY MONTH(CreatedAt) ASC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)

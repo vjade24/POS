@@ -44,15 +44,16 @@ Partial Class PointOfSale
         Dim CustomerNameLabel As System.Windows.Forms.Label
         Dim MinimumPriceLabel As System.Windows.Forms.Label
         Dim MaximumPriceLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PointOfSale))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim Label5 As System.Windows.Forms.Label
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.TransactionDetailsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
@@ -150,6 +151,7 @@ Partial Class PointOfSale
         Me.TransactionHeaderTableAdapter = New POS.pos_dbDataSetTableAdapters.TransactionHeaderTableAdapter()
         Me.TransactionDetailsBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.TextBoxRemainingQuantity = New System.Windows.Forms.TextBox()
         ProductCodeLabel = New System.Windows.Forms.Label()
         ProductNameLabel = New System.Windows.Forms.Label()
         FinalPriceLabel = New System.Windows.Forms.Label()
@@ -171,6 +173,7 @@ Partial Class PointOfSale
         CustomerNameLabel = New System.Windows.Forms.Label()
         MinimumPriceLabel = New System.Windows.Forms.Label()
         MaximumPriceLabel = New System.Windows.Forms.Label()
+        Label5 = New System.Windows.Forms.Label()
         CType(Me.TransactionDetailsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -233,7 +236,7 @@ Partial Class PointOfSale
         'Label4
         '
         Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(271, 253)
+        Label4.Location = New System.Drawing.Point(271, 250)
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(58, 16)
         Label4.TabIndex = 27
@@ -479,25 +482,25 @@ Partial Class PointOfSale
         Me.DataGridView2.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DataGridView2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle17
         Me.DataGridView2.ColumnHeadersHeight = 50
         Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.TransactionHeaderIdDataGridViewTextBoxColumn, Me.ProductCodeDataGridViewTextBoxColumn, Me.ProductNameDataGridViewTextBoxColumn, Me.CategoryNameDataGridViewTextBoxColumn, Me.BrandNameDataGridViewTextBoxColumn, Me.SupplierNameDataGridViewTextBoxColumn, Me.BarcodeDataGridViewTextBoxColumn, Me.OriginalPriceDataGridViewTextBoxColumn, Me.DiscountedPercDataGridViewTextBoxColumn, Me.DiscountedPriceDataGridViewTextBoxColumn, Me.FinalPriceDataGridViewTextBoxColumn, Me.QuantityDataGridViewTextBoxColumn, Me.TotalAmountDataGridViewTextBoxColumn, Me.CreatedAtDataGridViewTextBoxColumn, Me.CreatedByDataGridViewTextBoxColumn, Me.ColumnRemove})
         Me.DataGridView2.DataSource = Me.TransactionDetailsBindingSource3
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView2.DefaultCellStyle = DataGridViewCellStyle20
         Me.DataGridView2.EnableHeadersVisualStyles = False
         Me.DataGridView2.Location = New System.Drawing.Point(15, 21)
         Me.DataGridView2.Name = "DataGridView2"
@@ -610,8 +613,8 @@ Partial Class PointOfSale
         '
         Me.QuantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.QuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle18
         Me.QuantityDataGridViewTextBoxColumn.FillWeight = 50.0!
         Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
         Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
@@ -621,10 +624,10 @@ Partial Class PointOfSale
         '
         Me.TotalAmountDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle3.Format = "N2"
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle19.Format = "N2"
+        DataGridViewCellStyle19.NullValue = Nothing
+        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle19
         Me.TotalAmountDataGridViewTextBoxColumn.FillWeight = 50.0!
         Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
         Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
@@ -806,25 +809,25 @@ Partial Class PointOfSale
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.Control
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle21
         Me.DataGridView1.ColumnHeadersHeight = 50
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewImageColumn1, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewCheckBoxColumn1, Me.MinimumPrice, Me.MaximumPrice})
         Me.DataGridView1.DataSource = Me.ProductBindingSource
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle24.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DataGridView1.DefaultCellStyle = DataGridViewCellStyle24
         Me.DataGridView1.EnableHeadersVisualStyles = False
         Me.DataGridView1.Location = New System.Drawing.Point(21, 66)
         Me.DataGridView1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -944,10 +947,10 @@ Partial Class PointOfSale
         'DataGridViewTextBoxColumn13
         '
         Me.DataGridViewTextBoxColumn13.DataPropertyName = "FinalPrice"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle22.Format = "N2"
+        DataGridViewCellStyle22.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle22
         Me.DataGridViewTextBoxColumn13.HeaderText = "FinalPrice"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
@@ -955,8 +958,8 @@ Partial Class PointOfSale
         'DataGridViewTextBoxColumn14
         '
         Me.DataGridViewTextBoxColumn14.DataPropertyName = "Quantity"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.DataGridViewTextBoxColumn14.DefaultCellStyle = DataGridViewCellStyle23
         Me.DataGridViewTextBoxColumn14.HeaderText = "Quantity"
         Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
         Me.DataGridViewTextBoxColumn14.ReadOnly = True
@@ -991,6 +994,8 @@ Partial Class PointOfSale
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Label5)
+        Me.GroupBox3.Controls.Add(Me.TextBoxRemainingQuantity)
         Me.GroupBox3.Controls.Add(MaximumPriceLabel)
         Me.GroupBox3.Controls.Add(Me.MaximumPriceTextBox)
         Me.GroupBox3.Controls.Add(MinimumPriceLabel)
@@ -1124,7 +1129,7 @@ Partial Class PointOfSale
         Me.TextBox_TotalPerProduct.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "FinalPrice", True))
         Me.TextBox_TotalPerProduct.Enabled = False
         Me.TextBox_TotalPerProduct.Font = New System.Drawing.Font("Century Gothic", 18.0!)
-        Me.TextBox_TotalPerProduct.Location = New System.Drawing.Point(272, 270)
+        Me.TextBox_TotalPerProduct.Location = New System.Drawing.Point(272, 267)
         Me.TextBox_TotalPerProduct.Name = "TextBox_TotalPerProduct"
         Me.TextBox_TotalPerProduct.Size = New System.Drawing.Size(126, 37)
         Me.TextBox_TotalPerProduct.TabIndex = 28
@@ -1373,6 +1378,26 @@ Partial Class PointOfSale
         Me.DataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         Me.DataGridViewImageColumn2.Width = 123
         '
+        'Label5
+        '
+        Label5.AutoSize = True
+        Label5.Location = New System.Drawing.Point(149, 264)
+        Label5.Name = "Label5"
+        Label5.Size = New System.Drawing.Size(119, 16)
+        Label5.TabIndex = 38
+        Label5.Text = "Remaining Quantity:"
+        '
+        'TextBoxRemainingQuantity
+        '
+        Me.TextBoxRemainingQuantity.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "Quantity", True))
+        Me.TextBoxRemainingQuantity.Enabled = False
+        Me.TextBoxRemainingQuantity.Location = New System.Drawing.Point(149, 283)
+        Me.TextBoxRemainingQuantity.Name = "TextBoxRemainingQuantity"
+        Me.TextBoxRemainingQuantity.Size = New System.Drawing.Size(118, 21)
+        Me.TextBoxRemainingQuantity.TabIndex = 39
+        Me.TextBoxRemainingQuantity.Text = "0"
+        Me.TextBoxRemainingQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'PointOfSale
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -1514,4 +1539,5 @@ Partial Class PointOfSale
     Friend WithEvents DataGridViewImageColumn2 As DataGridViewImageColumn
     Friend WithEvents ComboBoxInvoice As ComboBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents TextBoxRemainingQuantity As TextBox
 End Class

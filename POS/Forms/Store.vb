@@ -110,7 +110,7 @@ Public Class Store
                 Dim lstr As New System.IO.MemoryStream(lb)
                 ProductImagePictureBox.Image = Image.FromStream(lstr)
             Catch ex As Exception
-                ProductImagePictureBox.Image = My.Resources._1
+                ProductImagePictureBox.Image = My.Resources.VJA
             End Try
         Else
             MsgBox("No Store Information!", MsgBoxStyle.Critical)

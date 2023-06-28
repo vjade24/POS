@@ -232,6 +232,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\VJA.png" />
     <None Include="Resources\POS.png" />
     <None Include="Resources\Remove.png" />
     <None Include="Resources\Add.png" />

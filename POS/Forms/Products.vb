@@ -29,7 +29,7 @@ Public Class Products
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Product WHERE ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR CategoryName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR SupplierName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR Quantity LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR FinalPrice LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
         CommonQuery(query, CategoryDataGridView)
     End Sub
 
@@ -77,7 +77,7 @@ Public Class Products
         IdTextBox.Text = ""
         ProductCodeTextBox.Text = ""
         ProductNameTextBox.Text = ""
-        ProductImagePictureBox.Image = My.Resources._1
+        ProductImagePictureBox.Image = My.Resources.VJA
         BarcodeTextBox.Text = ""
         CategoryNameComboBox.Text = ""
         BrandNameComboBox.Text = ""

@@ -41,13 +41,13 @@ Partial Class Main
         Me.BtnDashBoard = New FontAwesome.Sharp.IconButton()
         Me.PanelTop = New System.Windows.Forms.Panel()
         Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.TextBoxDateTimeNow = New System.Windows.Forms.TextBox()
         Me.IconPictureBox2 = New FontAwesome.Sharp.IconPictureBox()
         Me.TextBoxRight = New System.Windows.Forms.TextBox()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.IconPictureBoxTop = New FontAwesome.Sharp.IconPictureBox()
         Me.LblBreadCrump = New System.Windows.Forms.Label()
         Me.PanelMain = New System.Windows.Forms.Panel()
-        Me.TextBoxDateTimeNow = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PanelSide.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -82,7 +82,7 @@ Partial Class Main
         '
         'LogoPictureBox
         '
-        Me.LogoPictureBox.Image = Global.POS.My.Resources.Resources._1
+        Me.LogoPictureBox.Image = Global.POS.My.Resources.Resources.VJA
         Me.LogoPictureBox.Location = New System.Drawing.Point(72, 13)
         Me.LogoPictureBox.Margin = New System.Windows.Forms.Padding(4)
         Me.LogoPictureBox.Name = "LogoPictureBox"
@@ -137,11 +137,11 @@ Partial Class Main
         Me.BtnStoreInfo.IconColor = System.Drawing.Color.White
         Me.BtnStoreInfo.IconSize = 30
         Me.BtnStoreInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnStoreInfo.Location = New System.Drawing.Point(0, 450)
+        Me.BtnStoreInfo.Location = New System.Drawing.Point(0, 459)
         Me.BtnStoreInfo.Name = "BtnStoreInfo"
         Me.BtnStoreInfo.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnStoreInfo.Rotation = 0R
-        Me.BtnStoreInfo.Size = New System.Drawing.Size(267, 50)
+        Me.BtnStoreInfo.Size = New System.Drawing.Size(267, 51)
         Me.BtnStoreInfo.TabIndex = 22
         Me.BtnStoreInfo.Text = "Store Info"
         Me.BtnStoreInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -181,11 +181,11 @@ Partial Class Main
         Me.BtnSupplier.IconColor = System.Drawing.Color.White
         Me.BtnSupplier.IconSize = 30
         Me.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSupplier.Location = New System.Drawing.Point(0, 400)
+        Me.BtnSupplier.Location = New System.Drawing.Point(0, 408)
         Me.BtnSupplier.Name = "BtnSupplier"
         Me.BtnSupplier.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnSupplier.Rotation = 0R
-        Me.BtnSupplier.Size = New System.Drawing.Size(267, 50)
+        Me.BtnSupplier.Size = New System.Drawing.Size(267, 51)
         Me.BtnSupplier.TabIndex = 20
         Me.BtnSupplier.Text = "Supplier"
         Me.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -203,11 +203,11 @@ Partial Class Main
         Me.BtnPersonnel.IconColor = System.Drawing.Color.White
         Me.BtnPersonnel.IconSize = 30
         Me.BtnPersonnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 350)
+        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 357)
         Me.BtnPersonnel.Name = "BtnPersonnel"
         Me.BtnPersonnel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPersonnel.Rotation = 0R
-        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 50)
+        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 51)
         Me.BtnPersonnel.TabIndex = 19
         Me.BtnPersonnel.Text = "Personnel"
         Me.BtnPersonnel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -225,11 +225,11 @@ Partial Class Main
         Me.BtnAnalytics.IconColor = System.Drawing.Color.White
         Me.BtnAnalytics.IconSize = 30
         Me.BtnAnalytics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 300)
+        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 306)
         Me.BtnAnalytics.Name = "BtnAnalytics"
         Me.BtnAnalytics.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnAnalytics.Rotation = 0R
-        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 50)
+        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 51)
         Me.BtnAnalytics.TabIndex = 18
         Me.BtnAnalytics.Text = "Analytics"
         Me.BtnAnalytics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -247,11 +247,11 @@ Partial Class Main
         Me.BtnReports.IconColor = System.Drawing.Color.White
         Me.BtnReports.IconSize = 30
         Me.BtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReports.Location = New System.Drawing.Point(0, 250)
+        Me.BtnReports.Location = New System.Drawing.Point(0, 255)
         Me.BtnReports.Name = "BtnReports"
         Me.BtnReports.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnReports.Rotation = 0R
-        Me.BtnReports.Size = New System.Drawing.Size(267, 50)
+        Me.BtnReports.Size = New System.Drawing.Size(267, 51)
         Me.BtnReports.TabIndex = 17
         Me.BtnReports.Text = "Reports"
         Me.BtnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -269,11 +269,11 @@ Partial Class Main
         Me.BtnBrand.IconColor = System.Drawing.Color.White
         Me.BtnBrand.IconSize = 30
         Me.BtnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrand.Location = New System.Drawing.Point(0, 200)
+        Me.BtnBrand.Location = New System.Drawing.Point(0, 204)
         Me.BtnBrand.Name = "BtnBrand"
         Me.BtnBrand.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnBrand.Rotation = 0R
-        Me.BtnBrand.Size = New System.Drawing.Size(267, 50)
+        Me.BtnBrand.Size = New System.Drawing.Size(267, 51)
         Me.BtnBrand.TabIndex = 16
         Me.BtnBrand.Text = "Brand"
         Me.BtnBrand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -291,11 +291,11 @@ Partial Class Main
         Me.BtnCategory.IconColor = System.Drawing.Color.White
         Me.BtnCategory.IconSize = 30
         Me.BtnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCategory.Location = New System.Drawing.Point(0, 150)
+        Me.BtnCategory.Location = New System.Drawing.Point(0, 153)
         Me.BtnCategory.Name = "BtnCategory"
         Me.BtnCategory.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnCategory.Rotation = 0R
-        Me.BtnCategory.Size = New System.Drawing.Size(267, 50)
+        Me.BtnCategory.Size = New System.Drawing.Size(267, 51)
         Me.BtnCategory.TabIndex = 15
         Me.BtnCategory.Text = "Category"
         Me.BtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -313,11 +313,11 @@ Partial Class Main
         Me.BtnProducts.IconColor = System.Drawing.Color.White
         Me.BtnProducts.IconSize = 30
         Me.BtnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnProducts.Location = New System.Drawing.Point(0, 100)
+        Me.BtnProducts.Location = New System.Drawing.Point(0, 102)
         Me.BtnProducts.Name = "BtnProducts"
         Me.BtnProducts.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnProducts.Rotation = 0R
-        Me.BtnProducts.Size = New System.Drawing.Size(267, 50)
+        Me.BtnProducts.Size = New System.Drawing.Size(267, 51)
         Me.BtnProducts.TabIndex = 14
         Me.BtnProducts.Text = "Products"
         Me.BtnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -335,11 +335,11 @@ Partial Class Main
         Me.BtnPOS.IconColor = System.Drawing.Color.White
         Me.BtnPOS.IconSize = 30
         Me.BtnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPOS.Location = New System.Drawing.Point(0, 50)
+        Me.BtnPOS.Location = New System.Drawing.Point(0, 51)
         Me.BtnPOS.Name = "BtnPOS"
         Me.BtnPOS.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPOS.Rotation = 0R
-        Me.BtnPOS.Size = New System.Drawing.Size(267, 50)
+        Me.BtnPOS.Size = New System.Drawing.Size(267, 51)
         Me.BtnPOS.TabIndex = 13
         Me.BtnPOS.Text = "Point of Sale"
         Me.BtnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -361,7 +361,7 @@ Partial Class Main
         Me.BtnDashBoard.Name = "BtnDashBoard"
         Me.BtnDashBoard.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnDashBoard.Rotation = 0R
-        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 50)
+        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 51)
         Me.BtnDashBoard.TabIndex = 12
         Me.BtnDashBoard.Text = "Dashboard"
         Me.BtnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -388,6 +388,22 @@ Partial Class Main
         Me.Panel4.Size = New System.Drawing.Size(768, 56)
         Me.Panel4.TabIndex = 1
         '
+        'TextBoxDateTimeNow
+        '
+        Me.TextBoxDateTimeNow.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TextBoxDateTimeNow.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxDateTimeNow.ForeColor = System.Drawing.Color.White
+        Me.TextBoxDateTimeNow.Location = New System.Drawing.Point(126, 23)
+        Me.TextBoxDateTimeNow.Margin = New System.Windows.Forms.Padding(4)
+        Me.TextBoxDateTimeNow.Multiline = True
+        Me.TextBoxDateTimeNow.Name = "TextBoxDateTimeNow"
+        Me.TextBoxDateTimeNow.ReadOnly = True
+        Me.TextBoxDateTimeNow.Size = New System.Drawing.Size(285, 20)
+        Me.TextBoxDateTimeNow.TabIndex = 19
+        Me.TextBoxDateTimeNow.TabStop = False
+        Me.TextBoxDateTimeNow.Text = "---"
+        Me.TextBoxDateTimeNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
         'IconPictureBox2
         '
         Me.IconPictureBox2.BackColor = System.Drawing.SystemColors.Control
@@ -406,11 +422,11 @@ Partial Class Main
         Me.TextBoxRight.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBoxRight.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxRight.ForeColor = System.Drawing.Color.White
-        Me.TextBoxRight.Location = New System.Drawing.Point(337, 16)
+        Me.TextBoxRight.Location = New System.Drawing.Point(419, 16)
         Me.TextBoxRight.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBoxRight.Name = "TextBoxRight"
         Me.TextBoxRight.ReadOnly = True
-        Me.TextBoxRight.Size = New System.Drawing.Size(371, 26)
+        Me.TextBoxRight.Size = New System.Drawing.Size(289, 26)
         Me.TextBoxRight.TabIndex = 16
         Me.TextBoxRight.TabStop = False
         Me.TextBoxRight.Text = "---"
@@ -458,22 +474,6 @@ Partial Class Main
         Me.PanelMain.Name = "PanelMain"
         Me.PanelMain.Size = New System.Drawing.Size(982, 676)
         Me.PanelMain.TabIndex = 2
-        '
-        'TextBoxDateTimeNow
-        '
-        Me.TextBoxDateTimeNow.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TextBoxDateTimeNow.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxDateTimeNow.ForeColor = System.Drawing.Color.White
-        Me.TextBoxDateTimeNow.Location = New System.Drawing.Point(4, 23)
-        Me.TextBoxDateTimeNow.Margin = New System.Windows.Forms.Padding(4)
-        Me.TextBoxDateTimeNow.Multiline = True
-        Me.TextBoxDateTimeNow.Name = "TextBoxDateTimeNow"
-        Me.TextBoxDateTimeNow.ReadOnly = True
-        Me.TextBoxDateTimeNow.Size = New System.Drawing.Size(334, 20)
-        Me.TextBoxDateTimeNow.TabIndex = 19
-        Me.TextBoxDateTimeNow.TabStop = False
-        Me.TextBoxDateTimeNow.Text = "---"
-        Me.TextBoxDateTimeNow.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Timer1
         '

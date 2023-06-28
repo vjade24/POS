@@ -132,6 +132,25 @@ Public Class Personnel
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
         If LblAddEditMode.Text = "(Create new Record)" Then
+
+            Dim query = "SELECT * FROM Product Where Personnel = '" + UserNameTextBox.Text.ToString().Trim() + "' "
+            Try
+                Dim conn As SqlConnection = New SqlConnection(connection)
+                Dim cmd As SqlCommand = New SqlCommand(query, conn)
+                Dim da As New SqlDataAdapter
+                da.SelectCommand = cmd
+                Dim dt As New DataTable
+                da.Fill(dt)
+                If dt.Rows.Count > 0 Then
+                    MsgBox("THIS USER NAME IS ALREADY EXISTS", MsgBoxStyle.Critical)
+                    UserNameTextBox.Select()
+                    Return
+                End If
+            Catch ex As Exception
+                MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+                Return
+            End Try
+
             Dim command1 As New SqlCommand("insert into Personnel values (@Type,@FirstName,@LastName,@MiddleName,@BirthDate,@Address,@ContactNo,@UserName,@Password,@IsActive,@CreatedAt,@CreatedBy)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@Type", SqlDbType.VarChar).Value = TypeComboBox.Text.ToString().Trim()

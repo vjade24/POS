@@ -39,6 +39,7 @@ Partial Class PayNow
         Me.InvoiceNoTextBox = New System.Windows.Forms.TextBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.CrystalReportViewer1 = New CrystalDecisions.Windows.Forms.CrystalReportViewer()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         CustomerNameLabel = New System.Windows.Forms.Label()
         PaymentStatusLabel = New System.Windows.Forms.Label()
         PaymentChangeLabel = New System.Windows.Forms.Label()
@@ -52,63 +53,70 @@ Partial Class PayNow
         'CustomerNameLabel
         '
         CustomerNameLabel.AutoSize = True
-        CustomerNameLabel.Location = New System.Drawing.Point(54, 126)
+        CustomerNameLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        CustomerNameLabel.Location = New System.Drawing.Point(51, 218)
         CustomerNameLabel.Name = "CustomerNameLabel"
-        CustomerNameLabel.Size = New System.Drawing.Size(98, 16)
+        CustomerNameLabel.Size = New System.Drawing.Size(142, 21)
         CustomerNameLabel.TabIndex = 53
         CustomerNameLabel.Text = "Customer Name:"
         '
         'PaymentStatusLabel
         '
         PaymentStatusLabel.AutoSize = True
-        PaymentStatusLabel.Location = New System.Drawing.Point(54, 81)
+        PaymentStatusLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PaymentStatusLabel.Location = New System.Drawing.Point(50, 108)
         PaymentStatusLabel.Name = "PaymentStatusLabel"
-        PaymentStatusLabel.Size = New System.Drawing.Size(96, 16)
+        PaymentStatusLabel.Size = New System.Drawing.Size(137, 21)
         PaymentStatusLabel.TabIndex = 52
         PaymentStatusLabel.Text = "Payment Status:"
         '
         'PaymentChangeLabel
         '
         PaymentChangeLabel.AutoSize = True
-        PaymentChangeLabel.Location = New System.Drawing.Point(54, 260)
+        PaymentChangeLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PaymentChangeLabel.Location = New System.Drawing.Point(54, 392)
         PaymentChangeLabel.Name = "PaymentChangeLabel"
-        PaymentChangeLabel.Size = New System.Drawing.Size(108, 16)
+        PaymentChangeLabel.Size = New System.Drawing.Size(153, 21)
         PaymentChangeLabel.TabIndex = 50
         PaymentChangeLabel.Text = "Payment Change:"
         '
         'PersonnelIdLabel
         '
         PersonnelIdLabel.AutoSize = True
-        PersonnelIdLabel.Location = New System.Drawing.Point(205, 81)
+        PersonnelIdLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PersonnelIdLabel.Location = New System.Drawing.Point(198, 108)
         PersonnelIdLabel.Name = "PersonnelIdLabel"
-        PersonnelIdLabel.Size = New System.Drawing.Size(76, 16)
+        PersonnelIdLabel.Size = New System.Drawing.Size(107, 21)
         PersonnelIdLabel.TabIndex = 42
         PersonnelIdLabel.Text = "Personnel Id:"
         '
         'PaymentAmountLabel
         '
         PaymentAmountLabel.AutoSize = True
-        PaymentAmountLabel.Location = New System.Drawing.Point(54, 215)
+        PaymentAmountLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        PaymentAmountLabel.Location = New System.Drawing.Point(54, 336)
         PaymentAmountLabel.Name = "PaymentAmountLabel"
-        PaymentAmountLabel.Size = New System.Drawing.Size(105, 16)
+        PaymentAmountLabel.Size = New System.Drawing.Size(153, 21)
         PaymentAmountLabel.TabIndex = 48
         PaymentAmountLabel.Text = "Payment Amount:"
         '
         'InvoiceNoLabel
         '
         InvoiceNoLabel.AutoSize = True
-        InvoiceNoLabel.Location = New System.Drawing.Point(205, 126)
+        InvoiceNoLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        InvoiceNoLabel.Location = New System.Drawing.Point(51, 162)
         InvoiceNoLabel.Name = "InvoiceNoLabel"
-        InvoiceNoLabel.Size = New System.Drawing.Size(70, 16)
+        InvoiceNoLabel.Size = New System.Drawing.Size(98, 21)
         InvoiceNoLabel.TabIndex = 44
         InvoiceNoLabel.Text = "Invoice No:"
         '
         'GrandTotalLabel
         '
         GrandTotalLabel.AutoSize = True
-        GrandTotalLabel.Location = New System.Drawing.Point(54, 170)
+        GrandTotalLabel.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        GrandTotalLabel.Location = New System.Drawing.Point(54, 280)
         GrandTotalLabel.Name = "GrandTotalLabel"
-        GrandTotalLabel.Size = New System.Drawing.Size(76, 16)
+        GrandTotalLabel.Size = New System.Drawing.Size(108, 21)
         GrandTotalLabel.TabIndex = 46
         GrandTotalLabel.Text = "Grand Total:"
         '
@@ -125,56 +133,68 @@ Partial Class PayNow
         'PaymentStatusTextBox
         '
         Me.PaymentStatusTextBox.Enabled = False
-        Me.PaymentStatusTextBox.Location = New System.Drawing.Point(54, 101)
+        Me.PaymentStatusTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaymentStatusTextBox.Location = New System.Drawing.Point(51, 132)
         Me.PaymentStatusTextBox.Name = "PaymentStatusTextBox"
-        Me.PaymentStatusTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.PaymentStatusTextBox.Size = New System.Drawing.Size(146, 27)
         Me.PaymentStatusTextBox.TabIndex = 54
         '
         'CustomerNameTextBox
         '
-        Me.CustomerNameTextBox.Enabled = False
-        Me.CustomerNameTextBox.Location = New System.Drawing.Point(54, 146)
+        Me.CustomerNameTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CustomerNameTextBox.Location = New System.Drawing.Point(51, 244)
         Me.CustomerNameTextBox.Name = "CustomerNameTextBox"
-        Me.CustomerNameTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.CustomerNameTextBox.Size = New System.Drawing.Size(297, 27)
         Me.CustomerNameTextBox.TabIndex = 55
         '
         'PaymentChangeTextBox
         '
         Me.PaymentChangeTextBox.Enabled = False
-        Me.PaymentChangeTextBox.Location = New System.Drawing.Point(54, 280)
+        Me.PaymentChangeTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaymentChangeTextBox.Location = New System.Drawing.Point(54, 412)
         Me.PaymentChangeTextBox.Name = "PaymentChangeTextBox"
-        Me.PaymentChangeTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.PaymentChangeTextBox.Size = New System.Drawing.Size(297, 27)
         Me.PaymentChangeTextBox.TabIndex = 51
+        Me.PaymentChangeTextBox.Text = "0.00"
+        Me.PaymentChangeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PaymentAmountTextBox
         '
-        Me.PaymentAmountTextBox.Location = New System.Drawing.Point(54, 235)
+        Me.PaymentAmountTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PaymentAmountTextBox.Location = New System.Drawing.Point(54, 356)
         Me.PaymentAmountTextBox.Name = "PaymentAmountTextBox"
-        Me.PaymentAmountTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.PaymentAmountTextBox.Size = New System.Drawing.Size(297, 27)
         Me.PaymentAmountTextBox.TabIndex = 49
+        Me.PaymentAmountTextBox.Text = "0.00"
+        Me.PaymentAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'PersonnelIdTextBox
         '
         Me.PersonnelIdTextBox.Enabled = False
-        Me.PersonnelIdTextBox.Location = New System.Drawing.Point(205, 101)
+        Me.PersonnelIdTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PersonnelIdTextBox.Location = New System.Drawing.Point(202, 132)
         Me.PersonnelIdTextBox.Name = "PersonnelIdTextBox"
-        Me.PersonnelIdTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.PersonnelIdTextBox.Size = New System.Drawing.Size(146, 27)
         Me.PersonnelIdTextBox.TabIndex = 43
         '
         'GrandTotalTextBox
         '
         Me.GrandTotalTextBox.Enabled = False
-        Me.GrandTotalTextBox.Location = New System.Drawing.Point(54, 190)
+        Me.GrandTotalTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GrandTotalTextBox.Location = New System.Drawing.Point(54, 300)
         Me.GrandTotalTextBox.Name = "GrandTotalTextBox"
-        Me.GrandTotalTextBox.Size = New System.Drawing.Size(297, 21)
+        Me.GrandTotalTextBox.Size = New System.Drawing.Size(297, 27)
         Me.GrandTotalTextBox.TabIndex = 47
+        Me.GrandTotalTextBox.Text = "0.00"
+        Me.GrandTotalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'InvoiceNoTextBox
         '
         Me.InvoiceNoTextBox.Enabled = False
-        Me.InvoiceNoTextBox.Location = New System.Drawing.Point(205, 146)
+        Me.InvoiceNoTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InvoiceNoTextBox.Location = New System.Drawing.Point(51, 188)
         Me.InvoiceNoTextBox.Name = "InvoiceNoTextBox"
-        Me.InvoiceNoTextBox.Size = New System.Drawing.Size(146, 21)
+        Me.InvoiceNoTextBox.Size = New System.Drawing.Size(297, 27)
         Me.InvoiceNoTextBox.TabIndex = 45
         '
         'IconButton1
@@ -189,7 +209,7 @@ Partial Class PayNow
         Me.IconButton1.IconColor = System.Drawing.Color.White
         Me.IconButton1.IconSize = 30
         Me.IconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButton1.Location = New System.Drawing.Point(54, 317)
+        Me.IconButton1.Location = New System.Drawing.Point(54, 468)
         Me.IconButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.IconButton1.Name = "IconButton1"
         Me.IconButton1.Padding = New System.Windows.Forms.Padding(85, 0, 0, 0)
@@ -205,7 +225,7 @@ Partial Class PayNow
         Me.CrystalReportViewer1.ActiveViewIndex = -1
         Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
-        Me.CrystalReportViewer1.Location = New System.Drawing.Point(388, 12)
+        Me.CrystalReportViewer1.Location = New System.Drawing.Point(388, 27)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
         Me.CrystalReportViewer1.ShowCloseButton = False
         Me.CrystalReportViewer1.ShowCopyButton = False
@@ -216,15 +236,26 @@ Partial Class PayNow
         Me.CrystalReportViewer1.ShowPageNavigateButtons = False
         Me.CrystalReportViewer1.ShowParameterPanelButton = False
         Me.CrystalReportViewer1.ShowTextSearchButton = False
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(431, 368)
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(624, 502)
         Me.CrystalReportViewer1.TabIndex = 59
         Me.CrystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(385, 8)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(131, 16)
+        Me.LinkLabel1.TabIndex = 60
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "View Payment Receipt"
         '
         'PayNow
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(831, 392)
+        Me.ClientSize = New System.Drawing.Size(1024, 541)
+        Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.Controls.Add(Me.IconButton1)
         Me.Controls.Add(Label1)
@@ -261,4 +292,5 @@ Partial Class PayNow
     Friend WithEvents InvoiceNoTextBox As TextBox
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
+    Friend WithEvents LinkLabel1 As LinkLabel
 End Class

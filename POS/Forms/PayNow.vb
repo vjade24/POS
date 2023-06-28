@@ -6,7 +6,12 @@ Public Class PayNow
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
-        Dim command1 As New SqlCommand("Update TransactionHeader SET PersonnelId= @PersonnelId,CustomerName= @CustomerName,GrandTotal= @GrandTotal,PaymentAmount= @PaymentAmount,PaymentStatus= @PaymentStatus where InvoiceNo = @InvoiceNo", conn)
+        If Double.Parse(PaymentAmountTextBox.Text.ToString.Trim()) < Double.Parse(GrandTotalTextBox.Text.ToString.Trim()) Then
+            MsgBox("PAYMENT IS NOT VALID!", MsgBoxStyle.Critical)
+            Return
+        End If
+
+        Dim command1 As New SqlCommand("Update TransactionHeader SET PersonnelId= @PersonnelId,CustomerName= @CustomerName,GrandTotal= @GrandTotal,PaymentAmount= @PaymentAmount,PaymentChange= @PaymentChange,PaymentStatus= @PaymentStatus where InvoiceNo = @InvoiceNo", conn)
         command1.Parameters.Add("@PersonnelId", SqlDbType.VarChar).Value = PersonnelIdTextBox.Text.ToString().Trim()
         command1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = InvoiceNoTextBox.Text.ToString().Trim()
         command1.Parameters.Add("@CustomerName", SqlDbType.VarChar).Value = CustomerNameTextBox.Text.ToString().Trim()
@@ -22,8 +27,8 @@ Public Class PayNow
             Else
                 MsgBox("Payment Successfully Paid", MsgBoxStyle.Information)
                 IconButton1.Visible = False
-                Receipt(InvoiceNoTextBox.Text.ToString().Trim())
-                'Me.Hide()
+                'Receipt(InvoiceNoTextBox.Text.ToString().Trim())
+                Me.Hide()
             End If
             conn.Close()
         Catch ex As Exception
@@ -55,7 +60,7 @@ Public Class PayNow
                                 cryRpt.Load(report_path)
                                 cryRpt.SetDataSource(dt)
                                 CrystalReportViewer1.ReportSource = cryRpt
-                                CrystalReportViewer1.Zoom(75)
+                                CrystalReportViewer1.Zoom(100)
                                 CrystalReportViewer1.Refresh()
                             Else
                                 MsgBox("NO DATA FOUND!", MsgBoxStyle.Exclamation)
@@ -72,4 +77,7 @@ Public Class PayNow
         End Try
     End Sub
 
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Receipt(InvoiceNoTextBox.Text.ToString().Trim())
+    End Sub
 End Class

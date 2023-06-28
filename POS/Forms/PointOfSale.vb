@@ -50,11 +50,24 @@ Public Class PointOfSale
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Product WHERE Quantity >= 1 AND (ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
         CommonQuery(query, DataGridView1)
     End Sub
 
     Private Sub AddtoCart()
+        If ProductCodeTextBox.Text.ToString().Trim() = "" Then
+            MsgBox("PLEASE SELECT PRODUCT!", MsgBoxStyle.Critical)
+            Return
+        End If
+        If Int32.Parse(QuantityTextBox.Text.ToString().Trim) <= 0 Then
+            MsgBox("PLEASE INPUT ATLEAST 1 (ONE) QUANTITY", MsgBoxStyle.Critical)
+            Return
+        End If
+        If Double.Parse(QuantityTextBox.Text.ToString().Trim) > Double.Parse(TextBoxRemainingQuantity.Text.ToString().Trim) Then
+            MsgBox("QUANTITY IS NOT ENOUGH", MsgBoxStyle.Critical)
+            Return
+        End If
+
         Dim command1 As New SqlCommand("insert into TransactionDetails values (@TransactionHeaderId,@ProductCode,@ProductName,@CategoryName,@BrandName,@SupplierName,@Barcode,@OriginalPrice,@DiscountedPerc,@DiscountedPrice,@FinalPrice,@Quantity,@TotalAmount,@CreatedAt,@CreatedBy)", conn)
         command1.Parameters.Add("@TransactionHeaderId", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
         command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
@@ -116,6 +129,7 @@ Public Class PointOfSale
         QuantityTextBox.Text = "1"
         MinimumPriceTextBox.Text = "0.00"
         MaximumPriceTextBox.Text = "0.00"
+        TextBoxRemainingQuantity.Text = "0"
 
         ProductCodeTextBox.Text = DataGridView1.CurrentRow.Cells(1).Value.ToString()
         ProductNameTextBox.Text = DataGridView1.CurrentRow.Cells(2).Value.ToString()
@@ -128,7 +142,7 @@ Public Class PointOfSale
 
         DiscountedPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(12).Value.ToString()).ToString("###,##0.00")
         FinalPriceTextBox.Text = Double.Parse(DataGridView1.CurrentRow.Cells(13).Value.ToString()).ToString("###,##0.00")
-        'QuantityTextBox.Text = DataGridView1.CurrentRow.Cells(14).Value.ToString()
+        TextBoxRemainingQuantity.Text = DataGridView1.CurrentRow.Cells(14).Value.ToString()
 
         'Try
         '    Dim lb() As Byte = DataGridView2.CurrentRow.Cells(3).Value
@@ -164,6 +178,7 @@ Public Class PointOfSale
         QuantityTextBox.Text = "1"
         MinimumPriceTextBox.Text = "0.00"
         MaximumPriceTextBox.Text = "0.00"
+        TextBoxRemainingQuantity.Text = "0"
     End Sub
 
     Private Sub QuantityTextBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTextBox.TextChanged
@@ -254,9 +269,9 @@ Public Class PointOfSale
         pn.PersonnelIdTextBox.Text = PersonnelIdTextBox.Text
         pn.InvoiceNoTextBox.Text = InvoiceNoTextBox.Text
         pn.CustomerNameTextBox.Text = CustomerNameTextBox.Text
-        pn.GrandTotalTextBox.Text = GrandTotalTextBox.Text
-        pn.PaymentAmountTextBox.Text = GrandTotalTextBox.Text
-        pn.PaymentChangeTextBox.Text = PaymentChangeTextBox.Text
+        pn.GrandTotalTextBox.Text = Double.Parse(GrandTotalTextBox.Text).ToString("###,##0.00")
+        pn.PaymentAmountTextBox.Text = Double.Parse(GrandTotalTextBox.Text).ToString("###,##0.00")
+        pn.PaymentChangeTextBox.Text = Double.Parse(PaymentChangeTextBox.Text).ToString("###,##0.00")
         pn.PaymentStatusTextBox.Text = PaymentStatusTextBox.Text
         pn.IconButton1.Visible = True
         'pn.Receipt(InvoiceNoTextBox.Text.ToString().Trim)
@@ -349,7 +364,7 @@ Public Class PointOfSale
                 command_delete.Parameters.Add("@Id", SqlDbType.VarChar).Value = DataGridView2.CurrentRow.Cells(0).Value.ToString()
                 result = command_delete.ExecuteNonQuery()
 
-                Dim command_upd As New SqlCommand("UPDATE Product SET Quantity = (Product.Quantity + 1) WHERE ProductCode = @ProductCode", conn)
+                Dim command_upd As New SqlCommand("UPDATE Product SET Quantity = (Product.Quantity + '" + DataGridView2.CurrentRow.Cells(12).Value.ToString() + "') WHERE ProductCode = @ProductCode", conn)
                 command_upd.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = DataGridView2.CurrentRow.Cells(2).Value.ToString()
                 result = command_upd.ExecuteNonQuery()
 

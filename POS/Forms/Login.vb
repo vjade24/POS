@@ -12,7 +12,7 @@ Public Class Login
         da.Fill(dt)
         If dt.Rows.Count > 0 Then
             If DateTime.Now > DateTime.Parse(dt.Rows(0)("ExpiryDate").ToString()) Then
-                MsgBox("Application Expired, Please contact Administrator", MsgBoxStyle.Critical)
+                MsgBox("Application Expired, Please contact Administrator through Mobile Number 09352443353 or email vincentjade.vj@gmail.com.", MsgBoxStyle.Critical)
                 Me.Close()
             Else
                 StoreNameTextBox.Text = dt.Rows(0)("StoreName").ToString()
@@ -29,7 +29,7 @@ Public Class Login
                     Dim lstr As New System.IO.MemoryStream(lb)
                     LogoPictureBox.Image = Image.FromStream(lstr)
                 Catch ex As Exception
-                    LogoPictureBox.Image = My.Resources._1
+                    LogoPictureBox.Image = My.Resources.VJA
                 End Try
             End If
 
