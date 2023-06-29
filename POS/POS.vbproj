@@ -186,10 +186,10 @@
     <Compile Include="Forms\Products.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ProductsLedger.Designer.vb">
-      <DependentUpon>ProductsLedger.vb</DependentUpon>
+    <Compile Include="Forms\ProductsStocks.Designer.vb">
+      <DependentUpon>ProductsStocks.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ProductsLedger.vb">
+    <Compile Include="Forms\ProductsStocks.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Reports.Designer.vb">
@@ -272,8 +272,8 @@
     <EmbeddedResource Include="Forms\Products.resx">
       <DependentUpon>Products.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProductsLedger.resx">
-      <DependentUpon>ProductsLedger.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\ProductsStocks.resx">
+      <DependentUpon>ProductsStocks.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
