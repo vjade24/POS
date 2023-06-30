@@ -1,7 +1,7 @@
 ﻿
 Imports System.Data.SqlClient
-Imports CrystalDecisions.CrystalReports.Engine
-Imports System.IO
+'Imports CrystalDecisions.CrystalReports.Engine
+'Imports System.IO
 Imports System.Windows.Forms.DataVisualization.Charting
 Public Class Analytics
     Private Sub Analytics_Load(sender As Object, e As EventArgs) Handles MyBase.Load

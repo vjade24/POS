@@ -2,6 +2,8 @@
 Imports System.Data.SqlClient
 Imports CrystalDecisions.CrystalReports.Engine
 Imports System.IO
+Imports System.Drawing.Printing
+
 Public Class PayNow
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
@@ -62,6 +64,8 @@ Public Class PayNow
                                 CrystalReportViewer1.ReportSource = cryRpt
                                 CrystalReportViewer1.Zoom(100)
                                 CrystalReportViewer1.Refresh()
+
+                                cryRpt.PrintOptions.PrinterName = GetDefaultPrinter()
                             Else
                                 MsgBox("NO DATA FOUND!", MsgBoxStyle.Exclamation)
                                 Dim cryRpt As New ReportDocument
@@ -80,4 +84,15 @@ Public Class PayNow
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
         Receipt(InvoiceNoTextBox.Text.ToString().Trim())
     End Sub
+
+    Private Function GetDefaultPrinter() As String
+        Dim settings As PrinterSettings = New PrinterSettings()
+        For Each printer As String In PrinterSettings.InstalledPrinters
+            settings.PrinterName = printer
+            If settings.IsDefaultPrinter Then
+                Return printer
+            End If
+        Next
+        Return String.Empty
+    End Function
 End Class

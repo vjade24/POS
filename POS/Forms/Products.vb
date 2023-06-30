@@ -9,11 +9,12 @@ Public Class Products
         RefreshData()
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
+        GroupBox1.Visible = False
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Product"
+        Dim query = "SELECT * FROM Product ORDER BY Id DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -68,6 +69,7 @@ Public Class Products
 
         IdTextBox.Text = GetLastRow("Product", "Id")
 
+        GroupBox1.Visible = True
     End Sub
     Private Sub CategoryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CategoryDataGridView.CellClick
         BtnSave.Enabled = True
@@ -130,6 +132,7 @@ Public Class Products
         'DiscountedPercTextBox.Enabled = False
         'FinalPriceTextBox.Enabled = False
 
+        GroupBox1.Visible = True
     End Sub
 
     Private Sub ClearEntry()
@@ -172,6 +175,7 @@ Public Class Products
                         MsgBox("No Data Deleted!", MsgBoxStyle.Critical)
                     Else
                         MsgBox("Successfully Deleted!", MsgBoxStyle.Information)
+                        GroupBox1.Visible = False
                     End If
                     conn.Close()
                 Catch ex As Exception
@@ -203,11 +207,11 @@ Public Class Products
             QuantityTextBox.Select()
             Return
         End If
-        If Int32.Parse(QuantityTextBox.Text.ToString().Trim()) <= 0 Then
-            MsgBox("PRODUCT QUANTITY MUST BE ATLEAST 1(ONE) QUANTITY ", MsgBoxStyle.Critical)
-            QuantityTextBox.Select()
-            Return
-        End If
+        'If Int32.Parse(QuantityTextBox.Text.ToString().Trim()) <= 0 Then
+        '    MsgBox("PRODUCT QUANTITY MUST BE ATLEAST 1(ONE) QUANTITY ", MsgBoxStyle.Critical)
+        '    QuantityTextBox.Select()
+        '    Return
+        'End If
         If ProductNameTextBox.Text.ToString().Trim() = "" Then
             MsgBox("PRODUCT NAME IS REQUIRED", MsgBoxStyle.Critical)
             ProductNameTextBox.Select()
@@ -238,26 +242,26 @@ Public Class Products
             OriginalPriceTextBox.Select()
             Return
         End If
-        If MinimumPriceTextBox.Text.ToString().Trim() = "" Then
-            MsgBox("MINIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
-            MinimumPriceTextBox.Select()
-            Return
-        End If
-        If Double.Parse(MinimumPriceTextBox.Text.ToString().Trim()) <= 0 Then
-            MsgBox("MINIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
-            MinimumPriceTextBox.Select()
-            Return
-        End If
-        If MaximumPriceTextBox.Text.ToString().Trim() = "" Then
-            MsgBox("MAXIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
-            MaximumPriceTextBox.Select()
-            Return
-        End If
-        If Double.Parse(MaximumPriceTextBox.Text.ToString().Trim()) <= 0 Then
-            MsgBox("MAXIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
-            MaximumPriceTextBox.Select()
-            Return
-        End If
+        'If MinimumPriceTextBox.Text.ToString().Trim() = "" Then
+        '    MsgBox("MINIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
+        '    MinimumPriceTextBox.Select()
+        '    Return
+        'End If
+        'If Double.Parse(MinimumPriceTextBox.Text.ToString().Trim()) <= 0 Then
+        '    MsgBox("MINIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+        '    MinimumPriceTextBox.Select()
+        '    Return
+        'End If
+        'If MaximumPriceTextBox.Text.ToString().Trim() = "" Then
+        '    MsgBox("MAXIMUM PRICE IS REQUIRED", MsgBoxStyle.Critical)
+        '    MaximumPriceTextBox.Select()
+        '    Return
+        'End If
+        'If Double.Parse(MaximumPriceTextBox.Text.ToString().Trim()) <= 0 Then
+        '    MsgBox("MAXIMUM PRICE MUST BE ATLEAST 1(ONE) ", MsgBoxStyle.Critical)
+        '    MaximumPriceTextBox.Select()
+        '    Return
+        'End If
         If FinalPriceTextBox.Text.ToString().Trim() = "" Then
             MsgBox("FINAL PRICE IS REQUIRED", MsgBoxStyle.Critical)
             FinalPriceTextBox.Select()
@@ -319,6 +323,7 @@ Public Class Products
                     MsgBox("No Data Inserted!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Inserted!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                     RefreshData()
                     ClearEntry()
                 End If
@@ -356,6 +361,7 @@ Public Class Products
                     MsgBox("No Data Updated!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Updated!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                     RefreshData()
                     ClearEntry()
                 End If
@@ -385,17 +391,17 @@ Public Class Products
     End Sub
 
     Private Sub OriginalPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles OriginalPriceTextBox.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBox.Show(“Please enter numbers only”)
-            e.Handled = True
-        End If
+        'If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        '    MessageBox.Show(“Please enter numbers only”)
+        '    e.Handled = True
+        'End If
     End Sub
 
     Private Sub FinalPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles FinalPriceTextBox.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBox.Show(“Please enter numbers only”)
-            e.Handled = True
-        End If
+        'If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        '    MessageBox.Show(“Please enter numbers only”)
+        '    e.Handled = True
+        'End If
     End Sub
 
     Private Sub OriginalPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles OriginalPriceTextBox.TextChanged
@@ -407,17 +413,17 @@ Public Class Products
     End Sub
 
     Private Sub MinimumPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MinimumPriceTextBox.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBox.Show(“Please enter numbers only”)
-            e.Handled = True
-        End If
+        'If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        '    MessageBox.Show(“Please enter numbers only”)
+        '    e.Handled = True
+        'End If
     End Sub
 
     Private Sub MaximumPriceTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MaximumPriceTextBox.KeyPress
-        If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
-            MessageBox.Show(“Please enter numbers only”)
-            e.Handled = True
-        End If
+        'If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then
+        '    MessageBox.Show(“Please enter numbers only”)
+        '    e.Handled = True
+        'End If
     End Sub
 
 

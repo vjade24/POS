@@ -192,16 +192,16 @@ Partial Class Products
         OriginalPriceLabel.Name = "OriginalPriceLabel"
         OriginalPriceLabel.Size = New System.Drawing.Size(81, 16)
         OriginalPriceLabel.TabIndex = 38
-        OriginalPriceLabel.Text = "Original Price:"
+        OriginalPriceLabel.Text = "Capital Price:"
         '
         'FinalPriceLabel
         '
         FinalPriceLabel.AutoSize = True
-        FinalPriceLabel.Location = New System.Drawing.Point(79, 262)
+        FinalPriceLabel.Location = New System.Drawing.Point(286, 218)
         FinalPriceLabel.Name = "FinalPriceLabel"
-        FinalPriceLabel.Size = New System.Drawing.Size(64, 16)
+        FinalPriceLabel.Size = New System.Drawing.Size(73, 16)
         FinalPriceLabel.TabIndex = 48
-        FinalPriceLabel.Text = "Final Price:"
+        FinalPriceLabel.Text = "Selling Price:"
         '
         'QuantityLabel
         '
@@ -215,20 +215,22 @@ Partial Class Products
         'MinimumPriceLabel
         '
         MinimumPriceLabel.AutoSize = True
-        MinimumPriceLabel.Location = New System.Drawing.Point(287, 218)
+        MinimumPriceLabel.Location = New System.Drawing.Point(289, 16)
         MinimumPriceLabel.Name = "MinimumPriceLabel"
         MinimumPriceLabel.Size = New System.Drawing.Size(89, 16)
         MinimumPriceLabel.TabIndex = 55
         MinimumPriceLabel.Text = "Minimum Price:"
+        MinimumPriceLabel.Visible = False
         '
         'MaximumPriceLabel
         '
         MaximumPriceLabel.AutoSize = True
-        MaximumPriceLabel.Location = New System.Drawing.Point(494, 218)
+        MaximumPriceLabel.Location = New System.Drawing.Point(496, 16)
         MaximumPriceLabel.Name = "MaximumPriceLabel"
         MaximumPriceLabel.Size = New System.Drawing.Size(94, 16)
         MaximumPriceLabel.TabIndex = 56
         MaximumPriceLabel.Text = "Maximum Price:"
+        MaximumPriceLabel.Visible = False
         '
         'BrandTableAdapter
         '
@@ -294,12 +296,13 @@ Partial Class Products
         'MaximumPriceTextBox
         '
         Me.MaximumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MaximumPrice", True))
-        Me.MaximumPriceTextBox.Location = New System.Drawing.Point(497, 237)
+        Me.MaximumPriceTextBox.Location = New System.Drawing.Point(499, 35)
         Me.MaximumPriceTextBox.Name = "MaximumPriceTextBox"
         Me.MaximumPriceTextBox.Size = New System.Drawing.Size(200, 21)
         Me.MaximumPriceTextBox.TabIndex = 57
         Me.MaximumPriceTextBox.Text = "0.00"
         Me.MaximumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.MaximumPriceTextBox.Visible = False
         '
         'ProductBindingSource
         '
@@ -314,12 +317,13 @@ Partial Class Products
         'MinimumPriceTextBox
         '
         Me.MinimumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MinimumPrice", True))
-        Me.MinimumPriceTextBox.Location = New System.Drawing.Point(287, 237)
+        Me.MinimumPriceTextBox.Location = New System.Drawing.Point(289, 35)
         Me.MinimumPriceTextBox.Name = "MinimumPriceTextBox"
         Me.MinimumPriceTextBox.Size = New System.Drawing.Size(200, 21)
         Me.MinimumPriceTextBox.TabIndex = 56
         Me.MinimumPriceTextBox.Text = "0.00"
         Me.MinimumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.MinimumPriceTextBox.Visible = False
         '
         'IconButton1
         '
@@ -439,7 +443,7 @@ Partial Class Products
         'FinalPriceTextBox
         '
         Me.FinalPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "FinalPrice", True))
-        Me.FinalPriceTextBox.Location = New System.Drawing.Point(82, 281)
+        Me.FinalPriceTextBox.Location = New System.Drawing.Point(289, 237)
         Me.FinalPriceTextBox.Name = "FinalPriceTextBox"
         Me.FinalPriceTextBox.Size = New System.Drawing.Size(200, 21)
         Me.FinalPriceTextBox.TabIndex = 49

@@ -5,11 +5,12 @@ Public Class Personnel
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
         UserNameTextBox.Enabled = True
+        GroupBox1.Visible = False
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Personnel"
+        Dim query = "SELECT * FROM Personnel ORDER BY Id DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -49,6 +50,7 @@ Public Class Personnel
 
         IdTextBox.Text = GetLastRow("Personnel", "Id")
 
+        GroupBox1.Visible = True
     End Sub
     Private Sub CategoryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CategoryDataGridView.CellClick
         BtnSave.Enabled = True
@@ -81,6 +83,7 @@ Public Class Personnel
 
         UserNameTextBox.Enabled = False
 
+        GroupBox1.Visible = True
     End Sub
 
     Private Sub ClearEntry()
@@ -115,6 +118,7 @@ Public Class Personnel
                         MsgBox("No Data Deleted!", MsgBoxStyle.Critical)
                     Else
                         MsgBox("Successfully Deleted!", MsgBoxStyle.Information)
+                        GroupBox1.Visible = False
                     End If
                     conn.Close()
                 Catch ex As Exception
@@ -133,7 +137,7 @@ Public Class Personnel
 
         If LblAddEditMode.Text = "(Create new Record)" Then
 
-            Dim query = "SELECT * FROM Product Where Personnel = '" + UserNameTextBox.Text.ToString().Trim() + "' "
+            Dim query = "SELECT * FROM Personnel Where UserName = '" + UserNameTextBox.Text.ToString().Trim() + "' "
             Try
                 Dim conn As SqlConnection = New SqlConnection(connection)
                 Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -172,6 +176,7 @@ Public Class Personnel
                     MsgBox("No Data Inserted!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Inserted!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                     RefreshData()
                     ClearEntry()
                 End If
@@ -202,6 +207,7 @@ Public Class Personnel
                     MsgBox("No Data Updated!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Updated!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                     RefreshData()
                     ClearEntry()
                 End If

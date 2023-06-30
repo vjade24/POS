@@ -4,11 +4,12 @@ Public Class Category
         RefreshData()
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
+        GroupBox1.Visible = False
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Category"
+        Dim query = "SELECT * FROM Category ORDER BY Id DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -36,7 +37,7 @@ Public Class Category
         BtnDelete.Enabled = False
 
         IdTextBox.Text = GetLastRow("Category", "Id")
-
+        GroupBox1.Visible = True
     End Sub
     Private Sub CategoryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CategoryDataGridView.CellClick
         BtnSave.Enabled = True
@@ -48,7 +49,7 @@ Public Class Category
 
         IdTextBox.Text = CategoryDataGridView.CurrentRow.Cells(0).Value.ToString()
         CategoryNameTextBox.Text = CategoryDataGridView.CurrentRow.Cells(1).Value.ToString()
-
+        GroupBox1.Visible = True
     End Sub
 
     Private Sub ClearEntry()
@@ -73,6 +74,7 @@ Public Class Category
                         MsgBox("No Data Deleted!", MsgBoxStyle.Critical)
                     Else
                         MsgBox("Successfully Deleted!", MsgBoxStyle.Information)
+                        GroupBox1.Visible = False
                     End If
                     conn.Close()
                 Catch ex As Exception
@@ -101,6 +103,7 @@ Public Class Category
                     MsgBox("No Data Inserted!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Inserted!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                 End If
                 conn.Close()
             Catch ex As Exception
@@ -120,6 +123,7 @@ Public Class Category
                     MsgBox("No Data Updated!", MsgBoxStyle.Critical)
                 Else
                     MsgBox("Successfully Updated!", MsgBoxStyle.Information)
+                    GroupBox1.Visible = False
                 End If
                 conn.Close()
             Catch ex As Exception
