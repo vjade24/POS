@@ -35,6 +35,7 @@ Partial Class Products
         Dim QuantityLabel As System.Windows.Forms.Label
         Dim MinimumPriceLabel As System.Windows.Forms.Label
         Dim MaximumPriceLabel As System.Windows.Forms.Label
+        Dim ExpiryDateLabel As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -43,9 +44,10 @@ Partial Class Products
         Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
         Me.LblAddEditMode = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.MaximumPriceTextBox = New System.Windows.Forms.TextBox()
+        Me.ExpiryDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
+        Me.MaximumPriceTextBox = New System.Windows.Forms.TextBox()
         Me.MinimumPriceTextBox = New System.Windows.Forms.TextBox()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.ProductImagePictureBox = New System.Windows.Forms.PictureBox()
@@ -69,6 +71,13 @@ Partial Class Products
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
+        Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
+        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -87,13 +96,7 @@ Partial Class Products
         Me.IsInstock = New System.Windows.Forms.DataGridViewCheckBoxColumn()
         Me.MinimumPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaximumPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
-        Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
-        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
+        Me.ExpiryDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         IdLabel = New System.Windows.Forms.Label()
         ProductCodeLabel = New System.Windows.Forms.Label()
         ProductNameLabel = New System.Windows.Forms.Label()
@@ -106,6 +109,7 @@ Partial Class Products
         QuantityLabel = New System.Windows.Forms.Label()
         MinimumPriceLabel = New System.Windows.Forms.Label()
         MaximumPriceLabel = New System.Windows.Forms.Label()
+        ExpiryDateLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -232,6 +236,15 @@ Partial Class Products
         MaximumPriceLabel.Text = "Maximum Price:"
         MaximumPriceLabel.Visible = False
         '
+        'ExpiryDateLabel
+        '
+        ExpiryDateLabel.AutoSize = True
+        ExpiryDateLabel.Location = New System.Drawing.Point(496, 218)
+        ExpiryDateLabel.Name = "ExpiryDateLabel"
+        ExpiryDateLabel.Size = New System.Drawing.Size(72, 16)
+        ExpiryDateLabel.TabIndex = 57
+        ExpiryDateLabel.Text = "Expiry Date:"
+        '
         'BrandTableAdapter
         '
         Me.BrandTableAdapter.ClearBeforeFill = True
@@ -254,6 +267,8 @@ Partial Class Products
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(ExpiryDateLabel)
+        Me.GroupBox1.Controls.Add(Me.ExpiryDateDateTimePicker)
         Me.GroupBox1.Controls.Add(MaximumPriceLabel)
         Me.GroupBox1.Controls.Add(Me.MaximumPriceTextBox)
         Me.GroupBox1.Controls.Add(MinimumPriceLabel)
@@ -288,10 +303,28 @@ Partial Class Products
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(951, 326)
+        Me.GroupBox1.Size = New System.Drawing.Size(951, 330)
         Me.GroupBox1.TabIndex = 28
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product Information"
+        '
+        'ExpiryDateDateTimePicker
+        '
+        Me.ExpiryDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "ExpiryDate", True))
+        Me.ExpiryDateDateTimePicker.Location = New System.Drawing.Point(499, 237)
+        Me.ExpiryDateDateTimePicker.Name = "ExpiryDateDateTimePicker"
+        Me.ExpiryDateDateTimePicker.Size = New System.Drawing.Size(198, 21)
+        Me.ExpiryDateDateTimePicker.TabIndex = 58
+        '
+        'ProductBindingSource
+        '
+        Me.ProductBindingSource.DataMember = "Product"
+        Me.ProductBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'Pos_dbDataSet
+        '
+        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
+        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MaximumPriceTextBox
         '
@@ -303,16 +336,6 @@ Partial Class Products
         Me.MaximumPriceTextBox.Text = "0.00"
         Me.MaximumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.MaximumPriceTextBox.Visible = False
-        '
-        'ProductBindingSource
-        '
-        Me.ProductBindingSource.DataMember = "Product"
-        Me.ProductBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'Pos_dbDataSet
-        '
-        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
-        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'MinimumPriceTextBox
         '
@@ -569,7 +592,7 @@ Partial Class Products
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
-        Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.ProductCode, Me.ProductName, Me.ProductImage, Me.Barcode, Me.CategoryName, Me.BrandName, Me.SupplierName, Me.OriginalPrice, Me.DiscountedPerc, Me.DiscountedDateFrom, Me.DiscountedDateTo, Me.DiscountedPrice, Me.FinalPrice, Me.Quantity, Me.IsInstock, Me.MinimumPrice, Me.MaximumPrice})
+        Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.ProductCode, Me.ProductName, Me.ProductImage, Me.Barcode, Me.CategoryName, Me.BrandName, Me.SupplierName, Me.OriginalPrice, Me.DiscountedPerc, Me.DiscountedDateFrom, Me.DiscountedDateTo, Me.DiscountedPrice, Me.FinalPrice, Me.Quantity, Me.IsInstock, Me.MinimumPrice, Me.MaximumPrice, Me.ExpiryDate})
         Me.CategoryDataGridView.DataSource = Me.ProductBindingSource
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
@@ -590,6 +613,76 @@ Partial Class Products
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.CategoryDataGridView.Size = New System.Drawing.Size(916, 240)
         Me.CategoryDataGridView.TabIndex = 3
+        '
+        'BrandBindingSource
+        '
+        Me.BrandBindingSource.DataMember = "Brand"
+        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.BtnAdd)
+        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
+        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(19, 10)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupBox2.Size = New System.Drawing.Size(951, 319)
+        Me.GroupBox2.TabIndex = 29
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Product List"
+        '
+        'BtnAdd
+        '
+        Me.BtnAdd.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnAdd.FlatAppearance.BorderSize = 0
+        Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnAdd.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnAdd.ForeColor = System.Drawing.Color.White
+        Me.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
+        Me.BtnAdd.IconColor = System.Drawing.Color.White
+        Me.BtnAdd.IconSize = 30
+        Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnAdd.Location = New System.Drawing.Point(823, 22)
+        Me.BtnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.BtnAdd.Name = "BtnAdd"
+        Me.BtnAdd.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.BtnAdd.Rotation = 0R
+        Me.BtnAdd.Size = New System.Drawing.Size(114, 36)
+        Me.BtnAdd.TabIndex = 14
+        Me.BtnAdd.Text = "Add New"
+        Me.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnAdd.UseVisualStyleBackColor = False
+        '
+        'ProductTableAdapter
+        '
+        Me.ProductTableAdapter.ClearBeforeFill = True
+        '
+        'TableAdapterManager
+        '
+        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
+        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
+        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
+        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
+        Me.TableAdapterManager.StoreTableAdapter = Nothing
+        Me.TableAdapterManager.SupplierTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
+        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
+        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'SupplierTableAdapter
+        '
+        Me.SupplierTableAdapter.ClearBeforeFill = True
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -736,75 +829,13 @@ Partial Class Products
         Me.MaximumPrice.ReadOnly = True
         Me.MaximumPrice.Visible = False
         '
-        'BrandBindingSource
+        'ExpiryDate
         '
-        Me.BrandBindingSource.DataMember = "Brand"
-        Me.BrandBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.BtnAdd)
-        Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
-        Me.GroupBox2.Controls.Add(Me.CategoryDataGridView)
-        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(19, 10)
-        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(951, 319)
-        Me.GroupBox2.TabIndex = 29
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Product List"
-        '
-        'BtnAdd
-        '
-        Me.BtnAdd.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnAdd.FlatAppearance.BorderSize = 0
-        Me.BtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnAdd.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnAdd.ForeColor = System.Drawing.Color.White
-        Me.BtnAdd.IconChar = FontAwesome.Sharp.IconChar.PlusCircle
-        Me.BtnAdd.IconColor = System.Drawing.Color.White
-        Me.BtnAdd.IconSize = 30
-        Me.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAdd.Location = New System.Drawing.Point(823, 22)
-        Me.BtnAdd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.BtnAdd.Name = "BtnAdd"
-        Me.BtnAdd.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
-        Me.BtnAdd.Rotation = 0R
-        Me.BtnAdd.Size = New System.Drawing.Size(114, 36)
-        Me.BtnAdd.TabIndex = 14
-        Me.BtnAdd.Text = "Add New"
-        Me.BtnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnAdd.UseVisualStyleBackColor = False
-        '
-        'ProductTableAdapter
-        '
-        Me.ProductTableAdapter.ClearBeforeFill = True
-        '
-        'TableAdapterManager
-        '
-        Me.TableAdapterManager.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager.BrandTableAdapter = Me.BrandTableAdapter
-        Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
-        Me.TableAdapterManager.PersonnelTableAdapter = Nothing
-        Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
-        Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
-        Me.TableAdapterManager.StoreTableAdapter = Nothing
-        Me.TableAdapterManager.SupplierTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
-        Me.TableAdapterManager.TransactionHeaderTableAdapter = Nothing
-        Me.TableAdapterManager.UpdateOrder = POS.pos_dbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'SupplierTableAdapter
-        '
-        Me.SupplierTableAdapter.ClearBeforeFill = True
+        Me.ExpiryDate.DataPropertyName = "ExpiryDate"
+        Me.ExpiryDate.HeaderText = "ExpiryDate"
+        Me.ExpiryDate.Name = "ExpiryDate"
+        Me.ExpiryDate.ReadOnly = True
+        Me.ExpiryDate.Visible = False
         '
         'Products
         '
@@ -874,9 +905,10 @@ Partial Class Products
     Friend WithEvents SupplierTableAdapter As pos_dbDataSetTableAdapters.SupplierTableAdapter
     Friend WithEvents MaximumPriceTextBox As TextBox
     Friend WithEvents MinimumPriceTextBox As TextBox
+    Friend WithEvents ExpiryDateDateTimePicker As DateTimePicker
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCode As DataGridViewTextBoxColumn
-    Friend Shadows ProductName As DataGridViewTextBoxColumn
+    Friend WithEvents ProductName As DataGridViewTextBoxColumn
     Friend WithEvents ProductImage As DataGridViewImageColumn
     Friend WithEvents Barcode As DataGridViewTextBoxColumn
     Friend WithEvents CategoryName As DataGridViewTextBoxColumn
@@ -892,4 +924,5 @@ Partial Class Products
     Friend WithEvents IsInstock As DataGridViewCheckBoxColumn
     Friend WithEvents MinimumPrice As DataGridViewTextBoxColumn
     Friend WithEvents MaximumPrice As DataGridViewTextBoxColumn
+    Friend WithEvents ExpiryDate As DataGridViewTextBoxColumn
 End Class

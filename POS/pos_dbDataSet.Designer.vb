@@ -1643,6 +1643,8 @@ Partial Public Class pos_dbDataSet
         
         Private columnMaximumPrice As Global.System.Data.DataColumn
         
+        Private columnExpiryDate As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -1839,6 +1841,14 @@ Partial Public Class pos_dbDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property ExpiryDateColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnExpiryDate
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1894,9 +1904,10 @@ Partial Public Class pos_dbDataSet
                     ByVal CreatedAt As Date,  _
                     ByVal CreatedBy As String,  _
                     ByVal MinimumPrice As Decimal,  _
-                    ByVal MaximumPrice As Decimal) As ProductRow
+                    ByVal MaximumPrice As Decimal,  _
+                    ByVal ExpiryDate As Date) As ProductRow
             Dim rowProductRow As ProductRow = CType(Me.NewRow,ProductRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandName, SupplierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MinimumPrice, MaximumPrice}
+            Dim columnValuesArray() As Object = New Object() {Nothing, ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandName, SupplierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MinimumPrice, MaximumPrice, ExpiryDate}
             rowProductRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProductRow)
             Return rowProductRow
@@ -1945,6 +1956,7 @@ Partial Public Class pos_dbDataSet
             Me.columnCreatedBy = MyBase.Columns("CreatedBy")
             Me.columnMinimumPrice = MyBase.Columns("MinimumPrice")
             Me.columnMaximumPrice = MyBase.Columns("MaximumPrice")
+            Me.columnExpiryDate = MyBase.Columns("ExpiryDate")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1990,6 +2002,8 @@ Partial Public Class pos_dbDataSet
             MyBase.Columns.Add(Me.columnMinimumPrice)
             Me.columnMaximumPrice = New Global.System.Data.DataColumn("MaximumPrice", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnMaximumPrice)
+            Me.columnExpiryDate = New Global.System.Data.DataColumn("ExpiryDate", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnExpiryDate)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnId}, true))
             Me.columnId.AutoIncrement = true
             Me.columnId.AutoIncrementSeed = -1
@@ -5476,6 +5490,21 @@ Partial Public Class pos_dbDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property ExpiryDate() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableProduct.ExpiryDateColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ExpiryDate' in table 'Product' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableProduct.ExpiryDateColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Function IsProductImageNull() As Boolean
             Return Me.IsNull(Me.tableProduct.ProductImageColumn)
         End Function
@@ -5676,6 +5705,18 @@ Partial Public Class pos_dbDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub SetMaximumPriceNull()
             Me(Me.tableProduct.MaximumPriceColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function IsExpiryDateNull() As Boolean
+            Return Me.IsNull(Me.tableProduct.ExpiryDateColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Sub SetExpiryDateNull()
+            Me(Me.tableProduct.ExpiryDateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9190,6 +9231,7 @@ Namespace pos_dbDataSetTableAdapters
             tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy")
             tableMapping.ColumnMappings.Add("MinimumPrice", "MinimumPrice")
             tableMapping.ColumnMappings.Add("MaximumPrice", "MaximumPrice")
+            tableMapping.ColumnMappings.Add("ExpiryDate", "ExpiryDate")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -9215,7 +9257,8 @@ Namespace pos_dbDataSetTableAdapters
                 "CreatedBy] IS NULL) OR ([CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_Maximu"& _ 
                 "mPrice = 1 AND [MaximumPrice] IS NULL) OR ([MaximumPrice] = @Original_MaximumPri"& _ 
                 "ce)) AND ((@IsNull_MinimumPrice = 1 AND [MinimumPrice] IS NULL) OR ([MinimumPric"& _ 
-                "e] = @Original_MinimumPrice)))"
+                "e] = @Original_MinimumPrice)) AND ((@IsNull_ExpiryDate = 1 AND [ExpiryDate] IS N"& _ 
+                "ULL) OR ([ExpiryDate] = @Original_ExpiryDate)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9252,20 +9295,22 @@ Namespace pos_dbDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MaximumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MaximumPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MinimumPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MinimumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ExpiryDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ExpiryDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO [Product] ([ProductCode], [ProductName], [ProductImage], [Barcode], ["& _ 
                 "CategoryName], [BrandName], [SupplierName], [OriginalPrice], [DiscountedPerc], ["& _ 
                 "DiscountedDateFrom], [DiscountedDateTo], [DiscountedPrice], [FinalPrice], [Quant"& _ 
-                "ity], [IsInstock], [CreatedAt], [CreatedBy], [MaximumPrice], [MinimumPrice]) VAL"& _ 
-                "UES (@ProductCode, @ProductName, @ProductImage, @Barcode, @CategoryName, @BrandN"& _ 
-                "ame, @SupplierName, @OriginalPrice, @DiscountedPerc, @DiscountedDateFrom, @Disco"& _ 
-                "untedDateTo, @DiscountedPrice, @FinalPrice, @Quantity, @IsInstock, @CreatedAt, @"& _ 
-                "CreatedBy, @MaximumPrice, @MinimumPrice);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, ProductCode, ProductName, "& _ 
-                "ProductImage, Barcode, CategoryName, BrandName, SupplierName, OriginalPrice, Dis"& _ 
-                "countedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, "& _ 
-                "Quantity, IsInstock, CreatedAt, CreatedBy, MaximumPrice, MinimumPrice FROM Produ"& _ 
-                "ct WHERE (Id = SCOPE_IDENTITY())"
+                "ity], [IsInstock], [CreatedAt], [CreatedBy], [MaximumPrice], [MinimumPrice], [Ex"& _ 
+                "piryDate]) VALUES (@ProductCode, @ProductName, @ProductImage, @Barcode, @Categor"& _ 
+                "yName, @BrandName, @SupplierName, @OriginalPrice, @DiscountedPerc, @DiscountedDa"& _ 
+                "teFrom, @DiscountedDateTo, @DiscountedPrice, @FinalPrice, @Quantity, @IsInstock,"& _ 
+                " @CreatedAt, @CreatedBy, @MaximumPrice, @MinimumPrice, @ExpiryDate);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id,"& _ 
+                " ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandName, Suppl"& _ 
+                "ierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, Di"& _ 
+                "scountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MaximumPri"& _ 
+                "ce, MinimumPrice, ExpiryDate FROM Product WHERE (Id = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9286,6 +9331,7 @@ Namespace pos_dbDataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreatedBy", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MaximumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MaximumPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MinimumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExpiryDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE [Product] SET [ProductCode] = @ProductCode, [ProductName] = @ProductName, "& _ 
@@ -9295,33 +9341,35 @@ Namespace pos_dbDataSetTableAdapters
                 "scountedDateFrom, [DiscountedDateTo] = @DiscountedDateTo, [DiscountedPrice] = @D"& _ 
                 "iscountedPrice, [FinalPrice] = @FinalPrice, [Quantity] = @Quantity, [IsInstock] "& _ 
                 "= @IsInstock, [CreatedAt] = @CreatedAt, [CreatedBy] = @CreatedBy, [MaximumPrice]"& _ 
-                " = @MaximumPrice, [MinimumPrice] = @MinimumPrice WHERE (([Id] = @Original_Id) AN"& _ 
-                "D ([ProductCode] = @Original_ProductCode) AND ([ProductName] = @Original_Product"& _ 
-                "Name) AND ((@IsNull_Barcode = 1 AND [Barcode] IS NULL) OR ([Barcode] = @Original"& _ 
-                "_Barcode)) AND ((@IsNull_CategoryName = 1 AND [CategoryName] IS NULL) OR ([Categ"& _ 
-                "oryName] = @Original_CategoryName)) AND ((@IsNull_BrandName = 1 AND [BrandName] "& _ 
-                "IS NULL) OR ([BrandName] = @Original_BrandName)) AND ((@IsNull_SupplierName = 1 "& _ 
-                "AND [SupplierName] IS NULL) OR ([SupplierName] = @Original_SupplierName)) AND (("& _ 
-                "@IsNull_OriginalPrice = 1 AND [OriginalPrice] IS NULL) OR ([OriginalPrice] = @Or"& _ 
-                "iginal_OriginalPrice)) AND ((@IsNull_DiscountedPerc = 1 AND [DiscountedPerc] IS "& _ 
-                "NULL) OR ([DiscountedPerc] = @Original_DiscountedPerc)) AND ((@IsNull_Discounted"& _ 
-                "DateFrom = 1 AND [DiscountedDateFrom] IS NULL) OR ([DiscountedDateFrom] = @Origi"& _ 
-                "nal_DiscountedDateFrom)) AND ((@IsNull_DiscountedDateTo = 1 AND [DiscountedDateT"& _ 
-                "o] IS NULL) OR ([DiscountedDateTo] = @Original_DiscountedDateTo)) AND ((@IsNull_"& _ 
-                "DiscountedPrice = 1 AND [DiscountedPrice] IS NULL) OR ([DiscountedPrice] = @Orig"& _ 
-                "inal_DiscountedPrice)) AND ((@IsNull_FinalPrice = 1 AND [FinalPrice] IS NULL) OR"& _ 
-                " ([FinalPrice] = @Original_FinalPrice)) AND ((@IsNull_Quantity = 1 AND [Quantity"& _ 
-                "] IS NULL) OR ([Quantity] = @Original_Quantity)) AND ((@IsNull_IsInstock = 1 AND"& _ 
-                " [IsInstock] IS NULL) OR ([IsInstock] = @Original_IsInstock)) AND ((@IsNull_Crea"& _ 
-                "tedAt = 1 AND [CreatedAt] IS NULL) OR ([CreatedAt] = @Original_CreatedAt)) AND ("& _ 
-                "(@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ([CreatedBy] = @Original_Crea"& _ 
-                "tedBy)) AND ((@IsNull_MaximumPrice = 1 AND [MaximumPrice] IS NULL) OR ([MaximumP"& _ 
-                "rice] = @Original_MaximumPrice)) AND ((@IsNull_MinimumPrice = 1 AND [MinimumPric"& _ 
-                "e] IS NULL) OR ([MinimumPrice] = @Original_MinimumPrice)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, ProductC"& _ 
-                "ode, ProductName, ProductImage, Barcode, CategoryName, BrandName, SupplierName, "& _ 
-                "OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedP"& _ 
-                "rice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MaximumPrice, Minim"& _ 
-                "umPrice FROM Product WHERE (Id = @Id)"
+                " = @MaximumPrice, [MinimumPrice] = @MinimumPrice, [ExpiryDate] = @ExpiryDate WHE"& _ 
+                "RE (([Id] = @Original_Id) AND ([ProductCode] = @Original_ProductCode) AND ([Prod"& _ 
+                "uctName] = @Original_ProductName) AND ((@IsNull_Barcode = 1 AND [Barcode] IS NUL"& _ 
+                "L) OR ([Barcode] = @Original_Barcode)) AND ((@IsNull_CategoryName = 1 AND [Categ"& _ 
+                "oryName] IS NULL) OR ([CategoryName] = @Original_CategoryName)) AND ((@IsNull_Br"& _ 
+                "andName = 1 AND [BrandName] IS NULL) OR ([BrandName] = @Original_BrandName)) AND"& _ 
+                " ((@IsNull_SupplierName = 1 AND [SupplierName] IS NULL) OR ([SupplierName] = @Or"& _ 
+                "iginal_SupplierName)) AND ((@IsNull_OriginalPrice = 1 AND [OriginalPrice] IS NUL"& _ 
+                "L) OR ([OriginalPrice] = @Original_OriginalPrice)) AND ((@IsNull_DiscountedPerc "& _ 
+                "= 1 AND [DiscountedPerc] IS NULL) OR ([DiscountedPerc] = @Original_DiscountedPer"& _ 
+                "c)) AND ((@IsNull_DiscountedDateFrom = 1 AND [DiscountedDateFrom] IS NULL) OR (["& _ 
+                "DiscountedDateFrom] = @Original_DiscountedDateFrom)) AND ((@IsNull_DiscountedDat"& _ 
+                "eTo = 1 AND [DiscountedDateTo] IS NULL) OR ([DiscountedDateTo] = @Original_Disco"& _ 
+                "untedDateTo)) AND ((@IsNull_DiscountedPrice = 1 AND [DiscountedPrice] IS NULL) O"& _ 
+                "R ([DiscountedPrice] = @Original_DiscountedPrice)) AND ((@IsNull_FinalPrice = 1 "& _ 
+                "AND [FinalPrice] IS NULL) OR ([FinalPrice] = @Original_FinalPrice)) AND ((@IsNul"& _ 
+                "l_Quantity = 1 AND [Quantity] IS NULL) OR ([Quantity] = @Original_Quantity)) AND"& _ 
+                " ((@IsNull_IsInstock = 1 AND [IsInstock] IS NULL) OR ([IsInstock] = @Original_Is"& _ 
+                "Instock)) AND ((@IsNull_CreatedAt = 1 AND [CreatedAt] IS NULL) OR ([CreatedAt] ="& _ 
+                " @Original_CreatedAt)) AND ((@IsNull_CreatedBy = 1 AND [CreatedBy] IS NULL) OR ("& _ 
+                "[CreatedBy] = @Original_CreatedBy)) AND ((@IsNull_MaximumPrice = 1 AND [MaximumP"& _ 
+                "rice] IS NULL) OR ([MaximumPrice] = @Original_MaximumPrice)) AND ((@IsNull_Minim"& _ 
+                "umPrice = 1 AND [MinimumPrice] IS NULL) OR ([MinimumPrice] = @Original_MinimumPr"& _ 
+                "ice)) AND ((@IsNull_ExpiryDate = 1 AND [ExpiryDate] IS NULL) OR ([ExpiryDate] = "& _ 
+                "@Original_ExpiryDate)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT Id, ProductCode, ProductName, ProductImage, Bar"& _ 
+                "code, CategoryName, BrandName, SupplierName, OriginalPrice, DiscountedPerc, Disc"& _ 
+                "ountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, Quantity, IsInsto"& _ 
+                "ck, CreatedAt, CreatedBy, MaximumPrice, MinimumPrice, ExpiryDate FROM Product WH"& _ 
+                "ERE (Id = @Id)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ProductName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductName", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
@@ -9342,6 +9390,7 @@ Namespace pos_dbDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CreatedBy", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CreatedBy", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MaximumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MaximumPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@MinimumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@ExpiryDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductCode", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductCode", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ProductName", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ProductName", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9377,6 +9426,8 @@ Namespace pos_dbDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MaximumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MaximumPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_MinimumPrice", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_MinimumPrice", Global.System.Data.SqlDbType.Money, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "MinimumPrice", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_ExpiryDate", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_ExpiryDate", Global.System.Data.SqlDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, 0, 0, "ExpiryDate", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -9396,7 +9447,7 @@ Namespace pos_dbDataSetTableAdapters
             Me._commandCollection(0).CommandText = "SELECT Id, ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandNa"& _ 
                 "me, SupplierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedD"& _ 
                 "ateTo, DiscountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, M"& _ 
-                "aximumPrice, MinimumPrice FROM Product"
+                "aximumPrice, MinimumPrice, ExpiryDate FROM Product"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -9475,7 +9526,8 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal Original_CreatedAt As Global.System.Nullable(Of Date),  _
                     ByVal Original_CreatedBy As String,  _
                     ByVal Original_MaximumPrice As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_MinimumPrice As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal Original_MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_ExpiryDate As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_Id,Integer)
             If (Original_ProductCode Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductCode")
@@ -9599,6 +9651,13 @@ Namespace pos_dbDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(33).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(34).Value = Global.System.DBNull.Value
             End If
+            If (Original_ExpiryDate.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = CType(Original_ExpiryDate.Value,Date)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(36).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9637,7 +9696,8 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal CreatedAt As Global.System.Nullable(Of Date),  _
                     ByVal CreatedBy As String,  _
                     ByVal MaximumPrice As Global.System.Nullable(Of Decimal),  _
-                    ByVal MinimumPrice As Global.System.Nullable(Of Decimal)) As Integer
+                    ByVal MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal ExpiryDate As Global.System.Nullable(Of Date)) As Integer
             If (ProductCode Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ProductCode")
             Else
@@ -9733,6 +9793,11 @@ Namespace pos_dbDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
+            If (ExpiryDate.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(19).Value = CType(ExpiryDate.Value,Date)
+            Else
+                Me.Adapter.InsertCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -9772,6 +9837,7 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal CreatedBy As String,  _
                     ByVal MaximumPrice As Global.System.Nullable(Of Decimal),  _
                     ByVal MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal ExpiryDate As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_ProductCode As String,  _
                     ByVal Original_ProductName As String,  _
@@ -9791,6 +9857,7 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal Original_CreatedBy As String,  _
                     ByVal Original_MaximumPrice As Global.System.Nullable(Of Decimal),  _
                     ByVal Original_MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_ExpiryDate As Global.System.Nullable(Of Date),  _
                     ByVal Id As Integer) As Integer
             If (ProductCode Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("ProductCode")
@@ -9887,130 +9954,142 @@ Namespace pos_dbDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(18).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(19).Value = CType(Original_Id,Integer)
+            If (ExpiryDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(19).Value = CType(ExpiryDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(19).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_Id,Integer)
             If (Original_ProductCode Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductCode")
             Else
-                Me.Adapter.UpdateCommand.Parameters(20).Value = CType(Original_ProductCode,String)
+                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_ProductCode,String)
             End If
             If (Original_ProductName Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_ProductName")
             Else
-                Me.Adapter.UpdateCommand.Parameters(21).Value = CType(Original_ProductName,String)
+                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(Original_ProductName,String)
             End If
             If (Original_Barcode Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(22).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(Original_Barcode,String)
+                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_Barcode,String)
             End If
             If (Original_CategoryName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(Original_CategoryName,String)
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_CategoryName,String)
             End If
             If (Original_BrandName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(Original_BrandName,String)
+                Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_BrandName,String)
             End If
             If (Original_SupplierName Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(Original_SupplierName,String)
+                Me.Adapter.UpdateCommand.Parameters(29).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(Original_SupplierName,String)
             End If
             If (Original_OriginalPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(Original_OriginalPrice.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(Original_OriginalPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(30).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(31).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(31).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(32).Value = Global.System.DBNull.Value
             End If
             If (Original_DiscountedPerc.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(Original_DiscountedPerc.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(Original_DiscountedPerc.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(32).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(33).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(33).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(34).Value = Global.System.DBNull.Value
             End If
             If (Original_DiscountedDateFrom.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(Original_DiscountedDateFrom.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(Original_DiscountedDateFrom.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(34).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(35).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(35).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(36).Value = Global.System.DBNull.Value
             End If
             If (Original_DiscountedDateTo.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(Original_DiscountedDateTo.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(Original_DiscountedDateTo.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(36).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(37).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(37).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(38).Value = Global.System.DBNull.Value
             End If
             If (Original_DiscountedPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(Original_DiscountedPrice.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(Original_DiscountedPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(38).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(39).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(39).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(40).Value = Global.System.DBNull.Value
             End If
             If (Original_FinalPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(Original_FinalPrice.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(Original_FinalPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(40).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(41).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(41).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(42).Value = Global.System.DBNull.Value
             End If
             If (Original_Quantity.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(Original_Quantity.Value,Integer)
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(Original_Quantity.Value,Integer)
             Else
-                Me.Adapter.UpdateCommand.Parameters(42).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(43).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(43).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(44).Value = Global.System.DBNull.Value
             End If
             If (Original_IsInstock.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(Original_IsInstock.Value,Boolean)
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(Original_IsInstock.Value,Boolean)
             Else
-                Me.Adapter.UpdateCommand.Parameters(44).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(45).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(45).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(46).Value = Global.System.DBNull.Value
             End If
             If (Original_CreatedAt.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(Original_CreatedAt.Value,Date)
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(Original_CreatedAt.Value,Date)
             Else
-                Me.Adapter.UpdateCommand.Parameters(46).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(47).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(47).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(48).Value = Global.System.DBNull.Value
             End If
             If (Original_CreatedBy Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(48).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(Original_CreatedBy,String)
+                Me.Adapter.UpdateCommand.Parameters(49).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(Original_CreatedBy,String)
             End If
             If (Original_MaximumPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(Original_MaximumPrice.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(Original_MaximumPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(50).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(51).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(51).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(52).Value = Global.System.DBNull.Value
             End If
             If (Original_MinimumPrice.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(Original_MinimumPrice.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Original_MinimumPrice.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(52).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(53).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(53).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(54).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(54).Value = CType(Id,Integer)
+            If (Original_ExpiryDate.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = CType(Original_ExpiryDate.Value,Date)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(55).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(56).Value = Global.System.DBNull.Value
+            End If
+            Me.Adapter.UpdateCommand.Parameters(57).Value = CType(Id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -10050,6 +10129,7 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal CreatedBy As String,  _
                     ByVal MaximumPrice As Global.System.Nullable(Of Decimal),  _
                     ByVal MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal ExpiryDate As Global.System.Nullable(Of Date),  _
                     ByVal Original_Id As Integer,  _
                     ByVal Original_ProductCode As String,  _
                     ByVal Original_ProductName As String,  _
@@ -10068,8 +10148,9 @@ Namespace pos_dbDataSetTableAdapters
                     ByVal Original_CreatedAt As Global.System.Nullable(Of Date),  _
                     ByVal Original_CreatedBy As String,  _
                     ByVal Original_MaximumPrice As Global.System.Nullable(Of Decimal),  _
-                    ByVal Original_MinimumPrice As Global.System.Nullable(Of Decimal)) As Integer
-            Return Me.Update(ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandName, SupplierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MaximumPrice, MinimumPrice, Original_Id, Original_ProductCode, Original_ProductName, Original_Barcode, Original_CategoryName, Original_BrandName, Original_SupplierName, Original_OriginalPrice, Original_DiscountedPerc, Original_DiscountedDateFrom, Original_DiscountedDateTo, Original_DiscountedPrice, Original_FinalPrice, Original_Quantity, Original_IsInstock, Original_CreatedAt, Original_CreatedBy, Original_MaximumPrice, Original_MinimumPrice, Original_Id)
+                    ByVal Original_MinimumPrice As Global.System.Nullable(Of Decimal),  _
+                    ByVal Original_ExpiryDate As Global.System.Nullable(Of Date)) As Integer
+            Return Me.Update(ProductCode, ProductName, ProductImage, Barcode, CategoryName, BrandName, SupplierName, OriginalPrice, DiscountedPerc, DiscountedDateFrom, DiscountedDateTo, DiscountedPrice, FinalPrice, Quantity, IsInstock, CreatedAt, CreatedBy, MaximumPrice, MinimumPrice, ExpiryDate, Original_Id, Original_ProductCode, Original_ProductName, Original_Barcode, Original_CategoryName, Original_BrandName, Original_SupplierName, Original_OriginalPrice, Original_DiscountedPerc, Original_DiscountedDateFrom, Original_DiscountedDateTo, Original_DiscountedPrice, Original_FinalPrice, Original_Quantity, Original_IsInstock, Original_CreatedAt, Original_CreatedBy, Original_MaximumPrice, Original_MinimumPrice, Original_ExpiryDate, Original_Id)
         End Function
     End Class
     

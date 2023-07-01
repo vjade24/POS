@@ -245,10 +245,10 @@ Partial Class PayNow
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(385, 8)
         Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(131, 16)
+        Me.LinkLabel1.Size = New System.Drawing.Size(102, 16)
         Me.LinkLabel1.TabIndex = 60
         Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "View Payment Receipt"
+        Me.LinkLabel1.Text = "Payment Receipt"
         '
         'PayNow
         '

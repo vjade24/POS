@@ -66,6 +66,7 @@ Public Class PayNow
                                 CrystalReportViewer1.Refresh()
 
                                 cryRpt.PrintOptions.PrinterName = GetDefaultPrinter()
+                                cryRpt.PrintToPrinter(1, False, 0, 0)
                             Else
                                 MsgBox("NO DATA FOUND!", MsgBoxStyle.Exclamation)
                                 Dim cryRpt As New ReportDocument

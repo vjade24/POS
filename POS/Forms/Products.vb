@@ -56,6 +56,7 @@ Public Class Products
         'IsInstockCheckBox.Checked = False
         MinimumPriceTextBox.Text = "0.00"
         MaximumPriceTextBox.Text = "0.00"
+        ExpiryDateDateTimePicker.ResetText()
 
         BtnSave.Enabled = True
         BtnDelete.Enabled = False
@@ -94,6 +95,7 @@ Public Class Products
         QuantityTextBox.Text = "0"
         MinimumPriceTextBox.Text = "0.00"
         MaximumPriceTextBox.Text = "0.00"
+        ExpiryDateDateTimePicker.ResetText()
         'IsInstockCheckBox.Checked = False
 
         IdTextBox.Text = CategoryDataGridView.CurrentRow.Cells(0).Value.ToString()
@@ -116,6 +118,8 @@ Public Class Products
 
         MinimumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(16).Value.ToString()).ToString("###,##0.00")
         MaximumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(17).Value.ToString()).ToString("###,##0.00")
+        ExpiryDateDateTimePicker.Value = DateTime.Parse(CategoryDataGridView.CurrentRow.Cells(18).Value.ToString())
+
         Try
             Dim lb() As Byte = CategoryDataGridView.CurrentRow.Cells(3).Value
             Dim lstr As New System.IO.MemoryStream(lb)
@@ -155,6 +159,7 @@ Public Class Products
         'IsInstockCheckBox.Checked = False
         MinimumPriceTextBox.Text = "0.00"
         MaximumPriceTextBox.Text = "0.00"
+        ExpiryDateDateTimePicker.ResetText()
 
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
@@ -295,7 +300,7 @@ Public Class Products
                 Return
             End Try
 
-            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice)", conn)
+            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice,@ExpiryDate)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
@@ -316,6 +321,7 @@ Public Class Products
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = ExpiryDateDateTimePicker.Value.ToString().Trim()
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -333,7 +339,7 @@ Public Class Products
                 conn.Close()
             End Try
         ElseIf LblAddEditMode.Text = "(Update existing Record)" Then
-            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,ProductImage=@ProductImage,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock,MinimumPrice=@MinimumPrice,MaximumPrice=@MaximumPrice where Id = @Id", conn)
+            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,ProductImage=@ProductImage,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock,MinimumPrice=@MinimumPrice,MaximumPrice=@MaximumPrice,ExpiryDate=@ExpiryDate where Id = @Id", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
@@ -354,6 +360,7 @@ Public Class Products
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = ExpiryDateDateTimePicker.Value.ToString().Trim()
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
