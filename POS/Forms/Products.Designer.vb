@@ -35,7 +35,6 @@ Partial Class Products
         Dim QuantityLabel As System.Windows.Forms.Label
         Dim MinimumPriceLabel As System.Windows.Forms.Label
         Dim MaximumPriceLabel As System.Windows.Forms.Label
-        Dim ExpiryDateLabel As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -44,6 +43,9 @@ Partial Class Products
         Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
         Me.LblAddEditMode = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.LinkLabelChangePrice = New System.Windows.Forms.LinkLabel()
+        Me.LinkLabelAddQuantity = New System.Windows.Forms.LinkLabel()
+        Me.CheckBoxExpiryDate = New System.Windows.Forms.CheckBox()
         Me.ExpiryDateDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.ProductBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
@@ -73,6 +75,7 @@ Partial Class Products
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
         Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.BtnAdd = New FontAwesome.Sharp.IconButton()
         Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
         Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
@@ -109,7 +112,6 @@ Partial Class Products
         QuantityLabel = New System.Windows.Forms.Label()
         MinimumPriceLabel = New System.Windows.Forms.Label()
         MaximumPriceLabel = New System.Windows.Forms.Label()
-        ExpiryDateLabel = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,7 +130,7 @@ Partial Class Products
         '
         IdLabel.AutoSize = True
         IdLabel.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        IdLabel.Location = New System.Drawing.Point(616, 63)
+        IdLabel.Location = New System.Drawing.Point(202, 16)
         IdLabel.Name = "IdLabel"
         IdLabel.Size = New System.Drawing.Size(19, 16)
         IdLabel.TabIndex = 0
@@ -165,7 +167,7 @@ Partial Class Products
         'CategoryNameLabel
         '
         CategoryNameLabel.AutoSize = True
-        CategoryNameLabel.Location = New System.Drawing.Point(80, 169)
+        CategoryNameLabel.Location = New System.Drawing.Point(80, 149)
         CategoryNameLabel.Name = "CategoryNameLabel"
         CategoryNameLabel.Size = New System.Drawing.Size(98, 16)
         CategoryNameLabel.TabIndex = 32
@@ -174,7 +176,7 @@ Partial Class Products
         'BrandNameLabel
         '
         BrandNameLabel.AutoSize = True
-        BrandNameLabel.Location = New System.Drawing.Point(284, 169)
+        BrandNameLabel.Location = New System.Drawing.Point(284, 149)
         BrandNameLabel.Name = "BrandNameLabel"
         BrandNameLabel.Size = New System.Drawing.Size(79, 16)
         BrandNameLabel.TabIndex = 34
@@ -183,7 +185,7 @@ Partial Class Products
         'SupplierNameLabel
         '
         SupplierNameLabel.AutoSize = True
-        SupplierNameLabel.Location = New System.Drawing.Point(494, 172)
+        SupplierNameLabel.Location = New System.Drawing.Point(494, 152)
         SupplierNameLabel.Name = "SupplierNameLabel"
         SupplierNameLabel.Size = New System.Drawing.Size(90, 16)
         SupplierNameLabel.TabIndex = 36
@@ -192,7 +194,7 @@ Partial Class Products
         'OriginalPriceLabel
         '
         OriginalPriceLabel.AutoSize = True
-        OriginalPriceLabel.Location = New System.Drawing.Point(78, 218)
+        OriginalPriceLabel.Location = New System.Drawing.Point(78, 198)
         OriginalPriceLabel.Name = "OriginalPriceLabel"
         OriginalPriceLabel.Size = New System.Drawing.Size(81, 16)
         OriginalPriceLabel.TabIndex = 38
@@ -201,7 +203,7 @@ Partial Class Products
         'FinalPriceLabel
         '
         FinalPriceLabel.AutoSize = True
-        FinalPriceLabel.Location = New System.Drawing.Point(286, 218)
+        FinalPriceLabel.Location = New System.Drawing.Point(286, 198)
         FinalPriceLabel.Name = "FinalPriceLabel"
         FinalPriceLabel.Size = New System.Drawing.Size(73, 16)
         FinalPriceLabel.TabIndex = 48
@@ -236,15 +238,6 @@ Partial Class Products
         MaximumPriceLabel.Text = "Maximum Price:"
         MaximumPriceLabel.Visible = False
         '
-        'ExpiryDateLabel
-        '
-        ExpiryDateLabel.AutoSize = True
-        ExpiryDateLabel.Location = New System.Drawing.Point(496, 218)
-        ExpiryDateLabel.Name = "ExpiryDateLabel"
-        ExpiryDateLabel.Size = New System.Drawing.Size(72, 16)
-        ExpiryDateLabel.TabIndex = 57
-        ExpiryDateLabel.Text = "Expiry Date:"
-        '
         'BrandTableAdapter
         '
         Me.BrandTableAdapter.ClearBeforeFill = True
@@ -267,7 +260,9 @@ Partial Class Products
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(ExpiryDateLabel)
+        Me.GroupBox1.Controls.Add(Me.LinkLabelChangePrice)
+        Me.GroupBox1.Controls.Add(Me.LinkLabelAddQuantity)
+        Me.GroupBox1.Controls.Add(Me.CheckBoxExpiryDate)
         Me.GroupBox1.Controls.Add(Me.ExpiryDateDateTimePicker)
         Me.GroupBox1.Controls.Add(MaximumPriceLabel)
         Me.GroupBox1.Controls.Add(Me.MaximumPriceTextBox)
@@ -308,10 +303,40 @@ Partial Class Products
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product Information"
         '
+        'LinkLabelChangePrice
+        '
+        Me.LinkLabelChangePrice.AutoSize = True
+        Me.LinkLabelChangePrice.Location = New System.Drawing.Point(199, 198)
+        Me.LinkLabelChangePrice.Name = "LinkLabelChangePrice"
+        Me.LinkLabelChangePrice.Size = New System.Drawing.Size(82, 16)
+        Me.LinkLabelChangePrice.TabIndex = 61
+        Me.LinkLabelChangePrice.TabStop = True
+        Me.LinkLabelChangePrice.Text = "Change Price"
+        '
+        'LinkLabelAddQuantity
+        '
+        Me.LinkLabelAddQuantity.AutoSize = True
+        Me.LinkLabelAddQuantity.Location = New System.Drawing.Point(615, 63)
+        Me.LinkLabelAddQuantity.Name = "LinkLabelAddQuantity"
+        Me.LinkLabelAddQuantity.Size = New System.Drawing.Size(82, 16)
+        Me.LinkLabelAddQuantity.TabIndex = 60
+        Me.LinkLabelAddQuantity.TabStop = True
+        Me.LinkLabelAddQuantity.Text = "Add Quantity"
+        '
+        'CheckBoxExpiryDate
+        '
+        Me.CheckBoxExpiryDate.AutoSize = True
+        Me.CheckBoxExpiryDate.Location = New System.Drawing.Point(497, 194)
+        Me.CheckBoxExpiryDate.Name = "CheckBoxExpiryDate"
+        Me.CheckBoxExpiryDate.Size = New System.Drawing.Size(91, 20)
+        Me.CheckBoxExpiryDate.TabIndex = 59
+        Me.CheckBoxExpiryDate.Text = "Expiry Date:"
+        Me.CheckBoxExpiryDate.UseVisualStyleBackColor = True
+        '
         'ExpiryDateDateTimePicker
         '
         Me.ExpiryDateDateTimePicker.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ProductBindingSource, "ExpiryDate", True))
-        Me.ExpiryDateDateTimePicker.Location = New System.Drawing.Point(499, 237)
+        Me.ExpiryDateDateTimePicker.Location = New System.Drawing.Point(499, 217)
         Me.ExpiryDateDateTimePicker.Name = "ExpiryDateDateTimePicker"
         Me.ExpiryDateDateTimePicker.Size = New System.Drawing.Size(198, 21)
         Me.ExpiryDateDateTimePicker.TabIndex = 58
@@ -389,9 +414,8 @@ Partial Class Products
         '
         Me.ProductNameTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "ProductName", True))
         Me.ProductNameTextBox.Location = New System.Drawing.Point(81, 124)
-        Me.ProductNameTextBox.Multiline = True
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
-        Me.ProductNameTextBox.Size = New System.Drawing.Size(616, 42)
+        Me.ProductNameTextBox.Size = New System.Drawing.Size(616, 21)
         Me.ProductNameTextBox.TabIndex = 29
         '
         'BarcodeTextBox
@@ -408,7 +432,7 @@ Partial Class Products
         Me.CategoryNameComboBox.DataSource = Me.CategoryBindingSource2
         Me.CategoryNameComboBox.DisplayMember = "CategoryName"
         Me.CategoryNameComboBox.FormattingEnabled = True
-        Me.CategoryNameComboBox.Location = New System.Drawing.Point(81, 188)
+        Me.CategoryNameComboBox.Location = New System.Drawing.Point(81, 168)
         Me.CategoryNameComboBox.Name = "CategoryNameComboBox"
         Me.CategoryNameComboBox.Size = New System.Drawing.Size(200, 24)
         Me.CategoryNameComboBox.TabIndex = 33
@@ -425,7 +449,7 @@ Partial Class Products
         Me.BrandNameComboBox.DataSource = Me.BrandBindingSource1
         Me.BrandNameComboBox.DisplayMember = "BrandName"
         Me.BrandNameComboBox.FormattingEnabled = True
-        Me.BrandNameComboBox.Location = New System.Drawing.Point(287, 188)
+        Me.BrandNameComboBox.Location = New System.Drawing.Point(287, 168)
         Me.BrandNameComboBox.Name = "BrandNameComboBox"
         Me.BrandNameComboBox.Size = New System.Drawing.Size(200, 24)
         Me.BrandNameComboBox.TabIndex = 35
@@ -442,7 +466,7 @@ Partial Class Products
         Me.SupplierNameComboBox.DataSource = Me.SupplierBindingSource
         Me.SupplierNameComboBox.DisplayMember = "SupplierName"
         Me.SupplierNameComboBox.FormattingEnabled = True
-        Me.SupplierNameComboBox.Location = New System.Drawing.Point(497, 188)
+        Me.SupplierNameComboBox.Location = New System.Drawing.Point(497, 168)
         Me.SupplierNameComboBox.Name = "SupplierNameComboBox"
         Me.SupplierNameComboBox.Size = New System.Drawing.Size(200, 24)
         Me.SupplierNameComboBox.TabIndex = 37
@@ -456,7 +480,7 @@ Partial Class Products
         'OriginalPriceTextBox
         '
         Me.OriginalPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "OriginalPrice", True))
-        Me.OriginalPriceTextBox.Location = New System.Drawing.Point(81, 237)
+        Me.OriginalPriceTextBox.Location = New System.Drawing.Point(81, 217)
         Me.OriginalPriceTextBox.Name = "OriginalPriceTextBox"
         Me.OriginalPriceTextBox.Size = New System.Drawing.Size(200, 21)
         Me.OriginalPriceTextBox.TabIndex = 39
@@ -466,7 +490,7 @@ Partial Class Products
         'FinalPriceTextBox
         '
         Me.FinalPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "FinalPrice", True))
-        Me.FinalPriceTextBox.Location = New System.Drawing.Point(289, 237)
+        Me.FinalPriceTextBox.Location = New System.Drawing.Point(289, 217)
         Me.FinalPriceTextBox.Name = "FinalPriceTextBox"
         Me.FinalPriceTextBox.Size = New System.Drawing.Size(200, 21)
         Me.FinalPriceTextBox.TabIndex = 49
@@ -478,7 +502,7 @@ Partial Class Products
         Me.QuantityTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "Quantity", True))
         Me.QuantityTextBox.Location = New System.Drawing.Point(495, 82)
         Me.QuantityTextBox.Name = "QuantityTextBox"
-        Me.QuantityTextBox.Size = New System.Drawing.Size(116, 21)
+        Me.QuantityTextBox.Size = New System.Drawing.Size(202, 21)
         Me.QuantityTextBox.TabIndex = 51
         Me.QuantityTextBox.Text = "0"
         Me.QuantityTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
@@ -486,7 +510,7 @@ Partial Class Products
         'IdTextBox
         '
         Me.IdTextBox.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IdTextBox.Location = New System.Drawing.Point(617, 82)
+        Me.IdTextBox.Location = New System.Drawing.Point(203, 35)
         Me.IdTextBox.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.IdTextBox.Name = "IdTextBox"
         Me.IdTextBox.ReadOnly = True
@@ -621,6 +645,7 @@ Partial Class Products
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.IconButton2)
         Me.GroupBox2.Controls.Add(Me.Label1)
         Me.GroupBox2.Controls.Add(Me.BtnAdd)
         Me.GroupBox2.Controls.Add(Me.TextBoxSearch)
@@ -634,6 +659,29 @@ Partial Class Products
         Me.GroupBox2.TabIndex = 29
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Product List"
+        '
+        'IconButton2
+        '
+        Me.IconButton2.BackColor = System.Drawing.Color.ForestGreen
+        Me.IconButton2.FlatAppearance.BorderSize = 0
+        Me.IconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButton2.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.IconButton2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton2.ForeColor = System.Drawing.Color.White
+        Me.IconButton2.IconChar = FontAwesome.Sharp.IconChar.Retweet
+        Me.IconButton2.IconColor = System.Drawing.Color.White
+        Me.IconButton2.IconSize = 30
+        Me.IconButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButton2.Location = New System.Drawing.Point(703, 22)
+        Me.IconButton2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IconButton2.Name = "IconButton2"
+        Me.IconButton2.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.IconButton2.Rotation = 0R
+        Me.IconButton2.Size = New System.Drawing.Size(114, 36)
+        Me.IconButton2.TabIndex = 22
+        Me.IconButton2.Text = "Refresh"
+        Me.IconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButton2.UseVisualStyleBackColor = False
         '
         'BtnAdd
         '
@@ -669,6 +717,8 @@ Partial Class Products
         Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
         Me.TableAdapterManager.PersonnelTableAdapter = Nothing
         Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductPriceTableAdapter = Nothing
+        Me.TableAdapterManager.ProductQuantityTableAdapter = Nothing
         Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
         Me.TableAdapterManager.StoreTableAdapter = Nothing
         Me.TableAdapterManager.SupplierTableAdapter = Nothing
@@ -792,7 +842,7 @@ Partial Class Products
         DataGridViewCellStyle2.Format = "N2"
         DataGridViewCellStyle2.NullValue = Nothing
         Me.FinalPrice.DefaultCellStyle = DataGridViewCellStyle2
-        Me.FinalPrice.HeaderText = "FinalPrice"
+        Me.FinalPrice.HeaderText = "SellingPrice"
         Me.FinalPrice.Name = "FinalPrice"
         Me.FinalPrice.ReadOnly = True
         '
@@ -906,6 +956,10 @@ Partial Class Products
     Friend WithEvents MaximumPriceTextBox As TextBox
     Friend WithEvents MinimumPriceTextBox As TextBox
     Friend WithEvents ExpiryDateDateTimePicker As DateTimePicker
+    Friend WithEvents CheckBoxExpiryDate As CheckBox
+    Friend WithEvents LinkLabelChangePrice As LinkLabel
+    Friend WithEvents LinkLabelAddQuantity As LinkLabel
+    Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCode As DataGridViewTextBoxColumn
     Friend WithEvents ProductName As DataGridViewTextBoxColumn

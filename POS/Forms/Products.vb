@@ -10,6 +10,7 @@ Public Class Products
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
         GroupBox1.Visible = False
+        ExpiryDateDateTimePicker.Visible = False
     End Sub
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
@@ -71,6 +72,12 @@ Public Class Products
         IdTextBox.Text = GetLastRow("Product", "Id")
 
         GroupBox1.Visible = True
+        LinkLabelAddQuantity.Visible = False
+        LinkLabelChangePrice.Visible = False
+        QuantityTextBox.Enabled = True
+        OriginalPriceTextBox.Enabled = True
+        FinalPriceTextBox.Enabled = True
+        Searchtextbox()
     End Sub
     Private Sub CategoryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles CategoryDataGridView.CellClick
         BtnSave.Enabled = True
@@ -118,7 +125,14 @@ Public Class Products
 
         MinimumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(16).Value.ToString()).ToString("###,##0.00")
         MaximumPriceTextBox.Text = Double.Parse(CategoryDataGridView.CurrentRow.Cells(17).Value.ToString()).ToString("###,##0.00")
-        ExpiryDateDateTimePicker.Value = DateTime.Parse(CategoryDataGridView.CurrentRow.Cells(18).Value.ToString())
+
+        If CategoryDataGridView.CurrentRow.Cells(18).Value.ToString().Trim() Is "" Then
+            CheckBoxExpiryDate.Checked = False
+            ExpiryDateDateTimePicker.Visible = False
+        Else
+            CheckBoxExpiryDate.Checked = True
+            ExpiryDateDateTimePicker.Value = DateTime.Parse(CategoryDataGridView.CurrentRow.Cells(18).Value.ToString())
+        End If
 
         Try
             Dim lb() As Byte = CategoryDataGridView.CurrentRow.Cells(3).Value
@@ -137,6 +151,12 @@ Public Class Products
         'FinalPriceTextBox.Enabled = False
 
         GroupBox1.Visible = True
+        LinkLabelAddQuantity.Visible = True
+        LinkLabelChangePrice.Visible = True
+
+        QuantityTextBox.Enabled = False
+        OriginalPriceTextBox.Enabled = False
+        FinalPriceTextBox.Enabled = False
     End Sub
 
     Private Sub ClearEntry()
@@ -166,6 +186,24 @@ Public Class Products
     End Sub
 
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
+
+        Dim query = "SELECT TOP 1 * FROM TransactionDetails Where ProductCode = '" + ProductCodeTextBox.Text.ToString().Trim() + "'"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                MsgBox("THIS PRODUCT IS ALREADY USED ON POINT OF SALE, YOU CANNOT DELETE!", MsgBoxStyle.Critical)
+                Return
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this record (" + CategoryDataGridView.CurrentRow.Cells(0).Value.ToString() + ")", "Delete Record", MessageBoxButtons.YesNo)
         If result = DialogResult.No Then
             MessageBox.Show("You pressed No")
@@ -300,6 +338,7 @@ Public Class Products
                 Return
             End Try
 
+
             Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice,@ExpiryDate)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
@@ -321,7 +360,7 @@ Public Class Products
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = ExpiryDateDateTimePicker.Value.ToString().Trim()
+            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = If(CheckBoxExpiryDate.Checked = True, ExpiryDateDateTimePicker.Value.ToString().Trim(), DBNull.Value)
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -360,7 +399,7 @@ Public Class Products
             command1.Parameters.Add("@CreatedBy", SqlDbType.VarChar).Value = user_login
             command1.Parameters.Add("@MinimumPrice", SqlDbType.VarChar).Value = MinimumPriceTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@MaximumPrice", SqlDbType.VarChar).Value = MaximumPriceTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = ExpiryDateDateTimePicker.Value.ToString().Trim()
+            command1.Parameters.Add("@ExpiryDate", SqlDbType.VarChar).Value = If(CheckBoxExpiryDate.Checked = True, ExpiryDateDateTimePicker.Value.ToString().Trim(), DBNull.Value)
             Try
                 conn.Open()
                 result = command1.ExecuteNonQuery()
@@ -433,6 +472,35 @@ Public Class Products
         'End If
     End Sub
 
+    Private Sub CheckBoxExpiryDate_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxExpiryDate.CheckedChanged
+        If CheckBoxExpiryDate.Checked = True Then
+            ExpiryDateDateTimePicker.Visible = True
+        Else
+            ExpiryDateDateTimePicker.Visible = False
+        End If
+    End Sub
+
+    Private Sub LinkLabelAddQuantity_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelAddQuantity.LinkClicked
+        Dim prdQ As New ProductQuantity
+
+        GroupBox1.Visible = False
+        prdQ.IdTextBox.Text = ""
+        prdQ.ProductCodeTextBox.Text = ""
+        prdQ.ProductNameTextBox.Text = ""
+        prdQ.OldQuantityTextBox.Text = "0"
+        prdQ.NewQuantityTextBox.Text = "0"
+
+        prdQ.IdTextBox.Text = ""
+        prdQ.ProductCodeTextBox.Text = ProductCodeTextBox.Text.ToString().Trim()
+        prdQ.ProductNameTextBox.Text = ProductNameTextBox.Text.ToString().Trim()
+        prdQ.OldQuantityTextBox.Text = QuantityTextBox.Text.ToString().Trim()
+        prdQ.TotalQuantityTextBox.Text = QuantityTextBox.Text.ToString().Trim()
+        prdQ.NewQuantityTextBox.Select()
+        prdQ.RefreshData(ProductCodeTextBox.Text.ToString().Trim())
+
+        prdQ.ShowDialog()
+    End Sub
+
 
     'Private Sub DiscountedPercTextBox_TextChanged(sender As Object, e As EventArgs)
     '    Try
@@ -462,4 +530,61 @@ Public Class Products
     '        FinalPriceTextBox.Text = "0.00"
     '    End Try
     'End Sub
+
+
+    Public Sub Searchtextbox()
+        ProductNameTextBox.AutoCompleteMode = AutoCompleteMode.Suggest
+        ProductNameTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource
+        Dim DataCollection As New AutoCompleteStringCollection()
+        getData(DataCollection)
+        ProductNameTextBox.AutoCompleteCustomSource = DataCollection
+    End Sub
+    Public Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
+        Dim query = "SELECT ProductName FROM Product ORDER BY Id DESC"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataSet
+            da.Fill(dt)
+            For Each row As DataRow In dt.Tables(0).Rows
+                dataCollection.Add(row(0).ToString())
+            Next
+
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+
+    End Sub
+
+    Private Sub IconButton2_Click(sender As Object, e As EventArgs) Handles IconButton2.Click
+        RefreshData()
+    End Sub
+
+    Private Sub LinkLabelChangePrice_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabelChangePrice.LinkClicked
+        Dim prdPrice As New ProductPrice
+
+        GroupBox1.Visible = False
+        prdPrice.IdTextBox.Text = ""
+        prdPrice.ProductCodeTextBox.Text = ""
+        prdPrice.ProductNameTextBox.Text = ""
+        prdPrice.OldOriginalPriceTextBox.Text = "0.00"
+        prdPrice.OldFinalPriceTextBox.Text = "0.00"
+        prdPrice.NewOriginalPriceTextBox.Text = "0.00"
+        prdPrice.NewFinalPriceTextBox.Text = "0.00"
+
+        prdPrice.IdTextBox.Text = ""
+        prdPrice.ProductCodeTextBox.Text = ProductCodeTextBox.Text.ToString().Trim()
+        prdPrice.ProductNameTextBox.Text = ProductNameTextBox.Text.ToString().Trim()
+        prdPrice.OldOriginalPriceTextBox.Text = OriginalPriceTextBox.Text.ToString().Trim()
+        prdPrice.OldFinalPriceTextBox.Text = FinalPriceTextBox.Text.ToString.Trim()
+        prdPrice.NewOriginalPriceTextBox.Text = OriginalPriceTextBox.Text.ToString().Trim()
+        prdPrice.NewFinalPriceTextBox.Text = FinalPriceTextBox.Text.ToString.Trim()
+        prdPrice.NewOriginalPriceTextBox.Select()
+        prdPrice.RefreshData(ProductCodeTextBox.Text.ToString().Trim())
+
+        prdPrice.ShowDialog()
+    End Sub
 End Class

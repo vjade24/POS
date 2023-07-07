@@ -2,36 +2,14 @@
 Public Class Brand
     Private Sub Brand_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        TextBox1.AutoCompleteMode = AutoCompleteMode.Suggest
-        TextBox1.AutoCompleteSource = AutoCompleteSource.CustomSource
-        Dim DataCollection As New AutoCompleteStringCollection()
-        getData(DataCollection)
-        TextBox1.AutoCompleteCustomSource = DataCollection
+
 
         RefreshData()
         BtnSave.Enabled = False
         BtnDelete.Enabled = False
         GroupBox1.Visible = False
     End Sub
-    Public Sub getData(ByVal dataCollection As AutoCompleteStringCollection)
-        Dim query = "SELECT BrandName FROM Brand ORDER BY Id DESC"
-        Try
-            Dim conn As SqlConnection = New SqlConnection(connection)
-            Dim cmd As SqlCommand = New SqlCommand(query, conn)
-            Dim da As New SqlDataAdapter
-            da.SelectCommand = cmd
-            Dim dt As New DataSet
-            da.Fill(dt)
-            For Each row As DataRow In dt.Tables(0).Rows
-                dataCollection.Add(row(0).ToString())
-            Next
 
-        Catch ex As Exception
-            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
-            Return
-        End Try
-
-    End Sub
 
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer

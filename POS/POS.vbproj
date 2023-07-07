@@ -142,6 +142,18 @@
     <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\ProductPrice.Designer.vb">
+      <DependentUpon>ProductPrice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductPrice.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProductQuantity.Designer.vb">
+      <DependentUpon>ProductQuantity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProductQuantity.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -184,12 +196,6 @@
       <DependentUpon>Products.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Products.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ProductsStocks.Designer.vb">
-      <DependentUpon>ProductsStocks.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ProductsStocks.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Reports.Designer.vb">
@@ -254,6 +260,12 @@
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductPrice.resx">
+      <DependentUpon>ProductPrice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProductQuantity.resx">
+      <DependentUpon>ProductQuantity.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -271,9 +283,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Products.resx">
       <DependentUpon>Products.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ProductsStocks.resx">
-      <DependentUpon>ProductsStocks.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
