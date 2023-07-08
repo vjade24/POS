@@ -10,5 +10,14 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=systemadmin</Value>
     </Setting>
+    <Setting Name="Farmacia_Galicia" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=systemadmin</Value>
+    </Setting>
+    <Setting Name="Vincent_Jade_House" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=systemadmin</Value>
+    </Setting>
+    <Setting Name="Vincent_Jade_Office" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=PICTO-702\HRIS_JADE;Initial Catalog=pos_db;Persist Security Info=True;User ID=sa;Password=J@de123456</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

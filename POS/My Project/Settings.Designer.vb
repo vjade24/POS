@@ -64,6 +64,36 @@ Namespace My
                 Return CType(Me("pos_dbConnectionString"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=systemadmin")>  _
+        Public ReadOnly Property Farmacia_Galicia() As String
+            Get
+                Return CType(Me("Farmacia_Galicia"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-AD3I7I5\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=systemadmin")>  _
+        Public ReadOnly Property Vincent_Jade_House() As String
+            Get
+                Return CType(Me("Vincent_Jade_House"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PICTO-702\HRIS_JADE;Initial Catalog=pos_db;Persist Security Info=True"& _ 
+            ";User ID=sa;Password=J@de123456")>  _
+        Public ReadOnly Property Vincent_Jade_Office() As String
+            Get
+                Return CType(Me("Vincent_Jade_Office"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

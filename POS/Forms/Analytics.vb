@@ -8,6 +8,7 @@ Public Class Analytics
         'Analytics_SoldByMonth()
         LoadChart()
         LoadChart_BarChart()
+        'LoadChart_BarChart_PerProduct()
     End Sub
 
     'Private Sub Analytics_SoldByMonth()
@@ -122,5 +123,55 @@ Public Class Analytics
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
         End Try
+    End Sub
+
+    Private Sub LoadChart_BarChart_PerProduct(ByVal ProductCode, ByVal TranYear)
+        With Chart3
+            .Series.Clear()
+            .Series.Add("Series1")
+            .Titles.Clear()
+            .Titles.Add("Title1")
+        End With
+
+        Dim query = "SELECT ProductCode,ProductName,MONTH(CreatedAt) AS MonthInt,DATENAME(month,CreatedAt) + ' ' + DATENAME(day,CreatedAt) + ', ' + DATENAME(year,CreatedAt) AS MonthNameDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND ProductCode = '" + ProductCode + "' AND YEAR(CreatedAt)	= '" + TranYear + "' GROUP BY ProductCode ,ProductName,MONTH(CreatedAt),DATENAME(month,CreatedAt) + ' ' + DATENAME(day,CreatedAt) + ', ' + DATENAME(year,CreatedAt)ORDER BY MONTH(CreatedAt) ASC"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim ds As New DataSet
+
+            da.Fill(ds, "MonthNameDesc")
+            Chart3.DataSource = ds.Tables("MonthNameDesc")
+            Dim series1 As Series = Chart3.Series("Series1")
+            Dim title1 As Title = Chart3.Titles("Title1")
+            'series1.ChartType = SeriesChartType.FastLine
+            'series1.Name = ds.Tables(0).Rows(0)("ProductName")
+            series1.Palette = ChartColorPalette.SeaGreen
+
+            title1.Text = ds.Tables(0).Rows(0)("ProductName")
+            With Chart3
+                '.Series(0)("PieLabelStyle") = "Outside"
+                '.Series(0).BorderWidth = 1
+                '.Series(0).BorderColor = System.Drawing.Color.Red
+                '.ChartAreas(0).Area3DStyle.Enable3D = True
+
+                .Series(series1.Name).XValueMember = "MonthNameDesc"
+                .Series(series1.Name).YValueMembers = "TotalAmount"
+
+                .Series(0).LabelFormat = "{###,##0.00}"
+                .Series(0).IsValueShownAsLabel = True
+
+                '.Series(0).LegendText = "#VALX (#PERCENT)"
+            End With
+
+        Catch ex As Exception
+            MsgBox("NO DATA FOUND \n" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+    End Sub
+
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
+        LoadChart_BarChart_PerProduct(ProductCodeTextBox.Text.ToString(), DateTime.Now.Year.ToString())
     End Sub
 End Class

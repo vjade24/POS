@@ -63,6 +63,7 @@ Public Class Products
         BtnDelete.Enabled = False
 
         ProductCodeTextBox.Enabled = True
+        ProductCodeTextBox.Select()
         'BarcodeTextBox.Enabled = True
         'QuantityTextBox.Enabled = True
         'OriginalPriceTextBox.Enabled = True
