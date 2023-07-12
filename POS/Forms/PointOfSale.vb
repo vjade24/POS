@@ -331,13 +331,22 @@ Public Class PointOfSale
 
 
     Private Sub DiscountedPriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles DiscountedPriceTextBox.TextChanged
-        If OriginalPriceTextBox.Text.ToString.Trim <> "" Then
-            FinalPriceTextBox.Text = (Double.Parse(OriginalPriceTextBox.Text.ToString.Trim) - Double.Parse(DiscountedPriceTextBox.Text.ToString.Trim)).ToString("###,##0.00")
-        End If
+        'If OriginalPriceTextBox.Text.ToString.Trim <> "" Then
+        '    FinalPriceTextBox.Text = (Double.Parse(OriginalPriceTextBox.Text.ToString.Trim) - Double.Parse(DiscountedPriceTextBox.Text.ToString.Trim)).ToString("###,##0.00")
+        'End If
 
+        'Try
+        '    TextBox_TotalPerProduct.Text = (Double.Parse(FinalPriceTextBox.Text) * Double.Parse(QuantityTextBox.Text)).ToString("##,##0.00")
+        'Catch ex As Exception
+        'End Try
         Try
-            TextBox_TotalPerProduct.Text = (Double.Parse(FinalPriceTextBox.Text) * Double.Parse(QuantityTextBox.Text)).ToString("##,##0.00")
+            If TextBox_TotalPerProduct.Text.ToString() <> "" Then
+                Dim total_per_sold As Double
+                total_per_sold = Double.Parse(FinalPriceTextBox.Text) * Double.Parse(QuantityTextBox.Text)
+                TextBox_TotalPerProduct.Text = (total_per_sold - Double.Parse(DiscountedPriceTextBox.Text)).ToString("##,##0.00")
+            End If
         Catch ex As Exception
+
         End Try
     End Sub
 
