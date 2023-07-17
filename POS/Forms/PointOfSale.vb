@@ -50,7 +50,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE Quantity >= 1 AND (ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
+        Dim query = "SELECT * FROM Product WHERE Quantity >= 1 AND (ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'  OR  BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
         CommonQuery(query, DataGridView1)
     End Sub
 
