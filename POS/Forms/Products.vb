@@ -588,4 +588,11 @@ Public Class Products
 
         prdPrice.ShowDialog()
     End Sub
+
+    Private Sub IconButtonPrint_Click(sender As Object, e As EventArgs) Handles IconButtonPrint.Click
+        Dim OBJ As New ReportViewer
+        OBJ.StringReportFile = "cryProductLists"
+        OBJ.StringQuery = "SELECT * FROM Product ORDER BY ProductName ASC"
+        OBJ.Show()
+    End Sub
 End Class

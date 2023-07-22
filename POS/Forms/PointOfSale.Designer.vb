@@ -103,10 +103,7 @@ Partial Class PointOfSale
         Me.TransactionDetailsTableAdapter = New POS.pos_dbDataSetTableAdapters.TransactionDetailsTableAdapter()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.TextBoxRemainingQuantity = New System.Windows.Forms.TextBox()
-        Me.MaximumPriceTextBox = New System.Windows.Forms.TextBox()
-        Me.MinimumPriceTextBox = New System.Windows.Forms.TextBox()
         Me.DiscountedPriceTextBox = New System.Windows.Forms.TextBox()
-        Me.DiscountedPercTextBox = New System.Windows.Forms.TextBox()
         Me.OriginalPriceTextBox = New System.Windows.Forms.TextBox()
         Me.SupplierNameComboBox = New System.Windows.Forms.ComboBox()
         Me.BrandNameComboBox = New System.Windows.Forms.ComboBox()
@@ -118,6 +115,9 @@ Partial Class PointOfSale
         Me.FinalPriceTextBox = New System.Windows.Forms.TextBox()
         Me.ProductNameTextBox = New System.Windows.Forms.TextBox()
         Me.ProductCodeTextBox = New System.Windows.Forms.TextBox()
+        Me.MaximumPriceTextBox = New System.Windows.Forms.TextBox()
+        Me.MinimumPriceTextBox = New System.Windows.Forms.TextBox()
+        Me.DiscountedPercTextBox = New System.Windows.Forms.TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBoxInvoice = New System.Windows.Forms.ComboBox()
@@ -445,6 +445,8 @@ Partial Class PointOfSale
         Me.TableAdapterManager.CategoryTableAdapter = Me.CategoryTableAdapter
         Me.TableAdapterManager.PersonnelTableAdapter = Nothing
         Me.TableAdapterManager.ProductLedgerTableAdapter = Nothing
+        Me.TableAdapterManager.ProductPriceTableAdapter = Nothing
+        Me.TableAdapterManager.ProductQuantityTableAdapter = Nothing
         Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
         Me.TableAdapterManager.StoreTableAdapter = Nothing
         Me.TableAdapterManager.SupplierTableAdapter = Nothing
@@ -569,7 +571,6 @@ Partial Class PointOfSale
         Me.BrandNameDataGridViewTextBoxColumn.HeaderText = "BrandName"
         Me.BrandNameDataGridViewTextBoxColumn.Name = "BrandNameDataGridViewTextBoxColumn"
         Me.BrandNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.BrandNameDataGridViewTextBoxColumn.Visible = False
         '
         'SupplierNameDataGridViewTextBoxColumn
         '
@@ -901,30 +902,6 @@ Partial Class PointOfSale
         Me.TextBoxRemainingQuantity.Text = "0"
         Me.TextBoxRemainingQuantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'MaximumPriceTextBox
-        '
-        Me.MaximumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MaximumPrice", True))
-        Me.MaximumPriceTextBox.Enabled = False
-        Me.MaximumPriceTextBox.Location = New System.Drawing.Point(1144, 429)
-        Me.MaximumPriceTextBox.Name = "MaximumPriceTextBox"
-        Me.MaximumPriceTextBox.Size = New System.Drawing.Size(126, 21)
-        Me.MaximumPriceTextBox.TabIndex = 37
-        Me.MaximumPriceTextBox.Text = "0.00"
-        Me.MaximumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.MaximumPriceTextBox.Visible = False
-        '
-        'MinimumPriceTextBox
-        '
-        Me.MinimumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MinimumPrice", True))
-        Me.MinimumPriceTextBox.Enabled = False
-        Me.MinimumPriceTextBox.Location = New System.Drawing.Point(1016, 429)
-        Me.MinimumPriceTextBox.Name = "MinimumPriceTextBox"
-        Me.MinimumPriceTextBox.Size = New System.Drawing.Size(124, 21)
-        Me.MinimumPriceTextBox.TabIndex = 36
-        Me.MinimumPriceTextBox.Text = "0.00"
-        Me.MinimumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.MinimumPriceTextBox.Visible = False
-        '
         'DiscountedPriceTextBox
         '
         Me.DiscountedPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "DiscountedPrice", True))
@@ -934,16 +911,6 @@ Partial Class PointOfSale
         Me.DiscountedPriceTextBox.TabIndex = 35
         Me.DiscountedPriceTextBox.Text = "0.00"
         Me.DiscountedPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'DiscountedPercTextBox
-        '
-        Me.DiscountedPercTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "DiscountedPerc", True))
-        Me.DiscountedPercTextBox.Enabled = False
-        Me.DiscountedPercTextBox.Location = New System.Drawing.Point(1016, 378)
-        Me.DiscountedPercTextBox.Name = "DiscountedPercTextBox"
-        Me.DiscountedPercTextBox.Size = New System.Drawing.Size(121, 21)
-        Me.DiscountedPercTextBox.TabIndex = 34
-        Me.DiscountedPercTextBox.Visible = False
         '
         'OriginalPriceTextBox
         '
@@ -1067,6 +1034,40 @@ Partial Class PointOfSale
         Me.ProductCodeTextBox.Name = "ProductCodeTextBox"
         Me.ProductCodeTextBox.Size = New System.Drawing.Size(118, 21)
         Me.ProductCodeTextBox.TabIndex = 1
+        '
+        'MaximumPriceTextBox
+        '
+        Me.MaximumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MaximumPrice", True))
+        Me.MaximumPriceTextBox.Enabled = False
+        Me.MaximumPriceTextBox.Location = New System.Drawing.Point(1144, 429)
+        Me.MaximumPriceTextBox.Name = "MaximumPriceTextBox"
+        Me.MaximumPriceTextBox.Size = New System.Drawing.Size(126, 21)
+        Me.MaximumPriceTextBox.TabIndex = 37
+        Me.MaximumPriceTextBox.Text = "0.00"
+        Me.MaximumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.MaximumPriceTextBox.Visible = False
+        '
+        'MinimumPriceTextBox
+        '
+        Me.MinimumPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "MinimumPrice", True))
+        Me.MinimumPriceTextBox.Enabled = False
+        Me.MinimumPriceTextBox.Location = New System.Drawing.Point(1016, 429)
+        Me.MinimumPriceTextBox.Name = "MinimumPriceTextBox"
+        Me.MinimumPriceTextBox.Size = New System.Drawing.Size(124, 21)
+        Me.MinimumPriceTextBox.TabIndex = 36
+        Me.MinimumPriceTextBox.Text = "0.00"
+        Me.MinimumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.MinimumPriceTextBox.Visible = False
+        '
+        'DiscountedPercTextBox
+        '
+        Me.DiscountedPercTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "DiscountedPerc", True))
+        Me.DiscountedPercTextBox.Enabled = False
+        Me.DiscountedPercTextBox.Location = New System.Drawing.Point(1016, 378)
+        Me.DiscountedPercTextBox.Name = "DiscountedPercTextBox"
+        Me.DiscountedPercTextBox.Size = New System.Drawing.Size(121, 21)
+        Me.DiscountedPercTextBox.TabIndex = 34
+        Me.DiscountedPercTextBox.Visible = False
         '
         'Panel2
         '
@@ -1266,6 +1267,7 @@ Partial Class PointOfSale
         Me.DataGridViewTextBoxColumn2.HeaderText = "PCode"
         Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         Me.DataGridViewTextBoxColumn2.ReadOnly = True
+        Me.DataGridViewTextBoxColumn2.Visible = False
         '
         'DataGridViewTextBoxColumn3
         '
@@ -1304,7 +1306,6 @@ Partial Class PointOfSale
         Me.DataGridViewTextBoxColumn6.HeaderText = "BrandName"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Visible = False
         '
         'DataGridViewTextBoxColumn7
         '
@@ -1507,6 +1508,13 @@ Partial Class PointOfSale
     Friend WithEvents TransactionDetailsBindingSource1 As BindingSource
     Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents TransactionDetailsBindingSource3 As BindingSource
+    Friend WithEvents MaximumPriceTextBox As TextBox
+    Friend WithEvents MinimumPriceTextBox As TextBox
+    Friend WithEvents IconButtonSearch As FontAwesome.Sharp.IconButton
+    Friend WithEvents DataGridViewImageColumn2 As DataGridViewImageColumn
+    Friend WithEvents ComboBoxInvoice As ComboBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents TextBoxRemainingQuantity As TextBox
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TransactionHeaderIdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCodeDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -1524,13 +1532,6 @@ Partial Class PointOfSale
     Friend WithEvents CreatedAtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CreatedByDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ColumnRemove As DataGridViewImageColumn
-    Friend WithEvents MaximumPriceTextBox As TextBox
-    Friend WithEvents MinimumPriceTextBox As TextBox
-    Friend WithEvents IconButtonSearch As FontAwesome.Sharp.IconButton
-    Friend WithEvents DataGridViewImageColumn2 As DataGridViewImageColumn
-    Friend WithEvents ComboBoxInvoice As ComboBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents TextBoxRemainingQuantity As TextBox
     Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn

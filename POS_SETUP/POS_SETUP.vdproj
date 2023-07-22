@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C35BB5B7AF01886237B0F13DCF85DF7A"
+        "OwnerKey" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C9DA77031D1C3120F4B51261C279BBAE"
         "OwnerKey" = "8:_C0DFAD3CAE84A0A4441B983635A0573D"
         "MsmSig" = "8:_UNDEFINED"
@@ -93,8 +99,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
-        "OwnerKey" = "8:_0CFCAE1934A54579B06412F276BC7E9F"
+        "MsmKey" = "8:_F14C037D6FD748409C72821FED6FBD70"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,7 +118,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
+        "OwnerKey" = "8:_C35BB5B7AF01886237B0F13DCF85DF7A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -202,6 +208,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6.1"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                }
             }
         }
     }
@@ -405,6 +419,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C35BB5B7AF01886237B0F13DCF85DF7A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:FontAwesome.Sharp, Version=4.7.1.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C35BB5B7AF01886237B0F13DCF85DF7A"
+                    {
+                    "Name" = "8:FontAwesome.Sharp.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:FontAwesome.Sharp.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C9DA77031D1C3120F4B51261C279BBAE"
             {
             "AssemblyRegister" = "3:1"
@@ -498,21 +543,10 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F23DF09D4F4EE26AE6B03F9C8866EF7A"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F14C037D6FD748409C72821FED6FBD70"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:FontAwesome.Sharp, Version=4.7.1.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_F23DF09D4F4EE26AE6B03F9C8866EF7A"
-                    {
-                    "Name" = "8:FontAwesome.Sharp.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:FontAwesome.Sharp.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\POS\\Reports\\cryProductLists.rpt"
+            "TargetName" = "8:cryProductLists.rpt"
             "Tag" = "8:"
             "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
             "Condition" = "8:"
@@ -526,7 +560,7 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
         }
@@ -597,15 +631,15 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:POS_SETUP"
         "ProductCode" = "8:{73B0FEAA-A378-4C88-A94C-0764C5E9349C}"
-        "PackageCode" = "8:{5FD04DEE-0180-4B5E-B5F8-C6654696D445}"
+        "PackageCode" = "8:{775AADFE-4EE9-4AC7-9AF2-76F3B18C6247}"
         "UpgradeCode" = "8:{09407D1A-A49D-4D02-A323-D4175C306685}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
-        "RemovePreviousVersions" = "11:FALSE"
+        "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
-        "InstallAllUsers" = "11:FALSE"
+        "InstallAllUsers" = "11:TRUE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:VJA Productions"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:POS_SETUP"
