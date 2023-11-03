@@ -29,8 +29,12 @@ Public Class PayNow
             Else
                 MsgBox("Payment Successfully Paid", MsgBoxStyle.Information)
                 IconButton1.Visible = False
-                'Receipt(InvoiceNoTextBox.Text.ToString().Trim())
-                Me.Hide()
+                Dim result_msg As DialogResult = MessageBox.Show("YOU WANT TO PRINT RECEIPT?", "", MessageBoxButtons.YesNo)
+                If result_msg = DialogResult.No Then
+                    Me.Hide()
+                Else
+                    Receipt(InvoiceNoTextBox.Text.ToString().Trim())
+                End If
             End If
             conn.Close()
         Catch ex As Exception

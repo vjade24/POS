@@ -42,7 +42,7 @@ Public Class Products
         ProductCodeTextBox.Text = ""
         ProductCodeTextBox.Select()
         ProductNameTextBox.Text = ""
-        ProductImagePictureBox.Image = My.Resources.box
+        'ProductImagePictureBox.Image = My.Resources.box
         BarcodeTextBox.Text = ""
         CategoryNameComboBox.Text = ""
         BrandNameComboBox.Text = ""
@@ -88,7 +88,7 @@ Public Class Products
         IdTextBox.Text = ""
         ProductCodeTextBox.Text = ""
         ProductNameTextBox.Text = ""
-        ProductImagePictureBox.Image = My.Resources.VJA
+        'ProductImagePictureBox.Image = My.Resources.VJA
         BarcodeTextBox.Text = ""
         CategoryNameComboBox.Text = ""
         BrandNameComboBox.Text = ""
@@ -135,14 +135,14 @@ Public Class Products
             ExpiryDateDateTimePicker.Value = DateTime.Parse(CategoryDataGridView.CurrentRow.Cells(18).Value.ToString())
         End If
 
-        Try
-            Dim lb() As Byte = CategoryDataGridView.CurrentRow.Cells(3).Value
-            Dim lstr As New System.IO.MemoryStream(lb)
-            ProductImagePictureBox.Image = Image.FromStream(lstr)
-            ProductImagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage
-        Catch ex As Exception
-            ProductImagePictureBox.Image = My.Resources.box
-        End Try
+        'Try
+        '    Dim lb() As Byte = CategoryDataGridView.CurrentRow.Cells(3).Value
+        '    Dim lstr As New System.IO.MemoryStream(lb)
+        '    ProductImagePictureBox.Image = Image.FromStream(lstr)
+        '    ProductImagePictureBox.SizeMode = PictureBoxSizeMode.StretchImage
+        'Catch ex As Exception
+        '    ProductImagePictureBox.Image = My.Resources.box
+        'End Try
 
         ProductCodeTextBox.Enabled = False
         'BarcodeTextBox.Enabled = False
@@ -164,7 +164,7 @@ Public Class Products
         IdTextBox.Text = ""
         ProductCodeTextBox.Text = ""
         ProductNameTextBox.Text = ""
-        ProductImagePictureBox.Image = My.Resources.box
+        'ProductImagePictureBox.Image = My.Resources.box
         BarcodeTextBox.Text = ""
         CategoryNameComboBox.Text = ""
         BrandNameComboBox.Text = ""
@@ -317,8 +317,8 @@ Public Class Products
             Return
         End If
 
-        Dim ms As New MemoryStream
-        ProductImagePictureBox.Image.Save(ms, ProductImagePictureBox.Image.RawFormat)
+        'Dim ms As New MemoryStream
+        'ProductImagePictureBox.Image.Save(ms, ProductImagePictureBox.Image.RawFormat)
         If LblAddEditMode.Text = "(Create new Record)" Then
 
             Dim query = "SELECT * FROM Product Where ProductCode = '" + ProductCodeTextBox.Text.ToString().Trim() + "' OR Barcode = '" + BarcodeTextBox.Text.ToString().Trim() + "'"
@@ -340,11 +340,11 @@ Public Class Products
             End Try
 
 
-            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@ProductImage,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice,@ExpiryDate)", conn)
+            Dim command1 As New SqlCommand("insert into Product values (@ProductCode,@ProductName,@Barcode,@CategoryName,@BrandName,@SupplierName,@OriginalPrice,@DiscountedPerc,@DiscountedDateFrom,@DiscountedDateTo,@DiscountedPrice,@FinalPrice,@Quantity,@IsInstock,@CreatedAt,@CreatedBy,@MinimumPrice,@MaximumPrice,@ExpiryDate)", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@ProductImage", SqlDbType.Image).Value = ms.ToArray
+            'command1.Parameters.Add("@ProductImage", SqlDbType.Image).Value = ms.ToArray
             command1.Parameters.Add("@Barcode", SqlDbType.VarChar).Value = BarcodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@CategoryName", SqlDbType.VarChar).Value = CategoryNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = BrandNameComboBox.Text.ToString().Trim()
@@ -379,11 +379,11 @@ Public Class Products
                 conn.Close()
             End Try
         ElseIf LblAddEditMode.Text = "(Update existing Record)" Then
-            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,ProductImage=@ProductImage,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock,MinimumPrice=@MinimumPrice,MaximumPrice=@MaximumPrice,ExpiryDate=@ExpiryDate where Id = @Id", conn)
+            Dim command1 As New SqlCommand("update Product set ProductCode=@ProductCode,ProductName=@ProductName,Barcode=@Barcode,CategoryName=@CategoryName,BrandName=@BrandName,SupplierName=@SupplierName,OriginalPrice=@OriginalPrice,DiscountedPerc =@DiscountedPerc,DiscountedDateFrom=@DiscountedDateFrom,DiscountedDateTo=@DiscountedDateTo,DiscountedPrice=@DiscountedPrice,FinalPrice=@FinalPrice,Quantity=@Quantity,IsInstock=@IsInstock,MinimumPrice=@MinimumPrice,MaximumPrice=@MaximumPrice,ExpiryDate=@ExpiryDate where Id = @Id", conn)
             command1.Parameters.Add("@Id", SqlDbType.VarChar).Value = IdTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductCode", SqlDbType.VarChar).Value = ProductCodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@ProductName", SqlDbType.VarChar).Value = ProductNameTextBox.Text.ToString().Trim()
-            command1.Parameters.Add("@ProductImage", SqlDbType.Image).Value = ms.ToArray
+            'command1.Parameters.Add("@ProductImage", SqlDbType.Image).Value = ms.ToArray
             command1.Parameters.Add("@Barcode", SqlDbType.VarChar).Value = BarcodeTextBox.Text.ToString().Trim()
             command1.Parameters.Add("@CategoryName", SqlDbType.VarChar).Value = CategoryNameComboBox.Text.ToString().Trim()
             command1.Parameters.Add("@BrandName", SqlDbType.VarChar).Value = BrandNameComboBox.Text.ToString().Trim()
@@ -421,14 +421,14 @@ Public Class Products
 
     End Sub
 
-    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
-        OpenFileDialog1.FileName = ""
-        OpenFileDialog1.Filter = "JPG Files(*.Jpg)|*.jpg"
-        If OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
-            ProductImagePictureBox.Image = Image.FromFile(OpenFileDialog1.FileName)
-        End If
+    'Private Sub IconButton1_Click(sender As Object, e As EventArgs)
+    '    OpenFileDialog1.FileName = ""
+    '    OpenFileDialog1.Filter = "JPG Files(*.Jpg)|*.jpg"
+    '    If OpenFileDialog1.ShowDialog = Windows.Forms.DialogResult.OK Then
+    '        ProductImagePictureBox.Image = Image.FromFile(OpenFileDialog1.FileName)
+    '    End If
 
-    End Sub
+    'End Sub
 
     Private Sub QuantityTextBox_KeyPress(sender As Object, e As KeyPressEventArgs) Handles QuantityTextBox.KeyPress
         If Asc(e.KeyChar) <> 13 AndAlso Asc(e.KeyChar) <> 8 AndAlso Not IsNumeric(e.KeyChar) Then

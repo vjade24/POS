@@ -35,10 +35,10 @@ Partial Class Products
         Dim QuantityLabel As System.Windows.Forms.Label
         Dim MinimumPriceLabel As System.Windows.Forms.Label
         Dim MaximumPriceLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.BrandTableAdapter = New POS.pos_dbDataSetTableAdapters.BrandTableAdapter()
         Me.CategoryTableAdapter = New POS.pos_dbDataSetTableAdapters.CategoryTableAdapter()
         Me.LblAddEditMode = New System.Windows.Forms.Label()
@@ -51,8 +51,6 @@ Partial Class Products
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.MaximumPriceTextBox = New System.Windows.Forms.TextBox()
         Me.MinimumPriceTextBox = New System.Windows.Forms.TextBox()
-        Me.IconButton1 = New FontAwesome.Sharp.IconButton()
-        Me.ProductImagePictureBox = New System.Windows.Forms.PictureBox()
         Me.ProductCodeTextBox = New System.Windows.Forms.TextBox()
         Me.ProductNameTextBox = New System.Windows.Forms.TextBox()
         Me.BarcodeTextBox = New System.Windows.Forms.TextBox()
@@ -94,13 +92,13 @@ Partial Class Products
         Me.ExpiryDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
         Me.IconButton2 = New FontAwesome.Sharp.IconButton()
         Me.BtnAdd = New FontAwesome.Sharp.IconButton()
         Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
         Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
-        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
         IdLabel = New System.Windows.Forms.Label()
         ProductCodeLabel = New System.Windows.Forms.Label()
         ProductNameLabel = New System.Windows.Forms.Label()
@@ -116,7 +114,6 @@ Partial Class Products
         Me.GroupBox1.SuspendLayout()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ProductImagePictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CategoryBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BrandBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -269,8 +266,6 @@ Partial Class Products
         Me.GroupBox1.Controls.Add(Me.MaximumPriceTextBox)
         Me.GroupBox1.Controls.Add(MinimumPriceLabel)
         Me.GroupBox1.Controls.Add(Me.MinimumPriceTextBox)
-        Me.GroupBox1.Controls.Add(Me.IconButton1)
-        Me.GroupBox1.Controls.Add(Me.ProductImagePictureBox)
         Me.GroupBox1.Controls.Add(ProductCodeLabel)
         Me.GroupBox1.Controls.Add(Me.ProductCodeTextBox)
         Me.GroupBox1.Controls.Add(ProductNameLabel)
@@ -373,35 +368,6 @@ Partial Class Products
         Me.MinimumPriceTextBox.Text = "0.00"
         Me.MinimumPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.MinimumPriceTextBox.Visible = False
-        '
-        'IconButton1
-        '
-        Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.Cube
-        Me.IconButton1.IconColor = System.Drawing.Color.Black
-        Me.IconButton1.IconSize = 16
-        Me.IconButton1.Location = New System.Drawing.Point(703, 222)
-        Me.IconButton1.Name = "IconButton1"
-        Me.IconButton1.Rotation = 0R
-        Me.IconButton1.Size = New System.Drawing.Size(150, 36)
-        Me.IconButton1.TabIndex = 55
-        Me.IconButton1.Text = "Browse"
-        Me.IconButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButton1.UseVisualStyleBackColor = True
-        '
-        'ProductImagePictureBox
-        '
-        Me.ProductImagePictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ProductImagePictureBox.DataBindings.Add(New System.Windows.Forms.Binding("Image", Me.ProductBindingSource, "ProductImage", True))
-        Me.ProductImagePictureBox.Image = Global.POS.My.Resources.Resources.box
-        Me.ProductImagePictureBox.Location = New System.Drawing.Point(703, 63)
-        Me.ProductImagePictureBox.Name = "ProductImagePictureBox"
-        Me.ProductImagePictureBox.Padding = New System.Windows.Forms.Padding(10)
-        Me.ProductImagePictureBox.Size = New System.Drawing.Size(150, 150)
-        Me.ProductImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.ProductImagePictureBox.TabIndex = 54
-        Me.ProductImagePictureBox.TabStop = False
         '
         'ProductCodeTextBox
         '
@@ -608,25 +574,25 @@ Partial Class Products
         Me.CategoryDataGridView.BackgroundColor = System.Drawing.SystemColors.Control
         Me.CategoryDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CategoryDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
         Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.ProductCode, Me.ProductName, Me.ProductImage, Me.Barcode, Me.CategoryName, Me.BrandName, Me.SupplierName, Me.OriginalPrice, Me.DiscountedPerc, Me.DiscountedDateFrom, Me.DiscountedDateTo, Me.DiscountedPrice, Me.FinalPrice, Me.Quantity, Me.IsInstock, Me.MinimumPrice, Me.MaximumPrice, Me.ExpiryDate})
         Me.CategoryDataGridView.DataSource = Me.ProductBindingSource
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle4
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
         Me.CategoryDataGridView.Location = New System.Drawing.Point(21, 66)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -743,10 +709,10 @@ Partial Class Products
         'FinalPrice
         '
         Me.FinalPrice.DataPropertyName = "FinalPrice"
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.FinalPrice.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.FinalPrice.DefaultCellStyle = DataGridViewCellStyle2
         Me.FinalPrice.HeaderText = "SellingPrice"
         Me.FinalPrice.Name = "FinalPrice"
         Me.FinalPrice.ReadOnly = True
@@ -754,8 +720,8 @@ Partial Class Products
         'Quantity
         '
         Me.Quantity.DataPropertyName = "Quantity"
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Quantity.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Quantity.DefaultCellStyle = DataGridViewCellStyle3
         Me.Quantity.HeaderText = "Quantity"
         Me.Quantity.Name = "Quantity"
         Me.Quantity.ReadOnly = True
@@ -814,6 +780,29 @@ Partial Class Products
         Me.GroupBox2.TabIndex = 29
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Product List"
+        '
+        'IconButtonPrint
+        '
+        Me.IconButtonPrint.BackColor = System.Drawing.Color.ForestGreen
+        Me.IconButtonPrint.FlatAppearance.BorderSize = 0
+        Me.IconButtonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButtonPrint.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.IconButtonPrint.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButtonPrint.ForeColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconChar = FontAwesome.Sharp.IconChar.File
+        Me.IconButtonPrint.IconColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconSize = 30
+        Me.IconButtonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButtonPrint.Location = New System.Drawing.Point(249, 22)
+        Me.IconButtonPrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IconButtonPrint.Name = "IconButtonPrint"
+        Me.IconButtonPrint.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.IconButtonPrint.Rotation = 0R
+        Me.IconButtonPrint.Size = New System.Drawing.Size(159, 36)
+        Me.IconButtonPrint.TabIndex = 23
+        Me.IconButtonPrint.Text = "Print Product List"
+        Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButtonPrint.UseVisualStyleBackColor = False
         '
         'IconButton2
         '
@@ -889,29 +878,6 @@ Partial Class Products
         '
         Me.SupplierTableAdapter.ClearBeforeFill = True
         '
-        'IconButtonPrint
-        '
-        Me.IconButtonPrint.BackColor = System.Drawing.Color.ForestGreen
-        Me.IconButtonPrint.FlatAppearance.BorderSize = 0
-        Me.IconButtonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButtonPrint.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.IconButtonPrint.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButtonPrint.ForeColor = System.Drawing.Color.White
-        Me.IconButtonPrint.IconChar = FontAwesome.Sharp.IconChar.File
-        Me.IconButtonPrint.IconColor = System.Drawing.Color.White
-        Me.IconButtonPrint.IconSize = 30
-        Me.IconButtonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButtonPrint.Location = New System.Drawing.Point(249, 22)
-        Me.IconButtonPrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.IconButtonPrint.Name = "IconButtonPrint"
-        Me.IconButtonPrint.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
-        Me.IconButtonPrint.Rotation = 0R
-        Me.IconButtonPrint.Size = New System.Drawing.Size(159, 36)
-        Me.IconButtonPrint.TabIndex = 23
-        Me.IconButtonPrint.Text = "Print Product List"
-        Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButtonPrint.UseVisualStyleBackColor = False
-        '
         'Products
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -929,7 +895,6 @@ Partial Class Products
         Me.GroupBox1.PerformLayout()
         CType(Me.ProductBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ProductImagePictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CategoryBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BrandBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SupplierBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -971,8 +936,6 @@ Partial Class Products
     Friend WithEvents FinalPriceTextBox As TextBox
     Friend WithEvents QuantityTextBox As TextBox
     Friend WithEvents TableAdapterManager As pos_dbDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents ProductImagePictureBox As PictureBox
-    Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
     Friend WithEvents OpenFileDialog1 As OpenFileDialog
     Friend WithEvents CategoryBindingSource2 As BindingSource
     Friend WithEvents BrandBindingSource1 As BindingSource
