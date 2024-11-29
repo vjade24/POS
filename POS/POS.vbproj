@@ -250,6 +250,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="POS Installer\POS_SETUP.msi" />
     <None Include="Resources\VJA.png" />
     <None Include="Resources\POS.png" />
     <None Include="Resources\Remove.png" />
@@ -377,5 +378,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

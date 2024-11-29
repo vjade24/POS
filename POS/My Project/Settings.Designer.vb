@@ -57,7 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-H714LJ5\VJA;Initial Catalog=pos_db;Integrated Security=True")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TP2SA1N\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security"& _ 
+            "=True")>  _
         Public ReadOnly Property pos_dbConnectionString() As String
             Get
                 Return CType(Me("pos_dbConnectionString"),String)
@@ -91,6 +92,16 @@ Namespace My
         Public ReadOnly Property Vincent_Jade_Office() As String
             Get
                 Return CType(Me("Vincent_Jade_Office"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TP2SA1N\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security"& _ 
+            "=True")>  _
+        Public ReadOnly Property JAZZ() As String
+            Get
+                Return CType(Me("JAZZ"),String)
             End Get
         End Property
     End Class
