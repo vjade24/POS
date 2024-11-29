@@ -58,6 +58,7 @@ Public Class Login
     End Sub
 
     Private Sub BtnLogin_Click_1(sender As Object, e As EventArgs) Handles BtnLogin.Click
+        Me.KeyPreview = True
         Dim query As String = "SELECT TOP 1 * FROM Personnel where UserName = '" + UserNameTextBox.Text.ToString().Trim() + "' and Password = '" + PasswordTextBox.Text.ToString.Trim() + "'"
         Dim conn As SqlConnection = New SqlConnection(connection)
         Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -109,7 +110,7 @@ Public Class Login
                             formMain.BtnProducts.Visible = False
                             formMain.BtnCategory.Visible = False
                             formMain.BtnBrand.Visible = False
-                            formMain.BtnReports.Visible = True
+                            formMain.BtnReports.Visible = False
                             formMain.BtnAnalytics.Visible = False
                             formMain.BtnPersonnel.Visible = False
                             formMain.BtnSupplier.Visible = False

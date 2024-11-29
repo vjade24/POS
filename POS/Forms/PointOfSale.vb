@@ -18,7 +18,7 @@ Public Class PointOfSale
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Product WHERE Quantity >= 1"
+        Dim query = "SELECT TOP 200 * FROM Product WHERE Quantity >= 1"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -50,7 +50,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE Quantity >= 1 AND (ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'  OR  BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
+        Dim query = "SELECT TOP 200 * FROM Product WHERE Quantity >= 1 AND (ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR  BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'  OR  BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
         CommonQuery(query, DataGridView1)
     End Sub
 
@@ -300,33 +300,44 @@ Public Class PointOfSale
     End Sub
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
-        Dim command1 As New SqlCommand("Update TransactionHeader SET PersonnelId= @PersonnelId,CustomerName= @CustomerName,GrandTotal= @GrandTotal,PaymentAmount= @PaymentAmount,PaymentStatus= @PaymentStatus where InvoiceNo = @InvoiceNo", conn)
-        command1.Parameters.Add("@PersonnelId", SqlDbType.VarChar).Value = PersonnelIdTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = InvoiceNoTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@CustomerName", SqlDbType.VarChar).Value = CustomerNameTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@GrandTotal", SqlDbType.VarChar).Value = GrandTotalTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@PaymentAmount", SqlDbType.VarChar).Value = PaymentAmountTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@PaymentChange", SqlDbType.VarChar).Value = PaymentChangeTextBox.Text.ToString().Trim()
-        command1.Parameters.Add("@PaymentStatus", SqlDbType.VarChar).Value = "Hold"
-        Try
-            conn.Open()
-            result = command1.ExecuteNonQuery()
-            If result = 0 Then
-                MsgBox("No Data Updated!", MsgBoxStyle.Critical)
-            Else
-                MsgBox("Payment Hold", MsgBoxStyle.Information)
+        Dim customerName As String
 
-                GroupBox1.Visible = False
-                GroupBox2.Visible = False
-                GroupBox3.Visible = False
-                GroupBox4.Visible = False
+        ' Show an InputBox to prompt the user for their name
+        customerName = InputBox("Please enter the customer's name:", "Customer Name Input")
 
-            End If
-            conn.Close()
-        Catch ex As Exception
-            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
-            conn.Close()
-        End Try
+        ' Check if the user entered something or canceled
+        If customerName = "" Then
+            MsgBox("No customer name was entered. Operation canceled.", MsgBoxStyle.Critical)
+        Else
+            MsgBox("Customer name entered: " & customerName, MsgBoxStyle.Information)
+            Dim command1 As New SqlCommand("Update TransactionHeader SET PersonnelId= @PersonnelId,CustomerName= @CustomerName,GrandTotal= @GrandTotal,PaymentAmount= @PaymentAmount,PaymentStatus= @PaymentStatus where InvoiceNo = @InvoiceNo", conn)
+            command1.Parameters.Add("@PersonnelId", SqlDbType.VarChar).Value = PersonnelIdTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@InvoiceNo", SqlDbType.VarChar).Value = InvoiceNoTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@CustomerName", SqlDbType.VarChar).Value = customerName 'CustomerNameTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@GrandTotal", SqlDbType.VarChar).Value = GrandTotalTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@PaymentAmount", SqlDbType.VarChar).Value = PaymentAmountTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@PaymentChange", SqlDbType.VarChar).Value = PaymentChangeTextBox.Text.ToString().Trim()
+            command1.Parameters.Add("@PaymentStatus", SqlDbType.VarChar).Value = "Hold"
+            Try
+                conn.Open()
+                result = command1.ExecuteNonQuery()
+                If result = 0 Then
+                    MsgBox("No Data Updated!", MsgBoxStyle.Critical)
+                Else
+                    MsgBox("Payment Hold", MsgBoxStyle.Information)
+
+                    GroupBox1.Visible = False
+                    GroupBox2.Visible = False
+                    GroupBox3.Visible = False
+                    GroupBox4.Visible = False
+
+                End If
+                conn.Close()
+            Catch ex As Exception
+                MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+                conn.Close()
+            End Try
+        End If
     End Sub
 
 
@@ -391,7 +402,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub IconButtonSearch_Click(sender As Object, e As EventArgs) Handles IconButtonSearch.Click
-        Dim query = "SELECT DISTINCT A.Id,A.InvoiceNo,A.InvoiceNo + ' (' + A.PaymentStatus + ')' AS InvoiceNoStatus FROM TransactionHeader A INNER JOIN TransactionDetails B ON B.TransactionHeaderId = A.Id AND A.PaymentStatus <> 'Paid' ORDER BY InvoiceNo DESC"
+        Dim query = "SELECT DISTINCT A.Id,A.InvoiceNo,A.CustomerName + ' (' + A.PaymentStatus + ')' AS InvoiceNoStatus FROM TransactionHeader A INNER JOIN TransactionDetails B ON B.TransactionHeaderId = A.Id AND A.PaymentStatus <> 'Paid' ORDER BY InvoiceNo DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -451,6 +462,7 @@ Public Class PointOfSale
                     GroupBox1.Visible = True
                     GroupBox2.Visible = True
                     GroupBox3.Visible = True
+                    Panel1.Visible = True
                 End If
 
             Catch ex As Exception
@@ -460,4 +472,5 @@ Public Class PointOfSale
 
         End If
     End Sub
+
 End Class

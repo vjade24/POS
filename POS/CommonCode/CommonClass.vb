@@ -38,11 +38,15 @@ Module CommonClass
         da.SelectCommand = cmd
         Dim dt As New DataTable
         da.Fill(dt)
-        If dt.Rows.Count > 0 Then
-            last_row = Int32.Parse(dt.Rows(0)("" + column + "").ToString()) + 1
-        Else
+        Try
+            If dt.Rows.Count > 0 Then
+                last_row = Int32.Parse(dt.Rows(0)("" + column + "").ToString()) + 1
+            Else
+                last_row = 1
+            End If
+        Catch ex As Exception
             last_row = 1
-        End If
+        End Try
         Return last_row
     End Function
 End Module

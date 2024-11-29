@@ -65,9 +65,9 @@ Public Class Dashboard
     Private Sub Dashboard_Recent_Activities()
         Dim query As String
         If user_type = "Admin" Then
-            query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
+            query = "SELECT TOP 20 InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
         Else
-            query = "SELECT InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
+            query = "SELECT TOP 20 InvoiceNo,CustomerName,PaymentStatus,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY InvoiceNo,CustomerName,PaymentStatus ORDER BY InvoiceNo DESC"
         End If
 
         Try
@@ -86,9 +86,9 @@ Public Class Dashboard
     Private Sub Dashboard_Top_Selling()
         Dim query As String
         If user_type = "Admin" Then
-            query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+            query = "SELECT TOP 20 ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
         Else
-            query = "SELECT ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
+            query = "SELECT TOP 20 ProductCode,ProductName,SUM(Quantity) AS Quantity FROM vw_Transactions WHERE CreatedBy = '" + user_login + "' GROUP BY ProductCode,ProductName ORDER BY SUM(Quantity) DESC"
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
