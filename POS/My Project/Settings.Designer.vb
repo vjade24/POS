@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.9.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.12.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -56,17 +56,6 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TP2SA1N\SQLEXPRESS;Initial Catalog=pos_db;Integrated Security"& _ 
-            "=True")>  _
-        Public ReadOnly Property pos_dbConnectionString() As String
-            Get
-                Return CType(Me("pos_dbConnectionString"),String)
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-LS5LC0S\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
             "fo=True;User ID=sa;Password=systemadmin")>  _
         Public ReadOnly Property Farmacia_Galicia() As String
@@ -102,6 +91,17 @@ Namespace My
         Public ReadOnly Property JAZZ() As String
             Get
                 Return CType(Me("JAZZ"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TPS2A1N\MSSQLSERVER_JAZZ;Initial Catalog=pos_db;Persist Secur"& _ 
+            "ity Info=True;User ID=sa;Password=J@de1234")>  _
+        Public ReadOnly Property pos_dbConnectionString() As String
+            Get
+                Return CType(Me("pos_dbConnectionString"),String)
             End Get
         End Property
     End Class
