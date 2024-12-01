@@ -10,7 +10,7 @@ Public Class Personnel
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Personnel ORDER BY Id DESC"
+        Dim query = "SELECT * FROM Personnel WHERE UserName <> 'superadmin' ORDER BY Id DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -26,7 +26,7 @@ Public Class Personnel
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Personnel WHERE BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT * FROM Personnel WHERE UserName <> 'superadmin' AND (FirstName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%')"
         CommonQuery(query, CategoryDataGridView)
     End Sub
 

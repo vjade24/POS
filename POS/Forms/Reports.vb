@@ -12,6 +12,7 @@ Public Class Reports
         LoadReport("")
         TotalNew("")
         TotalPaid("")
+        TotalPaidCapl("")
         TotalHold("")
 
         LoadPersonnel()
@@ -43,6 +44,7 @@ Public Class Reports
         LoadReport("")
         TotalNew("")
         TotalPaid("")
+        TotalPaidCapl("")
         TotalHold("")
     End Sub
 
@@ -50,6 +52,7 @@ Public Class Reports
         LoadReport("")
         TotalNew("")
         TotalPaid("")
+        TotalPaidCapl("")
         TotalHold("")
     End Sub
 
@@ -157,6 +160,7 @@ Public Class Reports
         LoadReport(ComboBox1.SelectedValue.ToString())
         TotalNew(ComboBox1.SelectedValue.ToString())
         TotalPaid(ComboBox1.SelectedValue.ToString())
+        TotalPaidCapl(ComboBox1.SelectedValue.ToString())
         TotalHold(ComboBox1.SelectedValue.ToString())
     End Sub
 
@@ -165,6 +169,7 @@ Public Class Reports
         LoadReport("")
         TotalNew("")
         TotalPaid("")
+        TotalPaidCapl("")
         TotalHold("")
     End Sub
 
@@ -178,5 +183,30 @@ Public Class Reports
                 e.CellStyle.ForeColor = Color.Red
             End If
         End If
+    End Sub
+
+    Private Sub TotalPaidCapl(CreatedBy)
+        Dim query As String
+        If CreatedBy.ToString.Trim IsNot "" Then
+            query = "SELECT (ISNULL(SUM(OriginalPrice),0) * ISNULL(SUM(Quantity),0))  AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+        Else
+            query = "SELECT (ISNULL(SUM(OriginalPrice),0) * ISNULL(SUM(Quantity),0)) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
+        End If
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                Label_Paid_Capl.Text = "P " + Double.Parse(dt.Rows(0)("TotalAmount").ToString()).ToString("###,##0.00")
+            Else
+                Label_Paid_Capl.Text = "P 0.00"
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
     End Sub
 End Class

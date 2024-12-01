@@ -15,7 +15,7 @@ Public Class Products
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Public Sub RefreshData()
-        Dim query = "SELECT * FROM Product ORDER BY Id DESC"
+        Dim query = "SELECT TOP 200 * FROM Product ORDER BY Id DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
@@ -31,7 +31,7 @@ Public Class Products
     End Sub
 
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
-        Dim query = "SELECT * FROM Product WHERE ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR CategoryName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR SupplierName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR Quantity LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR FinalPrice LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
+        Dim query = "SELECT TOP 200 * FROM Product WHERE ProductCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BarCode LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR CategoryName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR BrandName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR SupplierName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR Quantity LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' OR FinalPrice LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%'"
         CommonQuery(query, CategoryDataGridView)
     End Sub
 

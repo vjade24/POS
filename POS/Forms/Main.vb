@@ -169,4 +169,8 @@ Public Class Main
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         TextBoxDateTimeNow.Text = DateTime.Now.ToLongDateString + " " + DateTime.Now.ToLongTimeString
     End Sub
+
+    Private Sub PanelMain_Paint(sender As Object, e As PaintEventArgs) Handles PanelMain.Paint
+
+    End Sub
 End Class

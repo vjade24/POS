@@ -76,6 +76,9 @@ Partial Class Reports
         Me.TotalAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CreatedAtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CreatedByDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label_Paid_Capl = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
         Label12 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -264,7 +267,7 @@ Partial Class Reports
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle8
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
-        Me.CategoryDataGridView.Location = New System.Drawing.Point(50, 232)
+        Me.CategoryDataGridView.Location = New System.Drawing.Point(12, 232)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CategoryDataGridView.Name = "CategoryDataGridView"
         Me.CategoryDataGridView.ReadOnly = True
@@ -272,7 +275,7 @@ Partial Class Reports
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(871, 358)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(958, 358)
         Me.CategoryDataGridView.TabIndex = 22
         '
         'VwTransactionsBindingSource
@@ -350,14 +353,16 @@ Partial Class Reports
         Me.InvoiceNoDataGridViewTextBoxColumn.HeaderText = "InvoiceNo"
         Me.InvoiceNoDataGridViewTextBoxColumn.Name = "InvoiceNoDataGridViewTextBoxColumn"
         Me.InvoiceNoDataGridViewTextBoxColumn.ReadOnly = True
+        Me.InvoiceNoDataGridViewTextBoxColumn.Visible = False
         '
         'CustomerNameDataGridViewTextBoxColumn
         '
+        Me.CustomerNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.CustomerNameDataGridViewTextBoxColumn.DataPropertyName = "CustomerName"
         Me.CustomerNameDataGridViewTextBoxColumn.HeaderText = "CustomerName"
         Me.CustomerNameDataGridViewTextBoxColumn.Name = "CustomerNameDataGridViewTextBoxColumn"
         Me.CustomerNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.CustomerNameDataGridViewTextBoxColumn.Visible = False
+        Me.CustomerNameDataGridViewTextBoxColumn.Width = 116
         '
         'GrandTotalDataGridViewTextBoxColumn
         '
@@ -413,7 +418,7 @@ Partial Class Reports
         '
         'ProductNameDataGridViewTextBoxColumn
         '
-        Me.ProductNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.ProductNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.ProductNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName"
         Me.ProductNameDataGridViewTextBoxColumn.HeaderText = "ProductName"
         Me.ProductNameDataGridViewTextBoxColumn.Name = "ProductNameDataGridViewTextBoxColumn"
@@ -455,10 +460,9 @@ Partial Class Reports
         'OriginalPriceDataGridViewTextBoxColumn
         '
         Me.OriginalPriceDataGridViewTextBoxColumn.DataPropertyName = "OriginalPrice"
-        Me.OriginalPriceDataGridViewTextBoxColumn.HeaderText = "OriginalPrice"
+        Me.OriginalPriceDataGridViewTextBoxColumn.HeaderText = "Capl.Price"
         Me.OriginalPriceDataGridViewTextBoxColumn.Name = "OriginalPriceDataGridViewTextBoxColumn"
         Me.OriginalPriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OriginalPriceDataGridViewTextBoxColumn.Visible = False
         '
         'DiscountedPercDataGridViewTextBoxColumn
         '
@@ -479,10 +483,9 @@ Partial Class Reports
         'FinalPriceDataGridViewTextBoxColumn
         '
         Me.FinalPriceDataGridViewTextBoxColumn.DataPropertyName = "FinalPrice"
-        Me.FinalPriceDataGridViewTextBoxColumn.HeaderText = "FinalPrice"
+        Me.FinalPriceDataGridViewTextBoxColumn.HeaderText = "Sell.Price"
         Me.FinalPriceDataGridViewTextBoxColumn.Name = "FinalPriceDataGridViewTextBoxColumn"
         Me.FinalPriceDataGridViewTextBoxColumn.ReadOnly = True
-        Me.FinalPriceDataGridViewTextBoxColumn.Visible = False
         '
         'QuantityDataGridViewTextBoxColumn
         '
@@ -527,12 +530,51 @@ Partial Class Reports
         Me.CreatedByDataGridViewTextBoxColumn.ReadOnly = True
         Me.CreatedByDataGridViewTextBoxColumn.Visible = False
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(477, 87)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(63, 16)
+        Me.Label4.TabIndex = 49
+        Me.Label4.Text = "Sell.Price"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.BackColor = System.Drawing.Color.SteelBlue
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.White
+        Me.Label5.Location = New System.Drawing.Point(477, 128)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(75, 16)
+        Me.Label5.TabIndex = 51
+        Me.Label5.Text = "Capl.Price"
+        '
+        'Label_Paid_Capl
+        '
+        Me.Label_Paid_Capl.AutoSize = True
+        Me.Label_Paid_Capl.BackColor = System.Drawing.Color.DodgerBlue
+        Me.Label_Paid_Capl.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Paid_Capl.ForeColor = System.Drawing.Color.White
+        Me.Label_Paid_Capl.Location = New System.Drawing.Point(475, 103)
+        Me.Label_Paid_Capl.Name = "Label_Paid_Capl"
+        Me.Label_Paid_Capl.Size = New System.Drawing.Size(87, 25)
+        Me.Label_Paid_Capl.TabIndex = 50
+        Me.Label_Paid_Capl.Text = "-- --- --"
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(982, 617)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label_Paid_Capl)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Label3)
         Me.Controls.Add(Label2)
@@ -608,4 +650,7 @@ Partial Class Reports
     Friend WithEvents TotalAmountDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CreatedAtDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents CreatedByDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label_Paid_Capl As Label
 End Class

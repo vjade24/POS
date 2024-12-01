@@ -71,6 +71,15 @@ Partial Class Products
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
+        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
+        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
+        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
+        Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
+        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ProductName = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -90,15 +99,6 @@ Partial Class Products
         Me.MinimumPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.MaximumPrice = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ExpiryDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.BrandBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
-        Me.IconButton2 = New FontAwesome.Sharp.IconButton()
-        Me.BtnAdd = New FontAwesome.Sharp.IconButton()
-        Me.ProductTableAdapter = New POS.pos_dbDataSetTableAdapters.ProductTableAdapter()
-        Me.TableAdapterManager = New POS.pos_dbDataSetTableAdapters.TableAdapterManager()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.SupplierTableAdapter = New POS.pos_dbDataSetTableAdapters.SupplierTableAdapter()
         IdLabel = New System.Windows.Forms.Label()
         ProductCodeLabel = New System.Windows.Forms.Label()
         ProductNameLabel = New System.Windows.Forms.Label()
@@ -605,159 +605,6 @@ Partial Class Products
         Me.CategoryDataGridView.Size = New System.Drawing.Size(916, 240)
         Me.CategoryDataGridView.TabIndex = 3
         '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
-        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
-        Me.IdDataGridViewTextBoxColumn.Visible = False
-        '
-        'ProductCode
-        '
-        Me.ProductCode.DataPropertyName = "ProductCode"
-        Me.ProductCode.HeaderText = "ProductCode"
-        Me.ProductCode.Name = "ProductCode"
-        Me.ProductCode.ReadOnly = True
-        '
-        'ProductName
-        '
-        Me.ProductName.DataPropertyName = "ProductName"
-        Me.ProductName.HeaderText = "ProductName"
-        Me.ProductName.Name = "ProductName"
-        Me.ProductName.ReadOnly = True
-        '
-        'ProductImage
-        '
-        Me.ProductImage.DataPropertyName = "ProductImage"
-        Me.ProductImage.HeaderText = "ProductImage"
-        Me.ProductImage.Name = "ProductImage"
-        Me.ProductImage.ReadOnly = True
-        Me.ProductImage.Visible = False
-        '
-        'Barcode
-        '
-        Me.Barcode.DataPropertyName = "Barcode"
-        Me.Barcode.HeaderText = "Barcode"
-        Me.Barcode.Name = "Barcode"
-        Me.Barcode.ReadOnly = True
-        Me.Barcode.Visible = False
-        '
-        'CategoryName
-        '
-        Me.CategoryName.DataPropertyName = "CategoryName"
-        Me.CategoryName.HeaderText = "CategoryName"
-        Me.CategoryName.Name = "CategoryName"
-        Me.CategoryName.ReadOnly = True
-        '
-        'BrandName
-        '
-        Me.BrandName.DataPropertyName = "BrandName"
-        Me.BrandName.HeaderText = "BrandName"
-        Me.BrandName.Name = "BrandName"
-        Me.BrandName.ReadOnly = True
-        '
-        'SupplierName
-        '
-        Me.SupplierName.DataPropertyName = "SupplierName"
-        Me.SupplierName.HeaderText = "SupplierName"
-        Me.SupplierName.Name = "SupplierName"
-        Me.SupplierName.ReadOnly = True
-        '
-        'OriginalPrice
-        '
-        Me.OriginalPrice.DataPropertyName = "OriginalPrice"
-        Me.OriginalPrice.HeaderText = "OriginalPrice"
-        Me.OriginalPrice.Name = "OriginalPrice"
-        Me.OriginalPrice.ReadOnly = True
-        Me.OriginalPrice.Visible = False
-        '
-        'DiscountedPerc
-        '
-        Me.DiscountedPerc.DataPropertyName = "DiscountedPerc"
-        Me.DiscountedPerc.HeaderText = "DiscountedPerc"
-        Me.DiscountedPerc.Name = "DiscountedPerc"
-        Me.DiscountedPerc.ReadOnly = True
-        Me.DiscountedPerc.Visible = False
-        '
-        'DiscountedDateFrom
-        '
-        Me.DiscountedDateFrom.DataPropertyName = "DiscountedDateFrom"
-        Me.DiscountedDateFrom.HeaderText = "DiscountedDateFrom"
-        Me.DiscountedDateFrom.Name = "DiscountedDateFrom"
-        Me.DiscountedDateFrom.ReadOnly = True
-        Me.DiscountedDateFrom.Visible = False
-        '
-        'DiscountedDateTo
-        '
-        Me.DiscountedDateTo.DataPropertyName = "DiscountedDateTo"
-        Me.DiscountedDateTo.HeaderText = "DiscountedDateTo"
-        Me.DiscountedDateTo.Name = "DiscountedDateTo"
-        Me.DiscountedDateTo.ReadOnly = True
-        Me.DiscountedDateTo.Visible = False
-        '
-        'DiscountedPrice
-        '
-        Me.DiscountedPrice.DataPropertyName = "DiscountedPrice"
-        Me.DiscountedPrice.HeaderText = "DiscountedPrice"
-        Me.DiscountedPrice.Name = "DiscountedPrice"
-        Me.DiscountedPrice.ReadOnly = True
-        Me.DiscountedPrice.Visible = False
-        '
-        'FinalPrice
-        '
-        Me.FinalPrice.DataPropertyName = "FinalPrice"
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
-        DataGridViewCellStyle2.Format = "N2"
-        DataGridViewCellStyle2.NullValue = Nothing
-        Me.FinalPrice.DefaultCellStyle = DataGridViewCellStyle2
-        Me.FinalPrice.HeaderText = "SellingPrice"
-        Me.FinalPrice.Name = "FinalPrice"
-        Me.FinalPrice.ReadOnly = True
-        '
-        'Quantity
-        '
-        Me.Quantity.DataPropertyName = "Quantity"
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.Quantity.DefaultCellStyle = DataGridViewCellStyle3
-        Me.Quantity.HeaderText = "Quantity"
-        Me.Quantity.Name = "Quantity"
-        Me.Quantity.ReadOnly = True
-        '
-        'IsInstock
-        '
-        Me.IsInstock.DataPropertyName = "IsInstock"
-        Me.IsInstock.HeaderText = "IsInstock"
-        Me.IsInstock.Name = "IsInstock"
-        Me.IsInstock.ReadOnly = True
-        Me.IsInstock.Visible = False
-        '
-        'MinimumPrice
-        '
-        Me.MinimumPrice.DataPropertyName = "MinimumPrice"
-        Me.MinimumPrice.HeaderText = "MinimumPrice"
-        Me.MinimumPrice.Name = "MinimumPrice"
-        Me.MinimumPrice.ReadOnly = True
-        Me.MinimumPrice.Visible = False
-        '
-        'MaximumPrice
-        '
-        Me.MaximumPrice.DataPropertyName = "MaximumPrice"
-        Me.MaximumPrice.HeaderText = "MaximumPrice"
-        Me.MaximumPrice.Name = "MaximumPrice"
-        Me.MaximumPrice.ReadOnly = True
-        Me.MaximumPrice.Visible = False
-        '
-        'ExpiryDate
-        '
-        Me.ExpiryDate.DataPropertyName = "ExpiryDate"
-        Me.ExpiryDate.HeaderText = "ExpiryDate"
-        Me.ExpiryDate.Name = "ExpiryDate"
-        Me.ExpiryDate.ReadOnly = True
-        Me.ExpiryDate.Visible = False
-        '
         'BrandBindingSource
         '
         Me.BrandBindingSource.DataMember = "Brand"
@@ -878,6 +725,181 @@ Partial Class Products
         '
         Me.SupplierTableAdapter.ClearBeforeFill = True
         '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "Id"
+        Me.IdDataGridViewTextBoxColumn.FillWeight = 10.0!
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "Id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+        Me.IdDataGridViewTextBoxColumn.Visible = False
+        '
+        'ProductCode
+        '
+        Me.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.ProductCode.DataPropertyName = "ProductCode"
+        Me.ProductCode.FillWeight = 30.89826!
+        Me.ProductCode.HeaderText = "PrdCode"
+        Me.ProductCode.Name = "ProductCode"
+        Me.ProductCode.ReadOnly = True
+        Me.ProductCode.Width = 81
+        '
+        'ProductName
+        '
+        Me.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.ProductName.DataPropertyName = "ProductName"
+        Me.ProductName.FillWeight = 593.4011!
+        Me.ProductName.HeaderText = "ProductName"
+        Me.ProductName.MinimumWidth = 100
+        Me.ProductName.Name = "ProductName"
+        Me.ProductName.ReadOnly = True
+        Me.ProductName.Width = 108
+        '
+        'ProductImage
+        '
+        Me.ProductImage.DataPropertyName = "ProductImage"
+        Me.ProductImage.HeaderText = "ProductImage"
+        Me.ProductImage.Name = "ProductImage"
+        Me.ProductImage.ReadOnly = True
+        Me.ProductImage.Visible = False
+        '
+        'Barcode
+        '
+        Me.Barcode.DataPropertyName = "Barcode"
+        Me.Barcode.HeaderText = "Barcode"
+        Me.Barcode.Name = "Barcode"
+        Me.Barcode.ReadOnly = True
+        Me.Barcode.Visible = False
+        '
+        'CategoryName
+        '
+        Me.CategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.CategoryName.DataPropertyName = "CategoryName"
+        Me.CategoryName.FillWeight = 15.14015!
+        Me.CategoryName.HeaderText = "CategoryName"
+        Me.CategoryName.Name = "CategoryName"
+        Me.CategoryName.ReadOnly = True
+        Me.CategoryName.Width = 116
+        '
+        'BrandName
+        '
+        Me.BrandName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.BrandName.DataPropertyName = "BrandName"
+        Me.BrandName.FillWeight = 15.14015!
+        Me.BrandName.HeaderText = "BrandName"
+        Me.BrandName.Name = "BrandName"
+        Me.BrandName.ReadOnly = True
+        Me.BrandName.Width = 97
+        '
+        'SupplierName
+        '
+        Me.SupplierName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.SupplierName.DataPropertyName = "SupplierName"
+        Me.SupplierName.FillWeight = 15.14015!
+        Me.SupplierName.HeaderText = "SupplierName"
+        Me.SupplierName.Name = "SupplierName"
+        Me.SupplierName.ReadOnly = True
+        Me.SupplierName.Width = 108
+        '
+        'OriginalPrice
+        '
+        Me.OriginalPrice.DataPropertyName = "OriginalPrice"
+        Me.OriginalPrice.HeaderText = "OriginalPrice"
+        Me.OriginalPrice.Name = "OriginalPrice"
+        Me.OriginalPrice.ReadOnly = True
+        Me.OriginalPrice.Visible = False
+        '
+        'DiscountedPerc
+        '
+        Me.DiscountedPerc.DataPropertyName = "DiscountedPerc"
+        Me.DiscountedPerc.HeaderText = "DiscountedPerc"
+        Me.DiscountedPerc.Name = "DiscountedPerc"
+        Me.DiscountedPerc.ReadOnly = True
+        Me.DiscountedPerc.Visible = False
+        '
+        'DiscountedDateFrom
+        '
+        Me.DiscountedDateFrom.DataPropertyName = "DiscountedDateFrom"
+        Me.DiscountedDateFrom.HeaderText = "DiscountedDateFrom"
+        Me.DiscountedDateFrom.Name = "DiscountedDateFrom"
+        Me.DiscountedDateFrom.ReadOnly = True
+        Me.DiscountedDateFrom.Visible = False
+        '
+        'DiscountedDateTo
+        '
+        Me.DiscountedDateTo.DataPropertyName = "DiscountedDateTo"
+        Me.DiscountedDateTo.HeaderText = "DiscountedDateTo"
+        Me.DiscountedDateTo.Name = "DiscountedDateTo"
+        Me.DiscountedDateTo.ReadOnly = True
+        Me.DiscountedDateTo.Visible = False
+        '
+        'DiscountedPrice
+        '
+        Me.DiscountedPrice.DataPropertyName = "DiscountedPrice"
+        Me.DiscountedPrice.HeaderText = "DiscountedPrice"
+        Me.DiscountedPrice.Name = "DiscountedPrice"
+        Me.DiscountedPrice.ReadOnly = True
+        Me.DiscountedPrice.Visible = False
+        '
+        'FinalPrice
+        '
+        Me.FinalPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.FinalPrice.DataPropertyName = "FinalPrice"
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.FinalPrice.DefaultCellStyle = DataGridViewCellStyle2
+        Me.FinalPrice.FillWeight = 15.14015!
+        Me.FinalPrice.HeaderText = "SellingPrice"
+        Me.FinalPrice.Name = "FinalPrice"
+        Me.FinalPrice.ReadOnly = True
+        Me.FinalPrice.Width = 91
+        '
+        'Quantity
+        '
+        Me.Quantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.Quantity.DataPropertyName = "Quantity"
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.Quantity.DefaultCellStyle = DataGridViewCellStyle3
+        Me.Quantity.FillWeight = 15.14015!
+        Me.Quantity.HeaderText = "Quantity"
+        Me.Quantity.Name = "Quantity"
+        Me.Quantity.ReadOnly = True
+        Me.Quantity.Width = 80
+        '
+        'IsInstock
+        '
+        Me.IsInstock.DataPropertyName = "IsInstock"
+        Me.IsInstock.HeaderText = "IsInstock"
+        Me.IsInstock.Name = "IsInstock"
+        Me.IsInstock.ReadOnly = True
+        Me.IsInstock.Visible = False
+        '
+        'MinimumPrice
+        '
+        Me.MinimumPrice.DataPropertyName = "MinimumPrice"
+        Me.MinimumPrice.HeaderText = "MinimumPrice"
+        Me.MinimumPrice.Name = "MinimumPrice"
+        Me.MinimumPrice.ReadOnly = True
+        Me.MinimumPrice.Visible = False
+        '
+        'MaximumPrice
+        '
+        Me.MaximumPrice.DataPropertyName = "MaximumPrice"
+        Me.MaximumPrice.HeaderText = "MaximumPrice"
+        Me.MaximumPrice.Name = "MaximumPrice"
+        Me.MaximumPrice.ReadOnly = True
+        Me.MaximumPrice.Visible = False
+        '
+        'ExpiryDate
+        '
+        Me.ExpiryDate.DataPropertyName = "ExpiryDate"
+        Me.ExpiryDate.HeaderText = "ExpiryDate"
+        Me.ExpiryDate.Name = "ExpiryDate"
+        Me.ExpiryDate.ReadOnly = True
+        Me.ExpiryDate.Visible = False
+        '
         'Products
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
@@ -948,6 +970,7 @@ Partial Class Products
     Friend WithEvents LinkLabelChangePrice As LinkLabel
     Friend WithEvents LinkLabelAddQuantity As LinkLabel
     Friend WithEvents IconButton2 As FontAwesome.Sharp.IconButton
+    Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCode As DataGridViewTextBoxColumn
     Friend WithEvents ProductName As DataGridViewTextBoxColumn
@@ -967,5 +990,4 @@ Partial Class Products
     Friend WithEvents MinimumPrice As DataGridViewTextBoxColumn
     Friend WithEvents MaximumPrice As DataGridViewTextBoxColumn
     Friend WithEvents ExpiryDate As DataGridViewTextBoxColumn
-    Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
 End Class

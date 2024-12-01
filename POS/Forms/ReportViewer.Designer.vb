@@ -33,6 +33,10 @@ Partial Class ReportViewer
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
+        Me.CrystalReportViewer1.ShowCloseButton = False
+        Me.CrystalReportViewer1.ShowCopyButton = False
+        Me.CrystalReportViewer1.ShowExportButton = False
+        Me.CrystalReportViewer1.ShowLogo = False
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1172, 742)
         Me.CrystalReportViewer1.TabIndex = 0
         '
