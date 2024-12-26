@@ -7,7 +7,8 @@ Module CommonClass
             Return File.ReadAllText(filePath).Trim()
         Else
             MessageBox.Show("Configuration file not found. Please create or specify the file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return String.Empty ' Or use a default connection string here
+            Return My.Settings.pos_dbConnectionString
+            'Return String.Empty ' Or use a default connection string here
         End If
     End Function
 
