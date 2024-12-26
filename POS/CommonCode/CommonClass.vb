@@ -1,8 +1,20 @@
 ﻿Imports System.Data.SqlClient
+Imports System.IO
 Module CommonClass
+    Public Function GetConnectionStringFromFile() As String
+        Dim filePath As String = "connectionString.txt"
+        If File.Exists(filePath) Then
+            Return File.ReadAllText(filePath).Trim()
+        Else
+            MessageBox.Show("Configuration file not found. Please create or specify the file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Return String.Empty ' Or use a default connection string here
+        End If
+    End Function
+
     Public user_login As String
     Public user_type As String
-    Public connection = My.Settings.pos_dbConnectionString
+    'Public connection = My.Settings.pos_dbConnectionString
+    Public connection = GetConnectionStringFromFile()
     Dim result As Integer
 
     'Public StoreName = "Vincent Jade Alivio Production"
