@@ -973,7 +973,7 @@ Partial Class Products
     Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents ProductCode As DataGridViewTextBoxColumn
-    Friend WithEvents ProductName As DataGridViewTextBoxColumn
+    Shadows WithEvents ProductName As DataGridViewTextBoxColumn
     Friend WithEvents ProductImage As DataGridViewImageColumn
     Friend WithEvents Barcode As DataGridViewTextBoxColumn
     Friend WithEvents CategoryName As DataGridViewTextBoxColumn
