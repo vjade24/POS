@@ -102,6 +102,8 @@ Public Class PointOfSale
                 RefreshData()
                 Grandtotal()
                 ClearEntry()
+                TextBoxSearch.Text = ""
+                TextBoxSearch.Focus()
             End If
             conn.Close()
         Catch ex As Exception
@@ -238,7 +240,7 @@ Public Class PointOfSale
                         GroupBox2.Visible = True
                         GroupBox3.Visible = True
                         'GroupBox4.Visible = True
-
+                        TextBoxSearch.Focus()
                     Else
                         MsgBox("No Data Found!", MsgBoxStyle.Critical)
                     End If
@@ -473,4 +475,7 @@ Public Class PointOfSale
         End If
     End Sub
 
+    Private Sub GroupBox3_Enter(sender As Object, e As EventArgs) Handles GroupBox3.Enter
+
+    End Sub
 End Class

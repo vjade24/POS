@@ -28,7 +28,9 @@ Partial Class ReportViewer
         'CrystalReportViewer1
         '
         Me.CrystalReportViewer1.ActiveViewIndex = -1
-        Me.CrystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CrystalReportViewer1.AutoScroll = True
+        Me.CrystalReportViewer1.AutoSize = True
+        Me.CrystalReportViewer1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.CrystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
@@ -37,6 +39,7 @@ Partial Class ReportViewer
         Me.CrystalReportViewer1.ShowCopyButton = False
         Me.CrystalReportViewer1.ShowExportButton = False
         Me.CrystalReportViewer1.ShowLogo = False
+        Me.CrystalReportViewer1.ShowParameterPanelButton = False
         Me.CrystalReportViewer1.Size = New System.Drawing.Size(1172, 742)
         Me.CrystalReportViewer1.TabIndex = 0
         '
@@ -50,6 +53,7 @@ Partial Class ReportViewer
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "ReportViewer"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

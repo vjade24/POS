@@ -57,8 +57,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-MS7BOFK\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
-            "fo=True;User ID=sa;Password=J@de1234")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-H714LJ5\VJA;Initial Catalog=pos_db;Persist Security Info=True"& _ 
+            ";User ID=sa;Password=J@de1234")>  _
         Public ReadOnly Property pos_dbConnectionString() As String
             Get
                 Return CType(Me("pos_dbConnectionString"),String)
