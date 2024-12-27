@@ -252,6 +252,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Database\pos_db_20241226.bak" />
     <None Include="POS Installer\POS_SETUP.msi" />
     <None Include="Resources\VJA.png" />
     <None Include="Resources\POS.png" />
