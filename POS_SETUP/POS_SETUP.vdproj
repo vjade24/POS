@@ -225,6 +225,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8F166875997942BA9B4762EC397D9EE8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_91ABD8EAC0EB0FF3E7D2D779D517E464"
         "OwnerKey" = "8:_1B45DB0FACC0489107485D9AD4D67814"
         "MsmSig" = "8:_UNDEFINED"
@@ -352,6 +358,12 @@
         "Entry"
         {
         "MsmKey" = "8:_B29AFDFBE132453AB6E3C8E389DD8283"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BD2072827E064A5AAAEC034770665739"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1094,6 +1106,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F166875997942BA9B4762EC397D9EE8"
+            {
+            "SourcePath" = "8:..\\POS\\Reports\\cryRemittanceDetails.rpt"
+            "TargetName" = "8:cryRemittanceDetails.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_91ABD8EAC0EB0FF3E7D2D779D517E464"
             {
             "AssemblyRegister" = "3:1"
@@ -1273,6 +1305,26 @@
             {
             "SourcePath" = "8:..\\POS\\Reports\\cryAnalytics_SoldProducts.rpt"
             "TargetName" = "8:cryAnalytics_SoldProducts.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BD2072827E064A5AAAEC034770665739"
+            {
+            "SourcePath" = "8:..\\POS\\Reports\\cryRemittanceReceipt.rpt"
+            "TargetName" = "8:cryRemittanceReceipt.rpt"
             "Tag" = "8:"
             "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"
             "Condition" = "8:"
@@ -1594,7 +1646,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:POS_SETUP"
         "ProductCode" = "8:{73B0FEAA-A378-4C88-A94C-0764C5E9349C}"
-        "PackageCode" = "8:{71E6F19D-85E3-42EE-BFA4-4E40D9672023}"
+        "PackageCode" = "8:{66FF4449-83D1-4D79-B46D-BD6EA8EBE101}"
         "UpgradeCode" = "8:{09407D1A-A49D-4D02-A323-D4175C306685}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -2143,7 +2195,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_0CFCAE1934A54579B06412F276BC7E9F"
             {
-            "SourcePath" = "8:..\\POS\\obj\\Release\\POS.exe"
+            "SourcePath" = "8:..\\POS\\obj\\Debug\\POS.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_6E3A305F8F484249A7ACEBAFF379152C"

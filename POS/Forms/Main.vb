@@ -27,6 +27,7 @@ Public Class Main
             BtnAnalytics.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             BtnPersonnel.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
             BtnSupplier.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
+            BtnRemittance.BackColor = ColorTranslator.FromHtml(dt.Rows(0)("ThemeColor").ToString())
 
             Try
                 Dim lb() As Byte = dt.Rows(0)("Logo")
@@ -172,5 +173,10 @@ Public Class Main
 
     Private Sub PanelMain_Paint(sender As Object, e As PaintEventArgs) Handles PanelMain.Paint
 
+    End Sub
+
+    Private Sub BtnRemittance_Click(sender As Object, e As EventArgs) Handles BtnRemittance.Click
+        ActiveButton(sender, RGBColors.color1)
+        OpenChildForm(New PersonnelName, "")
     End Sub
 End Class

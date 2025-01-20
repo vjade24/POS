@@ -35,6 +35,9 @@ Partial Class Reports
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
+        Dim Title1 As System.Windows.Forms.DataVisualization.Charting.Title = New System.Windows.Forms.DataVisualization.Charting.Title()
         Me.Label_New = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.IconPictureBox1 = New FontAwesome.Sharp.IconPictureBox()
@@ -45,15 +48,6 @@ Partial Class Reports
         Me.asdasd = New System.Windows.Forms.Label()
         Me.IconPictureBox3 = New FontAwesome.Sharp.IconPictureBox()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.VwTransactionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
-        Me.Vw_TransactionsTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_TransactionsTableAdapter()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.PersonnelTableAdapter = New POS.pos_dbDataSetTableAdapters.PersonnelTableAdapter()
-        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -76,9 +70,25 @@ Partial Class Reports
         Me.TotalAmountDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CreatedAtDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CreatedByDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VwTransactionsBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
+        Me.Vw_TransactionsTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_TransactionsTableAdapter()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.PersonnelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.PersonnelTableAdapter = New POS.pos_dbDataSetTableAdapters.PersonnelTableAdapter()
+        Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label_Paid_Capl = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBoxSearch = New System.Windows.Forms.TextBox()
+        Me.Chart2 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
         Label11 = New System.Windows.Forms.Label()
         Label12 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -90,6 +100,10 @@ Partial Class Reports
         CType(Me.VwTransactionsBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label11
@@ -113,11 +127,12 @@ Partial Class Reports
         'Label2
         '
         Label2.AutoSize = True
-        Label2.Location = New System.Drawing.Point(725, 182)
+        Label2.Location = New System.Drawing.Point(1021, 84)
         Label2.Name = "Label2"
         Label2.Size = New System.Drawing.Size(59, 16)
         Label2.TabIndex = 46
         Label2.Text = "Personnel"
+        Label2.Visible = False
         '
         'Label3
         '
@@ -267,7 +282,7 @@ Partial Class Reports
         DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle8
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
-        Me.CategoryDataGridView.Location = New System.Drawing.Point(12, 232)
+        Me.CategoryDataGridView.Location = New System.Drawing.Point(6, 7)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.CategoryDataGridView.Name = "CategoryDataGridView"
         Me.CategoryDataGridView.ReadOnly = True
@@ -275,66 +290,8 @@ Partial Class Reports
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(958, 358)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(956, 301)
         Me.CategoryDataGridView.TabIndex = 22
-        '
-        'VwTransactionsBindingSource
-        '
-        Me.VwTransactionsBindingSource.DataMember = "vw_Transactions"
-        Me.VwTransactionsBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'Pos_dbDataSet
-        '
-        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
-        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker1.Location = New System.Drawing.Point(262, 204)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(227, 21)
-        Me.DateTimePicker1.TabIndex = 42
-        '
-        'DateTimePicker2
-        '
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
-        Me.DateTimePicker2.Location = New System.Drawing.Point(495, 204)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(227, 21)
-        Me.DateTimePicker2.TabIndex = 44
-        '
-        'Vw_TransactionsTableAdapter
-        '
-        Me.Vw_TransactionsTableAdapter.ClearBeforeFill = True
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DataSource = Me.PersonnelBindingSource
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(728, 201)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(193, 24)
-        Me.ComboBox1.TabIndex = 45
-        '
-        'PersonnelBindingSource
-        '
-        Me.PersonnelBindingSource.DataMember = "Personnel"
-        Me.PersonnelBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'PersonnelTableAdapter
-        '
-        Me.PersonnelTableAdapter.ClearBeforeFill = True
-        '
-        'LinkLabel1
-        '
-        Me.LinkLabel1.AutoSize = True
-        Me.LinkLabel1.Location = New System.Drawing.Point(845, 182)
-        Me.LinkLabel1.Name = "LinkLabel1"
-        Me.LinkLabel1.Size = New System.Drawing.Size(73, 16)
-        Me.LinkLabel1.TabIndex = 48
-        Me.LinkLabel1.TabStop = True
-        Me.LinkLabel1.Text = "All Personnel"
         '
         'PersonnelIdDataGridViewTextBoxColumn
         '
@@ -530,6 +487,66 @@ Partial Class Reports
         Me.CreatedByDataGridViewTextBoxColumn.ReadOnly = True
         Me.CreatedByDataGridViewTextBoxColumn.Visible = False
         '
+        'VwTransactionsBindingSource
+        '
+        Me.VwTransactionsBindingSource.DataMember = "vw_Transactions"
+        Me.VwTransactionsBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'Pos_dbDataSet
+        '
+        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
+        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker1.Location = New System.Drawing.Point(262, 204)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(227, 21)
+        Me.DateTimePicker1.TabIndex = 42
+        '
+        'DateTimePicker2
+        '
+        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.DateTimePicker2.Location = New System.Drawing.Point(495, 204)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(227, 21)
+        Me.DateTimePicker2.TabIndex = 44
+        '
+        'Vw_TransactionsTableAdapter
+        '
+        Me.Vw_TransactionsTableAdapter.ClearBeforeFill = True
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.DataSource = Me.PersonnelBindingSource
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(1024, 103)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(193, 24)
+        Me.ComboBox1.TabIndex = 45
+        Me.ComboBox1.Visible = False
+        '
+        'PersonnelBindingSource
+        '
+        Me.PersonnelBindingSource.DataMember = "Personnel"
+        Me.PersonnelBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'PersonnelTableAdapter
+        '
+        Me.PersonnelTableAdapter.ClearBeforeFill = True
+        '
+        'LinkLabel1
+        '
+        Me.LinkLabel1.AutoSize = True
+        Me.LinkLabel1.Location = New System.Drawing.Point(1141, 84)
+        Me.LinkLabel1.Name = "LinkLabel1"
+        Me.LinkLabel1.Size = New System.Drawing.Size(73, 16)
+        Me.LinkLabel1.TabIndex = 48
+        Me.LinkLabel1.TabStop = True
+        Me.LinkLabel1.Text = "All Personnel"
+        Me.LinkLabel1.Visible = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -566,12 +583,114 @@ Partial Class Reports
         Me.Label_Paid_Capl.TabIndex = 50
         Me.Label_Paid_Capl.Text = "-- --- --"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(123, 232)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(131, 16)
+        Me.Label7.TabIndex = 53
+        Me.Label7.Text = "Search Product Name:"
+        '
+        'TextBoxSearch
+        '
+        Me.TextBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxSearch.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxSearch.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxSearch.Location = New System.Drawing.Point(262, 230)
+        Me.TextBoxSearch.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxSearch.Name = "TextBoxSearch"
+        Me.TextBoxSearch.Size = New System.Drawing.Size(460, 21)
+        Me.TextBoxSearch.TabIndex = 52
+        '
+        'Chart2
+        '
+        Me.Chart2.BorderSkin.SkinStyle = System.Windows.Forms.DataVisualization.Charting.BorderSkinStyle.Emboss
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart2.ChartAreas.Add(ChartArea1)
+        Me.Chart2.Location = New System.Drawing.Point(6, 6)
+        Me.Chart2.Name = "Chart2"
+        Me.Chart2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None
+        Series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.TopBottom
+        Series1.BackHatchStyle = System.Windows.Forms.DataVisualization.Charting.ChartHatchStyle.BackwardDiagonal
+        Series1.ChartArea = "ChartArea1"
+        Series1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Series1.IsValueShownAsLabel = True
+        Series1.Name = "Series1"
+        Me.Chart2.Series.Add(Series1)
+        Me.Chart2.Size = New System.Drawing.Size(956, 288)
+        Me.Chart2.TabIndex = 54
+        Me.Chart2.Text = "Chart2"
+        Title1.Name = "asdasd"
+        Title1.Text = "TOTAL SOLD PER DAY"
+        Me.Chart2.Titles.Add(Title1)
+        '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(4, 261)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(976, 344)
+        Me.TabControl1.TabIndex = 55
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.CategoryDataGridView)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(968, 315)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Product List"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.Chart2)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(968, 315)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "Analytics"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'IconButtonPrint
+        '
+        Me.IconButtonPrint.BackColor = System.Drawing.Color.ForestGreen
+        Me.IconButtonPrint.FlatAppearance.BorderSize = 0
+        Me.IconButtonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButtonPrint.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.IconButtonPrint.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButtonPrint.ForeColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconChar = FontAwesome.Sharp.IconChar.File
+        Me.IconButtonPrint.IconColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconSize = 30
+        Me.IconButtonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButtonPrint.Location = New System.Drawing.Point(737, 212)
+        Me.IconButtonPrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IconButtonPrint.Name = "IconButtonPrint"
+        Me.IconButtonPrint.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.IconButtonPrint.Rotation = 0R
+        Me.IconButtonPrint.Size = New System.Drawing.Size(159, 36)
+        Me.IconButtonPrint.TabIndex = 56
+        Me.IconButtonPrint.Text = "View Details"
+        Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButtonPrint.UseVisualStyleBackColor = False
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(982, 617)
+        Me.ClientSize = New System.Drawing.Size(1229, 617)
+        Me.Controls.Add(Me.IconButtonPrint)
+        Me.Controls.Add(Me.TabControl1)
+        Me.Controls.Add(Me.Label7)
+        Me.Controls.Add(Me.TextBoxSearch)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label_Paid_Capl)
         Me.Controls.Add(Me.Label4)
@@ -579,7 +698,6 @@ Partial Class Reports
         Me.Controls.Add(Label3)
         Me.Controls.Add(Label2)
         Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.CategoryDataGridView)
         Me.Controls.Add(Label12)
         Me.Controls.Add(Me.DateTimePicker2)
         Me.Controls.Add(Label11)
@@ -605,6 +723,10 @@ Partial Class Reports
         CType(Me.VwTransactionsBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PersonnelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -653,4 +775,11 @@ Partial Class Reports
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label_Paid_Capl As Label
+    Friend WithEvents Label7 As Label
+    Friend WithEvents TextBoxSearch As TextBox
+    Friend WithEvents Chart2 As DataVisualization.Charting.Chart
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
 End Class

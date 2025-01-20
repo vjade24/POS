@@ -1,5 +1,6 @@
 ﻿
 Imports System.Data.SqlClient
+Imports System.Windows.Forms.DataVisualization.Charting
 Public Class Reports
     Private Sub Reports_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -21,9 +22,9 @@ Public Class Reports
     Private Sub LoadReport(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         Else
-            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         End If
 
         Try
@@ -34,6 +35,7 @@ Public Class Reports
             Dim dt As New DataTable
             da.Fill(dt)
             CategoryDataGridView.DataSource = dt
+            LoadChart_BarChart()
         Catch ex As Exception
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
@@ -188,9 +190,9 @@ Public Class Reports
     Private Sub TotalPaidCapl(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT (ISNULL(SUM(OriginalPrice),0) * ISNULL(SUM(Quantity),0))  AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0)  AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
         Else
-            query = "SELECT (ISNULL(SUM(OriginalPrice),0) * ISNULL(SUM(Quantity),0)) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
+            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
@@ -208,5 +210,66 @@ Public Class Reports
             MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
             Return
         End Try
+    End Sub
+
+    Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
+        LoadReport("")
+        TotalNew("")
+        TotalPaid("")
+        TotalPaidCapl("")
+        TotalHold("")
+
+    End Sub
+    Private Sub LoadChart_BarChart()
+        With Chart2
+            .Series.Clear()
+            .Series.Add("Series1")
+        End With
+
+        'Dim query = "SELECT MONTH(CreatedAt) AS MonthNameInt,DATENAME(MONTH, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions  WHERE PaymentStatus = 'Paid' GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt) ORDER BY MONTH(CreatedAt) ASC"
+        Dim query = "SELECT TOP  7 FORMAT(CreatedAt,'MMM dd, yyyy') AS DayDescr,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid'GROUP BY FORMAT(CreatedAt,'MMM dd, yyyy') ORDER BY FORMAT(CreatedAt,'MMM dd, yyyy')"
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim ds As New DataSet
+
+            da.Fill(ds, "DayDescr")
+            Chart2.DataSource = ds.Tables("DayDescr")
+            Dim series1 As Series = Chart2.Series("Series1")
+            'series1.ChartType = SeriesChartType.Bar
+            'series1.Name = "TOTAL SOLD PER MONTH"
+
+            With Chart2
+                '.Series(0)("PieLabelStyle") = "Outside"
+                '.Series(0).BorderWidth = 1
+                '.Series(0).BorderColor = System.Drawing.Color.Red
+                '.ChartAreas(0).Area3DStyle.Enable3D = True
+
+                .Series(series1.Name).XValueMember = "DayDescr"
+                .Series(series1.Name).YValueMembers = "TotalAmount"
+
+                .Series(0).LabelFormat = "{###,##0.00}"
+                .Series(0).IsValueShownAsLabel = True
+
+                '.Series(0).LegendText = "#VALX (#PERCENT)"
+            End With
+
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+    End Sub
+
+    Private Sub IconButtonPrint_Click(sender As Object, e As EventArgs) Handles IconButtonPrint.Click
+        'If TotalAmount.Text = "0.00" Then
+        '    MsgBox("NO TOTAL AMOUNT", MsgBoxStyle.Information)
+        'Else
+        Dim OBJ As New ReportViewer
+            OBJ.StringReportFile = "cryRemittanceDetails"
+        OBJ.StringQuery = "SELECT * FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') ORDER BY CreatedAt DESC"
+        OBJ.Show()
+        'End If
     End Sub
 End Class

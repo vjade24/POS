@@ -47,12 +47,13 @@ Partial Class PointOfSale
         Dim Label5 As System.Windows.Forms.Label
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PointOfSale))
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
@@ -229,7 +230,7 @@ Partial Class PointOfSale
         '
         QuantityLabel.AutoSize = True
         QuantityLabel.BackColor = System.Drawing.Color.DarkOrange
-        QuantityLabel.Location = New System.Drawing.Point(24, 29)
+        QuantityLabel.Location = New System.Drawing.Point(24, 42)
         QuantityLabel.Name = "QuantityLabel"
         QuantityLabel.Size = New System.Drawing.Size(89, 16)
         QuantityLabel.TabIndex = 6
@@ -238,7 +239,7 @@ Partial Class PointOfSale
         'Label4
         '
         Label4.AutoSize = True
-        Label4.Location = New System.Drawing.Point(632, 29)
+        Label4.Location = New System.Drawing.Point(610, 42)
         Label4.Name = "Label4"
         Label4.Size = New System.Drawing.Size(58, 16)
         Label4.TabIndex = 27
@@ -302,7 +303,7 @@ Partial Class PointOfSale
         'DiscountedPriceLabel
         '
         DiscountedPriceLabel.AutoSize = True
-        DiscountedPriceLabel.Location = New System.Drawing.Point(243, 29)
+        DiscountedPriceLabel.Location = New System.Drawing.Point(243, 42)
         DiscountedPriceLabel.Name = "DiscountedPriceLabel"
         DiscountedPriceLabel.Size = New System.Drawing.Size(101, 16)
         DiscountedPriceLabel.TabIndex = 34
@@ -450,6 +451,7 @@ Partial Class PointOfSale
         Me.TableAdapterManager.ProductPriceTableAdapter = Nothing
         Me.TableAdapterManager.ProductQuantityTableAdapter = Nothing
         Me.TableAdapterManager.ProductTableAdapter = Me.ProductTableAdapter
+        Me.TableAdapterManager.RemittanceTableAdapter = Nothing
         Me.TableAdapterManager.StoreTableAdapter = Nothing
         Me.TableAdapterManager.SupplierTableAdapter = Nothing
         Me.TableAdapterManager.TransactionDetailsTableAdapter = Nothing
@@ -478,11 +480,11 @@ Partial Class PointOfSale
         Me.GroupBox2.Controls.Add(Me.DataGridView2)
         Me.GroupBox2.Controls.Add(Me.Panel1)
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 314)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 410)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox2.Size = New System.Drawing.Size(952, 357)
+        Me.GroupBox2.Size = New System.Drawing.Size(952, 261)
         Me.GroupBox2.TabIndex = 31
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Order List"
@@ -510,7 +512,7 @@ Partial Class PointOfSale
         Me.DataGridView2.DataSource = Me.TransactionDetailsBindingSource3
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText
@@ -523,8 +525,10 @@ Partial Class PointOfSale
         Me.DataGridView2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView2.RowHeadersVisible = False
         Me.DataGridView2.RowHeadersWidth = 50
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView2.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(931, 280)
+        Me.DataGridView2.Size = New System.Drawing.Size(931, 185)
         Me.DataGridView2.TabIndex = 34
         '
         'IdDataGridViewTextBoxColumn
@@ -535,7 +539,7 @@ Partial Class PointOfSale
         Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
         Me.IdDataGridViewTextBoxColumn.ReadOnly = True
         Me.IdDataGridViewTextBoxColumn.Visible = False
-        Me.IdDataGridViewTextBoxColumn.Width = 44
+        Me.IdDataGridViewTextBoxColumn.Width = 43
         '
         'TransactionHeaderIdDataGridViewTextBoxColumn
         '
@@ -687,7 +691,7 @@ Partial Class PointOfSale
         Me.Panel1.Controls.Add(Me.BtnSave)
         Me.Panel1.Controls.Add(Me.GrandTotalTextBox)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(3, 308)
+        Me.Panel1.Location = New System.Drawing.Point(3, 212)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(946, 45)
         Me.Panel1.TabIndex = 33
@@ -709,7 +713,7 @@ Partial Class PointOfSale
         Me.IconButton1.FlatAppearance.BorderSize = 0
         Me.IconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IconButton1.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.IconButton1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButton1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButton1.ForeColor = System.Drawing.Color.White
         Me.IconButton1.IconChar = FontAwesome.Sharp.IconChar.ProductHunt
         Me.IconButton1.IconColor = System.Drawing.Color.White
@@ -733,7 +737,7 @@ Partial Class PointOfSale
         Me.BtnSave.FlatAppearance.BorderSize = 0
         Me.BtnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnSave.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnSave.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSave.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.ForeColor = System.Drawing.Color.White
         Me.BtnSave.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown
         Me.BtnSave.IconColor = System.Drawing.Color.White
@@ -805,8 +809,6 @@ Partial Class PointOfSale
         '
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
@@ -826,7 +828,7 @@ Partial Class PointOfSale
         Me.DataGridView1.DataSource = Me.ProductBindingSource
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.RoyalBlue
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -839,9 +841,11 @@ Partial Class PointOfSale
         Me.DataGridView1.ReadOnly = True
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.RowHeadersVisible = False
-        Me.DataGridView1.RowHeadersWidth = 50
+        Me.DataGridView1.RowHeadersWidth = 75
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridView1.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(925, 171)
+        Me.DataGridView1.Size = New System.Drawing.Size(925, 220)
         Me.DataGridView1.TabIndex = 3
         '
         'DataGridViewTextBoxColumn1
@@ -1006,9 +1010,9 @@ Partial Class PointOfSale
         Me.GroupBox3.Controls.Add(Me.TextBox_TotalPerProduct)
         Me.GroupBox3.Controls.Add(Label4)
         Me.GroupBox3.Controls.Add(Me.btnAddToCart)
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 260)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 324)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(952, 65)
+        Me.GroupBox3.Size = New System.Drawing.Size(952, 82)
         Me.GroupBox3.TabIndex = 34
         Me.GroupBox3.TabStop = False
         '
@@ -1016,7 +1020,7 @@ Partial Class PointOfSale
         '
         Me.DiscountedPriceTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "DiscountedPrice", True))
         Me.DiscountedPriceTextBox.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DiscountedPriceTextBox.Location = New System.Drawing.Point(350, 22)
+        Me.DiscountedPriceTextBox.Location = New System.Drawing.Point(350, 35)
         Me.DiscountedPriceTextBox.Name = "DiscountedPriceTextBox"
         Me.DiscountedPriceTextBox.Size = New System.Drawing.Size(121, 31)
         Me.DiscountedPriceTextBox.TabIndex = 2
@@ -1027,7 +1031,7 @@ Partial Class PointOfSale
         '
         Me.QuantityTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "Quantity", True))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(119, 21)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(119, 34)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.Size = New System.Drawing.Size(118, 31)
         Me.QuantityTextBox.TabIndex = 1
@@ -1039,7 +1043,7 @@ Partial Class PointOfSale
         Me.TextBox_TotalPerProduct.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.ProductBindingSource, "FinalPrice", True))
         Me.TextBox_TotalPerProduct.Enabled = False
         Me.TextBox_TotalPerProduct.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox_TotalPerProduct.Location = New System.Drawing.Point(696, 21)
+        Me.TextBox_TotalPerProduct.Location = New System.Drawing.Point(674, 34)
         Me.TextBox_TotalPerProduct.Name = "TextBox_TotalPerProduct"
         Me.TextBox_TotalPerProduct.Size = New System.Drawing.Size(126, 31)
         Me.TextBox_TotalPerProduct.TabIndex = 3
@@ -1052,17 +1056,17 @@ Partial Class PointOfSale
         Me.btnAddToCart.FlatAppearance.BorderSize = 0
         Me.btnAddToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddToCart.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.btnAddToCart.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAddToCart.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAddToCart.ForeColor = System.Drawing.Color.White
         Me.btnAddToCart.IconChar = FontAwesome.Sharp.IconChar.CartPlus
         Me.btnAddToCart.IconColor = System.Drawing.Color.White
         Me.btnAddToCart.IconSize = 30
         Me.btnAddToCart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAddToCart.Location = New System.Drawing.Point(826, 19)
+        Me.btnAddToCart.Location = New System.Drawing.Point(804, 32)
         Me.btnAddToCart.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnAddToCart.Name = "btnAddToCart"
         Me.btnAddToCart.Rotation = 0R
-        Me.btnAddToCart.Size = New System.Drawing.Size(118, 34)
+        Me.btnAddToCart.Size = New System.Drawing.Size(140, 34)
         Me.btnAddToCart.TabIndex = 4
         Me.btnAddToCart.Text = "Add to Cart"
         Me.btnAddToCart.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1400,7 +1404,7 @@ Partial Class PointOfSale
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.GroupBox1.Size = New System.Drawing.Size(952, 232)
+        Me.GroupBox1.Size = New System.Drawing.Size(952, 285)
         Me.GroupBox1.TabIndex = 32
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Product List"

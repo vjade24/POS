@@ -155,6 +155,12 @@
     <Compile Include="Forms\ProductQuantity.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Remittance.Designer.vb">
+      <DependentUpon>Remittance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Remittance.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ReportViewer.Designer.vb">
       <DependentUpon>ReportViewer.vb</DependentUpon>
     </Compile>
@@ -232,6 +238,18 @@
       <DependentUpon>cryProductLists.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\cryRemittanceDetails.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryRemittanceDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\cryRemittanceReceipt.vb">
+      <DependentUpon>cryRemittanceReceipt.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\cryStoreReceipt.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -282,6 +300,9 @@
     <EmbeddedResource Include="Forms\ProductQuantity.resx">
       <DependentUpon>ProductQuantity.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Remittance.resx">
+      <DependentUpon>Remittance.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportViewer.resx">
       <DependentUpon>ReportViewer.vb</DependentUpon>
     </EmbeddedResource>
@@ -321,6 +342,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryProductLists.vb</LastGenOutput>
     </Content>
+    <EmbeddedResource Include="Reports\cryRemittanceDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryRemittanceDetails.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\cryRemittanceReceipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryRemittanceReceipt.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\cryStoreReceipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryStoreReceipt.vb</LastGenOutput>
