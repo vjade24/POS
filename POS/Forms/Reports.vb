@@ -22,9 +22,9 @@ Public Class Reports
     Private Sub LoadReport(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         Else
-            query = "SELECT * FROM vw_Transactions WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         End If
 
         Try
@@ -61,9 +61,9 @@ Public Class Reports
     Private Sub TotalNew(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'New' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'New' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
         Else
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'New' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'New' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
@@ -86,9 +86,9 @@ Public Class Reports
     Private Sub TotalPaid(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
         Else
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
@@ -111,9 +111,9 @@ Public Class Reports
     Private Sub TotalHold(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Hold' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Hold' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
         Else
-            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Hold' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
+            query = "SELECT ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Hold' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "')"
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
@@ -190,9 +190,9 @@ Public Class Reports
     Private Sub TotalPaidCapl(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0)  AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0)  AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
         Else
-            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0) AS TotalAmount FROM vw_Transactions WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
+            query = "SELECT ISNULL(SUM(ISNULL(OriginalPrice,0) * ISNULL(Quantity,0)),0) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
         End If
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
