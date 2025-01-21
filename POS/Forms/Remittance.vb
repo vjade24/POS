@@ -46,6 +46,13 @@ Public Class PersonnelName
         PersonnelName1.Text = user_login
         TotalAmount_View()
         btnPrint.Visible = False
+        If user_type = "Admin" Then
+            GroupBox1.Visible = True
+            RemittanceDataGridView.Columns(3).Visible = True
+        Else
+            RemittanceDataGridView.Columns(3).Visible = False
+            GroupBox1.Visible = False
+        End If
     End Sub
 
     Private Sub btnGenrate_Click(sender As Object, e As EventArgs) Handles btnGenrate.Click

@@ -539,7 +539,7 @@ Partial Class PointOfSale
         Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
         Me.IdDataGridViewTextBoxColumn.ReadOnly = True
         Me.IdDataGridViewTextBoxColumn.Visible = False
-        Me.IdDataGridViewTextBoxColumn.Width = 43
+        Me.IdDataGridViewTextBoxColumn.Width = 44
         '
         'TransactionHeaderIdDataGridViewTextBoxColumn
         '
@@ -828,7 +828,7 @@ Partial Class PointOfSale
         Me.DataGridView1.DataSource = Me.ProductBindingSource
         DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.RoyalBlue
         DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -1211,7 +1211,7 @@ Partial Class PointOfSale
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(417, 15)
+        Me.Label1.Location = New System.Drawing.Point(396, 15)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(95, 16)
         Me.Label1.TabIndex = 45
@@ -1220,7 +1220,7 @@ Partial Class PointOfSale
         'ComboBoxInvoice
         '
         Me.ComboBoxInvoice.FormattingEnabled = True
-        Me.ComboBoxInvoice.Location = New System.Drawing.Point(514, 12)
+        Me.ComboBoxInvoice.Location = New System.Drawing.Point(493, 12)
         Me.ComboBoxInvoice.Name = "ComboBoxInvoice"
         Me.ComboBoxInvoice.Size = New System.Drawing.Size(296, 24)
         Me.ComboBoxInvoice.TabIndex = 44
@@ -1231,18 +1231,18 @@ Partial Class PointOfSale
         Me.IconButtonSearch.FlatAppearance.BorderSize = 0
         Me.IconButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.IconButtonSearch.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.IconButtonSearch.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButtonSearch.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.IconButtonSearch.ForeColor = System.Drawing.Color.White
         Me.IconButtonSearch.IconChar = FontAwesome.Sharp.IconChar.Search
         Me.IconButtonSearch.IconColor = System.Drawing.Color.White
         Me.IconButtonSearch.IconSize = 30
         Me.IconButtonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButtonSearch.Location = New System.Drawing.Point(816, 4)
+        Me.IconButtonSearch.Location = New System.Drawing.Point(795, 4)
         Me.IconButtonSearch.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.IconButtonSearch.Name = "IconButtonSearch"
         Me.IconButtonSearch.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
         Me.IconButtonSearch.Rotation = 0R
-        Me.IconButtonSearch.Size = New System.Drawing.Size(146, 38)
+        Me.IconButtonSearch.Size = New System.Drawing.Size(167, 38)
         Me.IconButtonSearch.TabIndex = 43
         Me.IconButtonSearch.Text = "Find New/Hold"
         Me.IconButtonSearch.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -1254,7 +1254,7 @@ Partial Class PointOfSale
         Me.btnNewTransaction.FlatAppearance.BorderSize = 0
         Me.btnNewTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnNewTransaction.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.btnNewTransaction.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNewTransaction.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNewTransaction.ForeColor = System.Drawing.Color.White
         Me.btnNewTransaction.IconChar = FontAwesome.Sharp.IconChar.Plus
         Me.btnNewTransaction.IconColor = System.Drawing.Color.White
@@ -1265,7 +1265,7 @@ Partial Class PointOfSale
         Me.btnNewTransaction.Name = "btnNewTransaction"
         Me.btnNewTransaction.Padding = New System.Windows.Forms.Padding(10, 0, 0, 0)
         Me.btnNewTransaction.Rotation = 0R
-        Me.btnNewTransaction.Size = New System.Drawing.Size(146, 38)
+        Me.btnNewTransaction.Size = New System.Drawing.Size(172, 38)
         Me.btnNewTransaction.TabIndex = 27
         Me.btnNewTransaction.Text = "New Transaction"
         Me.btnNewTransaction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText

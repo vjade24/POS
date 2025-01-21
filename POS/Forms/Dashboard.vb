@@ -45,8 +45,10 @@ Public Class Dashboard
                 adp.SelectCommand = cmd
                 adp.Fill(dt)
                 If dt.Rows.Count > 0 Then
-                    Label_total_income.Text = "P" + dt.Rows(0)("total_income").ToString()
-                    Label_total_income_today.Text = "P" + dt.Rows(0)("total_income_today").ToString()
+                    'Label_total_income.Text = "P" + dt.Rows(0)("total_income").ToString()
+                    'Label_total_income_today.Text = "P" + dt.Rows(0)("total_income_today").ToString()
+                    Label_total_income.Text = "--"
+                    Label_total_income_today.Text = "--"
                     Label_total_customer.Text = dt.Rows(0)("total_customer").ToString()
                     Label_total_customer_today.Text = dt.Rows(0)("total_customer_today").ToString()
                     Label_total_supplier.Text = dt.Rows(0)("total_supplier").ToString()
