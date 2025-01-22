@@ -45,7 +45,7 @@ Public Class PersonnelName
         Me.RemittanceTableAdapter.Fill(Me.Pos_dbDataSet.Remittance)
         PersonnelName1.Text = user_login
         TotalAmount_View()
-        btnPrint.Visible = False
+        IconButtonPrint.Visible = False
         If user_type = "Admin" Then
             GroupBox1.Visible = True
             RemittanceDataGridView.Columns(3).Visible = True
@@ -55,7 +55,45 @@ Public Class PersonnelName
         End If
     End Sub
 
-    Private Sub btnGenrate_Click(sender As Object, e As EventArgs) Handles btnGenrate.Click
+    Private Sub ClearEntry()
+        TotalAmount.Text = "0.00"
+        CashOnHand.Text = "0.00"
+        PersonnelName1.Text = user_login
+    End Sub
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        If TotalAmount.Text = "0.00" Then
+            MsgBox("NO TOTAL AMOUNT", MsgBoxStyle.Information)
+        Else
+            Dim OBJ As New ReportViewer
+            OBJ.StringReportFile = "cryRemittanceDetails"
+            OBJ.StringQuery = "SELECT * FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateRemitted.Value + "') AND CONVERT(date,'" + DateRemitted.Value + "') ORDER BY CreatedAt DESC"
+            OBJ.Show()
+        End If
+    End Sub
+
+    Private Sub RemittanceBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
+        Me.Validate()
+        Me.RemittanceBindingSource.EndEdit()
+        Me.TableAdapterManager.UpdateAll(Me.Pos_dbDataSet)
+
+    End Sub
+
+    Private Sub ViewRemittanceReceipt(insertedId)
+        Dim OBJ As New ReportViewer
+        OBJ.StringReportFile = "cryRemittanceReceipt"
+        If insertedId = "" Then
+            OBJ.StringQuery = "SELECT TOP 1 * FROM vw_Remittance ORDER BY Id"
+        Else
+            OBJ.StringQuery = "SELECT * FROM vw_Remittance WHERE Id = '" + insertedId + "'"
+        End If
+        OBJ.Show()
+    End Sub
+    Private Sub RemittanceDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles RemittanceDataGridView.CellClick
+        TextBoxId.Text = RemittanceDataGridView.CurrentRow.Cells(0).Value.ToString()
+        IconButtonPrint.Visible = True
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Dim insertedId As Integer
         If Double.Parse(TotalAmount.Text.ToString().Trim()) <= 0 Then
             MsgBox("TOTAL AMOUNT is Required!", MsgBoxStyle.Critical)
@@ -92,49 +130,8 @@ Public Class PersonnelName
             conn.Close()
         End Try
     End Sub
-    Private Sub ClearEntry()
-        TotalAmount.Text = "0.00"
-        CashOnHand.Text = "0.00"
-        PersonnelName1.Text = user_login
-    End Sub
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        If TotalAmount.Text = "0.00" Then
-            MsgBox("NO TOTAL AMOUNT", MsgBoxStyle.Information)
-        Else
-            Dim OBJ As New ReportViewer
-            OBJ.StringReportFile = "cryRemittanceDetails"
-            OBJ.StringQuery = "SELECT * FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' AND CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateRemitted.Value + "') AND CONVERT(date,'" + DateRemitted.Value + "') ORDER BY CreatedAt DESC"
-            OBJ.Show()
-        End If
-    End Sub
 
-    Private Sub RemittanceBindingNavigatorSaveItem_Click(sender As Object, e As EventArgs)
-        Me.Validate()
-        Me.RemittanceBindingSource.EndEdit()
-        Me.TableAdapterManager.UpdateAll(Me.Pos_dbDataSet)
-
-    End Sub
-
-    Private Sub ViewRemittanceReceipt(insertedId)
-        Dim OBJ As New ReportViewer
-        OBJ.StringReportFile = "cryRemittanceReceipt"
-        If insertedId = "" Then
-            OBJ.StringQuery = "SELECT TOP 1 * FROM vw_Remittance ORDER BY Id"
-        Else
-            OBJ.StringQuery = "SELECT * FROM vw_Remittance WHERE Id = '" + insertedId + "'"
-        End If
-        OBJ.Show()
-    End Sub
-    Private Sub btnPrint_Click(sender As Object, e As EventArgs) Handles btnPrint.Click
+    Private Sub IconButtonPrint_Click(sender As Object, e As EventArgs) Handles IconButtonPrint.Click
         ViewRemittanceReceipt(TextBoxId.Text.ToString())
-    End Sub
-
-    Private Sub RemittanceDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles RemittanceDataGridView.CellContentClick
-
-    End Sub
-
-    Private Sub RemittanceDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles RemittanceDataGridView.CellClick
-        TextBoxId.Text = RemittanceDataGridView.CurrentRow.Cells(0).Value.ToString()
-        btnPrint.Visible = True
     End Sub
 End Class
