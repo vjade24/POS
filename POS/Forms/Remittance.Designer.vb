@@ -23,17 +23,16 @@ Partial Class PersonnelName
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DateRemitted = New System.Windows.Forms.DateTimePicker()
         Me.TotalAmount = New System.Windows.Forms.TextBox()
         Me.CashOnHand = New System.Windows.Forms.TextBox()
         Me.PersonnelName1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.Pos_dbDataSet = New POS.pos_dbDataSet()
         Me.RemittanceBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -51,6 +50,11 @@ Partial Class PersonnelName
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnAdd = New FontAwesome.Sharp.IconButton()
         Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
+        Me.TextBoxCashonHandDisplay = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBoxTotalsDisplay = New System.Windows.Forms.TextBox()
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RemittanceBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RemittanceDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,16 +121,6 @@ Partial Class PersonnelName
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Total Amount"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(84, 214)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(101, 17)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Cash on Hand"
-        '
         'LinkLabel1
         '
         Me.LinkLabel1.AutoSize = True
@@ -188,25 +182,25 @@ Partial Class PersonnelName
         Me.RemittanceDataGridView.BackgroundColor = System.Drawing.SystemColors.Control
         Me.RemittanceDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RemittanceDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.RemittanceDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.RemittanceDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.RemittanceDataGridView.ColumnHeadersHeight = 50
         Me.RemittanceDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.DateRemittedDataGridViewTextBoxColumn, Me.TotalAmountDataGridViewTextBoxColumn, Me.CashOnHandDataGridViewTextBoxColumn, Me.PersonnelNameDataGridViewTextBoxColumn, Me.CreatedAtDataGridViewTextBoxColumn, Me.CreatedByDataGridViewTextBoxColumn})
         Me.RemittanceDataGridView.DataSource = Me.RemittanceBindingSource
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.RemittanceDataGridView.DefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.RemittanceDataGridView.DefaultCellStyle = DataGridViewCellStyle4
         Me.RemittanceDataGridView.EnableHeadersVisualStyles = False
         Me.RemittanceDataGridView.Location = New System.Drawing.Point(303, 126)
         Me.RemittanceDataGridView.Name = "RemittanceDataGridView"
@@ -215,7 +209,7 @@ Partial Class PersonnelName
         Me.RemittanceDataGridView.RowHeadersVisible = False
         Me.RemittanceDataGridView.RowHeadersWidth = 50
         Me.RemittanceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.RemittanceDataGridView.Size = New System.Drawing.Size(646, 337)
+        Me.RemittanceDataGridView.Size = New System.Drawing.Size(646, 430)
         Me.RemittanceDataGridView.TabIndex = 14
         '
         'IdDataGridViewTextBoxColumn
@@ -236,9 +230,9 @@ Partial Class PersonnelName
         'TotalAmountDataGridViewTextBoxColumn
         '
         Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
-        DataGridViewCellStyle6.Format = "N2"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Format = "N2"
+        DataGridViewCellStyle2.NullValue = Nothing
+        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle2
         Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
         Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
         Me.TotalAmountDataGridViewTextBoxColumn.ReadOnly = True
@@ -246,9 +240,9 @@ Partial Class PersonnelName
         'CashOnHandDataGridViewTextBoxColumn
         '
         Me.CashOnHandDataGridViewTextBoxColumn.DataPropertyName = "CashOnHand"
-        DataGridViewCellStyle7.Format = "N2"
-        DataGridViewCellStyle7.NullValue = Nothing
-        Me.CashOnHandDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Format = "N2"
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.CashOnHandDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle3
         Me.CashOnHandDataGridViewTextBoxColumn.HeaderText = "CashOnHand"
         Me.CashOnHandDataGridViewTextBoxColumn.Name = "CashOnHandDataGridViewTextBoxColumn"
         Me.CashOnHandDataGridViewTextBoxColumn.ReadOnly = True
@@ -277,12 +271,16 @@ Partial Class PersonnelName
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.TextBoxTotalsDisplay)
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.TextBoxCashonHandDisplay)
         Me.GroupBox1.Controls.Add(Me.TotalAmount)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.LinkLabel1)
         Me.GroupBox1.Location = New System.Drawing.Point(47, 329)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(250, 107)
+        Me.GroupBox1.Size = New System.Drawing.Size(250, 227)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Admin"
@@ -333,6 +331,58 @@ Partial Class PersonnelName
         Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButtonPrint.UseVisualStyleBackColor = False
         '
+        'TextBoxCashonHandDisplay
+        '
+        Me.TextBoxCashonHandDisplay.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxCashonHandDisplay.Location = New System.Drawing.Point(34, 109)
+        Me.TextBoxCashonHandDisplay.Name = "TextBoxCashonHandDisplay"
+        Me.TextBoxCashonHandDisplay.ReadOnly = True
+        Me.TextBoxCashonHandDisplay.Size = New System.Drawing.Size(200, 27)
+        Me.TextBoxCashonHandDisplay.TabIndex = 9
+        Me.TextBoxCashonHandDisplay.Text = "0.00"
+        Me.TextBoxCashonHandDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(36, 89)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(101, 17)
+        Me.Label5.TabIndex = 30
+        Me.Label5.Text = "Cash on Hand"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(84, 214)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(101, 17)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Cash on Hand"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(36, 142)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(39, 17)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Total"
+        '
+        'TextBoxTotalsDisplay
+        '
+        Me.TextBoxTotalsDisplay.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxTotalsDisplay.Location = New System.Drawing.Point(34, 162)
+        Me.TextBoxTotalsDisplay.Name = "TextBoxTotalsDisplay"
+        Me.TextBoxTotalsDisplay.ReadOnly = True
+        Me.TextBoxTotalsDisplay.Size = New System.Drawing.Size(200, 27)
+        Me.TextBoxTotalsDisplay.TabIndex = 31
+        Me.TextBoxTotalsDisplay.Text = "0.00"
+        Me.TextBoxTotalsDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
         'PersonnelName
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 17.0!)
@@ -368,7 +418,6 @@ Partial Class PersonnelName
     Friend WithEvents PersonnelName1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Pos_dbDataSet As pos_dbDataSet
     Friend WithEvents RemittanceBindingSource As BindingSource
@@ -386,4 +435,9 @@ Partial Class PersonnelName
     Friend WithEvents CreatedByDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents btnAdd As FontAwesome.Sharp.IconButton
     Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label4 As Label
+    Friend WithEvents TextBoxTotalsDisplay As TextBox
+    Friend WithEvents Label5 As Label
+    Friend WithEvents TextBoxCashonHandDisplay As TextBox
+    Friend WithEvents Label3 As Label
 End Class
