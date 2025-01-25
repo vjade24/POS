@@ -28,6 +28,7 @@ Partial Class Main
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.StoreNameTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnRemittance = New FontAwesome.Sharp.IconButton()
         Me.BtnStoreInfo = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
         Me.BtnSupplier = New FontAwesome.Sharp.IconButton()
@@ -49,7 +50,7 @@ Partial Class Main
         Me.LblBreadCrump = New System.Windows.Forms.Label()
         Me.PanelMain = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnRemittance = New FontAwesome.Sharp.IconButton()
+        Me.BtnReturnVoid = New FontAwesome.Sharp.IconButton()
         Me.PanelSide.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,6 +110,7 @@ Partial Class Main
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.BtnReturnVoid)
         Me.Panel1.Controls.Add(Me.BtnRemittance)
         Me.Panel1.Controls.Add(Me.BtnStoreInfo)
         Me.Panel1.Controls.Add(Me.IconButton1)
@@ -127,6 +129,29 @@ Partial Class Main
         Me.Panel1.Size = New System.Drawing.Size(267, 560)
         Me.Panel1.TabIndex = 2
         '
+        'BtnRemittance
+        '
+        Me.BtnRemittance.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnRemittance.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnRemittance.FlatAppearance.BorderSize = 0
+        Me.BtnRemittance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnRemittance.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnRemittance.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRemittance.ForeColor = System.Drawing.Color.White
+        Me.BtnRemittance.IconChar = FontAwesome.Sharp.IconChar.EnvelopeO
+        Me.BtnRemittance.IconColor = System.Drawing.Color.White
+        Me.BtnRemittance.IconSize = 30
+        Me.BtnRemittance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnRemittance.Location = New System.Drawing.Point(0, 420)
+        Me.BtnRemittance.Name = "BtnRemittance"
+        Me.BtnRemittance.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.BtnRemittance.Rotation = 0R
+        Me.BtnRemittance.Size = New System.Drawing.Size(267, 42)
+        Me.BtnRemittance.TabIndex = 23
+        Me.BtnRemittance.Text = "Remittance"
+        Me.BtnRemittance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnRemittance.UseVisualStyleBackColor = False
+        '
         'BtnStoreInfo
         '
         Me.BtnStoreInfo.BackColor = System.Drawing.Color.DodgerBlue
@@ -140,11 +165,11 @@ Partial Class Main
         Me.BtnStoreInfo.IconColor = System.Drawing.Color.White
         Me.BtnStoreInfo.IconSize = 30
         Me.BtnStoreInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnStoreInfo.Location = New System.Drawing.Point(0, 396)
+        Me.BtnStoreInfo.Location = New System.Drawing.Point(0, 378)
         Me.BtnStoreInfo.Name = "BtnStoreInfo"
         Me.BtnStoreInfo.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnStoreInfo.Rotation = 0R
-        Me.BtnStoreInfo.Size = New System.Drawing.Size(267, 44)
+        Me.BtnStoreInfo.Size = New System.Drawing.Size(267, 42)
         Me.BtnStoreInfo.TabIndex = 22
         Me.BtnStoreInfo.Text = "Store Info"
         Me.BtnStoreInfo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -186,11 +211,11 @@ Partial Class Main
         Me.BtnSupplier.IconColor = System.Drawing.Color.White
         Me.BtnSupplier.IconSize = 30
         Me.BtnSupplier.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnSupplier.Location = New System.Drawing.Point(0, 352)
+        Me.BtnSupplier.Location = New System.Drawing.Point(0, 336)
         Me.BtnSupplier.Name = "BtnSupplier"
         Me.BtnSupplier.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnSupplier.Rotation = 0R
-        Me.BtnSupplier.Size = New System.Drawing.Size(267, 44)
+        Me.BtnSupplier.Size = New System.Drawing.Size(267, 42)
         Me.BtnSupplier.TabIndex = 20
         Me.BtnSupplier.Text = "Supplier"
         Me.BtnSupplier.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -209,11 +234,11 @@ Partial Class Main
         Me.BtnPersonnel.IconColor = System.Drawing.Color.White
         Me.BtnPersonnel.IconSize = 30
         Me.BtnPersonnel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 308)
+        Me.BtnPersonnel.Location = New System.Drawing.Point(0, 294)
         Me.BtnPersonnel.Name = "BtnPersonnel"
         Me.BtnPersonnel.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPersonnel.Rotation = 0R
-        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 44)
+        Me.BtnPersonnel.Size = New System.Drawing.Size(267, 42)
         Me.BtnPersonnel.TabIndex = 19
         Me.BtnPersonnel.Text = "Personnel"
         Me.BtnPersonnel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -232,11 +257,11 @@ Partial Class Main
         Me.BtnAnalytics.IconColor = System.Drawing.Color.White
         Me.BtnAnalytics.IconSize = 30
         Me.BtnAnalytics.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 264)
+        Me.BtnAnalytics.Location = New System.Drawing.Point(0, 252)
         Me.BtnAnalytics.Name = "BtnAnalytics"
         Me.BtnAnalytics.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnAnalytics.Rotation = 0R
-        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 44)
+        Me.BtnAnalytics.Size = New System.Drawing.Size(267, 42)
         Me.BtnAnalytics.TabIndex = 18
         Me.BtnAnalytics.Text = "Analytics"
         Me.BtnAnalytics.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -255,11 +280,11 @@ Partial Class Main
         Me.BtnReports.IconColor = System.Drawing.Color.White
         Me.BtnReports.IconSize = 30
         Me.BtnReports.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReports.Location = New System.Drawing.Point(0, 220)
+        Me.BtnReports.Location = New System.Drawing.Point(0, 210)
         Me.BtnReports.Name = "BtnReports"
         Me.BtnReports.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnReports.Rotation = 0R
-        Me.BtnReports.Size = New System.Drawing.Size(267, 44)
+        Me.BtnReports.Size = New System.Drawing.Size(267, 42)
         Me.BtnReports.TabIndex = 17
         Me.BtnReports.Text = "Reports"
         Me.BtnReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -278,11 +303,11 @@ Partial Class Main
         Me.BtnBrand.IconColor = System.Drawing.Color.White
         Me.BtnBrand.IconSize = 30
         Me.BtnBrand.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnBrand.Location = New System.Drawing.Point(0, 176)
+        Me.BtnBrand.Location = New System.Drawing.Point(0, 168)
         Me.BtnBrand.Name = "BtnBrand"
         Me.BtnBrand.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnBrand.Rotation = 0R
-        Me.BtnBrand.Size = New System.Drawing.Size(267, 44)
+        Me.BtnBrand.Size = New System.Drawing.Size(267, 42)
         Me.BtnBrand.TabIndex = 16
         Me.BtnBrand.Text = "Brand"
         Me.BtnBrand.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -301,11 +326,11 @@ Partial Class Main
         Me.BtnCategory.IconColor = System.Drawing.Color.White
         Me.BtnCategory.IconSize = 30
         Me.BtnCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnCategory.Location = New System.Drawing.Point(0, 132)
+        Me.BtnCategory.Location = New System.Drawing.Point(0, 126)
         Me.BtnCategory.Name = "BtnCategory"
         Me.BtnCategory.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnCategory.Rotation = 0R
-        Me.BtnCategory.Size = New System.Drawing.Size(267, 44)
+        Me.BtnCategory.Size = New System.Drawing.Size(267, 42)
         Me.BtnCategory.TabIndex = 15
         Me.BtnCategory.Text = "Category"
         Me.BtnCategory.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -324,11 +349,11 @@ Partial Class Main
         Me.BtnProducts.IconColor = System.Drawing.Color.White
         Me.BtnProducts.IconSize = 30
         Me.BtnProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnProducts.Location = New System.Drawing.Point(0, 88)
+        Me.BtnProducts.Location = New System.Drawing.Point(0, 84)
         Me.BtnProducts.Name = "BtnProducts"
         Me.BtnProducts.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnProducts.Rotation = 0R
-        Me.BtnProducts.Size = New System.Drawing.Size(267, 44)
+        Me.BtnProducts.Size = New System.Drawing.Size(267, 42)
         Me.BtnProducts.TabIndex = 14
         Me.BtnProducts.Text = "Products"
         Me.BtnProducts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -347,11 +372,11 @@ Partial Class Main
         Me.BtnPOS.IconColor = System.Drawing.Color.White
         Me.BtnPOS.IconSize = 30
         Me.BtnPOS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnPOS.Location = New System.Drawing.Point(0, 44)
+        Me.BtnPOS.Location = New System.Drawing.Point(0, 42)
         Me.BtnPOS.Name = "BtnPOS"
         Me.BtnPOS.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnPOS.Rotation = 0R
-        Me.BtnPOS.Size = New System.Drawing.Size(267, 44)
+        Me.BtnPOS.Size = New System.Drawing.Size(267, 42)
         Me.BtnPOS.TabIndex = 13
         Me.BtnPOS.Text = "Point of Sale"
         Me.BtnPOS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -374,7 +399,7 @@ Partial Class Main
         Me.BtnDashBoard.Name = "BtnDashBoard"
         Me.BtnDashBoard.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
         Me.BtnDashBoard.Rotation = 0R
-        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 44)
+        Me.BtnDashBoard.Size = New System.Drawing.Size(267, 42)
         Me.BtnDashBoard.TabIndex = 12
         Me.BtnDashBoard.Text = "Dashboard"
         Me.BtnDashBoard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
@@ -493,28 +518,28 @@ Partial Class Main
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 5
         '
-        'BtnRemittance
+        'BtnReturnVoid
         '
-        Me.BtnRemittance.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnRemittance.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnRemittance.FlatAppearance.BorderSize = 0
-        Me.BtnRemittance.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnRemittance.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnRemittance.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRemittance.ForeColor = System.Drawing.Color.White
-        Me.BtnRemittance.IconChar = FontAwesome.Sharp.IconChar.EnvelopeO
-        Me.BtnRemittance.IconColor = System.Drawing.Color.White
-        Me.BtnRemittance.IconSize = 30
-        Me.BtnRemittance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnRemittance.Location = New System.Drawing.Point(0, 440)
-        Me.BtnRemittance.Name = "BtnRemittance"
-        Me.BtnRemittance.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.BtnRemittance.Rotation = 0R
-        Me.BtnRemittance.Size = New System.Drawing.Size(267, 44)
-        Me.BtnRemittance.TabIndex = 23
-        Me.BtnRemittance.Text = "Remittance"
-        Me.BtnRemittance.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnRemittance.UseVisualStyleBackColor = False
+        Me.BtnReturnVoid.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnReturnVoid.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnReturnVoid.FlatAppearance.BorderSize = 0
+        Me.BtnReturnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnReturnVoid.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnReturnVoid.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReturnVoid.ForeColor = System.Drawing.Color.White
+        Me.BtnReturnVoid.IconChar = FontAwesome.Sharp.IconChar.TrashO
+        Me.BtnReturnVoid.IconColor = System.Drawing.Color.White
+        Me.BtnReturnVoid.IconSize = 30
+        Me.BtnReturnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturnVoid.Location = New System.Drawing.Point(0, 462)
+        Me.BtnReturnVoid.Name = "BtnReturnVoid"
+        Me.BtnReturnVoid.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.BtnReturnVoid.Rotation = 0R
+        Me.BtnReturnVoid.Size = New System.Drawing.Size(267, 42)
+        Me.BtnReturnVoid.TabIndex = 24
+        Me.BtnReturnVoid.Text = "Return/Void Products"
+        Me.BtnReturnVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnReturnVoid.UseVisualStyleBackColor = False
         '
         'Main
         '
@@ -573,4 +598,5 @@ Partial Class Main
     Friend WithEvents TextBoxDateTimeNow As TextBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents BtnRemittance As FontAwesome.Sharp.IconButton
+    Friend WithEvents BtnReturnVoid As FontAwesome.Sharp.IconButton
 End Class

@@ -167,6 +167,12 @@
     <Compile Include="Forms\ReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\VoidReturn.Designer.vb">
+      <DependentUpon>VoidReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VoidReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ReportViewer.resx">
       <DependentUpon>ReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoidReturn.resx">
+      <DependentUpon>VoidReturn.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
