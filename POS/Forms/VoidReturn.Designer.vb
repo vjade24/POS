@@ -36,40 +36,19 @@ Partial Class VoidReturn
         Dim Label13 As System.Windows.Forms.Label
         Dim UserNameLabel As System.Windows.Forms.Label
         Dim PasswordLabel As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim Label14 As System.Windows.Forms.Label
         Dim Label15 As System.Windows.Forms.Label
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBoxSearch = New System.Windows.Forms.TextBox()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.CategoryDataGridView = New System.Windows.Forms.DataGridView()
-        Me.VwTransactionsnologoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
-        Me.TextBoxVoidRetrunQty = New System.Windows.Forms.TextBox()
-        Me.TextBoxInvoice = New System.Windows.Forms.TextBox()
-        Me.TextBoxCreatedAt = New System.Windows.Forms.TextBox()
-        Me.TextBoxQty = New System.Windows.Forms.TextBox()
-        Me.TextBoxProductName = New System.Windows.Forms.TextBox()
-        Me.TextBoxDetailsId = New System.Windows.Forms.TextBox()
-        Me.Vw_Transactions_nologoTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_Transactions_nologoTableAdapter()
-        Me.TextBoxHeadersId = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
-        Me.TextBoxVoidReturnAmount = New System.Windows.Forms.TextBox()
-        Me.TextBoxSellingPrice = New System.Windows.Forms.TextBox()
-        Me.ComboBoxVoidReturnReason = New System.Windows.Forms.ComboBox()
-        Me.UserNameTextBox = New System.Windows.Forms.TextBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.PasswordTextBox = New System.Windows.Forms.TextBox()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.ProductCode = New System.Windows.Forms.Label()
-        Me.TextBoxGrandTotal = New System.Windows.Forms.TextBox()
         Me.PersonnelIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.InvoiceNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CustomerNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -99,7 +78,30 @@ Partial Class VoidReturn
         Me.ContactNoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.StoreAddressDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TransactionDetailsId = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.VwTransactionsnologoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Pos_dbDataSet = New POS.pos_dbDataSet()
+        Me.TextBoxVoidRetrunQty = New System.Windows.Forms.TextBox()
+        Me.TextBoxInvoice = New System.Windows.Forms.TextBox()
+        Me.TextBoxCreatedAt = New System.Windows.Forms.TextBox()
+        Me.TextBoxQty = New System.Windows.Forms.TextBox()
+        Me.TextBoxProductName = New System.Windows.Forms.TextBox()
+        Me.TextBoxDetailsId = New System.Windows.Forms.TextBox()
+        Me.Vw_Transactions_nologoTableAdapter = New POS.pos_dbDataSetTableAdapters.vw_Transactions_nologoTableAdapter()
+        Me.TextBoxHeadersId = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxGrandTotal = New System.Windows.Forms.TextBox()
+        Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
+        Me.TextBoxVoidReturnAmount = New System.Windows.Forms.TextBox()
+        Me.TextBoxSellingPrice = New System.Windows.Forms.TextBox()
+        Me.ComboBoxVoidReturnReason = New System.Windows.Forms.ComboBox()
+        Me.UserNameTextBox = New System.Windows.Forms.TextBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.PasswordTextBox = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.ProductCode = New System.Windows.Forms.Label()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
+        Me.ReturnVoidReasonBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReturnVoidReasonTableAdapter = New POS.pos_dbDataSetTableAdapters.ReturnVoidReasonTableAdapter()
         Label12 = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
@@ -120,6 +122,7 @@ Partial Class VoidReturn
         CType(Me.Pos_dbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.ReturnVoidReasonBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label12
@@ -148,15 +151,6 @@ Partial Class VoidReturn
         Label1.Size = New System.Drawing.Size(82, 17)
         Label1.TabIndex = 62
         Label1.Text = "Invoice No."
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(17, 566)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(103, 17)
-        Me.Label4.TabIndex = 64
-        Me.Label4.Text = "Product Name"
         '
         'Label6
         '
@@ -250,6 +244,36 @@ Partial Class VoidReturn
         PasswordLabel.TabIndex = 92
         PasswordLabel.Text = "Password:"
         '
+        'Label14
+        '
+        Label14.AutoSize = True
+        Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label14.ForeColor = System.Drawing.Color.Red
+        Label14.Location = New System.Drawing.Point(38, 179)
+        Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label14.Name = "Label14"
+        Label14.Size = New System.Drawing.Size(248, 16)
+        Label14.TabIndex = 93
+        Label14.Text = "Enter Credentials to Return/Void Product"
+        '
+        'Label15
+        '
+        Label15.AutoSize = True
+        Label15.Location = New System.Drawing.Point(12, 83)
+        Label15.Name = "Label15"
+        Label15.Size = New System.Drawing.Size(84, 17)
+        Label15.TabIndex = 95
+        Label15.Text = "Grand Total"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(17, 566)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(103, 17)
+        Me.Label4.TabIndex = 64
+        Me.Label4.Text = "Product Name"
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -297,25 +321,25 @@ Partial Class VoidReturn
         Me.CategoryDataGridView.BackgroundColor = System.Drawing.SystemColors.Control
         Me.CategoryDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.CategoryDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
         Me.CategoryDataGridView.ColumnHeadersHeight = 50
         Me.CategoryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.PersonnelIdDataGridViewTextBoxColumn, Me.InvoiceNoDataGridViewTextBoxColumn, Me.CustomerNameDataGridViewTextBoxColumn, Me.GrandTotalDataGridViewTextBoxColumn, Me.PaymentAmountDataGridViewTextBoxColumn, Me.PaymentChangeDataGridViewTextBoxColumn, Me.PaymentStatusDataGridViewTextBoxColumn, Me.TransactionHeaderIdDataGridViewTextBoxColumn, Me.ProductCodeDataGridViewTextBoxColumn, Me.ProductNameDataGridViewTextBoxColumn, Me.CategoryNameDataGridViewTextBoxColumn, Me.BrandNameDataGridViewTextBoxColumn, Me.SupplierNameDataGridViewTextBoxColumn, Me.BarcodeDataGridViewTextBoxColumn, Me.OriginalPriceDataGridViewTextBoxColumn, Me.DiscountedPercDataGridViewTextBoxColumn, Me.DiscountedPriceDataGridViewTextBoxColumn, Me.FinalPriceDataGridViewTextBoxColumn, Me.QuantityDataGridViewTextBoxColumn, Me.TotalAmountDataGridViewTextBoxColumn, Me.CreatedAtDataGridViewTextBoxColumn, Me.CreatedByDataGridViewTextBoxColumn, Me.StoreNameDataGridViewTextBoxColumn, Me.SloganDataGridViewTextBoxColumn, Me.ThemeColorDataGridViewTextBoxColumn, Me.TinNoDataGridViewTextBoxColumn, Me.ContactNoDataGridViewTextBoxColumn, Me.StoreAddressDataGridViewTextBoxColumn, Me.TransactionDetailsId})
         Me.CategoryDataGridView.DataSource = Me.VwTransactionsnologoBindingSource
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DodgerBlue
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.DodgerBlue
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle9
         Me.CategoryDataGridView.EnableHeadersVisualStyles = False
         Me.CategoryDataGridView.Location = New System.Drawing.Point(12, 128)
         Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -324,275 +348,11 @@ Partial Class VoidReturn
         Me.CategoryDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidth = 50
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CategoryDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CategoryDataGridView.RowsDefaultCellStyle = DataGridViewCellStyle10
         Me.CategoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.CategoryDataGridView.Size = New System.Drawing.Size(956, 301)
         Me.CategoryDataGridView.TabIndex = 54
-        '
-        'VwTransactionsnologoBindingSource
-        '
-        Me.VwTransactionsnologoBindingSource.DataMember = "vw_Transactions_nologo"
-        Me.VwTransactionsnologoBindingSource.DataSource = Me.Pos_dbDataSet
-        '
-        'Pos_dbDataSet
-        '
-        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
-        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'TextBoxVoidRetrunQty
-        '
-        Me.TextBoxVoidRetrunQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxVoidRetrunQty.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxVoidRetrunQty.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxVoidRetrunQty.Location = New System.Drawing.Point(449, 483)
-        Me.TextBoxVoidRetrunQty.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxVoidRetrunQty.Name = "TextBoxVoidRetrunQty"
-        Me.TextBoxVoidRetrunQty.Size = New System.Drawing.Size(159, 23)
-        Me.TextBoxVoidRetrunQty.TabIndex = 1
-        Me.TextBoxVoidRetrunQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'TextBoxInvoice
-        '
-        Me.TextBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxInvoice.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxInvoice.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxInvoice.Location = New System.Drawing.Point(18, 483)
-        Me.TextBoxInvoice.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxInvoice.Name = "TextBoxInvoice"
-        Me.TextBoxInvoice.ReadOnly = True
-        Me.TextBoxInvoice.Size = New System.Drawing.Size(128, 23)
-        Me.TextBoxInvoice.TabIndex = 72
-        '
-        'TextBoxCreatedAt
-        '
-        Me.TextBoxCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxCreatedAt.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxCreatedAt.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxCreatedAt.Location = New System.Drawing.Point(154, 483)
-        Me.TextBoxCreatedAt.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxCreatedAt.Name = "TextBoxCreatedAt"
-        Me.TextBoxCreatedAt.ReadOnly = True
-        Me.TextBoxCreatedAt.Size = New System.Drawing.Size(159, 23)
-        Me.TextBoxCreatedAt.TabIndex = 73
-        '
-        'TextBoxQty
-        '
-        Me.TextBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxQty.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxQty.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxQty.Location = New System.Drawing.Point(16, 536)
-        Me.TextBoxQty.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxQty.Name = "TextBoxQty"
-        Me.TextBoxQty.ReadOnly = True
-        Me.TextBoxQty.Size = New System.Drawing.Size(130, 23)
-        Me.TextBoxQty.TabIndex = 74
-        Me.TextBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
-        'TextBoxProductName
-        '
-        Me.TextBoxProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxProductName.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxProductName.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxProductName.Location = New System.Drawing.Point(19, 588)
-        Me.TextBoxProductName.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxProductName.Multiline = True
-        Me.TextBoxProductName.Name = "TextBoxProductName"
-        Me.TextBoxProductName.ReadOnly = True
-        Me.TextBoxProductName.Size = New System.Drawing.Size(294, 43)
-        Me.TextBoxProductName.TabIndex = 75
-        '
-        'TextBoxDetailsId
-        '
-        Me.TextBoxDetailsId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxDetailsId.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxDetailsId.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxDetailsId.Location = New System.Drawing.Point(15, 48)
-        Me.TextBoxDetailsId.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxDetailsId.Name = "TextBoxDetailsId"
-        Me.TextBoxDetailsId.ReadOnly = True
-        Me.TextBoxDetailsId.Size = New System.Drawing.Size(128, 23)
-        Me.TextBoxDetailsId.TabIndex = 76
-        '
-        'Vw_Transactions_nologoTableAdapter
-        '
-        Me.Vw_Transactions_nologoTableAdapter.ClearBeforeFill = True
-        '
-        'TextBoxHeadersId
-        '
-        Me.TextBoxHeadersId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxHeadersId.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxHeadersId.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxHeadersId.Location = New System.Drawing.Point(148, 48)
-        Me.TextBoxHeadersId.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxHeadersId.Name = "TextBoxHeadersId"
-        Me.TextBoxHeadersId.ReadOnly = True
-        Me.TextBoxHeadersId.Size = New System.Drawing.Size(128, 23)
-        Me.TextBoxHeadersId.TabIndex = 78
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Controls.Add(Me.TextBoxGrandTotal)
-        Me.GroupBox1.Controls.Add(Me.TextBoxDetailsId)
-        Me.GroupBox1.Controls.Add(Label15)
-        Me.GroupBox1.Controls.Add(Label3)
-        Me.GroupBox1.Controls.Add(Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBoxHeadersId)
-        Me.GroupBox1.Location = New System.Drawing.Point(997, 147)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(295, 196)
-        Me.GroupBox1.TabIndex = 80
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Hidden"
-        Me.GroupBox1.Visible = False
-        '
-        'IconButtonPrint
-        '
-        Me.IconButtonPrint.BackColor = System.Drawing.Color.OrangeRed
-        Me.IconButtonPrint.FlatAppearance.BorderSize = 0
-        Me.IconButtonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.IconButtonPrint.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.IconButtonPrint.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.IconButtonPrint.ForeColor = System.Drawing.Color.White
-        Me.IconButtonPrint.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleOLeft
-        Me.IconButtonPrint.IconColor = System.Drawing.Color.White
-        Me.IconButtonPrint.IconSize = 30
-        Me.IconButtonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.IconButtonPrint.Location = New System.Drawing.Point(70, 134)
-        Me.IconButtonPrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.IconButtonPrint.Name = "IconButtonPrint"
-        Me.IconButtonPrint.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
-        Me.IconButtonPrint.Rotation = 0R
-        Me.IconButtonPrint.Size = New System.Drawing.Size(175, 43)
-        Me.IconButtonPrint.TabIndex = 5
-        Me.IconButtonPrint.Text = "Save Return/Void"
-        Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.IconButtonPrint.UseVisualStyleBackColor = False
-        '
-        'TextBoxVoidReturnAmount
-        '
-        Me.TextBoxVoidReturnAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxVoidReturnAmount.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxVoidReturnAmount.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxVoidReturnAmount.Location = New System.Drawing.Point(449, 536)
-        Me.TextBoxVoidReturnAmount.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxVoidReturnAmount.Name = "TextBoxVoidReturnAmount"
-        Me.TextBoxVoidReturnAmount.ReadOnly = True
-        Me.TextBoxVoidReturnAmount.Size = New System.Drawing.Size(159, 23)
-        Me.TextBoxVoidReturnAmount.TabIndex = 83
-        Me.TextBoxVoidReturnAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBoxSellingPrice
-        '
-        Me.TextBoxSellingPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxSellingPrice.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxSellingPrice.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxSellingPrice.Location = New System.Drawing.Point(154, 536)
-        Me.TextBoxSellingPrice.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxSellingPrice.Name = "TextBoxSellingPrice"
-        Me.TextBoxSellingPrice.ReadOnly = True
-        Me.TextBoxSellingPrice.Size = New System.Drawing.Size(159, 23)
-        Me.TextBoxSellingPrice.TabIndex = 85
-        Me.TextBoxSellingPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'ComboBoxVoidReturnReason
-        '
-        Me.ComboBoxVoidReturnReason.FormattingEnabled = True
-        Me.ComboBoxVoidReturnReason.Items.AddRange(New Object() {"Damaged Product", "Defective Product", "Wrong Item Sent", "Wrong Size/Color" & Global.Microsoft.VisualBasic.ChrW(10), "Change of Mind", "Product Expired"})
-        Me.ComboBoxVoidReturnReason.Location = New System.Drawing.Point(449, 588)
-        Me.ComboBoxVoidReturnReason.Name = "ComboBoxVoidReturnReason"
-        Me.ComboBoxVoidReturnReason.Size = New System.Drawing.Size(159, 25)
-        Me.ComboBoxVoidReturnReason.TabIndex = 2
-        '
-        'UserNameTextBox
-        '
-        Me.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.UserNameTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UserNameTextBox.Location = New System.Drawing.Point(71, 45)
-        Me.UserNameTextBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.UserNameTextBox.Name = "UserNameTextBox"
-        Me.UserNameTextBox.Size = New System.Drawing.Size(170, 27)
-        Me.UserNameTextBox.TabIndex = 3
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckBox1.Location = New System.Drawing.Point(217, 102)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 90
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'PasswordTextBox
-        '
-        Me.PasswordTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(70, 96)
-        Me.PasswordTextBox.Margin = New System.Windows.Forms.Padding(4)
-        Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordTextBox.Size = New System.Drawing.Size(170, 27)
-        Me.PasswordTextBox.TabIndex = 4
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Label14)
-        Me.GroupBox2.Controls.Add(UserNameLabel)
-        Me.GroupBox2.Controls.Add(Me.UserNameTextBox)
-        Me.GroupBox2.Controls.Add(Me.IconButtonPrint)
-        Me.GroupBox2.Controls.Add(Me.CheckBox1)
-        Me.GroupBox2.Controls.Add(PasswordLabel)
-        Me.GroupBox2.Controls.Add(Me.PasswordTextBox)
-        Me.GroupBox2.ForeColor = System.Drawing.Color.Black
-        Me.GroupBox2.Location = New System.Drawing.Point(655, 436)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(313, 203)
-        Me.GroupBox2.TabIndex = 93
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Enter Credentials"
-        '
-        'Label14
-        '
-        Label14.AutoSize = True
-        Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label14.ForeColor = System.Drawing.Color.Red
-        Label14.Location = New System.Drawing.Point(38, 179)
-        Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label14.Name = "Label14"
-        Label14.Size = New System.Drawing.Size(248, 16)
-        Label14.TabIndex = 93
-        Label14.Text = "Enter Credentials to Return/Void Product"
-        '
-        'ProductCode
-        '
-        Me.ProductCode.AutoSize = True
-        Me.ProductCode.Location = New System.Drawing.Point(210, 566)
-        Me.ProductCode.Name = "ProductCode"
-        Me.ProductCode.Size = New System.Drawing.Size(16, 17)
-        Me.ProductCode.TabIndex = 94
-        Me.ProductCode.Text = "--"
-        '
-        'TextBoxGrandTotal
-        '
-        Me.TextBoxGrandTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.TextBoxGrandTotal.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxGrandTotal.ForeColor = System.Drawing.Color.Black
-        Me.TextBoxGrandTotal.Location = New System.Drawing.Point(15, 105)
-        Me.TextBoxGrandTotal.Margin = New System.Windows.Forms.Padding(12)
-        Me.TextBoxGrandTotal.Name = "TextBoxGrandTotal"
-        Me.TextBoxGrandTotal.ReadOnly = True
-        Me.TextBoxGrandTotal.Size = New System.Drawing.Size(159, 23)
-        Me.TextBoxGrandTotal.TabIndex = 96
-        Me.TextBoxGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'Label15
-        '
-        Label15.AutoSize = True
-        Label15.Location = New System.Drawing.Point(12, 83)
-        Label15.Name = "Label15"
-        Label15.Size = New System.Drawing.Size(84, 17)
-        Label15.TabIndex = 95
-        Label15.Text = "Grand Total"
         '
         'PersonnelIdDataGridViewTextBoxColumn
         '
@@ -740,8 +500,8 @@ Partial Class VoidReturn
         '
         Me.QuantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
         Me.QuantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity"
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        Me.QuantityDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle7
         Me.QuantityDataGridViewTextBoxColumn.HeaderText = "Quantity"
         Me.QuantityDataGridViewTextBoxColumn.Name = "QuantityDataGridViewTextBoxColumn"
         Me.QuantityDataGridViewTextBoxColumn.ReadOnly = True
@@ -750,9 +510,9 @@ Partial Class VoidReturn
         'TotalAmountDataGridViewTextBoxColumn
         '
         Me.TotalAmountDataGridViewTextBoxColumn.DataPropertyName = "TotalAmount"
-        DataGridViewCellStyle13.Format = "N2"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle8.Format = "N2"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.TotalAmountDataGridViewTextBoxColumn.DefaultCellStyle = DataGridViewCellStyle8
         Me.TotalAmountDataGridViewTextBoxColumn.HeaderText = "TotalAmount"
         Me.TotalAmountDataGridViewTextBoxColumn.Name = "TotalAmountDataGridViewTextBoxColumn"
         Me.TotalAmountDataGridViewTextBoxColumn.ReadOnly = True
@@ -828,6 +588,251 @@ Partial Class VoidReturn
         Me.TransactionDetailsId.ReadOnly = True
         Me.TransactionDetailsId.Visible = False
         '
+        'VwTransactionsnologoBindingSource
+        '
+        Me.VwTransactionsnologoBindingSource.DataMember = "vw_Transactions_nologo"
+        Me.VwTransactionsnologoBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'Pos_dbDataSet
+        '
+        Me.Pos_dbDataSet.DataSetName = "pos_dbDataSet"
+        Me.Pos_dbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'TextBoxVoidRetrunQty
+        '
+        Me.TextBoxVoidRetrunQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxVoidRetrunQty.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxVoidRetrunQty.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxVoidRetrunQty.Location = New System.Drawing.Point(449, 483)
+        Me.TextBoxVoidRetrunQty.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxVoidRetrunQty.Name = "TextBoxVoidRetrunQty"
+        Me.TextBoxVoidRetrunQty.Size = New System.Drawing.Size(159, 23)
+        Me.TextBoxVoidRetrunQty.TabIndex = 1
+        Me.TextBoxVoidRetrunQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBoxInvoice
+        '
+        Me.TextBoxInvoice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxInvoice.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxInvoice.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxInvoice.Location = New System.Drawing.Point(18, 483)
+        Me.TextBoxInvoice.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxInvoice.Name = "TextBoxInvoice"
+        Me.TextBoxInvoice.ReadOnly = True
+        Me.TextBoxInvoice.Size = New System.Drawing.Size(128, 23)
+        Me.TextBoxInvoice.TabIndex = 72
+        '
+        'TextBoxCreatedAt
+        '
+        Me.TextBoxCreatedAt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxCreatedAt.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxCreatedAt.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxCreatedAt.Location = New System.Drawing.Point(154, 483)
+        Me.TextBoxCreatedAt.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxCreatedAt.Name = "TextBoxCreatedAt"
+        Me.TextBoxCreatedAt.ReadOnly = True
+        Me.TextBoxCreatedAt.Size = New System.Drawing.Size(159, 23)
+        Me.TextBoxCreatedAt.TabIndex = 73
+        '
+        'TextBoxQty
+        '
+        Me.TextBoxQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxQty.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxQty.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxQty.Location = New System.Drawing.Point(16, 536)
+        Me.TextBoxQty.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxQty.Name = "TextBoxQty"
+        Me.TextBoxQty.ReadOnly = True
+        Me.TextBoxQty.Size = New System.Drawing.Size(130, 23)
+        Me.TextBoxQty.TabIndex = 74
+        Me.TextBoxQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'TextBoxProductName
+        '
+        Me.TextBoxProductName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxProductName.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxProductName.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxProductName.Location = New System.Drawing.Point(19, 588)
+        Me.TextBoxProductName.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxProductName.Multiline = True
+        Me.TextBoxProductName.Name = "TextBoxProductName"
+        Me.TextBoxProductName.ReadOnly = True
+        Me.TextBoxProductName.Size = New System.Drawing.Size(294, 43)
+        Me.TextBoxProductName.TabIndex = 75
+        '
+        'TextBoxDetailsId
+        '
+        Me.TextBoxDetailsId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxDetailsId.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxDetailsId.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxDetailsId.Location = New System.Drawing.Point(15, 48)
+        Me.TextBoxDetailsId.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxDetailsId.Name = "TextBoxDetailsId"
+        Me.TextBoxDetailsId.ReadOnly = True
+        Me.TextBoxDetailsId.Size = New System.Drawing.Size(128, 23)
+        Me.TextBoxDetailsId.TabIndex = 76
+        '
+        'Vw_Transactions_nologoTableAdapter
+        '
+        Me.Vw_Transactions_nologoTableAdapter.ClearBeforeFill = True
+        '
+        'TextBoxHeadersId
+        '
+        Me.TextBoxHeadersId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxHeadersId.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxHeadersId.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxHeadersId.Location = New System.Drawing.Point(148, 48)
+        Me.TextBoxHeadersId.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxHeadersId.Name = "TextBoxHeadersId"
+        Me.TextBoxHeadersId.ReadOnly = True
+        Me.TextBoxHeadersId.Size = New System.Drawing.Size(128, 23)
+        Me.TextBoxHeadersId.TabIndex = 78
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.TextBoxGrandTotal)
+        Me.GroupBox1.Controls.Add(Me.TextBoxDetailsId)
+        Me.GroupBox1.Controls.Add(Label15)
+        Me.GroupBox1.Controls.Add(Label3)
+        Me.GroupBox1.Controls.Add(Label2)
+        Me.GroupBox1.Controls.Add(Me.TextBoxHeadersId)
+        Me.GroupBox1.Location = New System.Drawing.Point(997, 147)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(295, 196)
+        Me.GroupBox1.TabIndex = 80
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Hidden"
+        Me.GroupBox1.Visible = False
+        '
+        'TextBoxGrandTotal
+        '
+        Me.TextBoxGrandTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxGrandTotal.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxGrandTotal.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxGrandTotal.Location = New System.Drawing.Point(15, 105)
+        Me.TextBoxGrandTotal.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxGrandTotal.Name = "TextBoxGrandTotal"
+        Me.TextBoxGrandTotal.ReadOnly = True
+        Me.TextBoxGrandTotal.Size = New System.Drawing.Size(159, 23)
+        Me.TextBoxGrandTotal.TabIndex = 96
+        Me.TextBoxGrandTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'IconButtonPrint
+        '
+        Me.IconButtonPrint.BackColor = System.Drawing.Color.OrangeRed
+        Me.IconButtonPrint.FlatAppearance.BorderSize = 0
+        Me.IconButtonPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.IconButtonPrint.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.IconButtonPrint.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.IconButtonPrint.ForeColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleOLeft
+        Me.IconButtonPrint.IconColor = System.Drawing.Color.White
+        Me.IconButtonPrint.IconSize = 30
+        Me.IconButtonPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.IconButtonPrint.Location = New System.Drawing.Point(70, 134)
+        Me.IconButtonPrint.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.IconButtonPrint.Name = "IconButtonPrint"
+        Me.IconButtonPrint.Padding = New System.Windows.Forms.Padding(17, 0, 0, 0)
+        Me.IconButtonPrint.Rotation = 0R
+        Me.IconButtonPrint.Size = New System.Drawing.Size(175, 43)
+        Me.IconButtonPrint.TabIndex = 5
+        Me.IconButtonPrint.Text = "Save Return/Void"
+        Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.IconButtonPrint.UseVisualStyleBackColor = False
+        '
+        'TextBoxVoidReturnAmount
+        '
+        Me.TextBoxVoidReturnAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxVoidReturnAmount.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxVoidReturnAmount.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxVoidReturnAmount.Location = New System.Drawing.Point(449, 536)
+        Me.TextBoxVoidReturnAmount.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxVoidReturnAmount.Name = "TextBoxVoidReturnAmount"
+        Me.TextBoxVoidReturnAmount.ReadOnly = True
+        Me.TextBoxVoidReturnAmount.Size = New System.Drawing.Size(159, 23)
+        Me.TextBoxVoidReturnAmount.TabIndex = 83
+        Me.TextBoxVoidReturnAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBoxSellingPrice
+        '
+        Me.TextBoxSellingPrice.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.TextBoxSellingPrice.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxSellingPrice.ForeColor = System.Drawing.Color.Black
+        Me.TextBoxSellingPrice.Location = New System.Drawing.Point(154, 536)
+        Me.TextBoxSellingPrice.Margin = New System.Windows.Forms.Padding(12)
+        Me.TextBoxSellingPrice.Name = "TextBoxSellingPrice"
+        Me.TextBoxSellingPrice.ReadOnly = True
+        Me.TextBoxSellingPrice.Size = New System.Drawing.Size(159, 23)
+        Me.TextBoxSellingPrice.TabIndex = 85
+        Me.TextBoxSellingPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'ComboBoxVoidReturnReason
+        '
+        Me.ComboBoxVoidReturnReason.DataSource = Me.ReturnVoidReasonBindingSource
+        Me.ComboBoxVoidReturnReason.DisplayMember = "ReasonDescr"
+        Me.ComboBoxVoidReturnReason.FormattingEnabled = True
+        Me.ComboBoxVoidReturnReason.Location = New System.Drawing.Point(449, 588)
+        Me.ComboBoxVoidReturnReason.Name = "ComboBoxVoidReturnReason"
+        Me.ComboBoxVoidReturnReason.Size = New System.Drawing.Size(159, 25)
+        Me.ComboBoxVoidReturnReason.TabIndex = 2
+        Me.ComboBoxVoidReturnReason.ValueMember = "ReasonDescr"
+        '
+        'UserNameTextBox
+        '
+        Me.UserNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.UserNameTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UserNameTextBox.Location = New System.Drawing.Point(71, 45)
+        Me.UserNameTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.UserNameTextBox.Name = "UserNameTextBox"
+        Me.UserNameTextBox.Size = New System.Drawing.Size(170, 27)
+        Me.UserNameTextBox.TabIndex = 3
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckBox1.Location = New System.Drawing.Point(217, 102)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox1.TabIndex = 90
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'PasswordTextBox
+        '
+        Me.PasswordTextBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PasswordTextBox.Location = New System.Drawing.Point(70, 96)
+        Me.PasswordTextBox.Margin = New System.Windows.Forms.Padding(4)
+        Me.PasswordTextBox.Name = "PasswordTextBox"
+        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(170, 27)
+        Me.PasswordTextBox.TabIndex = 4
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Label14)
+        Me.GroupBox2.Controls.Add(UserNameLabel)
+        Me.GroupBox2.Controls.Add(Me.UserNameTextBox)
+        Me.GroupBox2.Controls.Add(Me.IconButtonPrint)
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Controls.Add(PasswordLabel)
+        Me.GroupBox2.Controls.Add(Me.PasswordTextBox)
+        Me.GroupBox2.ForeColor = System.Drawing.Color.Black
+        Me.GroupBox2.Location = New System.Drawing.Point(655, 436)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(313, 203)
+        Me.GroupBox2.TabIndex = 93
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Enter Credentials"
+        '
+        'ProductCode
+        '
+        Me.ProductCode.AutoSize = True
+        Me.ProductCode.Location = New System.Drawing.Point(210, 566)
+        Me.ProductCode.Name = "ProductCode"
+        Me.ProductCode.Size = New System.Drawing.Size(16, 17)
+        Me.ProductCode.TabIndex = 94
+        Me.ProductCode.Text = "--"
+        '
         'IconButton1
         '
         Me.IconButton1.BackColor = System.Drawing.Color.ForestGreen
@@ -850,6 +855,15 @@ Partial Class VoidReturn
         Me.IconButton1.Text = "View Return/Void Products"
         Me.IconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButton1.UseVisualStyleBackColor = False
+        '
+        'ReturnVoidReasonBindingSource
+        '
+        Me.ReturnVoidReasonBindingSource.DataMember = "ReturnVoidReason"
+        Me.ReturnVoidReasonBindingSource.DataSource = Me.Pos_dbDataSet
+        '
+        'ReturnVoidReasonTableAdapter
+        '
+        Me.ReturnVoidReasonTableAdapter.ClearBeforeFill = True
         '
         'VoidReturn
         '
@@ -895,6 +909,7 @@ Partial Class VoidReturn
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.ReturnVoidReasonBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -957,4 +972,6 @@ Partial Class VoidReturn
     Friend WithEvents StoreAddressDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TransactionDetailsId As DataGridViewTextBoxColumn
     Friend WithEvents IconButton1 As FontAwesome.Sharp.IconButton
+    Friend WithEvents ReturnVoidReasonBindingSource As BindingSource
+    Friend WithEvents ReturnVoidReasonTableAdapter As pos_dbDataSetTableAdapters.ReturnVoidReasonTableAdapter
 End Class

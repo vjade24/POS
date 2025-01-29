@@ -3,6 +3,8 @@ Public Class VoidReturn
     Dim conn As SqlConnection = New SqlConnection(connection)
     Dim result As Integer
     Private Sub VoidReturn_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'Pos_dbDataSet.ReturnVoidReason' table. You can move, or remove it, as needed.
+        Me.ReturnVoidReasonTableAdapter.Fill(Me.Pos_dbDataSet.ReturnVoidReason)
         'TODO: This line of code loads data into the 'Pos_dbDataSet.vw_Transactions_nologo' table. You can move, or remove it, as needed.
         'Me.Vw_Transactions_nologoTableAdapter.Fill(Me.Pos_dbDataSet.vw_Transactions_nologo)
         LoadReport()
