@@ -26,9 +26,9 @@ Partial Class Login
         Dim PasswordLabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
         Dim Label2 As System.Windows.Forms.Label
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Dim Label3 As System.Windows.Forms.Label
         Dim Label4 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Login))
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.UserNameTextBox = New System.Windows.Forms.TextBox()
         Me.PasswordTextBox = New System.Windows.Forms.TextBox()
@@ -97,6 +97,30 @@ Partial Class Login
         Label2.Size = New System.Drawing.Size(306, 19)
         Label2.TabIndex = 20
         Label2.Text = "POINT OF SALE AND INVENTORY SYSTEM"
+        '
+        'Label3
+        '
+        Label3.AutoSize = True
+        Label3.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Label3.Location = New System.Drawing.Point(375, 453)
+        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label3.Name = "Label3"
+        Label3.Size = New System.Drawing.Size(79, 13)
+        Label3.TabIndex = 21
+        Label3.Text = "VJA Productions"
+        '
+        'Label4
+        '
+        Label4.AutoSize = True
+        Label4.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Label4.Location = New System.Drawing.Point(390, 440)
+        Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Label4.Name = "Label4"
+        Label4.Size = New System.Drawing.Size(64, 13)
+        Label4.TabIndex = 22
+        Label4.Text = "POWERED BY"
         '
         'LogoPictureBox
         '
@@ -250,30 +274,6 @@ Partial Class Login
         Me.BtnLogin.Text = "Login"
         Me.BtnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.BtnLogin.UseVisualStyleBackColor = False
-        '
-        'Label3
-        '
-        Label3.AutoSize = True
-        Label3.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label3.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Label3.Location = New System.Drawing.Point(375, 453)
-        Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label3.Name = "Label3"
-        Label3.Size = New System.Drawing.Size(79, 13)
-        Label3.TabIndex = 21
-        Label3.Text = "VJA Productions"
-        '
-        'Label4
-        '
-        Label4.AutoSize = True
-        Label4.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Label4.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Label4.Location = New System.Drawing.Point(390, 440)
-        Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Label4.Name = "Label4"
-        Label4.Size = New System.Drawing.Size(64, 13)
-        Label4.TabIndex = 22
-        Label4.Text = "POWERED BY"
         '
         'Login
         '

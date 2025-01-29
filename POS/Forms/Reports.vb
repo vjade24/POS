@@ -15,6 +15,7 @@ Public Class Reports
         TotalPaid("")
         TotalPaidCapl("")
         TotalHold("")
+        TotalReturnVoid("")
 
         LoadPersonnel()
         ComboBox1.Text = ""
@@ -48,6 +49,7 @@ Public Class Reports
         TotalPaid("")
         TotalPaidCapl("")
         TotalHold("")
+        TotalReturnVoid("")
     End Sub
 
     Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
@@ -56,6 +58,7 @@ Public Class Reports
         TotalPaid("")
         TotalPaidCapl("")
         TotalHold("")
+        TotalReturnVoid("")
     End Sub
 
     Private Sub TotalNew(CreatedBy)
@@ -164,6 +167,7 @@ Public Class Reports
         TotalPaid(ComboBox1.SelectedValue.ToString())
         TotalPaidCapl(ComboBox1.SelectedValue.ToString())
         TotalHold(ComboBox1.SelectedValue.ToString())
+        TotalReturnVoid(ComboBox1.SelectedValue.ToString())
     End Sub
 
     Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
@@ -173,6 +177,7 @@ Public Class Reports
         TotalPaid("")
         TotalPaidCapl("")
         TotalHold("")
+        TotalReturnVoid("")
     End Sub
 
     Private Sub CategoryDataGridView_CellFormatting(sender As Object, e As DataGridViewCellFormattingEventArgs) Handles CategoryDataGridView.CellFormatting
@@ -211,14 +216,37 @@ Public Class Reports
             Return
         End Try
     End Sub
-
+    Private Sub TotalReturnVoid(CreatedBy)
+        Dim query As String
+        If CreatedBy.ToString.Trim IsNot "" Then
+            query = "SELECT SUM(ReturnVoidAmount) AS TotalAmount FROM TransactionReturnVoid WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "'"
+        Else
+            query = "SELECT SUM(ReturnVoidAmount) AS TotalAmount FROM TransactionReturnVoid WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') "
+        End If
+        Try
+            Dim conn As SqlConnection = New SqlConnection(connection)
+            Dim cmd As SqlCommand = New SqlCommand(query, conn)
+            Dim da As New SqlDataAdapter
+            da.SelectCommand = cmd
+            Dim dt As New DataTable
+            da.Fill(dt)
+            If dt.Rows.Count > 0 Then
+                Label_ReturnVoid.Text = "P " + Double.Parse(dt.Rows(0)("TotalAmount").ToString()).ToString("###,##0.00")
+            Else
+                Label_ReturnVoid.Text = "P 0.00"
+            End If
+        Catch ex As Exception
+            MsgBox("Something went wrong!" + ex.Message.ToString(), MsgBoxStyle.Critical)
+            Return
+        End Try
+    End Sub
     Private Sub TextBoxSearch_TextChanged(sender As Object, e As EventArgs) Handles TextBoxSearch.TextChanged
         LoadReport("")
         TotalNew("")
         TotalPaid("")
         TotalPaidCapl("")
+        TotalReturnVoid("")
         TotalHold("")
-
     End Sub
     Private Sub LoadChart_BarChart()
         With Chart2

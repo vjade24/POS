@@ -6048,6 +6048,8 @@ Partial Public Class pos_dbDataSet
         
         Private columnStoreAddress As Global.System.Data.DataColumn
         
+        Private columnTransactionDetailsId As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Sub New()
@@ -6308,6 +6310,14 @@ Partial Public Class pos_dbDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public ReadOnly Property TransactionDetailsIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnTransactionDetailsId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6372,12 +6382,19 @@ Partial Public Class pos_dbDataSet
                     ByVal ThemeColor As String,  _
                     ByVal TinNo As String,  _
                     ByVal ContactNo As String,  _
-                    ByVal StoreAddress As String) As vw_Transactions_nologoRow
+                    ByVal StoreAddress As String,  _
+                    ByVal TransactionDetailsId As Integer) As vw_Transactions_nologoRow
             Dim rowvw_Transactions_nologoRow As vw_Transactions_nologoRow = CType(Me.NewRow,vw_Transactions_nologoRow)
-            Dim columnValuesArray() As Object = New Object() {PersonnelId, InvoiceNo, CustomerName, GrandTotal, PaymentAmount, PaymentChange, PaymentStatus, TransactionHeaderId, ProductCode, ProductName, CategoryName, BrandName, SupplierName, Barcode, OriginalPrice, DiscountedPerc, DiscountedPrice, FinalPrice, Quantity, TotalAmount, CreatedAt, CreatedBy, StoreName, Slogan, ThemeColor, TinNo, ContactNo, StoreAddress}
+            Dim columnValuesArray() As Object = New Object() {PersonnelId, InvoiceNo, CustomerName, GrandTotal, PaymentAmount, PaymentChange, PaymentStatus, TransactionHeaderId, ProductCode, ProductName, CategoryName, BrandName, SupplierName, Barcode, OriginalPrice, DiscountedPerc, DiscountedPrice, FinalPrice, Quantity, TotalAmount, CreatedAt, CreatedBy, StoreName, Slogan, ThemeColor, TinNo, ContactNo, StoreAddress, TransactionDetailsId}
             rowvw_Transactions_nologoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowvw_Transactions_nologoRow)
             Return rowvw_Transactions_nologoRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Function FindByTransactionDetailsId(ByVal TransactionDetailsId As Integer) As vw_Transactions_nologoRow
+            Return CType(Me.Rows.Find(New Object() {TransactionDetailsId}),vw_Transactions_nologoRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6425,6 +6442,7 @@ Partial Public Class pos_dbDataSet
             Me.columnTinNo = MyBase.Columns("TinNo")
             Me.columnContactNo = MyBase.Columns("ContactNo")
             Me.columnStoreAddress = MyBase.Columns("StoreAddress")
+            Me.columnTransactionDetailsId = MyBase.Columns("TransactionDetailsId")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6486,6 +6504,9 @@ Partial Public Class pos_dbDataSet
             MyBase.Columns.Add(Me.columnContactNo)
             Me.columnStoreAddress = New Global.System.Data.DataColumn("StoreAddress", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnStoreAddress)
+            Me.columnTransactionDetailsId = New Global.System.Data.DataColumn("TransactionDetailsId", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnTransactionDetailsId)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnTransactionDetailsId}, true))
             Me.columnPersonnelId.AllowDBNull = false
             Me.columnInvoiceNo.MaxLength = 20
             Me.columnCustomerName.MaxLength = 100
@@ -6505,6 +6526,8 @@ Partial Public Class pos_dbDataSet
             Me.columnTinNo.MaxLength = 50
             Me.columnContactNo.MaxLength = 20
             Me.columnStoreAddress.MaxLength = 255
+            Me.columnTransactionDetailsId.AllowDBNull = false
+            Me.columnTransactionDetailsId.Unique = true
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10735,6 +10758,17 @@ Partial Public Class pos_dbDataSet
             End Get
             Set
                 Me(Me.tablevw_Transactions_nologo.StoreAddressColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
+        Public Property TransactionDetailsId() As Integer
+            Get
+                Return CType(Me(Me.tablevw_Transactions_nologo.TransactionDetailsIdColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablevw_Transactions_nologo.TransactionDetailsIdColumn) = value
             End Set
         End Property
         
@@ -18312,6 +18346,7 @@ Namespace pos_dbDataSetTableAdapters
             tableMapping.ColumnMappings.Add("TinNo", "TinNo")
             tableMapping.ColumnMappings.Add("ContactNo", "ContactNo")
             tableMapping.ColumnMappings.Add("StoreAddress", "StoreAddress")
+            tableMapping.ColumnMappings.Add("TransactionDetailsId", "TransactionDetailsId")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18332,7 +18367,8 @@ Namespace pos_dbDataSetTableAdapters
                 "ange, PaymentStatus, TransactionHeaderId, ProductCode, ProductName, CategoryName"& _ 
                 ", BrandName, SupplierName, Barcode, OriginalPrice, DiscountedPerc, DiscountedPri"& _ 
                 "ce, FinalPrice, Quantity, TotalAmount, CreatedAt, CreatedBy, StoreName, Slogan, "& _ 
-                "ThemeColor, TinNo, ContactNo, StoreAddress FROM dbo.vw_Transactions_nologo"
+                "ThemeColor, TinNo, ContactNo, StoreAddress, TransactionDetailsId FROM vw_Transac"& _ 
+                "tions_nologo"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

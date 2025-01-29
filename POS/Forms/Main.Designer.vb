@@ -28,6 +28,7 @@ Partial Class Main
         Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
         Me.StoreNameTextBox = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.BtnReturnVoid = New FontAwesome.Sharp.IconButton()
         Me.BtnRemittance = New FontAwesome.Sharp.IconButton()
         Me.BtnStoreInfo = New FontAwesome.Sharp.IconButton()
         Me.IconButton1 = New FontAwesome.Sharp.IconButton()
@@ -50,7 +51,6 @@ Partial Class Main
         Me.LblBreadCrump = New System.Windows.Forms.Label()
         Me.PanelMain = New System.Windows.Forms.Panel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnReturnVoid = New FontAwesome.Sharp.IconButton()
         Me.PanelSide.SuspendLayout()
         Me.Panel2.SuspendLayout()
         CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,6 +128,29 @@ Partial Class Main
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(267, 560)
         Me.Panel1.TabIndex = 2
+        '
+        'BtnReturnVoid
+        '
+        Me.BtnReturnVoid.BackColor = System.Drawing.Color.DodgerBlue
+        Me.BtnReturnVoid.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BtnReturnVoid.FlatAppearance.BorderSize = 0
+        Me.BtnReturnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnReturnVoid.Flip = FontAwesome.Sharp.FlipOrientation.Normal
+        Me.BtnReturnVoid.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnReturnVoid.ForeColor = System.Drawing.Color.White
+        Me.BtnReturnVoid.IconChar = FontAwesome.Sharp.IconChar.ArrowCircleOLeft
+        Me.BtnReturnVoid.IconColor = System.Drawing.Color.White
+        Me.BtnReturnVoid.IconSize = 30
+        Me.BtnReturnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnReturnVoid.Location = New System.Drawing.Point(0, 462)
+        Me.BtnReturnVoid.Name = "BtnReturnVoid"
+        Me.BtnReturnVoid.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
+        Me.BtnReturnVoid.Rotation = 0R
+        Me.BtnReturnVoid.Size = New System.Drawing.Size(267, 42)
+        Me.BtnReturnVoid.TabIndex = 24
+        Me.BtnReturnVoid.Text = "Return/Void Products"
+        Me.BtnReturnVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
+        Me.BtnReturnVoid.UseVisualStyleBackColor = False
         '
         'BtnRemittance
         '
@@ -517,29 +540,6 @@ Partial Class Main
         '
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 5
-        '
-        'BtnReturnVoid
-        '
-        Me.BtnReturnVoid.BackColor = System.Drawing.Color.DodgerBlue
-        Me.BtnReturnVoid.Dock = System.Windows.Forms.DockStyle.Top
-        Me.BtnReturnVoid.FlatAppearance.BorderSize = 0
-        Me.BtnReturnVoid.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnReturnVoid.Flip = FontAwesome.Sharp.FlipOrientation.Normal
-        Me.BtnReturnVoid.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnReturnVoid.ForeColor = System.Drawing.Color.White
-        Me.BtnReturnVoid.IconChar = FontAwesome.Sharp.IconChar.TrashO
-        Me.BtnReturnVoid.IconColor = System.Drawing.Color.White
-        Me.BtnReturnVoid.IconSize = 30
-        Me.BtnReturnVoid.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnReturnVoid.Location = New System.Drawing.Point(0, 462)
-        Me.BtnReturnVoid.Name = "BtnReturnVoid"
-        Me.BtnReturnVoid.Padding = New System.Windows.Forms.Padding(30, 0, 0, 0)
-        Me.BtnReturnVoid.Rotation = 0R
-        Me.BtnReturnVoid.Size = New System.Drawing.Size(267, 42)
-        Me.BtnReturnVoid.TabIndex = 24
-        Me.BtnReturnVoid.Text = "Return/Void Products"
-        Me.BtnReturnVoid.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
-        Me.BtnReturnVoid.UseVisualStyleBackColor = False
         '
         'Main
         '
