@@ -167,6 +167,12 @@
     <Compile Include="Forms\ReportViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\VoidReturn.Designer.vb">
+      <DependentUpon>VoidReturn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\VoidReturn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -250,6 +256,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\cryReturnVoid.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cryReturnVoid.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\cryStoreReceipt.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -307,6 +319,9 @@
     <EmbeddedResource Include="Forms\ReportViewer.resx">
       <DependentUpon>ReportViewer.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\VoidReturn.resx">
+      <DependentUpon>VoidReturn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -351,6 +366,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryRemittanceReceipt.vb</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Reports\cryReturnVoid.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cryReturnVoid.vb</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Reports\cryStoreReceipt.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cryStoreReceipt.vb</LastGenOutput>

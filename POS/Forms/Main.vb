@@ -179,4 +179,9 @@ Public Class Main
         ActiveButton(sender, RGBColors.color1)
         OpenChildForm(New PersonnelName, "")
     End Sub
+
+    Private Sub BtnReturnVoid_Click(sender As Object, e As EventArgs) Handles BtnReturnVoid.Click
+        ActiveButton(sender, RGBColors.color1)
+        OpenChildForm(New VoidReturn, "")
+    End Sub
 End Class

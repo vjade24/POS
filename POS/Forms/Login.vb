@@ -105,18 +105,18 @@ Public Class Login
 
 
                     ElseIf dt.Rows(0)("Type").ToString.Trim() = "Cashier" Then
-                            formMain.BtnDashBoard.Visible = True
-                            formMain.BtnPOS.Visible = True
-                            formMain.BtnProducts.Visible = False
-                            formMain.BtnCategory.Visible = False
-                            formMain.BtnBrand.Visible = False
-                            formMain.BtnReports.Visible = False
-                            formMain.BtnAnalytics.Visible = False
-                            formMain.BtnPersonnel.Visible = False
-                            formMain.BtnSupplier.Visible = False
-                            formMain.BtnStoreInfo.Visible = False
-                        Else
-                            formMain.BtnDashBoard.Visible = False
+                        formMain.BtnDashBoard.Visible = True
+                        formMain.BtnPOS.Visible = True
+                        formMain.BtnProducts.Visible = False
+                        formMain.BtnCategory.Visible = False
+                        formMain.BtnBrand.Visible = False
+                        formMain.BtnReports.Visible = False
+                        formMain.BtnAnalytics.Visible = False
+                        formMain.BtnPersonnel.Visible = False
+                        formMain.BtnSupplier.Visible = False
+                        formMain.BtnStoreInfo.Visible = False
+                    Else
+                        formMain.BtnDashBoard.Visible = False
                         formMain.BtnPOS.Visible = False
                         formMain.BtnProducts.Visible = False
                         formMain.BtnCategory.Visible = False

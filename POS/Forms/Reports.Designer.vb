@@ -90,6 +90,8 @@ Partial Class Reports
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.IconButtonPrint = New FontAwesome.Sharp.IconButton()
+        Me.Label_ReturnVoid = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Label11 = New System.Windows.Forms.Label()
         Label12 = New System.Windows.Forms.Label()
         Label2 = New System.Windows.Forms.Label()
@@ -276,7 +278,7 @@ Partial Class Reports
         Me.CategoryDataGridView.DataSource = Me.VwTransactionsBindingSource
         DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue
         DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -684,12 +686,38 @@ Partial Class Reports
         Me.IconButtonPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText
         Me.IconButtonPrint.UseVisualStyleBackColor = False
         '
+        'Label_ReturnVoid
+        '
+        Me.Label_ReturnVoid.AutoSize = True
+        Me.Label_ReturnVoid.BackColor = System.Drawing.Color.Red
+        Me.Label_ReturnVoid.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_ReturnVoid.ForeColor = System.Drawing.Color.White
+        Me.Label_ReturnVoid.Location = New System.Drawing.Point(768, 119)
+        Me.Label_ReturnVoid.Name = "Label_ReturnVoid"
+        Me.Label_ReturnVoid.Size = New System.Drawing.Size(87, 25)
+        Me.Label_ReturnVoid.TabIndex = 58
+        Me.Label_ReturnVoid.Text = "-- --- --"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Red
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.White
+        Me.Label9.Location = New System.Drawing.Point(770, 103)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(120, 16)
+        Me.Label9.TabIndex = 57
+        Me.Label9.Text = "Total Return/Void"
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(1229, 617)
+        Me.Controls.Add(Me.Label_ReturnVoid)
+        Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.IconButtonPrint)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Label7)
@@ -785,4 +813,6 @@ Partial Class Reports
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TabPage2 As TabPage
     Friend WithEvents IconButtonPrint As FontAwesome.Sharp.IconButton
+    Friend WithEvents Label_ReturnVoid As Label
+    Friend WithEvents Label9 As Label
 End Class

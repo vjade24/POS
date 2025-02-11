@@ -89,12 +89,21 @@ Public Class PersonnelName
         OBJ.Show()
     End Sub
     Private Sub RemittanceDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles RemittanceDataGridView.CellClick
+        TextBoxId.Text = ""
+        TotalAmount.Text = "0.00"
+        TextBoxCashonHandDisplay.Text = "0.00"
+        TextBoxTotalsDisplay.Text = "0.00"
+
         TextBoxId.Text = RemittanceDataGridView.CurrentRow.Cells(0).Value.ToString()
+        DateRemitted.Value = DateTime.Parse(RemittanceDataGridView.CurrentRow.Cells(1).Value.ToString())
+        TotalAmount.Text = Double.Parse(RemittanceDataGridView.CurrentRow.Cells(2).Value.ToString()).ToString("###,##0.00")
+        TextBoxCashonHandDisplay.Text = Double.Parse(RemittanceDataGridView.CurrentRow.Cells(3).Value.ToString()).ToString("###,##0.00")
+        TextBoxTotalsDisplay.Text = (Double.Parse(TotalAmount.Text) - Double.Parse(TextBoxCashonHandDisplay.Text)).ToString("###,##0.00")
         IconButtonPrint.Visible = True
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Dim insertedId As Integer
+        'Dim insertedId As Integer
         If Double.Parse(TotalAmount.Text.ToString().Trim()) <= 0 Then
             MsgBox("TOTAL AMOUNT is Required!", MsgBoxStyle.Critical)
             Return
@@ -114,7 +123,7 @@ Public Class PersonnelName
 
         Try
             conn.Open()
-            insertedId = Convert.ToInt32(command1.ExecuteScalar())
+            'insertedId = Convert.ToInt32(command1.ExecuteScalar())
             result = command1.ExecuteNonQuery()
             If result = 0 Then
                 MsgBox("No Data Inserted!", MsgBoxStyle.Critical)
