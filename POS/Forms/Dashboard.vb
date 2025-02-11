@@ -237,7 +237,7 @@ Public Class Dashboard
         {"Return/Void", Color.Red}
     }
     Private Sub LoadChart_Donut()
-        Dim query = "SELECT PaymentStatus, SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo GROUP BY PaymentStatus UNION SELECT 'Return/Void' AS PaymentStatus,SUM(ReturnVoidAmount) AS TotalAmount  FROM TransactionReturnVoid"
+        Dim query = "SELECT PaymentStatus, ISNULL(SUM(TotalAmount),0) AS TotalAmount FROM vw_Transactions_nologo GROUP BY PaymentStatus UNION SELECT 'Return/Void' AS PaymentStatus,ISNULL(SUM(ReturnVoidAmount),0) AS TotalAmount  FROM TransactionReturnVoid"
         Try
             Using conn As New SqlConnection(connection)
                 Using cmd As New SqlCommand(query, conn)
