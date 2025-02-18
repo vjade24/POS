@@ -255,7 +255,7 @@ Public Class Reports
         End With
 
         'Dim query = "SELECT MONTH(CreatedAt) AS MonthNameInt,DATENAME(MONTH, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions  WHERE PaymentStatus = 'Paid' GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt) ORDER BY MONTH(CreatedAt) ASC"
-        Dim query = "SELECT TOP  7 FORMAT(CreatedAt,'MMM dd, yyyy') AS DayDescr,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid'GROUP BY FORMAT(CreatedAt,'MMM dd, yyyy') ORDER BY FORMAT(CreatedAt,'MMM dd, yyyy')"
+        Dim query = "SELECT TOP  7 FORMAT(CreatedAt,'MMM dd, yyyy') AS DayDescr ,FORMAT(CreatedAt,'yyyy-MM-dd') AS DayDescr1,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' GROUP BY  FORMAT(CreatedAt,'MMM dd, yyyy') ,FORMAT(CreatedAt,'yyyy-MM-dd')ORDER BY FORMAT(CreatedAt,'yyyy-MM-dd') ASC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)

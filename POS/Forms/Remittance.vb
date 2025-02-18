@@ -103,7 +103,7 @@ Public Class PersonnelName
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Dim insertedId As Integer
+        'Dim insertedId As Integer
         If Double.Parse(TotalAmount.Text.ToString().Trim()) <= 0 Then
             MsgBox("TOTAL AMOUNT is Required!", MsgBoxStyle.Critical)
             Return
@@ -123,7 +123,7 @@ Public Class PersonnelName
 
         Try
             conn.Open()
-            insertedId = Convert.ToInt32(command1.ExecuteScalar())
+            'insertedId = Convert.ToInt32(command1.ExecuteScalar())
             result = command1.ExecuteNonQuery()
             If result = 0 Then
                 MsgBox("No Data Inserted!", MsgBoxStyle.Critical)
