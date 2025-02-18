@@ -63,7 +63,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-TPS2A1N\MSSQLSERVER_JAZZ;Initial Catalog=pos_db;Persist Security In" &
-            "fo=True;User ID=sa;Password=systemadmin")>
+            "fo=True;User ID=sa;Password=J@de1234")>
         Public ReadOnly Property pos_dbConnectionString() As String
             Get
                 Return CType(Me("pos_dbConnectionString"),String)
