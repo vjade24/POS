@@ -23,9 +23,9 @@ Public Class Reports
     Private Sub LoadReport(CreatedBy)
         Dim query As String
         If CreatedBy.ToString.Trim IsNot "" Then
-            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTime.Parse(DateTimePicker1.Value) + "') AND CONVERT(date,'" + DateTime.Parse(DateTimePicker2.Value) + "') AND  CreatedBy = '" + CreatedBy.ToString.Trim() + "' AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         Else
-            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTimePicker1.Value + "') AND CONVERT(date,'" + DateTimePicker2.Value + "') AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
+            query = "SELECT * FROM vw_Transactions_nologo WHERE CONVERT(date,CreatedAt) BETWEEN CONVERT(date,'" + DateTime.Parse(DateTimePicker1.Value) + "') AND CONVERT(date,'" + DateTime.Parse(DateTimePicker2.Value) + "') AND ProductName LIKE '%" + TextBoxSearch.Text.ToString().Trim() + "%' ORDER BY InvoiceNo DESC"
         End If
 
         Try

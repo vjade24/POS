@@ -34,6 +34,7 @@ Public Class PayNow
                     Me.Hide()
                 Else
                     Receipt(InvoiceNoTextBox.Text.ToString().Trim())
+                    Me.Hide()
                 End If
             End If
             conn.Close()
