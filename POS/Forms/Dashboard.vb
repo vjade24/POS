@@ -186,7 +186,7 @@ Public Class Dashboard
             .Series.Clear()
             .Series.Add("Series1")
         End With
-        Dim query = "SELECT TOP  7 FORMAT(CreatedAt,'MMM d, yy') AS DayDescr ,FORMAT(CreatedAt,'yyyy-MM-dd') AS DayDescr1,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' GROUP BY  FORMAT(CreatedAt,'MMM d, yy') ,FORMAT(CreatedAt,'yyyy-MM-dd')ORDER BY FORMAT(CreatedAt,'yyyy-MM-dd') ASC"
+        Dim query = "SELECT TOP  7 FORMAT(CreatedAt,'MMMd, yy') AS DayDescr ,FORMAT(CreatedAt,'yyyy-MM-dd') AS DayDescr1,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions_nologo WHERE PaymentStatus = 'Paid' GROUP BY  FORMAT(CreatedAt,'MMMd, yy') ,FORMAT(CreatedAt,'yyyy-MM-dd')ORDER BY FORMAT(CreatedAt,'yyyy-MM-dd') DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
