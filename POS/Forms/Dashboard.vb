@@ -137,7 +137,7 @@ Public Class Dashboard
             .Series.Add("Series1")
         End With
 
-        Dim query = "SELECT TOP 12 MONTH(CreatedAt) AS MonthNameInt,LEFT(DATENAME(MONTH, CreatedAt),3) + ' '+ DATENAME(YEAR, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions  WHERE PaymentStatus = 'Paid' GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt),YEAR(CreatedAt) ORDER BY YEAR(CreatedAt),MONTH(CreatedAt) DESC"
+        Dim query = "SELECT TOP 6 MONTH(CreatedAt) AS MonthNameInt,LEFT(DATENAME(MONTH, CreatedAt),3) + ' '+ DATENAME(YEAR, CreatedAt) AS MonthNameDesc,DATENAME(YEAR, CreatedAt) AS YearDesc,SUM(TotalAmount) AS TotalAmount FROM vw_Transactions  WHERE PaymentStatus = 'Paid' GROUP BY MONTH(CreatedAt),DATENAME(MONTH, CreatedAt) ,DATENAME(YEAR, CreatedAt),YEAR(CreatedAt) ORDER BY YEAR(CreatedAt),MONTH(CreatedAt) DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)

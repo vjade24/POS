@@ -280,6 +280,7 @@
     <Compile Include="Forms\Supplier.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Settings.vb" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database\pos_db_20241226.bak" />
