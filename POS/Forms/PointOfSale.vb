@@ -404,7 +404,7 @@ Public Class PointOfSale
     End Sub
 
     Private Sub IconButtonSearch_Click(sender As Object, e As EventArgs) Handles IconButtonSearch.Click
-        Dim query = "SELECT DISTINCT A.Id,A.InvoiceNo,A.CustomerName + ' (' + A.PaymentStatus + ')' AS InvoiceNoStatus FROM TransactionHeader A INNER JOIN TransactionDetails B ON B.TransactionHeaderId = A.Id AND A.PaymentStatus <> 'Paid' ORDER BY InvoiceNo DESC"
+        Dim query = "SELECT DISTINCT A.Id,A.InvoiceNo,A.CustomerName + ' (' + A.PaymentStatus + ')' + ' - ' + ISNULL(FORMAT(B.CreatedAt,'MMM d, yyyy h:mm tt'),'') AS InvoiceNoStatus FROM TransactionHeader A INNER JOIN TransactionDetails B ON B.TransactionHeaderId = A.Id AND A.PaymentStatus <> 'Paid' ORDER BY InvoiceNo DESC"
         Try
             Dim conn As SqlConnection = New SqlConnection(connection)
             Dim cmd As SqlCommand = New SqlCommand(query, conn)
