@@ -98,6 +98,7 @@ Public Class Login
                         formMain.BtnPersonnel.Visible = True
                         formMain.BtnSupplier.Visible = True
                         formMain.BtnStoreInfo.Visible = False
+                        formMain.BtnReturnVoid.Visible = True
 
                         If dt.Rows(0)("UserName").ToString().Trim() = "vja" Then
                             formMain.BtnStoreInfo.Visible = True
@@ -115,6 +116,7 @@ Public Class Login
                         formMain.BtnPersonnel.Visible = False
                         formMain.BtnSupplier.Visible = False
                         formMain.BtnStoreInfo.Visible = False
+                        formMain.BtnReturnVoid.Visible = False
                     Else
                         formMain.BtnDashBoard.Visible = False
                         formMain.BtnPOS.Visible = False
@@ -126,6 +128,7 @@ Public Class Login
                         formMain.BtnPersonnel.Visible = False
                         formMain.BtnSupplier.Visible = False
                         formMain.BtnStoreInfo.Visible = False
+                        formMain.BtnReturnVoid.Visible = False
                     End If
 
                     formMain.Show()

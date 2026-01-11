@@ -57,8 +57,13 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+<<<<<<< HEAD
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-7I5DDF4\VJA;Initial Catalog=pos_db;Persist Security Info=True"& _ 
             ";User ID=sa;Password=J@de1234")>  _
+=======
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PICTO-1180-VINC\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=J@de1234")>  _
+>>>>>>> edb629983aefd8e987711a25791c9e2eeae95817
         Public ReadOnly Property pos_dbConnectionString() As String
             Get
                 Return CType(Me("pos_dbConnectionString"),String)
@@ -112,6 +117,16 @@ Namespace My
         Public ReadOnly Property Ancog() As String
             Get
                 Return CType(Me("Ancog"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=PICTO-1180-VINC\SQLEXPRESS;Initial Catalog=pos_db;Persist Security In"& _ 
+            "fo=True;User ID=sa;Password=J@de1234")>  _
+        Public ReadOnly Property VJA() As String
+            Get
+                Return CType(Me("VJA"),String)
             End Get
         End Property
     End Class
