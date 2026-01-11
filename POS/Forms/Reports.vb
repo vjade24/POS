@@ -43,23 +43,23 @@ Public Class Reports
         End Try
     End Sub
 
-    Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
-        LoadReport("")
-        Totals(DateTimePicker1.Value, DateTimePicker2.Value)
-        'TotalPaid("")
-        TotalPaidCapl("")
-        'TotalHold("")
-        TotalReturnVoid("")
-    End Sub
+    'Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+    '    LoadReport("")
+    '    Totals(DateTimePicker1.Value, DateTimePicker2.Value)
+    '    'TotalPaid("")
+    '    TotalPaidCapl("")
+    '    'TotalHold("")
+    '    TotalReturnVoid("")
+    'End Sub
 
-    Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
-        LoadReport("")
-        Totals(DateTimePicker1.Value, DateTimePicker2.Value)
-        'TotalPaid("")
-        TotalPaidCapl("")
-        'TotalHold("")
-        TotalReturnVoid("")
-    End Sub
+    'Private Sub DateTimePicker2_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker2.ValueChanged
+    '    LoadReport("")
+    '    Totals(DateTimePicker1.Value, DateTimePicker2.Value)
+    '    'TotalPaid("")
+    '    TotalPaidCapl("")
+    '    'TotalHold("")
+    '    TotalReturnVoid("")
+    'End Sub
 
     'Private Sub TotalNew(CreatedBy)
     '    Dim query As String
@@ -321,4 +321,10 @@ Public Class Reports
         End Try
     End Sub
 
+    Private Sub IconButton1_Click(sender As Object, e As EventArgs) Handles IconButton1.Click
+        LoadReport("")
+        Totals(DateTimePicker1.Value, DateTimePicker2.Value)
+        TotalPaidCapl("")
+        TotalReturnVoid("")
+    End Sub
 End Class
